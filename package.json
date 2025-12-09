@@ -1,0 +1,20 @@
+{
+  "name": "spacire-tools",
+  "version": "1.0.0",
+  "description": "Spacire Sleep Tools - Free, science-backed tools for better sleep",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "sleep",
+    "tools",
+    "wellness",
+    "spacire"
+  ],
+  "author": "Spacire",
+  "license": "UNLICENSED",
+  "private": true
+}

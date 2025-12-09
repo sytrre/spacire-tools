@@ -1,0 +1,7 @@
+{
+    "name": "send-sleep-report",
+    "version": "1.0.0",
+    "description": "Send comprehensive sleep report emails via Mailgun",
+    "type": "module",
+    "main": "src/main.js"
+}

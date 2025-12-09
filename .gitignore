@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Deployment packages
+*.zip
+*.tar.gz
+deployment.zip
+function-deploy.tar.gz
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables (never commit these)
+.env
+.env.local
+.env.*.local

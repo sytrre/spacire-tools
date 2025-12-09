@@ -1,0 +1,36 @@
+name: Verify Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Build site
+        run: node build.js
+      
+      - name: Verify output
+        run: |
+          echo "=== Built files ==="
+          ls -la dist/
+          echo "=== Checking for required files ==="
+          test -f dist/index.html && echo "index.html OK"
+          test -f dist/sleep-environment-optimizer.html && echo "sleep-environment-optimizer.html OK"
+          test -f dist/shift-worker-sleep-planner.html && echo "shift-worker-sleep-planner.html OK"
+          test -d dist/images && echo "images/ OK"
+
+# NOTE: Appwrite Sites handles deployment automatically via Git integration
+# This workflow just verifies the build succeeds

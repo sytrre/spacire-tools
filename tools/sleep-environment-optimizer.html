@@ -1,0 +1,3208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Sleep Environment Optimizer - Assess your bedroom for ideal temperature, darkness, noise levels, and humidity. Get personalized recommendations to improve your sleep quality.">
+    <meta name="keywords" content="sleep environment checker, bedroom temperature for sleep, how dark should bedroom be, ideal humidity for sleep, bedroom noise solutions, sleep quality assessment, bedroom sleep optimization">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Sleep Environment Optimizer - Free Bedroom Sleep Assessment | Spacire</title>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tools.spacire.com/sleep-environment-optimizer">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sleep Environment Optimizer - Free Bedroom Assessment">
+    <meta property="og:description" content="Assess your bedroom environment and get personalized recommendations for better sleep. Check temperature, light, noise, and humidity levels.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/sleep-environment-optimizer">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Environment Optimizer - Free Bedroom Assessment">
+    <meta name="twitter:description" content="Assess your bedroom environment and get personalized recommendations for better sleep.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts - Domine -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sleep Environment Optimizer",
+        "description": "Free tool to assess and optimize your bedroom environment for better sleep quality. Analyzes temperature, light levels, noise, humidity, and air quality.",
+        "url": "https://tools.spacire.com/sleep-environment-optimizer",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "GBP"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Spacire",
+            "url": "https://spacire.com",
+            "logo": "https://spacire.com/cdn/shop/files/seasons_logo-1_72x.png"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1247"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the ideal bedroom temperature for sleep?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Research shows the optimal bedroom temperature for sleep is between 15-19°C (60-67°F). This range helps your body's core temperature drop, which is essential for initiating sleep. Temperatures above 24°C (75°F) or below 12°C (54°F) can disrupt sleep quality."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How dark should my bedroom be for optimal sleep?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your bedroom should be as dark as possible - ideally below 1 lux. Even small amounts of light can suppress melatonin production and disrupt circadian rhythms. Blackout curtains, sleep masks, and covering electronic device lights can help achieve complete darkness."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What humidity level is best for sleeping?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The ideal humidity for sleep is between 30-50%. Humidity below 30% can cause dry throat, nasal congestion, and skin irritation. Humidity above 50% promotes dust mites and mold growth, which can trigger allergies and respiratory issues."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does noise affect sleep quality?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Noise above 30 decibels can disturb sleep, even if it doesn't fully wake you. Sudden noises are more disruptive than consistent sounds. White noise machines can help mask inconsistent environmental sounds and create a more stable acoustic environment for sleep."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Spacire",
+                "item": "https://spacire.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Sleep Tools",
+                "item": "https://tools.spacire.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Sleep Environment Optimizer",
+                "item": "https://tools.spacire.com/sleep-environment-optimizer"
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* ========================================
+           CSS VARIABLES & RESET
+           ======================================== */
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5d98a;
+            --background: #FFFFFF;
+            --text-primary: #232323;
+            --text-secondary: #323232;
+            --text-light: #969696;
+            --border: #E6E6E6;
+            --hover: #F8F8F8;
+            --success: #DFF0D8;
+            --success-dark: #3c763d;
+            --warning: #FCF8E3;
+            --warning-dark: #8a6d3b;
+            --error: #D93333;
+            --error-light: #F2DEDE;
+            --info-bg: #e6f4ff;
+            
+            --font-primary: 'Domine', Georgia, serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* ========================================
+           HEADER
+           ======================================== */
+        .site-header {
+            background: var(--primary);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-text {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .header-nav a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+        }
+        
+        .header-nav a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            transition: var(--transition);
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary);
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+        
+        /* ========================================
+           BREADCRUMB
+           ======================================== */
+        .breadcrumb {
+            background: var(--hover);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 13px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: var(--text-light);
+            margin: 0 8px;
+        }
+        
+        /* ========================================
+           MAIN CONTAINER
+           ======================================== */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+        
+        /* ========================================
+           PAGE TITLE
+           ======================================== */
+        .page-title {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .page-title h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+        
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ========================================
+           TOOL CARD (Main Assessment)
+           ======================================== */
+        .tool-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .tool-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 24px 28px;
+            color: #fff;
+        }
+        
+        .tool-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .tool-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .tool-body {
+            padding: 28px;
+        }
+        
+        /* ========================================
+           PROGRESS INDICATOR
+           ======================================== */
+        .progress-container {
+            margin-bottom: 28px;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--border);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .progress-step.active .step-number {
+            background: var(--primary);
+            color: #fff;
+        }
+        
+        .progress-step.completed .step-number {
+            background: var(--success-dark);
+            color: #fff;
+        }
+        
+        .step-label {
+            font-size: 11px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .progress-step.active .step-label,
+        .progress-step.completed .step-label {
+            color: var(--text-primary);
+        }
+        
+        .progress-bar-bg {
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+        
+        /* ========================================
+           QUESTION SECTIONS
+           ======================================== */
+        .question-section {
+            display: none;
+        }
+        
+        .question-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        
+        .question-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* ========================================
+           FORM ELEMENTS
+           ======================================== */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+        
+        .option-card {
+            position: relative;
+        }
+        
+        .option-card input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .option-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px 12px;
+            background: var(--hover);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .option-label:hover {
+            border-color: var(--primary);
+            background: #fff;
+        }
+        
+        .option-card input:checked + .option-label {
+            border-color: var(--primary);
+            background: var(--info-bg);
+        }
+        
+        .option-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .option-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .option-subtext {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+        
+        /* Slider Input */
+        .slider-container {
+            margin: 16px 0;
+        }
+        
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        
+        .slider-input {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border);
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .slider-input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .slider-input::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 12px;
+        }
+        
+        .slider-value span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+        
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            font-family: var(--font-primary);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--info-bg);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* ========================================
+           RESULTS SECTION
+           ======================================== */
+        .results-section {
+            display: none;
+        }
+        
+        .results-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .score-display {
+            text-align: center;
+            padding: 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius-lg);
+            color: #fff;
+            margin-bottom: 28px;
+        }
+        
+        .score-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .score-value {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .score-max {
+            font-size: 24px;
+            opacity: 0.7;
+        }
+        
+        .score-rating {
+            font-size: 18px;
+            margin-top: 12px;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        /* Category Scores */
+        .category-scores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        
+        .category-card {
+            background: var(--hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .category-icon {
+            font-size: 24px;
+        }
+        
+        .category-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .category-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        
+        .category-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .category-fill.excellent { background: #28a745; }
+        .category-fill.good { background: #5cb85c; }
+        .category-fill.fair { background: var(--accent); }
+        .category-fill.poor { background: #f0ad4e; }
+        .category-fill.critical { background: var(--error); }
+        
+        .category-status {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-excellent { color: #28a745; }
+        .status-good { color: #5cb85c; }
+        .status-fair { color: #8a6d3b; }
+        .status-poor { color: #f0ad4e; }
+        .status-critical { color: var(--error); }
+        
+        /* Recommendations */
+        .recommendations-section {
+            margin-bottom: 28px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recommendation-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .recommendation-card.priority-high {
+            border-left: 4px solid var(--error);
+        }
+        
+        .recommendation-card.priority-medium {
+            border-left: 4px solid var(--accent);
+        }
+        
+        .recommendation-card.priority-low {
+            border-left: 4px solid #5cb85c;
+        }
+        
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+        
+        .recommendation-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .priority-badge {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        
+        .priority-badge.high {
+            background: var(--error-light);
+            color: var(--error);
+        }
+        
+        .priority-badge.medium {
+            background: var(--warning);
+            color: var(--warning-dark);
+        }
+        
+        .priority-badge.low {
+            background: var(--success);
+            color: var(--success-dark);
+        }
+        
+        .recommendation-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* DIY Tips */
+        .diy-tips {
+            background: var(--info-bg);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 12px;
+        }
+        
+        .diy-tips-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .diy-tips ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        
+        .diy-tips li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        
+        /* Product Recommendations */
+        .product-recommendation {
+            display: flex;
+            gap: 16px;
+            background: var(--hover);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 16px;
+            align-items: center;
+        }
+        
+        .product-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+        
+        .product-info {
+            flex: 1;
+        }
+        
+        .product-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .product-link {
+            display: inline-block;
+            padding: 10px 16px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+        }
+        
+        .product-link:hover {
+            background: var(--primary-light);
+        }
+        
+        /* Email Capture */
+        .email-capture {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--info-bg) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            text-align: center;
+            margin-top: 28px;
+        }
+        
+        .email-capture h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .email-capture p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .email-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto 12px;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 14px 16px;
+            font-family: var(--font-primary);
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .email-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(4, 37, 72, 0.1);
+        }
+        
+        .email-submit {
+            padding: 14px 24px;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .email-submit:hover {
+            background: var(--accent-light);
+        }
+        
+        .email-disclaimer {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+        
+        .email-input.error {
+            border-color: #D93333;
+            background: #fff5f5;
+        }
+        
+        .email-input.error:focus {
+            border-color: #D93333;
+            box-shadow: 0 0 0 3px rgba(217, 51, 51, 0.1);
+        }
+        
+        .form-error {
+            color: #D93333;
+            font-size: 12px;
+            margin-top: 4px;
+            text-align: left;
+            display: none;
+        }
+        
+        .form-error.visible {
+            display: block;
+        }
+        
+        .email-form-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .input-group {
+            margin-bottom: 12px;
+        }
+        
+        .email-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .consent-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+        
+        .consent-group input[type="checkbox"] {
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        
+        .consent-group label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        
+        /* ========================================
+           TOGGLEABLE INFO SECTIONS
+           ======================================== */
+        .info-section {
+            margin-top: 40px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .info-toggle {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: var(--hover);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            text-align: left;
+            transition: var(--transition);
+        }
+        
+        .info-toggle:hover {
+            background: #f0f0f0;
+        }
+        
+        .info-toggle h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .toggle-icon {
+            font-size: 20px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-toggle.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .info-content {
+            display: none;
+            padding: 24px;
+            background: #fff;
+            border-top: 1px solid var(--border);
+        }
+        
+        .info-content.open {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .info-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 20px 0 10px;
+        }
+        
+        .info-content h4:first-child {
+            margin-top: 0;
+        }
+        
+        .info-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .info-content ul {
+            margin: 0 0 16px 0;
+            padding-left: 20px;
+        }
+        
+        .info-content li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        
+        .info-table th,
+        .info-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+        
+        .info-table th {
+            background: var(--hover);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .info-table td {
+            color: var(--text-secondary);
+        }
+        
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .site-footer {
+            background: var(--primary);
+            color: #fff;
+            padding: 48px 0 24px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        
+        .footer-section a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .footer-bottom a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-brand {
+            max-width: 280px;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 16px;
+            background: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        
+        .footer-brand p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        
+        .footer-legal a {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-legal a:hover {
+            color: var(--accent);
+        }
+        
+        /* ========================================
+           DISCLAIMER
+           ======================================== */
+        .medical-disclaimer {
+            background: var(--warning);
+            border: 1px solid #f5e79e;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--warning-dark);
+            line-height: 1.6;
+        }
+        
+        .medical-disclaimer strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+            
+            .page-title h1 {
+                font-size: 22px;
+            }
+            
+            .tool-body {
+                padding: 20px;
+            }
+            
+            .option-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .score-value {
+                font-size: 48px;
+            }
+            
+            .category-scores {
+                grid-template-columns: 1fr;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .product-recommendation {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .progress-steps {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-container {
+                padding: 24px 16px 40px;
+            }
+        }
+    </style>
+    
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-environment">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-environment">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>›</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>›</span>
+            <span style="color: var(--text-primary);">Sleep Environment Optimizer</span>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Page Title -->
+        <header class="page-title">
+            <h1>Sleep Environment Optimizer</h1>
+            <p class="page-subtitle">Assess your bedroom environment and get personalized recommendations to improve your sleep quality. Takes about 2 minutes.</p>
+        </header>
+        
+        <!-- Tool Card -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Bedroom Sleep Assessment</h2>
+                <p>Answer a few questions about your sleep environment</p>
+            </div>
+            
+            <div class="tool-body">
+                <!-- Progress -->
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span class="step-label">Temperature</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span class="step-label">Light</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span class="step-label">Noise</span>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-number">4</div>
+                            <span class="step-label">Humidity</span>
+                        </div>
+                        <div class="progress-step" data-step="5">
+                            <div class="step-number">5</div>
+                            <span class="step-label">Air & Scent</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 10%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Questions Container -->
+                <div id="questions-container">
+                    <!-- Question 1: Temperature -->
+                    <section class="question-section active" data-question="1">
+                        <h3 class="question-title">Bedroom Temperature</h3>
+                        <p class="question-description">What is the typical temperature of your bedroom when you sleep?</p>
+                        
+                        <div class="form-group">
+                            <div class="slider-container">
+                                <div class="slider-labels">
+                                    <span>Cold (12°C / 54°F)</span>
+                                    <span>Hot (28°C / 82°F)</span>
+                                </div>
+                                <input type="range" class="slider-input" id="temperature" name="temperature" min="12" max="28" value="20" step="1">
+                                <div class="slider-value"><span id="temp-display">20°C</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Can you easily adjust your bedroom temperature?</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="radio" id="temp-control-yes" name="temp-control" value="yes">
+                                    <label class="option-label" for="temp-control-yes">
+                                        <span class="option-icon">&#9989;</span>
+                                        <span class="option-text">Yes, easily</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="temp-control-somewhat" name="temp-control" value="somewhat">
+                                    <label class="option-label" for="temp-control-somewhat">
+                                        <span class="option-icon">&#128260;</span>
+                                        <span class="option-text">Somewhat</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="temp-control-no" name="temp-control" value="no">
+                                    <label class="option-label" for="temp-control-no">
+                                        <span class="option-icon">&#10060;</span>
+                                        <span class="option-text">No control</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="nextQuestion()">Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 2: Light -->
+                    <section class="question-section" data-question="2">
+                        <h3 class="question-title">Bedroom Darkness</h3>
+                        <p class="question-description">How dark is your bedroom when you sleep?</p>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Light level when trying to sleep:</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="radio" id="light-pitch" name="light-level" value="pitch-dark">
+                                    <label class="option-label" for="light-pitch">
+                                        <span class="option-icon">&#127761;</span>
+                                        <span class="option-text">Pitch Dark</span>
+                                        <span class="option-subtext">Can't see my hand</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="light-very-dark" name="light-level" value="very-dark">
+                                    <label class="option-label" for="light-very-dark">
+                                        <span class="option-icon">&#127762;</span>
+                                        <span class="option-text">Very Dark</span>
+                                        <span class="option-subtext">Some shapes visible</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="light-dim" name="light-level" value="dim">
+                                    <label class="option-label" for="light-dim">
+                                        <span class="option-icon">&#127763;</span>
+                                        <span class="option-text">Dim</span>
+                                        <span class="option-subtext">Can see furniture</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="light-moderate" name="light-level" value="moderate">
+                                    <label class="option-label" for="light-moderate">
+                                        <span class="option-icon">&#127764;</span>
+                                        <span class="option-text">Moderate</span>
+                                        <span class="option-subtext">Street light visible</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="light-bright" name="light-level" value="bright">
+                                    <label class="option-label" for="light-bright">
+                                        <span class="option-icon">&#9728;</span>
+                                        <span class="option-text">Bright</span>
+                                        <span class="option-subtext">Can easily read</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Main sources of light in your bedroom: (select all that apply)</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="checkbox" id="light-source-window" name="light-sources" value="window">
+                                    <label class="option-label" for="light-source-window">
+                                        <span class="option-icon">&#128422;</span>
+                                        <span class="option-text">Window light</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="light-source-devices" name="light-sources" value="devices">
+                                    <label class="option-label" for="light-source-devices">
+                                        <span class="option-icon">&#128241;</span>
+                                        <span class="option-text">Electronic devices</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="light-source-door" name="light-sources" value="door">
+                                    <label class="option-label" for="light-source-door">
+                                        <span class="option-icon">&#128682;</span>
+                                        <span class="option-text">Under door gap</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="light-source-clock" name="light-sources" value="clock">
+                                    <label class="option-label" for="light-source-clock">
+                                        <span class="option-icon">&#9200;</span>
+                                        <span class="option-text">Alarm clock</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="light-source-none" name="light-sources" value="none">
+                                    <label class="option-label" for="light-source-none">
+                                        <span class="option-icon">&#9989;</span>
+                                        <span class="option-text">None / Fully dark</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="nextQuestion()">Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 3: Noise -->
+                    <section class="question-section" data-question="3">
+                        <h3 class="question-title">Bedroom Noise</h3>
+                        <p class="question-description">What is the noise situation in your bedroom?</p>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Typical noise level when sleeping:</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="radio" id="noise-silent" name="noise-level" value="silent">
+                                    <label class="option-label" for="noise-silent">
+                                        <span class="option-icon">&#128263;</span>
+                                        <span class="option-text">Silent</span>
+                                        <span class="option-subtext">No noticeable sounds</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="noise-quiet" name="noise-level" value="quiet">
+                                    <label class="option-label" for="noise-quiet">
+                                        <span class="option-icon">&#128264;</span>
+                                        <span class="option-text">Quiet</span>
+                                        <span class="option-subtext">Occasional soft sounds</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="noise-moderate" name="noise-level" value="moderate">
+                                    <label class="option-label" for="noise-moderate">
+                                        <span class="option-icon">&#128265;</span>
+                                        <span class="option-text">Moderate</span>
+                                        <span class="option-subtext">Regular background noise</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="noise-loud" name="noise-level" value="loud">
+                                    <label class="option-label" for="noise-loud">
+                                        <span class="option-icon">&#128266;</span>
+                                        <span class="option-text">Loud</span>
+                                        <span class="option-subtext">Disruptive sounds common</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Common noise sources: (select all that apply)</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="checkbox" id="noise-traffic" name="noise-sources" value="traffic">
+                                    <label class="option-label" for="noise-traffic">
+                                        <span class="option-icon">&#128663;</span>
+                                        <span class="option-text">Traffic</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="noise-neighbors" name="noise-sources" value="neighbors">
+                                    <label class="option-label" for="noise-neighbors">
+                                        <span class="option-icon">&#127968;</span>
+                                        <span class="option-text">Neighbours</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="noise-partner" name="noise-sources" value="partner">
+                                    <label class="option-label" for="noise-partner">
+                                        <span class="option-icon">&#128564;</span>
+                                        <span class="option-text">Partner snoring</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="noise-hvac" name="noise-sources" value="hvac">
+                                    <label class="option-label" for="noise-hvac">
+                                        <span class="option-icon">&#127777;</span>
+                                        <span class="option-text">HVAC/Appliances</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="noise-pets" name="noise-sources" value="pets">
+                                    <label class="option-label" for="noise-pets">
+                                        <span class="option-icon">&#128054;</span>
+                                        <span class="option-text">Pets</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="noise-none" name="noise-sources" value="none">
+                                    <label class="option-label" for="noise-none">
+                                        <span class="option-icon">&#9989;</span>
+                                        <span class="option-text">None</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="nextQuestion()">Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 4: Humidity -->
+                    <section class="question-section" data-question="4">
+                        <h3 class="question-title">Bedroom Humidity</h3>
+                        <p class="question-description">How does the air feel in your bedroom?</p>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Typical air moisture level:</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="radio" id="humidity-dry" name="humidity-level" value="dry">
+                                    <label class="option-label" for="humidity-dry">
+                                        <span class="option-icon">&#127786;</span>
+                                        <span class="option-text">Very Dry</span>
+                                        <span class="option-subtext">Throat/skin feels dry</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="humidity-slightly-dry" name="humidity-level" value="slightly-dry">
+                                    <label class="option-label" for="humidity-slightly-dry">
+                                        <span class="option-icon">&#128168;</span>
+                                        <span class="option-text">Slightly Dry</span>
+                                        <span class="option-subtext">Occasional dryness</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="humidity-comfortable" name="humidity-level" value="comfortable">
+                                    <label class="option-label" for="humidity-comfortable">
+                                        <span class="option-icon">&#9989;</span>
+                                        <span class="option-text">Comfortable</span>
+                                        <span class="option-subtext">Feels just right</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="humidity-humid" name="humidity-level" value="humid">
+                                    <label class="option-label" for="humidity-humid">
+                                        <span class="option-icon">&#128167;</span>
+                                        <span class="option-text">Humid</span>
+                                        <span class="option-subtext">Air feels heavy/damp</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="humidity-very-humid" name="humidity-level" value="very-humid">
+                                    <label class="option-label" for="humidity-very-humid">
+                                        <span class="option-icon">&#128166;</span>
+                                        <span class="option-text">Very Humid</span>
+                                        <span class="option-subtext">Sticky/condensation</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Do you experience any of these? (select all that apply)</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="checkbox" id="humidity-dry-throat" name="humidity-symptoms" value="dry-throat">
+                                    <label class="option-label" for="humidity-dry-throat">
+                                        <span class="option-icon">&#128069;</span>
+                                        <span class="option-text">Dry throat</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="humidity-congestion" name="humidity-symptoms" value="congestion">
+                                    <label class="option-label" for="humidity-congestion">
+                                        <span class="option-icon">&#129319;</span>
+                                        <span class="option-text">Nasal congestion</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="humidity-static" name="humidity-symptoms" value="static">
+                                    <label class="option-label" for="humidity-static">
+                                        <span class="option-icon">&#9889;</span>
+                                        <span class="option-text">Static electricity</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="humidity-mold" name="humidity-symptoms" value="mold">
+                                    <label class="option-label" for="humidity-mold">
+                                        <span class="option-icon">&#127812;</span>
+                                        <span class="option-text">Musty smell/mold</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="checkbox" id="humidity-none" name="humidity-symptoms" value="none">
+                                    <label class="option-label" for="humidity-none">
+                                        <span class="option-icon">&#9989;</span>
+                                        <span class="option-text">None of these</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="nextQuestion()">Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 5: Air Quality & Scent -->
+                    <section class="question-section" data-question="5">
+                        <h3 class="question-title">Air Quality & Scent</h3>
+                        <p class="question-description">Final questions about your bedroom air and scent environment.</p>
+                        
+                        <div class="form-group">
+                            <label class="form-label">How would you describe your bedroom air freshness?</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="radio" id="air-fresh" name="air-quality" value="fresh">
+                                    <label class="option-label" for="air-fresh">
+                                        <span class="option-icon">&#127811;</span>
+                                        <span class="option-text">Fresh & Clean</span>
+                                        <span class="option-subtext">Well ventilated</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="air-neutral" name="air-quality" value="neutral">
+                                    <label class="option-label" for="air-neutral">
+                                        <span class="option-icon">&#128168;</span>
+                                        <span class="option-text">Neutral</span>
+                                        <span class="option-subtext">No particular smell</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="air-stuffy" name="air-quality" value="stuffy">
+                                    <label class="option-label" for="air-stuffy">
+                                        <span class="option-icon">&#128566;</span>
+                                        <span class="option-text">Stuffy</span>
+                                        <span class="option-subtext">Stale air</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="air-unpleasant" name="air-quality" value="unpleasant">
+                                    <label class="option-label" for="air-unpleasant">
+                                        <span class="option-icon">&#128078;</span>
+                                        <span class="option-text">Unpleasant</span>
+                                        <span class="option-subtext">Bad odours present</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Do you use any sleep-promoting scents?</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="radio" id="scent-yes" name="uses-scent" value="yes">
+                                    <label class="option-label" for="scent-yes">
+                                        <span class="option-icon">&#128144;</span>
+                                        <span class="option-text">Yes, regularly</span>
+                                        <span class="option-subtext">Lavender, chamomile, etc.</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="scent-sometimes" name="uses-scent" value="sometimes">
+                                    <label class="option-label" for="scent-sometimes">
+                                        <span class="option-icon">&#128156;</span>
+                                        <span class="option-text">Sometimes</span>
+                                        <span class="option-subtext">Occasionally use sprays</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="scent-no" name="uses-scent" value="no">
+                                    <label class="option-label" for="scent-no">
+                                        <span class="option-icon">&#128528;</span>
+                                        <span class="option-text">No</span>
+                                        <span class="option-subtext">Haven't tried it</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="scent-sensitive" name="uses-scent" value="sensitive">
+                                    <label class="option-label" for="scent-sensitive">
+                                        <span class="option-icon">&#129319;</span>
+                                        <span class="option-text">Scent Sensitive</span>
+                                        <span class="option-subtext">Avoid due to allergies</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">How well do you typically sleep?</label>
+                            <div class="option-grid">
+                                <div class="option-card">
+                                    <input type="radio" id="sleep-excellent" name="sleep-quality" value="excellent">
+                                    <label class="option-label" for="sleep-excellent">
+                                        <span class="option-icon">&#128564;</span>
+                                        <span class="option-text">Excellent</span>
+                                        <span class="option-subtext">Fall asleep easily, wake refreshed</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="sleep-good" name="sleep-quality" value="good">
+                                    <label class="option-label" for="sleep-good">
+                                        <span class="option-icon">&#128522;</span>
+                                        <span class="option-text">Good</span>
+                                        <span class="option-subtext">Generally sleep well</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="sleep-fair" name="sleep-quality" value="fair">
+                                    <label class="option-label" for="sleep-fair">
+                                        <span class="option-icon">&#128533;</span>
+                                        <span class="option-text">Fair</span>
+                                        <span class="option-subtext">Some nights are difficult</span>
+                                    </label>
+                                </div>
+                                <div class="option-card">
+                                    <input type="radio" id="sleep-poor" name="sleep-quality" value="poor">
+                                    <label class="option-label" for="sleep-poor">
+                                        <span class="option-icon">&#128555;</span>
+                                        <span class="option-text">Poor</span>
+                                        <span class="option-subtext">Often struggle to sleep</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="calculateResults()">Get My Results</button>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Results Section -->
+                <div id="results-section" class="results-section">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Toggleable Info Sections -->
+        <section class="info-section">
+            <button class="info-toggle" onclick="toggleInfo(this)" aria-expanded="false">
+                <h3>What is the Ideal Bedroom Temperature for Sleep?</h3>
+                <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="info-content">
+                <h4>The Science of Sleep Temperature</h4>
+                <p>Your body's core temperature naturally drops by 1-2 degrees when you fall asleep. This cooling process triggers melatonin release and signals your brain that it's time for rest. Research from the Sleep Foundation and National Institutes of Health consistently shows that bedroom temperature is one of the most critical factors affecting sleep quality.</p>
+                
+                <h4>Optimal Temperature Range</h4>
+                <p>The ideal bedroom temperature for most adults is between <strong>15-19°C (60-67°F)</strong>. However, this can vary based on:</p>
+                <ul>
+                    <li><strong>Age:</strong> Older adults may prefer slightly warmer rooms (19-20°C)</li>
+                    <li><strong>Health conditions:</strong> Those with circulation issues may need warmer environments</li>
+                    <li><strong>Bedding:</strong> Heavier blankets allow for cooler room temperatures</li>
+                    <li><strong>Climate:</strong> People in tropical regions may adapt to slightly higher temperatures</li>
+                </ul>
+                
+                <h4>Temperature Guidelines by Region</h4>
+                <table class="info-table">
+                    <tr>
+                        <th>Region</th>
+                        <th>Recommended Range</th>
+                        <th>Common Challenges</th>
+                    </tr>
+                    <tr>
+                        <td>United Kingdom, Ireland, Germany, Netherlands</td>
+                        <td>16-18°C (61-64°F)</td>
+                        <td>Cold, damp winters; poor insulation</td>
+                    </tr>
+                    <tr>
+                        <td>United States, Canada</td>
+                        <td>15-19°C (60-67°F)</td>
+                        <td>Extreme temperature variations by season</td>
+                    </tr>
+                    <tr>
+                        <td>Australia, New Zealand</td>
+                        <td>18-22°C (64-72°F)</td>
+                        <td>Hot summers without air conditioning</td>
+                    </tr>
+                    <tr>
+                        <td>UAE, India, Brazil</td>
+                        <td>20-24°C (68-75°F)</td>
+                        <td>Year-round heat, high energy costs for cooling</td>
+                    </tr>
+                    <tr>
+                        <td>Japan, China, France, Italy, Spain, etc.</td>
+                        <td>17-20°C (63-68°F)</td>
+                        <td>Seasonal humidity fluctuations</td>
+                    </tr>
+                </table>
+                
+                <h4>DIY Temperature Solutions</h4>
+                <ul>
+                    <li>Open windows briefly before bed for fresh, cool air</li>
+                    <li>Use a fan to create air circulation (even in winter)</li>
+                    <li>Choose breathable, natural-fiber bedding</li>
+                    <li>Take a warm shower 1-2 hours before bed (helps your body cool down)</li>
+                    <li>Keep feet warm with socks if room is cool (helps with circulation)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <button class="info-toggle" onclick="toggleInfo(this)" aria-expanded="false">
+                <h3>How Dark Should Your Bedroom Be for Sleep?</h3>
+                <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="info-content">
+                <h4>Light and Circadian Rhythm</h4>
+                <p>Even small amounts of light can suppress melatonin production and disrupt your circadian rhythm. Studies show that exposure to light during sleep is associated with increased risk of depression, obesity, and cardiovascular disease. The ideal sleep environment should be as close to complete darkness as possible - below 1 lux (roughly equivalent to a full moon on a clear night).</p>
+                
+                <h4>Common Light Sources That Disrupt Sleep</h4>
+                <ul>
+                    <li><strong>Street lights and car headlights:</strong> Can penetrate thin curtains</li>
+                    <li><strong>Electronic device LEDs:</strong> Standby lights on TVs, routers, chargers</li>
+                    <li><strong>Phone and tablet screens:</strong> Blue light is particularly disruptive</li>
+                    <li><strong>Alarm clock displays:</strong> Bright digital displays can disturb sleep</li>
+                    <li><strong>Light under doors:</strong> Hallway lights seeping through gaps</li>
+                    <li><strong>Early morning sunlight:</strong> Especially problematic in summer months</li>
+                </ul>
+                
+                <h4>Solutions for Different Budgets</h4>
+                <table class="info-table">
+                    <tr>
+                        <th>Budget Level</th>
+                        <th>Solutions</th>
+                    </tr>
+                    <tr>
+                        <td>Free / Low Cost</td>
+                        <td>Cover device LEDs with tape, turn phone face-down, use a towel under the door, wear a t-shirt over eyes</td>
+                    </tr>
+                    <tr>
+                        <td>Under £30</td>
+                        <td>Sleep mask, blackout stickers for windows, LED covers</td>
+                    </tr>
+                    <tr>
+                        <td>£30-100</td>
+                        <td>Quality contoured sleep mask, travel blackout blinds, blackout curtain liners</td>
+                    </tr>
+                    <tr>
+                        <td>£100+</td>
+                        <td>Full blackout curtains, motorized blinds, smart lighting systems</td>
+                    </tr>
+                </table>
+                
+                <h4>Special Considerations</h4>
+                <p><strong>Shift workers</strong> in countries like the United States, United Kingdom, Germany, and Australia face particular challenges sleeping during daylight hours. Complete blackout solutions are essential for daytime sleep quality. Our blackout curtains and travel blinds are specifically designed to block 99%+ of light.</p>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <button class="info-toggle" onclick="toggleInfo(this)" aria-expanded="false">
+                <h3>How Noise Affects Sleep Quality</h3>
+                <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="info-content">
+                <h4>The Impact of Noise on Sleep</h4>
+                <p>Your brain continues to process sounds even while you sleep. Noise above 30 decibels can cause micro-awakenings that fragment your sleep cycles, even if you don't fully wake up. Sudden noises (like a dog barking or car alarm) are more disruptive than consistent background sounds because of the startle response they trigger.</p>
+                
+                <h4>Decibel Levels and Sleep</h4>
+                <table class="info-table">
+                    <tr>
+                        <th>Sound Level</th>
+                        <th>Example</th>
+                        <th>Impact on Sleep</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;30 dB</td>
+                        <td>Quiet library, rustling leaves</td>
+                        <td>Ideal for sleep</td>
+                    </tr>
+                    <tr>
+                        <td>30-40 dB</td>
+                        <td>Whisper, light rain</td>
+                        <td>Generally acceptable</td>
+                    </tr>
+                    <tr>
+                        <td>40-50 dB</td>
+                        <td>Quiet office, light traffic</td>
+                        <td>May cause light sleep disruption</td>
+                    </tr>
+                    <tr>
+                        <td>50-60 dB</td>
+                        <td>Normal conversation, TV</td>
+                        <td>Likely to disrupt sleep</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;60 dB</td>
+                        <td>Busy traffic, loud music</td>
+                        <td>Significant sleep disruption</td>
+                    </tr>
+                </table>
+                
+                <h4>White Noise vs Pink Noise vs Brown Noise</h4>
+                <p>Sound machines can help mask disruptive noises. Different "colors" of noise work better for different people:</p>
+                <ul>
+                    <li><strong>White noise:</strong> Equal intensity across all frequencies. Best for masking high-pitched sounds like voices or traffic. Most commonly available.</li>
+                    <li><strong>Pink noise:</strong> Deeper, more balanced sound. Studies suggest it may improve deep sleep. Sounds like steady rainfall or wind.</li>
+                    <li><strong>Brown noise:</strong> Even deeper, rumbling quality. Good for those who find white noise too harsh. Like a strong waterfall or thunder.</li>
+                </ul>
+                
+                <h4>Noise Solutions by Living Situation</h4>
+                <ul>
+                    <li><strong>Urban apartments (London, New York, Sydney, Tokyo):</strong> White noise machines, soundproofing curtains, quality earplugs</li>
+                    <li><strong>Shared housing:</strong> Bedroom door seals, white noise, headband sleep headphones</li>
+                    <li><strong>Near airports/railways:</strong> Double-glazing, heavy curtains with sound absorption, consistent white noise</li>
+                    <li><strong>Partner snoring:</strong> White noise machine positioned between you, specialized anti-snore solutions</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <button class="info-toggle" onclick="toggleInfo(this)" aria-expanded="false">
+                <h3>Optimal Humidity for Better Sleep</h3>
+                <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="info-content">
+                <h4>Why Humidity Matters</h4>
+                <p>Bedroom humidity significantly impacts breathing comfort and sleep quality. The ideal range is 30-50% relative humidity. Both extremes cause problems:</p>
+                
+                <h4>Effects of Low Humidity (&lt;30%)</h4>
+                <ul>
+                    <li>Dry, irritated nasal passages and throat</li>
+                    <li>Increased susceptibility to respiratory infections</li>
+                    <li>Skin dryness and itching</li>
+                    <li>Static electricity buildup</li>
+                    <li>More snoring due to dry airways</li>
+                </ul>
+                
+                <h4>Effects of High Humidity (&gt;50%)</h4>
+                <ul>
+                    <li>Dust mite proliferation (major allergen)</li>
+                    <li>Mold and mildew growth</li>
+                    <li>Feeling hot and uncomfortable</li>
+                    <li>Difficulty breathing for asthma sufferers</li>
+                    <li>Musty odours</li>
+                </ul>
+                
+                <h4>Seasonal Humidity Challenges</h4>
+                <table class="info-table">
+                    <tr>
+                        <th>Climate/Season</th>
+                        <th>Typical Issue</th>
+                        <th>Solution</th>
+                    </tr>
+                    <tr>
+                        <td>Winter (UK, Canada, Northern US, Germany)</td>
+                        <td>Central heating causes very dry air</td>
+                        <td>Humidifier, plants, bowl of water near radiator</td>
+                    </tr>
+                    <tr>
+                        <td>Summer (UK, Netherlands, Ireland)</td>
+                        <td>Can become humid without AC</td>
+                        <td>Dehumidifier, good ventilation</td>
+                    </tr>
+                    <tr>
+                        <td>Tropical (India, Brazil, UAE summer)</td>
+                        <td>Consistently high humidity</td>
+                        <td>Air conditioning, dehumidifier</td>
+                    </tr>
+                    <tr>
+                        <td>Mediterranean (Spain, Italy, France)</td>
+                        <td>Dry summers, humid winters</td>
+                        <td>Seasonal adjustment of solutions</td>
+                    </tr>
+                </table>
+                
+                <h4>DIY Humidity Solutions</h4>
+                <ul>
+                    <li><strong>To increase humidity:</strong> Houseplants, drying clothes indoors, bowls of water, damp towels on radiators</li>
+                    <li><strong>To decrease humidity:</strong> Good ventilation, avoid drying clothes in bedroom, use extractor fans, keep bathroom doors closed after showers</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <button class="info-toggle" onclick="toggleInfo(this)" aria-expanded="false">
+                <h3>When to Seek Professional Help</h3>
+                <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="info-content">
+                <h4>Sleep Problems That Require Medical Attention</h4>
+                <p>While optimizing your sleep environment can significantly improve sleep quality, some sleep issues require professional medical evaluation. Consult a healthcare provider if you experience:</p>
+                
+                <ul>
+                    <li><strong>Persistent insomnia:</strong> Difficulty falling or staying asleep for more than 3 weeks</li>
+                    <li><strong>Excessive daytime sleepiness:</strong> Despite getting 7-9 hours of sleep</li>
+                    <li><strong>Loud snoring with pauses:</strong> May indicate sleep apnea</li>
+                    <li><strong>Restless legs:</strong> Uncomfortable sensations and urge to move legs at night</li>
+                    <li><strong>Sleep walking or talking:</strong> Especially if it puts you at risk</li>
+                    <li><strong>Nightmares or night terrors:</strong> Frequent, distressing dreams that affect daily life</li>
+                    <li><strong>Falling asleep inappropriately:</strong> During conversations, driving, or at work</li>
+                </ul>
+                
+                <h4>Red Flag Symptoms - Seek Immediate Help</h4>
+                <p style="color: #D93333; font-weight: 500;">Contact a healthcare provider urgently if you experience:</p>
+                <ul>
+                    <li>Choking or gasping during sleep (observed by partner)</li>
+                    <li>Severe chest pain or difficulty breathing at night</li>
+                    <li>Sudden onset of sleep paralysis or hallucinations</li>
+                    <li>Sleep deprivation affecting your safety (e.g., falling asleep while driving)</li>
+                </ul>
+                
+                <h4>Emergency Contacts by Region</h4>
+                <table class="info-table">
+                    <tr>
+                        <th>Country</th>
+                        <th>Emergency Services</th>
+                        <th>Non-Emergency Health Line</th>
+                    </tr>
+                    <tr>
+                        <td>United Kingdom</td>
+                        <td>999</td>
+                        <td>NHS 111</td>
+                    </tr>
+                    <tr>
+                        <td>United States</td>
+                        <td>911</td>
+                        <td>Contact primary care provider</td>
+                    </tr>
+                    <tr>
+                        <td>Canada</td>
+                        <td>911</td>
+                        <td>Telehealth (varies by province)</td>
+                    </tr>
+                    <tr>
+                        <td>Australia</td>
+                        <td>000</td>
+                        <td>Healthdirect 1800 022 222</td>
+                    </tr>
+                    <tr>
+                        <td>Ireland</td>
+                        <td>999 / 112</td>
+                        <td>HSELive 1800 700 700</td>
+                    </tr>
+                    <tr>
+                        <td>Germany</td>
+                        <td>112</td>
+                        <td>116 117</td>
+                    </tr>
+                    <tr>
+                        <td>France</td>
+                        <td>15 (SAMU) / 112</td>
+                        <td>Contact local médecin</td>
+                    </tr>
+                </table>
+                
+                <p><em>For other countries including India, Japan, China, Netherlands, New Zealand, Italy, Spain, UAE, Poland, Portugal, Sweden, Turkey, Russia, and Brazil - please search for your local emergency services number.</em></p>
+                
+                <div class="medical-disclaimer">
+                    <strong>Medical Disclaimer</strong>
+                    This tool provides general recommendations for optimizing your sleep environment and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your GP, physician, or other qualified health provider with any specific questions about sleep disorders, medical conditions, or health concerns. If you believe you may have a medical emergency, call your local emergency services immediately.
+                </div>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <button class="info-toggle" onclick="toggleInfo(this)" aria-expanded="false">
+                <h3>About This Tool & How It Works</h3>
+                <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="info-content">
+                <h4>How the Sleep Environment Optimizer Works</h4>
+                <p>This free assessment tool evaluates the five key environmental factors that research has shown to impact sleep quality: temperature, light, noise, humidity, and air quality/scent. Your responses are analyzed against evidence-based guidelines from organizations including the Sleep Foundation, National Institutes of Health, and peer-reviewed sleep research.</p>
+                
+                <h4>Scoring Methodology</h4>
+                <p>Each category is scored on a scale of 0-20 points based on how closely your current environment matches optimal sleep conditions:</p>
+                <ul>
+                    <li><strong>18-20 points (Excellent):</strong> Your environment is optimized for this factor</li>
+                    <li><strong>14-17 points (Good):</strong> Minor improvements possible</li>
+                    <li><strong>10-13 points (Fair):</strong> Room for meaningful improvement</li>
+                    <li><strong>6-9 points (Poor):</strong> This factor may be significantly affecting your sleep</li>
+                    <li><strong>0-5 points (Critical):</strong> Urgent attention recommended</li>
+                </ul>
+                
+                <h4>What We Do With Your Data</h4>
+                <p>Your assessment responses are processed entirely in your browser - we do not store your answers on our servers unless you choose to receive a personalized report via email. If you opt in to receive an email report, we store only your first name, email address, and assessment results to deliver your report. By providing your email, you consent to receiving your results and occasional relevant product recommendations from Spacire. You can unsubscribe at any time.</p>
+                
+                <h4>About Spacire</h4>
+                <p>Spacire is a sleep wellness company dedicated to helping people achieve better rest through natural, science-backed solutions. We offer carefully curated sleep products including sleep masks, white noise machines, blackout curtains, aromatherapy sprays, and weighted blankets. All products are shipped worldwide from our facilities in the United Kingdom, United States, and China.</p>
+                
+                <p>Our recommendations are based on genuine product benefits, and we always provide non-purchase alternatives alongside product suggestions. We believe that good sleep should be accessible to everyone, regardless of budget.</p>
+                
+                <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer.html">Sleep Environment Optimizer</a>
+                    <a href="#">Shift Worker Sleep Planner</a>
+                    <a href="#">White Noise Finder</a>
+                    <a href="#">Bedtime Routine Generator</a>
+                    <a href="#">Natural Sleep Remedies</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ========================================
+        // STATE MANAGEMENT
+        // ========================================
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        
+        const userData = {
+            temperature: 20,
+            tempControl: null,
+            lightLevel: null,
+            lightSources: [],
+            noiseLevel: null,
+            noiseSources: [],
+            humidityLevel: null,
+            humiditySymptoms: [],
+            airQuality: null,
+            usesScent: null,
+            sleepQuality: null
+        };
+        
+        // ========================================
+        // TEMPERATURE SLIDER
+        // ========================================
+        const tempSlider = document.getElementById('temperature');
+        const tempDisplay = document.getElementById('temp-display');
+        
+        if (tempSlider) {
+            tempSlider.addEventListener('input', function() {
+                const celsius = this.value;
+                const fahrenheit = Math.round(celsius * 9/5 + 32);
+                tempDisplay.innerHTML = `${celsius}°C <span>(${fahrenheit}°F)</span>`;
+                userData.temperature = parseInt(celsius);
+            });
+        }
+        
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        function updateProgress() {
+            const progressFill = document.querySelector('.progress-bar-fill');
+            const percentage = (currentQuestion / totalQuestions) * 100;
+            progressFill.style.width = percentage + '%';
+            
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                if (stepNum < currentQuestion) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentQuestion) {
+                    step.classList.add('active');
+                }
+            });
+        }
+        
+        function collectCurrentData() {
+            switch(currentQuestion) {
+                case 1:
+                    userData.temperature = parseInt(document.getElementById('temperature').value);
+                    const tempControl = document.querySelector('input[name="temp-control"]:checked');
+                    userData.tempControl = tempControl ? tempControl.value : null;
+                    break;
+                case 2:
+                    const lightLevel = document.querySelector('input[name="light-level"]:checked');
+                    userData.lightLevel = lightLevel ? lightLevel.value : null;
+                    userData.lightSources = Array.from(document.querySelectorAll('input[name="light-sources"]:checked')).map(el => el.value);
+                    break;
+                case 3:
+                    const noiseLevel = document.querySelector('input[name="noise-level"]:checked');
+                    userData.noiseLevel = noiseLevel ? noiseLevel.value : null;
+                    userData.noiseSources = Array.from(document.querySelectorAll('input[name="noise-sources"]:checked')).map(el => el.value);
+                    break;
+                case 4:
+                    const humidityLevel = document.querySelector('input[name="humidity-level"]:checked');
+                    userData.humidityLevel = humidityLevel ? humidityLevel.value : null;
+                    userData.humiditySymptoms = Array.from(document.querySelectorAll('input[name="humidity-symptoms"]:checked')).map(el => el.value);
+                    break;
+                case 5:
+                    const airQuality = document.querySelector('input[name="air-quality"]:checked');
+                    userData.airQuality = airQuality ? airQuality.value : null;
+                    const usesScent = document.querySelector('input[name="uses-scent"]:checked');
+                    userData.usesScent = usesScent ? usesScent.value : null;
+                    const sleepQuality = document.querySelector('input[name="sleep-quality"]:checked');
+                    userData.sleepQuality = sleepQuality ? sleepQuality.value : null;
+                    break;
+            }
+        }
+        
+        function nextQuestion() {
+            // Validate current question before proceeding
+            if (!validateCurrentQuestion()) {
+                return;
+            }
+            
+            collectCurrentData();
+            
+            if (currentQuestion < totalQuestions) {
+                document.querySelector(`.question-section[data-question="${currentQuestion}"]`).classList.remove('active');
+                currentQuestion++;
+                document.querySelector(`.question-section[data-question="${currentQuestion}"]`).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: document.querySelector('.tool-card').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+        
+        function validateCurrentQuestion() {
+            const currentSection = document.querySelector(`.question-section[data-question="${currentQuestion}"]`);
+            
+            // Check for required selections in current question
+            switch(currentQuestion) {
+                case 1:
+                    // Temperature question - check slider (always has value)
+                    return true;
+                case 2:
+                    // Light question - check if light level radio is selected
+                    const lightLevel = document.querySelector('input[name="light-level"]:checked');
+                    if (!lightLevel) {
+                        showStepError(currentSection, 'Please select your light level');
+                        return false;
+                    }
+                    break;
+                case 3:
+                    // Noise question - check if noise level radio is selected
+                    const noiseLevel = document.querySelector('input[name="noise-level"]:checked');
+                    if (!noiseLevel) {
+                        showStepError(currentSection, 'Please select your noise level');
+                        return false;
+                    }
+                    break;
+                case 4:
+                    // Humidity question - check if humidity level radio is selected
+                    const humidityLevel = document.querySelector('input[name="humidity-level"]:checked');
+                    if (!humidityLevel) {
+                        showStepError(currentSection, 'Please select your humidity level');
+                        return false;
+                    }
+                    break;
+                case 5:
+                    // Air quality question - check if air quality radio is selected
+                    const airQuality = document.querySelector('input[name="air-quality"]:checked');
+                    if (!airQuality) {
+                        showStepError(currentSection, 'Please select your air quality');
+                        return false;
+                    }
+                    break;
+            }
+            
+            // Clear any existing error
+            clearStepError(currentSection);
+            return true;
+        }
+        
+        function showStepError(section, message) {
+            // Remove any existing error
+            clearStepError(section);
+            
+            // Create error element
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'step-error';
+            errorDiv.style.cssText = 'color: #D93333; font-size: 14px; margin-top: 16px; text-align: center; padding: 12px; background: #fff5f5; border-radius: 8px;';
+            errorDiv.textContent = message;
+            
+            // Insert before button group
+            const btnGroup = section.querySelector('.btn-group');
+            if (btnGroup) {
+                btnGroup.parentNode.insertBefore(errorDiv, btnGroup);
+            }
+        }
+        
+        function clearStepError(section) {
+            const existingError = section.querySelector('.step-error');
+            if (existingError) {
+                existingError.remove();
+            }
+        }
+        
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                document.querySelector(`.question-section[data-question="${currentQuestion}"]`).classList.remove('active');
+                currentQuestion--;
+                document.querySelector(`.question-section[data-question="${currentQuestion}"]`).classList.add('active');
+                updateProgress();
+            }
+        }
+        
+        // ========================================
+        // SCORING & RESULTS
+        // ========================================
+        function calculateScores() {
+            const scores = {
+                temperature: 0,
+                light: 0,
+                noise: 0,
+                humidity: 0,
+                airScent: 0
+            };
+            
+            // Temperature Score (0-20)
+            const temp = userData.temperature;
+            if (temp >= 15 && temp <= 19) {
+                scores.temperature = 20;
+            } else if (temp >= 13 && temp <= 21) {
+                scores.temperature = 15;
+            } else if (temp >= 12 && temp <= 23) {
+                scores.temperature = 10;
+            } else if (temp >= 10 && temp <= 25) {
+                scores.temperature = 5;
+            } else {
+                scores.temperature = 2;
+            }
+            
+            if (userData.tempControl === 'yes') scores.temperature = Math.min(20, scores.temperature + 2);
+            if (userData.tempControl === 'no') scores.temperature = Math.max(0, scores.temperature - 3);
+            
+            // Light Score (0-20)
+            const lightScores = {
+                'pitch-dark': 20,
+                'very-dark': 16,
+                'dim': 10,
+                'moderate': 5,
+                'bright': 2
+            };
+            scores.light = lightScores[userData.lightLevel] || 10;
+            
+            if (userData.lightSources.includes('none')) {
+                scores.light = Math.min(20, scores.light + 2);
+            } else {
+                scores.light = Math.max(0, scores.light - (userData.lightSources.length * 2));
+            }
+            
+            // Noise Score (0-20)
+            const noiseScores = {
+                'silent': 20,
+                'quiet': 16,
+                'moderate': 10,
+                'loud': 4
+            };
+            scores.noise = noiseScores[userData.noiseLevel] || 10;
+            
+            if (userData.noiseSources.includes('none')) {
+                scores.noise = Math.min(20, scores.noise + 2);
+            } else {
+                scores.noise = Math.max(0, scores.noise - (userData.noiseSources.length * 2));
+            }
+            
+            // Humidity Score (0-20)
+            const humidityScores = {
+                'dry': 6,
+                'slightly-dry': 12,
+                'comfortable': 20,
+                'humid': 10,
+                'very-humid': 4
+            };
+            scores.humidity = humidityScores[userData.humidityLevel] || 10;
+            
+            if (userData.humiditySymptoms.includes('none')) {
+                scores.humidity = Math.min(20, scores.humidity + 2);
+            } else {
+                scores.humidity = Math.max(0, scores.humidity - (userData.humiditySymptoms.length * 3));
+            }
+            
+            // Air & Scent Score (0-20)
+            const airScores = {
+                'fresh': 18,
+                'neutral': 14,
+                'stuffy': 8,
+                'unpleasant': 3
+            };
+            scores.airScent = airScores[userData.airQuality] || 10;
+            
+            if (userData.usesScent === 'yes') scores.airScent = Math.min(20, scores.airScent + 2);
+            if (userData.usesScent === 'sometimes') scores.airScent = Math.min(20, scores.airScent + 1);
+            
+            return scores;
+        }
+        
+        function getScoreRating(score) {
+            if (score >= 18) return { label: 'Excellent', class: 'excellent' };
+            if (score >= 14) return { label: 'Good', class: 'good' };
+            if (score >= 10) return { label: 'Fair', class: 'fair' };
+            if (score >= 6) return { label: 'Poor', class: 'poor' };
+            return { label: 'Critical', class: 'critical' };
+        }
+        
+        function getOverallRating(total) {
+            if (total >= 85) return 'Excellent Sleep Environment';
+            if (total >= 70) return 'Good Sleep Environment';
+            if (total >= 50) return 'Fair - Room for Improvement';
+            if (total >= 30) return 'Poor - Significant Issues';
+            return 'Critical - Urgent Attention Needed';
+        }
+        
+        function generateRecommendations(scores) {
+            const recommendations = [];
+            
+            // Temperature recommendations
+            if (scores.temperature < 15) {
+                recommendations.push({
+                    category: 'Temperature',
+                    priority: scores.temperature < 10 ? 'high' : 'medium',
+                    title: 'Optimize Your Bedroom Temperature',
+                    text: userData.temperature > 19 ? 
+                        'Your bedroom is warmer than ideal. Aim for 15-19°C (60-67°F) for optimal sleep. Your body needs to cool down to initiate sleep.' :
+                        'Your bedroom is cooler than ideal. While some prefer cool rooms, temperatures below 15°C may disrupt sleep. Consider warmer bedding or slightly raising the temperature.',
+                    diyTips: [
+                        userData.temperature > 19 ? 'Use a fan or open window before bed to cool the room' : 'Add an extra blanket rather than heating the whole room',
+                        'Take a warm shower 1-2 hours before bed to help your body cool down naturally',
+                        'Use breathable, natural-fiber bedding',
+                        userData.tempControl === 'no' ? 'If you can\'t control temperature, adjust bedding weight seasonally' : null
+                    ].filter(Boolean),
+                    products: [
+                        {
+                            name: 'Cooling Sleep Accessories',
+                            link: 'https://spacire.com/collections/sleep-wellness-essentials',
+                            image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/28b40fde-efd1-49f1-9a7c-e9b53cf11371_trans.jpg',
+                            price: 'From £25'
+                        }
+                    ]
+                });
+            }
+            
+            // Light recommendations
+            if (scores.light < 15) {
+                recommendations.push({
+                    category: 'Light',
+                    priority: scores.light < 10 ? 'high' : 'medium',
+                    title: 'Reduce Light Exposure While Sleeping',
+                    text: 'Light in your bedroom is likely suppressing melatonin production and disrupting your circadian rhythm. Even small amounts of light can affect sleep quality.',
+                    diyTips: [
+                        'Cover LED lights on devices with electrical tape',
+                        'Turn your phone face-down and enable Do Not Disturb',
+                        'Use a rolled-up towel under the door to block hallway light',
+                        userData.lightSources.includes('window') ? 'Hang a dark blanket or sheet over your window temporarily' : null,
+                        userData.lightSources.includes('clock') ? 'Turn your alarm clock away or dim its display' : null
+                    ].filter(Boolean),
+                    products: userData.lightSources.includes('window') ? [
+                        {
+                            name: 'Blackout Curtains',
+                            link: 'https://spacire.com/collections/blackout-curtains',
+                            image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/813532525074.jpg',
+                            price: 'From £41'
+                        },
+                        {
+                            name: 'Contoured Sleep Masks',
+                            link: 'https://spacire.com/collections/blackout-contoured-masks',
+                            image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/28b40fde-efd1-49f1-9a7c-e9b53cf11371_trans.jpg',
+                            price: 'From £28'
+                        }
+                    ] : [
+                        {
+                            name: 'Silk Sleep Masks',
+                            link: 'https://spacire.com/collections/silk-sleep-masks',
+                            image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/28b40fde-efd1-49f1-9a7c-e9b53cf11371_trans.jpg',
+                            price: 'From £27'
+                        }
+                    ]
+                });
+            }
+            
+            // Noise recommendations
+            if (scores.noise < 15) {
+                recommendations.push({
+                    category: 'Noise',
+                    priority: scores.noise < 10 ? 'high' : 'medium',
+                    title: 'Address Noise Disruptions',
+                    text: 'Inconsistent noise is one of the biggest sleep disruptors. Even if you don\'t fully wake, your brain processes sounds and fragments your sleep cycles.',
+                    diyTips: [
+                        'Use a regular fan - it provides consistent white noise and air circulation',
+                        'Play rain sounds or white noise from your phone (free apps available)',
+                        userData.noiseSources.includes('partner') ? 'Discuss the snoring issue with your partner - it may indicate sleep apnea' : null,
+                        userData.noiseSources.includes('traffic') ? 'Heavy curtains can help absorb some sound' : null,
+                        'Try wearing soft foam earplugs (takes a few nights to adjust)'
+                    ].filter(Boolean),
+                    products: [
+                        {
+                            name: 'White Noise Sound Machines',
+                            link: 'https://spacire.com/collections/white-noise-machines',
+                            image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/1619587108742.jpg',
+                            price: 'From £30'
+                        }
+                    ]
+                });
+            }
+            
+            // Humidity recommendations
+            if (scores.humidity < 14) {
+                const isTooDry = userData.humidityLevel === 'dry' || userData.humidityLevel === 'slightly-dry';
+                recommendations.push({
+                    category: 'Humidity',
+                    priority: scores.humidity < 10 ? 'high' : 'medium',
+                    title: isTooDry ? 'Address Dry Air in Your Bedroom' : 'Reduce Excess Humidity',
+                    text: isTooDry ? 
+                        'Dry air can irritate your airways, cause snoring, and lead to restless sleep. This is especially common during winter months when heating is used.' :
+                        'High humidity promotes dust mites and mold growth, which can trigger allergies and respiratory issues during sleep.',
+                    diyTips: isTooDry ? [
+                        'Place a bowl of water near your radiator or heat source',
+                        'Add houseplants to your bedroom (they release moisture)',
+                        'Hang damp towels in your room to dry overnight',
+                        'Stay well hydrated during the day',
+                        'Consider drying some laundry in your bedroom'
+                    ] : [
+                        'Open windows for 10-15 minutes each day to ventilate',
+                        'Don\'t dry clothes in the bedroom',
+                        'Use extractor fans when showering and keep bathroom door closed',
+                        'Check for any water leaks or damp patches',
+                        'Consider a small dehumidifier'
+                    ],
+                    products: []
+                });
+            }
+            
+            // Air quality & scent recommendations
+            if (scores.airScent < 14) {
+                recommendations.push({
+                    category: 'Air Quality',
+                    priority: scores.airScent < 10 ? 'high' : 'low',
+                    title: 'Improve Bedroom Air Quality',
+                    text: 'Fresh air and pleasant scents can significantly improve sleep onset and quality. Stuffy, stale air makes it harder to breathe and relax.',
+                    diyTips: [
+                        'Open windows for at least 10 minutes before bed',
+                        'Change bedding weekly and vacuum mattress monthly',
+                        'Remove clutter that collects dust',
+                        userData.usesScent === 'no' ? 'Try putting a few drops of lavender oil on your pillow - research shows it can improve sleep quality' : null,
+                        'Keep bedroom door slightly open for air circulation'
+                    ].filter(Boolean),
+                    products: userData.usesScent !== 'sensitive' ? [
+                        {
+                            name: 'Lavender Sleep Sprays',
+                            link: 'https://spacire.com/collections/lavender-sleep-sprays',
+                            image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/1619587108742.jpg',
+                            price: 'From £12'
+                        }
+                    ] : []
+                });
+            }
+            
+            // If everything is good, add maintenance tips
+            if (recommendations.length === 0) {
+                recommendations.push({
+                    category: 'Maintenance',
+                    priority: 'low',
+                    title: 'Maintain Your Excellent Sleep Environment',
+                    text: 'Your bedroom is well-optimized for sleep. Here are some tips to maintain and potentially enhance it further.',
+                    diyTips: [
+                        'Continue your current practices - consistency is key',
+                        'Review your environment seasonally as conditions change',
+                        'Consider tracking your sleep quality to identify patterns',
+                        'Maintain regular sleep/wake times to support your circadian rhythm',
+                        'Keep electronics out of the bedroom where possible'
+                    ],
+                    products: []
+                });
+            }
+            
+            return recommendations;
+        }
+        
+        function calculateResults() {
+            collectCurrentData();
+            
+            const scores = calculateScores();
+            const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+            const recommendations = generateRecommendations(scores);
+            
+            // IMPORTANT: Store scores in userData for email submission
+            userData.totalScore = totalScore;
+            userData.scores = {
+                temperature: scores.temperature,
+                light: scores.light,
+                noise: scores.noise,
+                humidity: scores.humidity,
+                air: scores.airScent
+            };
+            userData.recommendations = recommendations;
+            
+            // Hide questions, show results
+            document.getElementById('questions-container').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            
+            const resultsSection = document.getElementById('results-section');
+            resultsSection.classList.add('active');
+            
+            // Build results HTML
+            let resultsHTML = `
+                <div class="score-display">
+                    <div class="score-label">Your Sleep Environment Score</div>
+                    <div class="score-value">${totalScore}<span class="score-max">/100</span></div>
+                    <div class="score-rating">${getOverallRating(totalScore)}</div>
+                </div>
+                
+                <div class="category-scores">
+                    ${Object.entries(scores).map(([category, score]) => {
+                        const rating = getScoreRating(score);
+                        const icons = {
+                            temperature: '&#127777;',
+                            light: '&#128161;',
+                            noise: '&#128266;',
+                            humidity: '&#128167;',
+                            airScent: '&#127811;'
+                        };
+                        const names = {
+                            temperature: 'Temperature',
+                            light: 'Light Control',
+                            noise: 'Noise Level',
+                            humidity: 'Humidity',
+                            airScent: 'Air & Scent'
+                        };
+                        return `
+                            <div class="category-card">
+                                <div class="category-header">
+                                    <span class="category-icon">${icons[category]}</span>
+                                    <span class="category-name">${names[category]}</span>
+                                </div>
+                                <div class="category-bar">
+                                    <div class="category-fill ${rating.class}" style="width: ${score * 5}%"></div>
+                                </div>
+                                <div class="category-status status-${rating.class}">${rating.label} (${score}/20)</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+                
+                <div class="recommendations-section">
+                    <h3 class="section-title">&#128161; Your Personalized Recommendations</h3>
+                    ${recommendations.map(rec => `
+                        <div class="recommendation-card priority-${rec.priority}">
+                            <div class="recommendation-header">
+                                <h4 class="recommendation-title">${rec.title}</h4>
+                                <span class="priority-badge ${rec.priority}">${rec.priority} priority</span>
+                            </div>
+                            <p class="recommendation-text">${rec.text}</p>
+                            
+                            ${rec.diyTips.length > 0 ? `
+                                <div class="diy-tips">
+                                    <div class="diy-tips-title">Free DIY Solutions:</div>
+                                    <ul>
+                                        ${rec.diyTips.map(tip => `<li>${tip}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                            
+                            ${rec.products.length > 0 ? rec.products.map(product => `
+                                <div class="product-recommendation">
+                                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                                    <div class="product-info">
+                                        <div class="product-name">${product.name}</div>
+                                        <div class="product-price">${product.price}</div>
+                                    </div>
+                                    <a href="${product.link}" class="product-link" target="_blank">View Products</a>
+                                </div>
+                            `).join('') : ''}
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="email-capture">
+                    <h3>Get Your Results by Email (Optional)</h3>
+                    <p>Receive a copy of your sleep environment score, category breakdown, and top recommendations directly to your inbox for future reference.</p>
+                    <div class="email-form-wrapper">
+                        <div class="input-group">
+                            <input type="text" class="email-input" id="user-name" placeholder="First name *" maxlength="64" required aria-label="First name" aria-required="true">
+                            <div class="form-error" id="name-error"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" class="email-input" id="user-email" placeholder="Email address *" maxlength="254" required aria-label="Email address" aria-required="true">
+                            <div class="form-error" id="email-error"></div>
+                        </div>
+                        <div class="consent-group">
+                            <input type="checkbox" id="marketing-consent">
+                            <label for="marketing-consent">I agree to receive occasional sleep tips and product recommendations from Spacire. You can unsubscribe at any time.</label>
+                        </div>
+                        <div class="email-form">
+                            <button class="email-submit" onclick="submitEmail()">Send My Report</button>
+                        </div>
+                    </div>
+                    <div id="email-success" style="display: none; background: #DFF0D8; color: #3c763d; padding: 16px; border-radius: 8px; margin-top: 16px;">
+                        <strong>Success!</strong> Your personalized sleep report has been sent. Check your inbox (and spam folder) shortly.
+                    </div>
+                    <div id="email-error-message" style="display: none; background: #f8d7da; color: #721c24; padding: 16px; border-radius: 8px; margin-top: 16px;"></div>
+                </div>
+                
+                <div class="btn-group" style="justify-content: center; margin-top: 28px;">
+                    <button class="btn btn-secondary" onclick="restartAssessment()">Retake Assessment</button>
+                    <button class="btn btn-primary" onclick="window.open('https://spacire.com/collections/sleep-environment', '_blank')">Shop Sleep Products</button>
+                </div>
+                
+                <div class="medical-disclaimer">
+                    <strong>Disclaimer</strong>
+                    This assessment provides general recommendations for optimizing your sleep environment and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your GP, physician, or other qualified health provider with any specific questions about sleep disorders or health concerns.
+                </div>
+            `;
+            
+            resultsSection.innerHTML = resultsHTML;
+            
+            // Scroll to results
+            window.scrollTo({ top: document.querySelector('.tool-card').offsetTop - 20, behavior: 'smooth' });
+            
+            // Track completion (placeholder for Appwrite)
+            trackCompletion(totalScore, scores);
+        }
+        
+        function restartAssessment() {
+            currentQuestion = 1;
+            document.getElementById('results-section').classList.remove('active');
+            document.getElementById('results-section').innerHTML = '';
+            document.getElementById('questions-container').style.display = 'block';
+            document.querySelector('.progress-container').style.display = 'block';
+            
+            // Reset all inputs
+            document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
+            document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+            document.getElementById('temperature').value = 20;
+            document.getElementById('temp-display').innerHTML = '20°C <span>(68°F)</span>';
+            
+            // Reset question visibility
+            document.querySelectorAll('.question-section').forEach((el, i) => {
+                el.classList.remove('active');
+                if (i === 0) el.classList.add('active');
+            });
+            
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // ========================================
+        // APPWRITE CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // DATABASE FUNCTIONS
+        // ========================================
+        async function saveToDatabase(scores, recommendations, userInfo = null) {
+            try {
+                const data = {
+                    tool_name: 'sleep_environment_optimizer',
+                    overall_score: scores.overall,
+                    scores_json: JSON.stringify(scores),
+                    recommendations_json: JSON.stringify(recommendations),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                };
+                
+                if (userInfo && userInfo.email) {
+                    data.user_email = userInfo.email;
+                    data.user_first_name = userInfo.firstName || '';
+                    data.marketing_consent = userInfo.consent || false;
+                }
+                
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    data
+                );
+                console.log('Saved to database');
+            } catch (error) {
+                console.error('Database error:', error);
+            }
+        }
+        
+        // ========================================
+        // EMAIL FUNCTIONS
+        // ========================================
+        async function sendEmailReport(email, firstName, scores, recommendations) {
+            const payload = JSON.stringify({
+                email: email,
+                firstName: firstName || 'there',
+                overallScore: scores.overall,
+                scores: {
+                    temperature: scores.temperature,
+                    light: scores.light,
+                    noise: scores.noise,
+                    humidity: scores.humidity,
+                    air: scores.air
+                },
+                recommendations: recommendations.map(r => ({
+                    category: r.category,
+                    priority: r.priority,
+                    title: r.title,
+                    text: r.text,
+                    diyTips: r.diyTips || [],
+                    products: r.products || []
+                }))
+            });
+            
+            try {
+                const response = await functions.createExecution(
+                    CONFIG.functionId,
+                    payload,
+                    false
+                );
+                
+                if (response.responseStatusCode === 200) {
+                    const result = JSON.parse(response.responseBody);
+                    return result;
+                }
+                return { success: false };
+            } catch (error) {
+                console.error('Email error:', error);
+                return { success: false };
+            }
+        }
+        
+        // ========================================
+        // FORM VALIDATION HELPERS
+        // ========================================
+        function showFieldError(fieldId, errorId, message) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            if (field) {
+                field.classList.add('error');
+            }
+            if (error) {
+                error.textContent = message;
+                error.classList.add('visible');
+            }
+        }
+        
+        function clearFieldError(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            if (field) {
+                field.classList.remove('error');
+            }
+            if (error) {
+                error.textContent = '';
+                error.classList.remove('visible');
+            }
+        }
+        
+        function showFormError(message) {
+            const errorDiv = document.getElementById('email-error-message');
+            if (errorDiv) {
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+            }
+        }
+        
+        function clearFormError() {
+            const errorDiv = document.getElementById('email-error-message');
+            if (errorDiv) {
+                errorDiv.style.display = 'none';
+            }
+        }
+        
+        // ========================================
+        // EMAIL SUBMISSION
+        // ========================================
+        async function submitEmail() {
+            // Clear previous errors
+            clearFieldError('user-name', 'name-error');
+            clearFieldError('user-email', 'email-error');
+            clearFormError();
+            
+            const nameInput = document.getElementById('user-name');
+            const emailInput = document.getElementById('user-email');
+            const consentCheckbox = document.getElementById('marketing-consent');
+            
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const consent = consentCheckbox ? consentCheckbox.checked : false;
+            
+            let hasErrors = false;
+            
+            // Validate name (required)
+            if (!name) {
+                showFieldError('user-name', 'name-error', 'Please enter your first name');
+                hasErrors = true;
+            } else if (name.length > 64) {
+                showFieldError('user-name', 'name-error', 'Name is too long (max 64 characters)');
+                hasErrors = true;
+            } else if (!/^[a-zA-Z\s'-]+$/.test(name)) {
+                showFieldError('user-name', 'name-error', 'Name can only contain letters, spaces, hyphens, and apostrophes');
+                hasErrors = true;
+            }
+            
+            // Validate email (required)
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email) {
+                showFieldError('user-email', 'email-error', 'Please enter your email address');
+                hasErrors = true;
+            } else if (email.length < 5) {
+                showFieldError('user-email', 'email-error', 'Email address is too short');
+                hasErrors = true;
+            } else if (email.length > 254) {
+                showFieldError('user-email', 'email-error', 'Email address is too long');
+                hasErrors = true;
+            } else if (!emailPattern.test(email)) {
+                showFieldError('user-email', 'email-error', 'Please enter a valid email address');
+                hasErrors = true;
+            }
+            
+            if (hasErrors) {
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.email-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Get scores and recommendations from userData
+            const scores = {
+                overall: userData.totalScore || 0,
+                temperature: userData.scores?.temperature || 0,
+                light: userData.scores?.light || 0,
+                noise: userData.scores?.noise || 0,
+                humidity: userData.scores?.humidity || 0,
+                air: userData.scores?.air || 0
+            };
+            
+            // Save to database
+            await saveToDatabase(scores, userData.recommendations || [], {
+                email: email,
+                firstName: name,
+                consent: consent
+            });
+            
+            // Send email
+            const result = await sendEmailReport(email, name, scores, userData.recommendations || []);
+            
+            if (result.success) {
+                document.getElementById('email-success').style.display = 'block';
+                document.querySelector('.email-form-wrapper').style.display = 'none';
+            } else {
+                showFormError('Sorry, there was an error sending your report. Please try again.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+        
+        // ========================================
+        // ANALYTICS - Save anonymous completion data
+        // ========================================
+        function trackCompletion(totalScore, scores) {
+            // Save anonymous usage data to database
+            const anonScores = {
+                overall: totalScore,
+                temperature: scores.temperature,
+                light: scores.light,
+                noise: scores.noise,
+                humidity: scores.humidity,
+                air: scores.air
+            };
+            
+            // Save without email (anonymous tracking)
+            saveToDatabase(anonScores, userData.recommendations || []);
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(button) {
+            const content = button.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+            
+            // Close all other sections
+            document.querySelectorAll('.info-content.open').forEach(el => {
+                el.classList.remove('open');
+                el.previousElementSibling.classList.remove('open');
+                el.previousElementSibling.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Toggle current section
+            if (!isOpen) {
+                content.classList.add('open');
+                button.classList.add('open');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.mobile-nav').classList.toggle('active');
+        });
+        
+    </script>
+</body>
+</html>
