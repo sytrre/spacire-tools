@@ -3,78 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shift Worker Sleep Planner | Free Personalized Schedule Tool | Spacire</title>
-    <meta name="description" content="Free shift worker sleep planner tool. Get personalized sleep schedules, circadian rhythm tips, and product recommendations for nurses, factory workers, and night shift employees.">
-    <meta name="keywords" content="shift worker sleep, night shift sleep schedule, rotating shift sleep tips, circadian rhythm, daytime sleeping">
+    <meta name="description" content="Free Shift Worker Sleep Planner - Get personalized sleep schedules for night shifts, rotating shifts, and irregular hours. Science-backed tips for nurses, factory workers, and security personnel.">
+    <meta name="keywords" content="shift worker sleep schedule, night shift sleep tips, rotating shift sleep plan, circadian rhythm adjustment, daytime sleeping tips, nurse sleep schedule, factory worker sleep">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Shift Worker Sleep Planner - Free Personalized Schedule Tool | Spacire</title>
+    
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://tools.spacire.com/shift-worker-sleep-planner">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Shift Worker Sleep Planner | Free Tool | Spacire">
-    <meta property="og:description" content="Get a personalized sleep schedule for your shift pattern. Free tool for nurses, factory workers, and night shift employees.">
+    <meta property="og:title" content="Shift Worker Sleep Planner - Free Personalized Schedule">
+    <meta property="og:description" content="Get a personalized sleep schedule optimized for your shift pattern. Free tool for nurses, factory workers, and anyone working non-traditional hours.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.spacire.com/shift-worker-sleep-planner">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
     
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shift Worker Sleep Planner - Free Personalized Schedule">
+    <meta name="twitter:description" content="Get a personalized sleep schedule optimized for your shift pattern.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts - Domine (same as Tool 1) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Shift Worker Sleep Planner",
+        "description": "Free tool to create personalized sleep schedules for shift workers. Optimized for night shifts, rotating shifts, and irregular hours.",
+        "url": "https://tools.spacire.com/shift-worker-sleep-planner",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "GBP"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Spacire",
+            "url": "https://spacire.com"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much sleep do shift workers need?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Shift workers need the same 7-9 hours of sleep as day workers, but achieving quality sleep during daytime hours requires specific strategies like blackout curtains, white noise, and consistent sleep schedules."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When should night shift workers sleep?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Night shift workers typically benefit from sleeping immediately after their shift ends, before the body's circadian alerting signal increases. For a shift ending at 7am, sleeping from 8am-4pm is often optimal."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How can I adjust to rotating shifts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Gradual adjustment is key. Shift your sleep schedule by 1-2 hours per day in the direction of your upcoming shift. Use bright light exposure strategically and avoid caffeine close to your planned sleep time."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Spacire",
+                "item": "https://spacire.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Sleep Tools",
+                "item": "https://tools.spacire.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Shift Worker Sleep Planner",
+                "item": "https://tools.spacire.com/shift-worker-sleep-planner"
+            }
+        ]
+    }
+    </script>
+
     <style>
-        * {
+        /* ========================================
+           CSS VARIABLES & RESET (same as Tool 1)
+           ======================================== */
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5d98a;
+            --background: #FFFFFF;
+            --text-primary: #232323;
+            --text-secondary: #323232;
+            --text-light: #969696;
+            --border: #E6E6E6;
+            --hover: #F8F8F8;
+            --success: #DFF0D8;
+            --success-dark: #3c763d;
+            --warning: #FCF8E3;
+            --warning-dark: #8a6d3b;
+            --error: #D93333;
+            --error-light: #F2DEDE;
+            --info-bg: #e6f4ff;
+            
+            --font-primary: 'Domine', Georgia, serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a1628 0%, #1a237e 50%, #0d47a1 100%);
-            min-height: 100vh;
-            color: #333;
+            font-family: var(--font-primary);
+            font-size: 16px;
             line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            -webkit-font-smoothing: antialiased;
         }
         
-        /* Header */
+        /* ========================================
+           HEADER (identical to Tool 1)
+           ======================================== */
         .site-header {
-            background: rgba(4, 37, 72, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            position: fixed;
+            background: var(--primary);
+            padding: 12px 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
         
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-        
-        .logo span {
-            color: #E0B252;
-        }
-        
-        .nav-menu {
+        .logo-link {
             display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-menu a {
-            color: rgba(255,255,255,0.9);
+            align-items: center;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            gap: 12px;
         }
         
-        .nav-menu a:hover {
-            color: #E0B252;
+        .logo-text {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .header-nav a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+        }
+        
+        .header-nav a:hover {
+            color: var(--accent);
         }
         
         .mobile-menu-btn {
@@ -82,27 +226,24 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 8px;
+            flex-direction: column;
+            gap: 5px;
         }
         
         .mobile-menu-btn span {
             display: block;
-            width: 25px;
-            height: 3px;
+            width: 24px;
+            height: 2px;
             background: #fff;
-            margin: 5px 0;
-            transition: 0.3s;
+            transition: var(--transition);
         }
         
         .mobile-nav {
             display: none;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            background: rgba(4, 37, 72, 0.98);
-            padding: 1rem;
-            z-index: 999;
+            background: var(--primary);
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         .mobile-nav.active {
@@ -111,113 +252,216 @@
         
         .mobile-nav a {
             display: block;
-            color: #fff;
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
-            padding: 1rem;
+            padding: 12px 0;
+            font-size: 14px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--accent);
+        }
+        
         @media (max-width: 768px) {
-            .nav-menu {
+            .header-nav {
                 display: none;
             }
+            
             .mobile-menu-btn {
-                display: block;
+                display: flex;
             }
         }
         
-        /* Hero Section */
-        .hero {
-            padding: 120px 2rem 60px;
-            text-align: center;
-            color: #fff;
+        /* ========================================
+           BREADCRUMB (identical to Tool 1)
+           ======================================== */
+        .breadcrumb {
+            background: var(--hover);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
         
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 13px;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2rem;
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
         }
         
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
+        .breadcrumb a:hover {
+            text-decoration: underline;
         }
         
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
+        .breadcrumb span {
+            color: var(--text-light);
+            margin: 0 8px;
         }
         
-        /* Main Container */
+        /* ========================================
+           MAIN CONTAINER
+           ======================================== */
         .main-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 1rem 3rem;
+            padding: 40px 20px 60px;
         }
         
-        /* Tool Card */
+        /* ========================================
+           PAGE TITLE (identical to Tool 1)
+           ======================================== */
+        .page-title {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .page-title h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ========================================
+           TOOL CARD (consistent with Tool 1)
+           ======================================== */
         .tool-card {
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
+            box-shadow: var(--shadow-md);
         }
         
-        /* Progress Bar */
+        .tool-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #fff;
+            padding: 24px 28px;
+        }
+        
+        .tool-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .tool-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .tool-body {
+            padding: 28px;
+        }
+        
+        /* ========================================
+           PROGRESS (styled like Tool 1)
+           ======================================== */
         .progress-container {
-            background: #f0f4f8;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 28px;
         }
         
-        .progress-bar {
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #042548, #E0B252);
-            border-radius: 4px;
-            transition: width 0.5s ease;
-            width: 0%;
-        }
-        
-        .progress-text {
+        .progress-steps {
             display: flex;
             justify-content: space-between;
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            color: #666;
+            margin-bottom: 12px;
         }
         
-        /* Steps */
-        .step {
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--border);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .progress-step.active .step-number {
+            background: var(--primary);
+            color: #fff;
+        }
+        
+        .progress-step.completed .step-number {
+            background: var(--success-dark);
+            color: #fff;
+        }
+        
+        .step-label {
+            font-size: 11px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .progress-step.active .step-label,
+        .progress-step.completed .step-label {
+            color: var(--text-primary);
+        }
+        
+        .progress-bar-bg {
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+        
+        @media (max-width: 600px) {
+            .step-label {
+                display: none;
+            }
+        }
+        
+        /* ========================================
+           QUESTION SECTIONS
+           ======================================== */
+        .question-section {
             display: none;
-            padding: 2rem;
-            animation: fadeIn 0.5s ease;
         }
         
-        .step.active {
+        .question-section.active {
             display: block;
+            animation: fadeIn 0.4s ease;
         }
         
         @keyframes fadeIn {
@@ -225,1445 +469,1637 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .step-title {
-            font-size: 1.5rem;
-            color: #042548;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .question-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
         }
         
-        .step-subtitle {
-            color: #666;
-            margin-bottom: 1.5rem;
+        .question-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
         
-        /* Option Cards */
+        /* ========================================
+           OPTION CARDS
+           ======================================== */
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
         }
         
         .option-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-align: center;
-            position: relative;
+            background: #fff;
         }
         
         .option-card:hover {
-            border-color: #042548;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(4, 37, 72, 0.15);
+            border-color: var(--primary);
+            background: var(--hover);
         }
         
         .option-card.selected {
-            border-color: #042548;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e6f4ff 100%);
-        }
-        
-        .option-card.selected::after {
-            content: '\2713';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #042548;
-            color: #fff;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
+            border-color: var(--primary);
+            background: var(--info-bg);
         }
         
         .option-card input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
+            display: none;
         }
         
         .option-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 28px;
+            margin-bottom: 8px;
         }
         
         .option-title {
+            font-size: 14px;
             font-weight: 600;
-            color: #042548;
-            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
         
         .option-desc {
-            font-size: 0.85rem;
-            color: #666;
+            font-size: 12px;
+            color: var(--text-light);
         }
         
-        /* Time Input */
-        .time-input-group {
+        /* Time inputs */
+        .time-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .time-group {
             display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
+            flex-direction: column;
         }
         
-        .time-input-group label {
-            font-weight: 500;
-            color: #042548;
-            min-width: 120px;
+        .time-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
         }
         
-        .time-input-group input[type="time"],
-        .time-input-group select {
-            padding: 0.75rem 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
+        .time-group input {
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: 16px;
+            transition: var(--transition);
         }
         
-        .time-input-group input[type="time"]:focus,
-        .time-input-group select:focus {
+        .time-group input:focus {
             outline: none;
-            border-color: #042548;
+            border-color: var(--primary);
         }
         
-        /* Buttons */
-        .btn-group {
+        /* Slider */
+        .slider-container {
+            margin-bottom: 20px;
+        }
+        
+        .slider-label {
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary) 45%, var(--border) 45%);
+            border-radius: 3px;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 8px;
+        }
+        
+        /* Checkbox options */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 14px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .checkbox-option:hover {
+            border-color: var(--primary);
+        }
+        
+        .checkbox-option.selected {
+            border-color: var(--primary);
+            background: var(--info-bg);
+        }
+        
+        .checkbox-option input {
+            display: none;
+        }
+        
+        .checkbox-option span {
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .checkbox-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* ========================================
+           NAVIGATION BUTTONS
+           ======================================== */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
         }
         
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: 14px;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #042548 0%, #0a3d6e 100%);
+            background: var(--primary);
             color: #fff;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(4, 37, 72, 0.4);
+            background: var(--primary-light);
+        }
+        
+        .btn-primary:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
         }
         
         .btn-secondary {
-            background: #f0f4f8;
-            color: #042548;
+            background: var(--hover);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
         }
         
         .btn-secondary:hover {
-            background: #e0e8f0;
+            background: var(--border);
         }
         
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
+        /* ========================================
+           RESULTS SECTION
+           ======================================== */
+        .results-section {
+            display: none;
         }
         
-        /* Results Section */
-        .results-container {
-            padding: 2rem;
+        .results-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
         }
         
-        .results-header {
+        .score-display {
             text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .schedule-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #042548 0%, #1565c0 100%);
+            padding: 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius-lg);
             color: #fff;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            margin-bottom: 28px;
         }
         
-        .results-header h2 {
-            font-size: 1.8rem;
-            color: #042548;
-            margin-bottom: 0.5rem;
+        .score-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .score-value {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .score-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
         }
         
         /* Schedule Display */
         .schedule-card {
-            background: linear-gradient(135deg, #f8fbff 0%, #e8f4ff 100%);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid #d0e3ff;
+            background: var(--info-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
         }
         
-        .schedule-card h3 {
-            color: #042548;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .schedule-timeline {
-            display: grid;
-            gap: 1rem;
-        }
-        
-        .timeline-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .timeline-time {
-            background: #042548;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+        .schedule-title {
+            font-size: 16px;
             font-weight: 600;
-            min-width: 100px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+        
+        .schedule-item {
+            background: #fff;
+            border-radius: var(--radius-md);
+            padding: 14px;
             text-align: center;
         }
         
-        .timeline-content h4 {
-            color: #042548;
-            margin-bottom: 0.25rem;
+        .schedule-time {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
         }
         
-        .timeline-content p {
-            font-size: 0.9rem;
-            color: #666;
+        .schedule-activity {
+            font-size: 13px;
+            color: var(--text-secondary);
         }
         
-        /* Tips Cards */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+        /* Recommendation Cards */
+        .recommendations-section {
+            margin-bottom: 28px;
         }
         
-        .tip-card {
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        
+        .recommendation-card {
             background: #fff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border-left: 4px solid #E0B252;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 16px;
         }
         
-        .tip-card h4 {
-            color: #042548;
-            margin-bottom: 0.5rem;
+        .recommendation-card.priority-high {
+            border-left: 4px solid var(--error);
+        }
+        
+        .recommendation-card.priority-medium {
+            border-left: 4px solid var(--accent);
+        }
+        
+        .recommendation-card.priority-low {
+            border-left: 4px solid #5cb85c;
+        }
+        
+        .recommendation-header {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
         }
         
-        .tip-card p {
-            font-size: 0.9rem;
-            color: #555;
+        .recommendation-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
         }
         
-        /* Product Recommendations */
-        .products-section {
-            margin-top: 2rem;
+        .priority-badge {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
         }
         
-        .products-section h3 {
-            color: #042548;
-            margin-bottom: 1rem;
+        .priority-badge.high {
+            background: var(--error-light);
+            color: var(--error);
+        }
+        
+        .priority-badge.medium {
+            background: var(--warning);
+            color: var(--warning-dark);
+        }
+        
+        .priority-badge.low {
+            background: var(--success);
+            color: var(--success-dark);
+        }
+        
+        .recommendation-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* DIY Tips */
+        .diy-tips {
+            background: var(--info-bg);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 12px;
+        }
+        
+        .diy-tips-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .diy-tips ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        
+        .diy-tips li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        
+        /* Product Cards */
+        .product-recommendation {
             display: flex;
+            gap: 16px;
+            background: var(--hover);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 16px;
             align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .product-card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .product-image {
-            width: 100%;
-            height: 180px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            background: #f5f5f5;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
         }
         
         .product-info {
-            padding: 1rem;
-        }
-        
-        .product-category {
-            font-size: 0.75rem;
-            color: #E0B252;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.25rem;
+            flex: 1;
         }
         
         .product-name {
+            font-size: 14px;
             font-weight: 600;
-            color: #042548;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
         
         .product-price {
-            font-size: 1.1rem;
+            font-size: 16px;
             font-weight: 700;
-            color: #042548;
-            margin-bottom: 0.75rem;
+            color: var(--primary);
         }
         
-        .product-btn {
-            display: block;
-            width: 100%;
-            padding: 0.75rem;
-            background: linear-gradient(135deg, #042548 0%, #0a3d6e 100%);
+        .product-link {
+            display: inline-block;
+            padding: 10px 16px;
+            background: var(--primary);
             color: #fff;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+        }
+        
+        .product-link:hover {
+            background: var(--primary-light);
+        }
+        
+        @media (max-width: 500px) {
+            .product-recommendation {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* Email Capture */
+        .email-capture {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--info-bg) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
             text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
+            margin-top: 28px;
+        }
+        
+        .email-capture-title {
+            font-size: 18px;
             font-weight: 600;
-            transition: opacity 0.3s;
+            color: var(--primary);
+            margin-bottom: 8px;
         }
         
-        .product-btn:hover {
-            opacity: 0.9;
-        }
-        
-        /* Toggle Sections */
-        .toggle-section {
-            margin-top: 1.5rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        
-        .toggle-header {
-            background: #f8f9fa;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: #042548;
-            transition: background 0.3s;
-        }
-        
-        .toggle-header:hover {
-            background: #f0f4f8;
-        }
-        
-        .toggle-icon {
-            transition: transform 0.3s;
-        }
-        
-        .toggle-section.open .toggle-icon {
-            transform: rotate(180deg);
-        }
-        
-        .toggle-content {
-            display: none;
-            padding: 1.5rem;
-            background: #fff;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .toggle-section.open .toggle-content {
-            display: block;
-        }
-        
-        /* Share Buttons */
-        .share-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.25rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        
-        .share-btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
-        
-        .share-btn.facebook {
-            background: #1877f2;
-            color: #fff;
-        }
-        
-        .share-btn.twitter {
-            background: #000;
-            color: #fff;
-        }
-        
-        .share-btn.linkedin {
-            background: #0a66c2;
-            color: #fff;
-        }
-        
-        .share-btn.whatsapp {
-            background: #25d366;
-            color: #fff;
-        }
-        
-        .share-btn.email {
-            background: #666;
-            color: #fff;
-        }
-        
-        /* More Tools */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-        
-        .tool-link-card {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: linear-gradient(135deg, #f8fbff 0%, #e8f4ff 100%);
-            border-radius: 12px;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #d0e3ff;
-        }
-        
-        .tool-link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(4, 37, 72, 0.15);
-        }
-        
-        .tool-link-icon {
-            font-size: 2rem;
-        }
-        
-        .tool-link-info h4 {
-            color: #042548;
-            margin-bottom: 0.25rem;
-        }
-        
-        .tool-link-info p {
-            font-size: 0.85rem;
-            color: #666;
-        }
-        
-        /* Email Form */
-        .email-section {
-            background: linear-gradient(135deg, #042548 0%, #0a3d6e 100%);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2rem;
-            color: #fff;
-        }
-        
-        .email-section h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .email-section > p {
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
+        .email-capture-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
         
         .email-form {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            gap: 12px;
+            max-width: 450px;
+            margin: 0 auto;
         }
         
-        .form-row {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .form-group {
+        .email-input {
             flex: 1;
-            min-width: 200px;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: 14px;
+            transition: var(--transition);
         }
         
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-group input[type="text"],
-        .form-group input[type="email"] {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s, background 0.3s;
-        }
-        
-        .form-group input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-        
-        .form-group input:focus {
+        .email-input:focus {
             outline: none;
-            border-color: #E0B252;
-            background: rgba(255,255,255,0.15);
+            border-color: var(--primary);
         }
         
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-        
-        .checkbox-group input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
-            accent-color: #E0B252;
-        }
-        
-        .checkbox-group label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            cursor: pointer;
-        }
-        
-        .btn-email {
-            background: #E0B252;
-            color: #042548;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            align-self: flex-start;
-        }
-        
-        .btn-email:hover {
-            background: #c9a047;
-            transform: translateY(-2px);
-        }
-        
-        .btn-email:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .email-note {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-top: 1rem;
-        }
-        
-        /* Success Message */
-        .success-message {
+        .email-success {
             display: none;
-            background: rgba(76, 175, 80, 0.2);
-            border: 1px solid #4caf50;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1rem;
-            color: #fff;
+            color: var(--success-dark);
+            font-weight: 600;
+            margin-top: 12px;
         }
         
-        .success-message.show {
+        @media (max-width: 500px) {
+            .email-form {
+                flex-direction: column;
+            }
+        }
+        
+        /* ========================================
+           INFO TOGGLES (SEO content)
+           ======================================== */
+        .info-section {
+            margin-top: 40px;
+        }
+        
+        .info-toggle {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        
+        .toggle-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .toggle-header:hover {
+            background: var(--hover);
+        }
+        
+        .toggle-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .toggle-icon {
+            font-size: 20px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-toggle.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .info-content {
+            display: none;
+            padding: 24px;
+            background: #fff;
+            border-top: 1px solid var(--border);
+        }
+        
+        .info-content.open {
             display: block;
+            animation: slideDown 0.3s ease;
         }
         
-        /* Footer */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .info-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 20px 0 10px;
+        }
+        
+        .info-content h4:first-child {
+            margin-top: 0;
+        }
+        
+        .info-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .info-content ul {
+            margin: 0 0 16px 0;
+            padding-left: 20px;
+        }
+        
+        .info-content li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        
+        .info-table th,
+        .info-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+        
+        .info-table th {
+            background: var(--hover);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .info-table td {
+            color: var(--text-secondary);
+        }
+        
+        /* ========================================
+           FOOTER (identical to Tool 1)
+           ======================================== */
         .site-footer {
-            background: #042548;
+            background: var(--primary);
             color: #fff;
-            padding: 3rem 2rem;
-            margin-top: 3rem;
+            padding: 48px 0 24px;
+            margin-top: 60px;
         }
         
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-section h4 {
-            color: #E0B252;
-            margin-bottom: 1rem;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            color: var(--accent);
         }
         
         .footer-section a {
+            display: block;
             color: rgba(255,255,255,0.8);
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: var(--transition);
         }
         
         .footer-section a:hover {
-            color: #E0B252;
+            color: var(--accent);
         }
         
         .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0;
-            padding-top: 2rem;
+            padding-top: 24px;
             border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
         }
         
-        /* Disclaimer */
-        .disclaimer {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 2rem;
-            font-size: 0.85rem;
-            color: #856404;
-        }
-        
-        .disclaimer strong {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Warning Box */
-        .warning-box {
-            background: #fff3e0;
-            border: 1px solid #ff9800;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            color: #e65100;
-        }
-        
-        .warning-box strong {
+        .footer-legal {
+            margin-top: 12px;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         
-        /* Responsive */
+        .footer-legal a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--accent);
+        }
+        
         @media (max-width: 768px) {
-            .hero {
-                padding: 100px 1rem 40px;
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
             }
-            
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-            
-            .step {
-                padding: 1.5rem;
-            }
-            
-            .options-grid {
+        }
+        
+        @media (max-width: 480px) {
+            .footer-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .btn-group {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .timeline-item {
-                flex-direction: column;
-            }
-            
-            .timeline-time {
-                width: 100%;
-            }
-            
-            .form-row {
-                flex-direction: column;
-            }
-            
-            .share-buttons {
-                justify-content: center;
-            }
-            
-            .results-container {
-                padding: 1.5rem;
-            }
-        }
-        
-        /* Loading Spinner */
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(4,37,72,0.3);
-            border-radius: 50%;
-            border-top-color: #042548;
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
     </style>
 </head>
+
 <body>
-    <!-- Header -->
+    <!-- Header (identical to Tool 1) -->
     <header class="site-header">
-        <a href="https://tools.spacire.com" class="logo">Spac<span>ire</span></a>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="https://tools.spacire.com">All Tools</a></li>
-                <li><a href="https://spacire.com/collections/sleep-aids-for-shift-workers">Shop Shift Worker Products</a></li>
-                <li><a href="https://spacire.com/blogs/journal">Sleep Blog</a></li>
-                <li><a href="https://spacire.com">Main Store</a></li>
-            </ul>
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-shift-workers">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-shift-workers">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
         </nav>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </header>
     
-    <!-- Mobile Nav -->
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="https://tools.spacire.com">All Tools</a>
-        <a href="https://spacire.com/collections/sleep-aids-for-shift-workers">Shop Shift Worker Products</a>
-        <a href="https://spacire.com/blogs/journal">Sleep Blog</a>
-        <a href="https://spacire.com">Main Store</a>
+    <!-- Breadcrumb (like Tool 1) -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>›</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>›</span>
+            <span style="color: var(--text-primary);">Shift Worker Sleep Planner</span>
+        </div>
     </nav>
     
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Shift Worker Sleep Planner</h1>
-        <p>Get a personalized sleep schedule optimized for your shift pattern. Free tool designed for nurses, factory workers, security personnel, and anyone working non-traditional hours.</p>
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <span>&#128337;</span> Takes 3 minutes
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Page Title -->
+        <header class="page-title">
+            <h1>Shift Worker Sleep Planner</h1>
+            <p class="page-subtitle">Get a personalized sleep schedule optimized for your shift pattern. Free tool designed for nurses, factory workers, and anyone working non-traditional hours. Takes about 3 minutes.</p>
+        </header>
+        
+        <!-- Tool Card -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Create Your Sleep Schedule</h2>
+                <p>Answer a few questions about your work pattern and lifestyle</p>
             </div>
-            <div class="trust-badge">
-                <span>&#128100;</span> 100% Free
-            </div>
-            <div class="trust-badge">
-                <span>&#128274;</span> No sign-up required
+            
+            <div class="tool-body">
+                <!-- Progress -->
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span class="step-label">Shift Type</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span class="step-label">Schedule</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span class="step-label">Challenges</span>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-number">4</div>
+                            <span class="step-label">Lifestyle</span>
+                        </div>
+                        <div class="progress-step" data-step="5">
+                            <div class="step-number">5</div>
+                            <span class="step-label">Goals</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progressFill" style="width: 10%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Questions Container -->
+                <div id="questions-container">
+                    <!-- Question 1: Shift Type -->
+                    <section class="question-section active" data-question="1">
+                        <h3 class="question-title">What type of shift do you work?</h3>
+                        <p class="question-description">Select the pattern that best matches your work schedule</p>
+                        
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="shiftType" value="fixed-night">
+                                <div class="option-icon">&#127769;</div>
+                                <div class="option-title">Fixed Night Shifts</div>
+                                <div class="option-desc">Always work nights (e.g., 10pm-6am)</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="shiftType" value="fixed-early">
+                                <div class="option-icon">&#127749;</div>
+                                <div class="option-title">Fixed Early Shifts</div>
+                                <div class="option-desc">Always start early (e.g., 5am-1pm)</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="shiftType" value="fixed-late">
+                                <div class="option-icon">&#127750;</div>
+                                <div class="option-title">Fixed Late/Evening</div>
+                                <div class="option-desc">Always work evenings (e.g., 2pm-10pm)</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="shiftType" value="rotating">
+                                <div class="option-icon">&#128260;</div>
+                                <div class="option-title">Rotating Shifts</div>
+                                <div class="option-desc">Schedule changes weekly or bi-weekly</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="shiftType" value="split">
+                                <div class="option-icon">&#128256;</div>
+                                <div class="option-title">Split Shifts</div>
+                                <div class="option-desc">Work in two separate blocks per day</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="shiftType" value="on-call">
+                                <div class="option-icon">&#128222;</div>
+                                <div class="option-title">On-Call/Irregular</div>
+                                <div class="option-desc">Unpredictable hours or standby work</div>
+                            </label>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <div></div>
+                            <button class="btn btn-primary" onclick="nextQuestion()" id="btn-next-1" disabled>Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 2: Schedule Details -->
+                    <section class="question-section" data-question="2">
+                        <h3 class="question-title">Your Shift Schedule</h3>
+                        <p class="question-description">Tell us about your typical working hours</p>
+                        
+                        <div class="time-inputs">
+                            <div class="time-group">
+                                <label for="shiftStart">Shift Start Time</label>
+                                <input type="time" id="shiftStart" value="22:00">
+                            </div>
+                            <div class="time-group">
+                                <label for="shiftEnd">Shift End Time</label>
+                                <input type="time" id="shiftEnd" value="06:00">
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: block;">
+                                Commute Time (one way)
+                            </label>
+                            <div class="slider-label">
+                                <span>5 min</span>
+                                <span>60+ min</span>
+                            </div>
+                            <input type="range" id="commuteTime" min="5" max="60" value="30">
+                            <div class="slider-value" id="commuteDisplay">30 minutes</div>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="nextQuestion()">Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 3: Sleep Challenges -->
+                    <section class="question-section" data-question="3">
+                        <h3 class="question-title">What are your biggest sleep challenges?</h3>
+                        <p class="question-description">Select all that apply to you</p>
+                        
+                        <div class="checkbox-grid">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="falling-asleep">
+                                <span class="checkbox-icon">&#128564;</span>
+                                <span>Difficulty falling asleep</span>
+                            </label>
+                            
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="staying-asleep">
+                                <span class="checkbox-icon">&#9200;</span>
+                                <span>Waking up too early</span>
+                            </label>
+                            
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="light">
+                                <span class="checkbox-icon">&#9728;&#65039;</span>
+                                <span>Too much daylight</span>
+                            </label>
+                            
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="noise">
+                                <span class="checkbox-icon">&#128266;</span>
+                                <span>Household/street noise</span>
+                            </label>
+                            
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="family">
+                                <span class="checkbox-icon">&#128104;&#8205;&#128105;&#8205;&#128103;</span>
+                                <span>Family interruptions</span>
+                            </label>
+                            
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="alertness">
+                                <span class="checkbox-icon">&#9749;</span>
+                                <span>Still alert after shift</span>
+                            </label>
+                            
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="transition">
+                                <span class="checkbox-icon">&#128260;</span>
+                                <span>Adjusting between shifts</span>
+                            </label>
+                            
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="challenges" value="quality">
+                                <span class="checkbox-icon">&#128164;</span>
+                                <span>Poor sleep quality</span>
+                            </label>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="nextQuestion()">Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 4: Living Situation -->
+                    <section class="question-section" data-question="4">
+                        <h3 class="question-title">Your Living Situation</h3>
+                        <p class="question-description">This helps us tailor recommendations</p>
+                        
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="livingSituation" value="alone">
+                                <div class="option-icon">&#127968;</div>
+                                <div class="option-title">Live Alone</div>
+                                <div class="option-desc">Full control over environment</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="livingSituation" value="partner">
+                                <div class="option-icon">&#128145;</div>
+                                <div class="option-title">With Partner</div>
+                                <div class="option-desc">May have different schedules</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="livingSituation" value="family">
+                                <div class="option-icon">&#128106;</div>
+                                <div class="option-title">With Family/Kids</div>
+                                <div class="option-desc">Household activity during day</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="livingSituation" value="shared">
+                                <div class="option-icon">&#127969;</div>
+                                <div class="option-title">Shared Housing</div>
+                                <div class="option-desc">Roommates or shared spaces</div>
+                            </label>
+                        </div>
+                        
+                        <h3 class="question-title" style="margin-top: 24px;">How long have you worked shifts?</h3>
+                        
+                        <div class="options-grid" style="margin-top: 16px;">
+                            <label class="option-card">
+                                <input type="radio" name="experience" value="new">
+                                <div class="option-icon">&#127381;</div>
+                                <div class="option-title">New to Shifts</div>
+                                <div class="option-desc">Less than 3 months</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="experience" value="adjusting">
+                                <div class="option-icon">&#9878;&#65039;</div>
+                                <div class="option-title">Still Adjusting</div>
+                                <div class="option-desc">3 months - 1 year</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="experience" value="experienced">
+                                <div class="option-icon">&#128170;</div>
+                                <div class="option-title">Experienced</div>
+                                <div class="option-desc">Over 1 year</div>
+                            </label>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="nextQuestion()" id="btn-next-4" disabled>Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 5: Goals -->
+                    <section class="question-section" data-question="5">
+                        <h3 class="question-title">What's your main goal?</h3>
+                        <p class="question-description">We'll prioritize recommendations accordingly</p>
+                        
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="goal" value="more-sleep">
+                                <div class="option-icon">&#9200;</div>
+                                <div class="option-title">More Sleep Time</div>
+                                <div class="option-desc">Maximize total hours of sleep</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="goal" value="better-quality">
+                                <div class="option-icon">&#10024;</div>
+                                <div class="option-title">Better Quality</div>
+                                <div class="option-desc">Deeper, more restorative sleep</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="goal" value="easier-transitions">
+                                <div class="option-icon">&#128260;</div>
+                                <div class="option-title">Easier Transitions</div>
+                                <div class="option-desc">Smoother shift changes</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="goal" value="work-alertness">
+                                <div class="option-icon">&#9889;</div>
+                                <div class="option-title">Work Alertness</div>
+                                <div class="option-desc">Stay sharp during shifts</div>
+                            </label>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="generateResults()" id="btn-next-5" disabled>Get My Sleep Plan</button>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Results Section -->
+                <section class="results-section" id="resultsSection">
+                    <!-- Results will be dynamically generated -->
+                </section>
             </div>
         </div>
-    </section>
-    
-    <!-- Main Tool -->
-    <main class="main-container">
-        <div class="tool-card">
-            <!-- Progress Bar -->
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+        
+        <!-- Info Sections (SEO Content) -->
+        <div class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Why Shift Workers Need Special Sleep Strategies</span>
+                    <span class="toggle-icon">&#9660;</span>
                 </div>
-                <div class="progress-text">
-                    <span id="stepIndicator">Step 1 of 5</span>
-                    <span id="progressPercent">0%</span>
-                </div>
-            </div>
-            
-            <!-- Step 1: Shift Type -->
-            <div class="step active" id="step1">
-                <h2 class="step-title">
-                    <span>&#128337;</span> What type of shift do you work?
-                </h2>
-                <p class="step-subtitle">Select the pattern that best matches your work schedule</p>
-                
-                <div class="options-grid">
-                    <label class="option-card">
-                        <input type="radio" name="shiftType" value="fixed-night">
-                        <div class="option-icon">&#127769;</div>
-                        <div class="option-title">Fixed Night Shifts</div>
-                        <div class="option-desc">Always work nights (e.g., 10pm-6am)</div>
-                    </label>
+                <div class="info-content">
+                    <h4>The Circadian Challenge</h4>
+                    <p>Shift workers face a unique challenge: their work schedule conflicts with their body's natural circadian rhythm. This internal clock, regulated by light exposure and melatonin production, naturally promotes wakefulness during daylight and sleep at night.</p>
                     
-                    <label class="option-card">
-                        <input type="radio" name="shiftType" value="fixed-early">
-                        <div class="option-icon">&#127749;</div>
-                        <div class="option-title">Fixed Early Shifts</div>
-                        <div class="option-desc">Always start early (e.g., 5am-1pm)</div>
-                    </label>
+                    <h4>Health Implications</h4>
+                    <p>Research shows that shift work is associated with increased risks of:</p>
+                    <ul>
+                        <li>Cardiovascular disease and metabolic disorders</li>
+                        <li>Gastrointestinal problems</li>
+                        <li>Mental health challenges including depression and anxiety</li>
+                        <li>Workplace accidents due to fatigue</li>
+                    </ul>
                     
-                    <label class="option-card">
-                        <input type="radio" name="shiftType" value="fixed-late">
-                        <div class="option-icon">&#127750;</div>
-                        <div class="option-title">Fixed Late/Evening</div>
-                        <div class="option-desc">Always work evenings (e.g., 2pm-10pm)</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="shiftType" value="rotating">
-                        <div class="option-icon">&#128260;</div>
-                        <div class="option-title">Rotating Shifts</div>
-                        <div class="option-desc">Schedule changes weekly or bi-weekly</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="shiftType" value="split">
-                        <div class="option-icon">&#128256;</div>
-                        <div class="option-title">Split Shifts</div>
-                        <div class="option-desc">Work in two separate blocks per day</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="shiftType" value="on-call">
-                        <div class="option-icon">&#128222;</div>
-                        <div class="option-title">On-Call/Irregular</div>
-                        <div class="option-desc">Unpredictable hours or standby work</div>
-                    </label>
-                </div>
-                
-                <div class="btn-group">
-                    <button class="btn btn-primary" onclick="nextStep()" id="nextBtn1" disabled>
-                        Continue <span>&#8594;</span>
-                    </button>
+                    <h4>The Good News</h4>
+                    <p>With proper strategies, shift workers can significantly improve their sleep quality and reduce health risks. Key approaches include optimizing the sleep environment, strategic light exposure, and maintaining consistent routines where possible.</p>
                 </div>
             </div>
             
-            <!-- Step 2: Shift Times -->
-            <div class="step" id="step2">
-                <h2 class="step-title">
-                    <span>&#9200;</span> What are your typical shift times?
-                </h2>
-                <p class="step-subtitle">Enter your usual work hours (we'll calculate optimal sleep windows)</p>
-                
-                <div class="time-input-group">
-                    <label for="shiftStart">Shift Start Time:</label>
-                    <input type="time" id="shiftStart" value="22:00">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Optimal Sleep Schedules by Shift Type</span>
+                    <span class="toggle-icon">&#9660;</span>
                 </div>
-                
-                <div class="time-input-group">
-                    <label for="shiftEnd">Shift End Time:</label>
-                    <input type="time" id="shiftEnd" value="06:00">
-                </div>
-                
-                <div class="time-input-group">
-                    <label for="commute">Commute Time (one way):</label>
-                    <select id="commute">
-                        <option value="15">15 minutes</option>
-                        <option value="30" selected>30 minutes</option>
-                        <option value="45">45 minutes</option>
-                        <option value="60">1 hour</option>
-                        <option value="90">1.5 hours</option>
-                    </select>
-                </div>
-                
-                <div class="warning-box">
-                    <strong>&#9888;&#65039; For Rotating Shift Workers</strong>
-                    Enter the times for your most challenging shift (usually night shift). We'll provide strategies for all rotation phases.
-                </div>
-                
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="prevStep()">
-                        <span>&#8592;</span> Back
-                    </button>
-                    <button class="btn btn-primary" onclick="nextStep()">
-                        Continue <span>&#8594;</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Step 3: Sleep Challenges -->
-            <div class="step" id="step3">
-                <h2 class="step-title">
-                    <span>&#128564;</span> What sleep challenges do you face?
-                </h2>
-                <p class="step-subtitle">Select all that apply to get targeted recommendations</p>
-                
-                <div class="options-grid">
-                    <label class="option-card">
-                        <input type="checkbox" name="challenges" value="daytime-light">
-                        <div class="option-icon">&#9728;&#65039;</div>
-                        <div class="option-title">Daytime Light</div>
-                        <div class="option-desc">Sunlight makes it hard to sleep</div>
-                    </label>
+                <div class="info-content">
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Shift Type</th>
+                                <th>Recommended Sleep Window</th>
+                                <th>Key Strategy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Night Shift (10pm-6am)</td>
+                                <td>7:30am - 3:30pm</td>
+                                <td>Sleep immediately after shift</td>
+                            </tr>
+                            <tr>
+                                <td>Early Shift (5am-1pm)</td>
+                                <td>8:00pm - 4:00am</td>
+                                <td>Early bedtime, avoid screens</td>
+                            </tr>
+                            <tr>
+                                <td>Late Shift (2pm-10pm)</td>
+                                <td>11:30pm - 7:30am</td>
+                                <td>Wind-down routine after shift</td>
+                            </tr>
+                            <tr>
+                                <td>Rotating Shifts</td>
+                                <td>Varies by rotation</td>
+                                <td>Gradual adjustment (1-2 hours/day)</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     
-                    <label class="option-card">
-                        <input type="checkbox" name="challenges" value="noise">
-                        <div class="option-icon">&#128266;</div>
-                        <div class="option-title">Household Noise</div>
-                        <div class="option-desc">Family, traffic, or neighbors disturb sleep</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="checkbox" name="challenges" value="falling-asleep">
-                        <div class="option-icon">&#128564;</div>
-                        <div class="option-title">Difficulty Falling Asleep</div>
-                        <div class="option-desc">Mind races or body feels alert</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="checkbox" name="challenges" value="staying-asleep">
-                        <div class="option-icon">&#128260;</div>
-                        <div class="option-title">Waking Up Early</div>
-                        <div class="option-desc">Wake before getting enough sleep</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="checkbox" name="challenges" value="alertness">
-                        <div class="option-icon">&#128565;</div>
-                        <div class="option-title">Work Alertness</div>
-                        <div class="option-desc">Struggle to stay alert during shifts</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="checkbox" name="challenges" value="days-off">
-                        <div class="option-icon">&#128197;</div>
-                        <div class="option-title">Days Off Adjustment</div>
-                        <div class="option-desc">Hard to transition on rest days</div>
-                    </label>
-                </div>
-                
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="prevStep()">
-                        <span>&#8592;</span> Back
-                    </button>
-                    <button class="btn btn-primary" onclick="nextStep()">
-                        Continue <span>&#8594;</span>
-                    </button>
+                    <h4>Anchor Sleep Concept</h4>
+                    <p>Rotating shift workers benefit from maintaining an "anchor sleep" period - a consistent 4-hour block that remains the same regardless of shift schedule. This helps maintain some circadian stability.</p>
                 </div>
             </div>
             
-            <!-- Step 4: Lifestyle Factors -->
-            <div class="step" id="step4">
-                <h2 class="step-title">
-                    <span>&#127968;</span> Tell us about your situation
-                </h2>
-                <p class="step-subtitle">This helps us personalize your sleep plan</p>
-                
-                <div class="options-grid">
-                    <label class="option-card">
-                        <input type="radio" name="living" value="alone">
-                        <div class="option-icon">&#128100;</div>
-                        <div class="option-title">Live Alone</div>
-                        <div class="option-desc">Full control over your environment</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="living" value="partner">
-                        <div class="option-icon">&#128107;</div>
-                        <div class="option-title">With Partner</div>
-                        <div class="option-desc">Share bedroom with someone</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="living" value="family">
-                        <div class="option-icon">&#128106;</div>
-                        <div class="option-title">With Family/Kids</div>
-                        <div class="option-desc">Children or multiple family members</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="living" value="roommates">
-                        <div class="option-icon">&#127968;</div>
-                        <div class="option-title">Roommates/Shared</div>
-                        <div class="option-desc">Shared housing or dormitory</div>
-                    </label>
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Evidence-Based Tips for Daytime Sleeping</span>
+                    <span class="toggle-icon">&#9660;</span>
                 </div>
-                
-                <p class="step-subtitle" style="margin-top: 2rem;">How long have you been working shifts?</p>
-                
-                <div class="options-grid">
-                    <label class="option-card">
-                        <input type="radio" name="experience" value="new">
-                        <div class="option-icon">&#127793;</div>
-                        <div class="option-title">New to Shifts</div>
-                        <div class="option-desc">Less than 6 months</div>
-                    </label>
+                <div class="info-content">
+                    <h4>Creating a Dark Environment</h4>
+                    <p>Light is the primary signal for your circadian rhythm. Even small amounts of light can disrupt melatonin production and sleep quality.</p>
+                    <ul>
+                        <li>Use blackout curtains or blinds (look for 99%+ light blocking)</li>
+                        <li>Cover LED lights on electronics with tape</li>
+                        <li>Consider a quality sleep mask for complete darkness</li>
+                        <li>Use blackout portable blinds when traveling</li>
+                    </ul>
                     
-                    <label class="option-card">
-                        <input type="radio" name="experience" value="moderate">
-                        <div class="option-icon">&#127919;</div>
-                        <div class="option-title">Some Experience</div>
-                        <div class="option-desc">6 months to 2 years</div>
-                    </label>
+                    <h4>Managing Noise</h4>
+                    <p>Daytime noise from traffic, neighbors, and household activity can fragment sleep.</p>
+                    <ul>
+                        <li>White noise machines mask inconsistent sounds</li>
+                        <li>Earplugs designed for sleep (NRR 25-33)</li>
+                        <li>Communicate sleep schedule to household members</li>
+                        <li>"Do Not Disturb" signs for bedroom doors</li>
+                    </ul>
                     
-                    <label class="option-card">
-                        <input type="radio" name="experience" value="veteran">
-                        <div class="option-icon">&#127942;</div>
-                        <div class="option-title">Veteran Shift Worker</div>
-                        <div class="option-desc">2+ years experience</div>
-                    </label>
-                </div>
-                
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="prevStep()">
-                        <span>&#8592;</span> Back
-                    </button>
-                    <button class="btn btn-primary" onclick="nextStep()" id="nextBtn4" disabled>
-                        Continue <span>&#8594;</span>
-                    </button>
+                    <h4>Temperature Control</h4>
+                    <p>Body temperature naturally drops during sleep. Keeping your bedroom cool (15-19C / 60-67F) supports this process and improves sleep quality.</p>
                 </div>
             </div>
             
-            <!-- Step 5: Goals -->
-            <div class="step" id="step5">
-                <h2 class="step-title">
-                    <span>&#127919;</span> What's your main goal?
-                </h2>
-                <p class="step-subtitle">We'll prioritize your recommendations accordingly</p>
-                
-                <div class="options-grid">
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="sleep-quality">
-                        <div class="option-icon">&#128164;</div>
-                        <div class="option-title">Better Sleep Quality</div>
-                        <div class="option-desc">Wake up feeling more rested</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="work-alertness">
-                        <div class="option-icon">&#9889;</div>
-                        <div class="option-title">Stay Alert at Work</div>
-                        <div class="option-desc">Maintain focus during shifts</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="health">
-                        <div class="option-icon">&#10084;&#65039;</div>
-                        <div class="option-title">Protect My Health</div>
-                        <div class="option-desc">Minimize long-term health impacts</div>
-                    </label>
-                    
-                    <label class="option-card">
-                        <input type="radio" name="goal" value="social">
-                        <div class="option-icon">&#128101;</div>
-                        <div class="option-title">Better Work-Life Balance</div>
-                        <div class="option-desc">More time for family and activities</div>
-                    </label>
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Strategic Light Exposure for Shift Workers</span>
+                    <span class="toggle-icon">&#9660;</span>
                 </div>
-                
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="prevStep()">
-                        <span>&#8592;</span> Back
-                    </button>
-                    <button class="btn btn-primary" onclick="generatePlan()" id="generateBtn" disabled>
-                        <span>&#128161;</span> Generate My Sleep Plan
-                    </button>
+                <div class="info-content">
+                    <h4>Light as a Circadian Tool</h4>
+                    <p>Strategic light exposure can help shift workers adjust their circadian rhythm to better match their work schedule.</p>
+                    
+                    <h4>For Night Shift Workers</h4>
+                    <ul>
+                        <li>Use bright light (10,000 lux) during the first half of your shift</li>
+                        <li>Wear blue-light blocking glasses on the commute home</li>
+                        <li>Avoid bright light for 1-2 hours before planned sleep</li>
+                        <li>Get bright light exposure when you wake up</li>
+                    </ul>
+                    
+                    <h4>Light Therapy Guidelines</h4>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Goal</th>
+                                <th>Light Timing</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Delay sleep (stay up later)</td>
+                                <td>Evening exposure</td>
+                                <td>30-60 minutes</td>
+                            </tr>
+                            <tr>
+                                <td>Advance sleep (sleep earlier)</td>
+                                <td>Morning exposure</td>
+                                <td>30-60 minutes</td>
+                            </tr>
+                            <tr>
+                                <td>Night shift adaptation</td>
+                                <td>First 6 hours of shift</td>
+                                <td>Continuous bright environment</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             
-            <!-- Results -->
-            <div class="step" id="results">
-                <div class="results-container">
-                    <div class="results-header">
-                        <div class="schedule-badge" id="shiftBadge">Night Shift Worker</div>
-                        <h2>Your Personalized Sleep Plan</h2>
-                        <p>Based on your <span id="shiftSummary">night shift</span> schedule and challenges</p>
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">When to Seek Professional Help</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Sleep Problems That Require Medical Attention</h4>
+                    <p>While optimizing your sleep schedule can significantly improve sleep quality for shift workers, some sleep issues require professional medical evaluation. Consult a healthcare provider if you experience:</p>
+                    
+                    <ul>
+                        <li><strong>Persistent insomnia:</strong> Difficulty falling or staying asleep for more than 3 weeks despite schedule adjustments</li>
+                        <li><strong>Excessive daytime sleepiness:</strong> Despite getting adequate sleep hours</li>
+                        <li><strong>Shift Work Sleep Disorder (SWSD):</strong> Chronic sleep problems specifically related to your work schedule</li>
+                        <li><strong>Loud snoring with pauses:</strong> May indicate sleep apnea, which is more common in shift workers</li>
+                        <li><strong>Depression or anxiety:</strong> Shift work can exacerbate mental health conditions</li>
+                        <li><strong>Falling asleep inappropriately:</strong> During conversations, driving, or at work</li>
+                        <li><strong>Reliance on sleep aids:</strong> Needing medication or alcohol to fall asleep regularly</li>
+                    </ul>
+                    
+                    <h4>Red Flag Symptoms - Seek Immediate Help</h4>
+                    <p style="color: #D93333; font-weight: 500;">Contact a healthcare provider urgently if you experience:</p>
+                    <ul>
+                        <li>Choking or gasping during sleep (observed by partner)</li>
+                        <li>Severe chest pain or difficulty breathing</li>
+                        <li>Falling asleep while driving or operating machinery</li>
+                        <li>Suicidal thoughts or severe depression</li>
+                        <li>Hallucinations or confusion related to sleep deprivation</li>
+                    </ul>
+                    
+                    <h4>Emergency Contacts by Region</h4>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Emergency Services</th>
+                                <th>Non-Emergency Health Line</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>United Kingdom</td>
+                                <td>999</td>
+                                <td>NHS 111</td>
+                            </tr>
+                            <tr>
+                                <td>United States</td>
+                                <td>911</td>
+                                <td>Contact primary care provider</td>
+                            </tr>
+                            <tr>
+                                <td>Canada</td>
+                                <td>911</td>
+                                <td>Telehealth (varies by province)</td>
+                            </tr>
+                            <tr>
+                                <td>Australia</td>
+                                <td>000</td>
+                                <td>Healthdirect 1800 022 222</td>
+                            </tr>
+                            <tr>
+                                <td>Ireland</td>
+                                <td>999 / 112</td>
+                                <td>HSELive 1800 700 700</td>
+                            </tr>
+                            <tr>
+                                <td>Germany</td>
+                                <td>112</td>
+                                <td>116 117</td>
+                            </tr>
+                            <tr>
+                                <td>France</td>
+                                <td>15 (SAMU) / 112</td>
+                                <td>Contact local medecin</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p><em>For other countries including India, Japan, China, Netherlands, New Zealand, Italy, Spain, UAE, Poland, Portugal, Sweden, Turkey, Russia, and Brazil - please search for your local emergency services number.</em></p>
+                    
+                    <div style="background: var(--warning); border-left: 4px solid var(--accent); padding: 16px; margin-top: 16px; border-radius: var(--radius-md);">
+                        <strong>Medical Disclaimer</strong>
+                        <p style="margin-top: 8px; font-size: 13px;">This tool provides general recommendations for shift worker sleep scheduling and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your GP, physician, occupational health specialist, or other qualified health provider with any specific questions about sleep disorders, shift work disorder, or health concerns. If you believe you may have a medical emergency, call your local emergency services immediately.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool & How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>How the Shift Worker Sleep Planner Works</h4>
+                    <p>This free planning tool creates personalized sleep schedules based on your specific shift pattern, commute time, living situation, and sleep challenges. Our recommendations are based on evidence from circadian rhythm research, occupational health guidelines, and sleep science from organizations including the Sleep Foundation, National Institute for Occupational Safety and Health (NIOSH), and peer-reviewed shift work research.</p>
+                    
+                    <h4>Calculation Methodology</h4>
+                    <p>Your sleep schedule is calculated using several key principles:</p>
+                    <ul>
+                        <li><strong>Post-shift sleep timing:</strong> We recommend sleeping soon after your shift ends, before your body's circadian alerting signal increases</li>
+                        <li><strong>Sleep cycles:</strong> We target 7.5 hours (5 complete 90-minute sleep cycles) for optimal restoration</li>
+                        <li><strong>Wind-down period:</strong> A 45-minute buffer is built in for your post-work routine</li>
+                        <li><strong>Commute factoring:</strong> Your travel time is accounted for in all schedule calculations</li>
+                        <li><strong>Challenge-based tips:</strong> Recommendations are prioritized based on your specific sleep challenges</li>
+                    </ul>
+                    
+                    <h4>What We Do With Your Data</h4>
+                    <p>Your assessment responses are processed entirely in your browser - we do not store your answers on our servers unless you choose to receive a personalized report via email. If you opt in to receive an email report, we store only your first name, email address, and assessment results to deliver your report. By providing your email, you consent to receiving your results and occasional relevant product recommendations from Spacire. You can unsubscribe at any time.</p>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a sleep wellness company dedicated to helping people achieve better rest through natural, science-backed solutions. We offer carefully curated sleep products including sleep masks, white noise machines, blackout curtains, aromatherapy sprays, and weighted blankets - all particularly useful for shift workers who need to create optimal sleep environments during unconventional hours.</p>
+                    
+                    <p>Our recommendations are based on genuine product benefits, and we always provide non-purchase alternatives (DIY tips) alongside product suggestions. We believe that good sleep should be accessible to everyone, regardless of budget.</p>
+                    
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Please Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Other Shift Workers Sleep Better</h4>
+                    <p>If you found this tool helpful, please consider sharing it with colleagues, friends, or family members who work non-traditional hours. Shift work affects millions of people worldwide, including nurses, doctors, factory workers, security personnel, pilots, truck drivers, emergency responders, and many others.</p>
+                    
+                    <h4>Share on Social Media</h4>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0;">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/shift-worker-sleep-planner&text=Free%20Shift%20Worker%20Sleep%20Planner%20-%20Get%20a%20personalized%20sleep%20schedule%20for%20your%20shift%20pattern" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #1DA1F2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">
+                            Share on X/Twitter
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/shift-worker-sleep-planner" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #4267B2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">
+                            Share on Facebook
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tools.spacire.com/shift-worker-sleep-planner&title=Shift%20Worker%20Sleep%20Planner" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #0077B5; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">
+                            Share on LinkedIn
+                        </a>
+                        <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20free%20Shift%20Worker%20Sleep%20Planner:%20https://tools.spacire.com/shift-worker-sleep-planner" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #25D366; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">
+                            Share on WhatsApp
+                        </a>
                     </div>
                     
-                    <!-- Optimal Schedule -->
-                    <div class="schedule-card">
-                        <h3>&#128337; Your Optimal Sleep Schedule</h3>
-                        <div class="schedule-timeline" id="scheduleTimeline">
-                            <!-- Generated dynamically -->
-                        </div>
+                    <h4>Copy Link</h4>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="text" value="https://tools.spacire.com/shift-worker-sleep-planner" readonly style="flex: 1; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 13px; background: var(--hover);" id="shareLink">
+                        <button onclick="copyShareLink()" style="padding: 10px 16px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; font-size: 13px; font-weight: 500;">Copy</button>
                     </div>
+                    <p id="copyConfirm" style="display: none; color: var(--success-dark); font-size: 13px; margin-top: 8px;">Link copied to clipboard!</p>
                     
-                    <!-- Personalized Tips -->
-                    <h3 style="color: #042548; margin-bottom: 1rem;">&#128161; Personalized Tips for You</h3>
-                    <div class="tips-grid" id="tipsGrid">
-                        <!-- Generated dynamically -->
-                    </div>
+                    <h4>Other Ways to Help</h4>
+                    <ul>
+                        <li>Forward this tool to your workplace HR or occupational health department</li>
+                        <li>Share in shift worker forums or Facebook groups</li>
+                        <li>Mention it in nursing, healthcare, or manufacturing communities</li>
+                        <li>Link to this tool from your blog or website</li>
+                    </ul>
                     
-                    <!-- Product Recommendations -->
-                    <div class="products-section">
-                        <h3>&#127873; Recommended Products for Shift Workers</h3>
-                        <div class="products-grid" id="productsGrid">
-                            <!-- Generated dynamically -->
-                        </div>
-                    </div>
-                    
-                    <!-- Toggle Sections -->
-                    
-                    <!-- DIY Tips -->
-                    <div class="toggle-section" id="diySection">
-                        <div class="toggle-header" onclick="toggleSection('diySection')">
-                            <span>&#128295; DIY Tips &amp; Household Solutions</span>
-                            <span class="toggle-icon">&#9660;</span>
-                        </div>
-                        <div class="toggle-content" id="diyContent">
-                            <!-- Generated dynamically -->
-                        </div>
-                    </div>
-                    
-                    <!-- FAQs -->
-                    <div class="toggle-section" id="faqSection">
-                        <div class="toggle-header" onclick="toggleSection('faqSection')">
-                            <span>&#10067; Frequently Asked Questions</span>
-                            <span class="toggle-icon">&#9660;</span>
-                        </div>
-                        <div class="toggle-content" id="faqContent">
-                            <!-- Static FAQs -->
-                        </div>
-                    </div>
-                    
-                    <!-- More Tools -->
-                    <div class="toggle-section" id="toolsSection">
-                        <div class="toggle-header" onclick="toggleSection('toolsSection')">
-                            <span>&#128736;&#65039; More Great Sleep Tools</span>
-                            <span class="toggle-icon">&#9660;</span>
-                        </div>
-                        <div class="toggle-content">
-                            <p style="margin-bottom: 1rem;">Explore our other free sleep optimization tools:</p>
-                            <div class="tools-grid">
-                                <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card">
-                                    <div class="tool-link-icon">&#127969;</div>
-                                    <div class="tool-link-info">
-                                        <h4>Sleep Environment Optimizer</h4>
-                                        <p>Assess and improve your bedroom for better sleep</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Share Tool -->
-                    <div class="toggle-section" id="shareSection">
-                        <div class="toggle-header" onclick="toggleSection('shareSection')">
-                            <span>&#128227; Share This Tool</span>
-                            <span class="toggle-icon">&#9660;</span>
-                        </div>
-                        <div class="toggle-content">
-                            <p style="margin-bottom: 1rem;">Know a fellow shift worker who could use this? Share the tool:</p>
-                            <div class="share-buttons">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/shift-worker-sleep-planner" target="_blank" rel="noopener" class="share-btn facebook">
-                                    Facebook
-                                </a>
-                                <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/shift-worker-sleep-planner&text=Free%20shift%20worker%20sleep%20planner%20-%20get%20a%20personalized%20sleep%20schedule" target="_blank" rel="noopener" class="share-btn twitter">
-                                    X (Twitter)
-                                </a>
-                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tools.spacire.com/shift-worker-sleep-planner" target="_blank" rel="noopener" class="share-btn linkedin">
-                                    LinkedIn
-                                </a>
-                                <a href="https://wa.me/?text=Check%20out%20this%20free%20shift%20worker%20sleep%20planner%3A%20https://tools.spacire.com/shift-worker-sleep-planner" target="_blank" rel="noopener" class="share-btn whatsapp">
-                                    WhatsApp
-                                </a>
-                                <a href="mailto:?subject=Free%20Shift%20Worker%20Sleep%20Planner&body=I%20found%20this%20helpful%20tool%20for%20shift%20workers%3A%20https://tools.spacire.com/shift-worker-sleep-planner" class="share-btn email">
-                                    Email
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Email Section -->
-                    <div class="email-section">
-                        <h3>&#128231; Get Your Complete Sleep Plan by Email</h3>
-                        <p>Receive your personalized schedule, all tips, and product recommendations in a convenient PDF format.</p>
-                        
-                        <form class="email-form" id="emailForm" onsubmit="sendEmail(event)">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="firstName">First Name *</label>
-                                    <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                                </div>
-                            </div>
-                            
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="marketing" name="marketing">
-                                <label for="marketing">Yes, send me sleep tips and exclusive offers from Spacire (optional)</label>
-                            </div>
-                            
-                            <button type="submit" class="btn-email" id="emailBtn">
-                                &#128231; Send My Sleep Plan
-                            </button>
-                        </form>
-                        
-                        <div class="success-message" id="successMessage">
-                            <strong>&#10004;&#65039; Success!</strong> Your personalized sleep plan has been sent to your email.
-                        </div>
-                        
-                        <p class="email-note">We respect your privacy. Your email will only be used to send your sleep plan and, if opted in, occasional sleep tips.</p>
-                    </div>
-                    
-                    <!-- Disclaimer -->
-                    <div class="disclaimer">
-                        <strong>&#9888;&#65039; Health Disclaimer</strong>
-                        This tool provides general guidance and is not a substitute for professional medical advice. Shift work can impact health significantly. If you experience persistent sleep problems, excessive fatigue, or symptoms of shift work disorder, please consult a healthcare provider or sleep specialist. In the UK, contact your GP or call NHS 111. In the US, consult your doctor or call the National Sleep Foundation helpline. In Australia, speak to your GP or call Healthdirect at 1800 022 222.
-                    </div>
-                    
-                    <!-- Restart Button -->
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <button class="btn btn-secondary" onclick="restartTool()">
-                            &#128260; Create New Plan
-                        </button>
-                    </div>
+                    <p style="margin-top: 16px; font-size: 13px; color: var(--text-light);">This tool is completely free and always will be. Our goal is to help as many shift workers as possible get better sleep.</p>
                 </div>
             </div>
         </div>
     </main>
     
-    <!-- Footer -->
+    <!-- Footer (identical to Tool 1) -->
     <footer class="site-footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>Spacire Tools</h4>
-                <a href="https://tools.spacire.com">All Free Tools</a>
-                <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
-                <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer.html">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner.html">Shift Worker Sleep Planner</a>
+                    <a href="#">White Noise Finder</a>
+                    <a href="#">Bedtime Routine Generator</a>
+                    <a href="#">Natural Sleep Remedies</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Shop by Need</h4>
-                <a href="https://spacire.com/collections/sleep-aids-for-shift-workers">Shift Worker Sleep Aids</a>
-                <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
-                <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
-                <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <a href="https://spacire.com/blogs/journal">Sleep Blog</a>
-                <a href="https://spacire.com/pages/contact">Contact Us</a>
-                <a href="https://spacire.com/pages/about">About Spacire</a>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
-                <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Spacire. All rights reserved. Free sleep tools to help you rest better.</p>
         </div>
     </footer>
-    
+
+    <!-- JavaScript -->
     <script>
-        // Configuration - Using same Appwrite setup as Tool 1
+        // ========================================
+        // CONFIGURATION (correct Appwrite IDs)
+        // ========================================
         const APPWRITE_ENDPOINT = 'https://nyc.cloud.appwrite.io/v1';
-        const APPWRITE_PROJECT_ID = '6839c65d001486e020a4';
-        const APPWRITE_DATABASE_ID = '6839ce2f000db2d8930e';
-        const APPWRITE_COLLECTION_ID = '6839ce3f001964a5df68';
+        const APPWRITE_PROJECT_ID = '6839f9c60026aborfc7a';
+        const APPWRITE_DATABASE_ID = '6839fbb20004c220250a';
+        const APPWRITE_COLLECTION_ID = '683a003c0025bf169ceb';
         const APPWRITE_FUNCTION_ID = '683a0144003b3bfc5ee0';
         
-        // State
-        let currentStep = 1;
-        const totalSteps = 5;
-        let userData = {
+        // ========================================
+        // STATE MANAGEMENT
+        // ========================================
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        
+        const userData = {
             shiftType: null,
             shiftStart: '22:00',
             shiftEnd: '06:00',
             commute: 30,
             challenges: [],
-            living: null,
+            livingSituation: null,
             experience: null,
-            goal: null,
-            schedule: null,
-            tips: [],
-            products: [],
-            diyTips: []
+            goal: null
         };
         
-        // Mobile menu toggle
+        // ========================================
+        // MOBILE MENU
+        // ========================================
         function toggleMobileMenu() {
             document.getElementById('mobileNav').classList.toggle('active');
         }
         
-        // Toggle sections
-        function toggleSection(sectionId) {
-            document.getElementById(sectionId).classList.toggle('open');
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.parentElement;
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
         }
         
-        // Option selection handlers - Using proper input selectors (lesson learned)
+        // ========================================
+        // COMMUTE SLIDER
+        // ========================================
+        const commuteSlider = document.getElementById('commuteTime');
+        const commuteDisplay = document.getElementById('commuteDisplay');
+        
+        if (commuteSlider) {
+            commuteSlider.addEventListener('input', function() {
+                const value = this.value;
+                commuteDisplay.textContent = value >= 60 ? '60+ minutes' : value + ' minutes';
+                userData.commute = parseInt(value);
+                
+                const percent = ((value - 5) / 55) * 100;
+                this.style.background = `linear-gradient(90deg, var(--primary) 0%, var(--primary) ${percent}%, var(--border) ${percent}%)`;
+            });
+            
+            const initialPercent = ((commuteSlider.value - 5) / 55) * 100;
+            commuteSlider.style.background = `linear-gradient(90deg, var(--primary) 0%, var(--primary) ${initialPercent}%, var(--border) ${initialPercent}%)`;
+        }
+        
+        // ========================================
+        // OPTION SELECTION
+        // ========================================
         document.querySelectorAll('.option-card').forEach(card => {
             card.addEventListener('click', function() {
                 const input = this.querySelector('input');
                 const name = input.name;
                 
                 if (input.type === 'radio') {
-                    // Deselect others in same group
                     document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
                         radio.closest('.option-card').classList.remove('selected');
                     });
                     this.classList.add('selected');
                     input.checked = true;
                     
-                    // Update userData
                     if (name === 'shiftType') {
                         userData.shiftType = input.value;
-                        document.getElementById('nextBtn1').disabled = false;
-                    } else if (name === 'living') {
-                        userData.living = input.value;
-                        checkStep4Complete();
+                        document.getElementById('btn-next-1').disabled = false;
+                    } else if (name === 'livingSituation') {
+                        userData.livingSituation = input.value;
+                        checkQuestion4();
                     } else if (name === 'experience') {
                         userData.experience = input.value;
-                        checkStep4Complete();
+                        checkQuestion4();
                     } else if (name === 'goal') {
                         userData.goal = input.value;
-                        document.getElementById('generateBtn').disabled = false;
-                    }
-                } else if (input.type === 'checkbox') {
-                    this.classList.toggle('selected');
-                    input.checked = !input.checked;
-                    
-                    // Update challenges array
-                    if (input.checked) {
-                        userData.challenges.push(input.value);
-                    } else {
-                        userData.challenges = userData.challenges.filter(c => c !== input.value);
+                        document.getElementById('btn-next-5').disabled = false;
                     }
                 }
             });
         });
         
-        function checkStep4Complete() {
-            // Using proper input:checked selectors (lesson learned)
-            const living = document.querySelector('input[name="living"]:checked');
-            const experience = document.querySelector('input[name="experience"]:checked');
-            document.getElementById('nextBtn4').disabled = !(living && experience);
+        document.querySelectorAll('.checkbox-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input');
+                input.checked = !input.checked;
+                this.classList.toggle('selected', input.checked);
+                
+                if (input.checked) {
+                    userData.challenges.push(input.value);
+                } else {
+                    userData.challenges = userData.challenges.filter(c => c !== input.value);
+                }
+            });
+        });
+        
+        function checkQuestion4() {
+            const btn = document.getElementById('btn-next-4');
+            if (userData.livingSituation && userData.experience) {
+                btn.disabled = false;
+            }
         }
         
-        // Navigation
+        // ========================================
+        // NAVIGATION
+        // ========================================
         function updateProgress() {
-            const progress = ((currentStep - 1) / totalSteps) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('stepIndicator').textContent = `Step ${currentStep} of ${totalSteps}`;
-            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+            const progressFill = document.getElementById('progressFill');
+            const percentage = (currentQuestion / totalQuestions) * 100;
+            progressFill.style.width = percentage + '%';
+            
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                if (stepNum < currentQuestion) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentQuestion) {
+                    step.classList.add('active');
+                }
+            });
         }
         
-        function showStep(step) {
-            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-            document.getElementById('step' + step).classList.add('active');
-            currentStep = step;
+        function showQuestion(num) {
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelector(`[data-question="${num}"]`).classList.add('active');
+            currentQuestion = num;
             updateProgress();
-            window.scrollTo({ top: 200, behavior: 'smooth' });
         }
         
-        function nextStep() {
-            if (currentStep === 2) {
+        function nextQuestion() {
+            if (currentQuestion === 2) {
                 userData.shiftStart = document.getElementById('shiftStart').value;
                 userData.shiftEnd = document.getElementById('shiftEnd').value;
-                userData.commute = parseInt(document.getElementById('commute').value);
             }
             
-            if (currentStep < totalSteps) {
-                showStep(currentStep + 1);
+            if (currentQuestion < totalQuestions) {
+                showQuestion(currentQuestion + 1);
             }
         }
         
-        function prevStep() {
-            if (currentStep > 1) {
-                showStep(currentStep - 1);
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                showQuestion(currentQuestion - 1);
             }
         }
         
-        // Generate Sleep Plan
-        function generatePlan() {
-            // Generate schedule based on shift type
-            const schedule = generateSchedule();
-            userData.schedule = schedule;
-            
-            // Generate tips based on challenges
+        // ========================================
+        // RESULTS GENERATION
+        // ========================================
+        function generateResults() {
+            const schedule = calculateSleepSchedule();
             const tips = generateTips();
-            userData.tips = tips;
-            
-            // Generate DIY tips
-            const diyTips = generateDIYTips();
-            userData.diyTips = diyTips;
-            
-            // Get product recommendations
             const products = getProductRecommendations();
-            userData.products = products;
             
-            // Store data to Appwrite IMMEDIATELY after calculation (lesson learned)
-            storeSubmission();
+            const resultsHtml = buildResultsHTML(schedule, tips, products);
             
-            // Render results
-            renderResults();
+            document.getElementById('questions-container').style.display = 'none';
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.innerHTML = resultsHtml;
+            resultsSection.classList.add('active');
             
-            // Show results
-            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-            document.getElementById('results').classList.add('active');
             document.getElementById('progressFill').style.width = '100%';
-            document.getElementById('stepIndicator').textContent = 'Complete!';
-            document.getElementById('progressPercent').textContent = '100%';
+            document.querySelectorAll('.progress-step').forEach(step => {
+                step.classList.add('completed');
+                step.classList.remove('active');
+            });
             
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.querySelector('.tool-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            saveResults(schedule, tips);
         }
         
-        function generateSchedule() {
+        function calculateSleepSchedule() {
             const shiftStart = userData.shiftStart;
             const shiftEnd = userData.shiftEnd;
             const commute = userData.commute;
-            const shiftType = userData.shiftType;
             
-            // Parse times
-            const [startHour, startMin] = shiftStart.split(':').map(Number);
             const [endHour, endMin] = shiftEnd.split(':').map(Number);
+            const [startHour, startMin] = shiftStart.split(':').map(Number);
             
-            // Calculate arrival home time
             let arriveHomeHour = endHour;
             let arriveHomeMin = endMin + commute;
             if (arriveHomeMin >= 60) {
@@ -1672,433 +2108,270 @@
             }
             if (arriveHomeHour >= 24) arriveHomeHour -= 24;
             
-            // Calculate leave home time
-            let leaveHomeHour = startHour;
-            let leaveHomeMin = startMin - commute;
-            if (leaveHomeMin < 0) {
-                leaveHomeHour -= 1;
-                leaveHomeMin += 60;
+            let sleepHour = arriveHomeHour;
+            let sleepMin = arriveHomeMin + 45;
+            if (sleepMin >= 60) {
+                sleepHour += 1;
+                sleepMin -= 60;
             }
-            if (leaveHomeHour < 0) leaveHomeHour += 24;
+            if (sleepHour >= 24) sleepHour -= 24;
             
-            // Calculate optimal sleep window (aim for 7-8 hours)
-            let sleepStartHour = arriveHomeHour + 1; // Wind down time
-            let sleepStartMin = arriveHomeMin;
-            if (sleepStartHour >= 24) sleepStartHour -= 24;
-            
-            let wakeHour = sleepStartHour + 7;
-            let wakeMin = sleepStartMin;
+            let wakeHour = sleepHour + 7;
+            let wakeMin = sleepMin + 30;
+            if (wakeMin >= 60) {
+                wakeHour += 1;
+                wakeMin -= 60;
+            }
             if (wakeHour >= 24) wakeHour -= 24;
             
-            const schedule = [];
-            
-            if (shiftType === 'fixed-night' || shiftType === 'rotating') {
-                schedule.push({
-                    time: formatTime(endHour, endMin),
-                    title: 'Shift Ends',
-                    desc: 'Wear sunglasses on commute home to block morning light'
-                });
-                schedule.push({
-                    time: formatTime(arriveHomeHour, arriveHomeMin),
-                    title: 'Arrive Home - Wind Down',
-                    desc: 'Light snack only, dim lights, avoid screens'
-                });
-                schedule.push({
-                    time: formatTime(sleepStartHour, sleepStartMin),
-                    title: 'Main Sleep Period',
-                    desc: 'Blackout room, white noise, cool temperature (16-18C)'
-                });
-                schedule.push({
-                    time: formatTime(wakeHour, wakeMin),
-                    title: 'Wake Up',
-                    desc: 'Get bright light exposure to reset alertness'
-                });
-                schedule.push({
-                    time: formatTime(leaveHomeHour - 2, leaveHomeMin),
-                    title: 'Pre-Work Routine',
-                    desc: 'Light exercise, protein-rich meal, caffeine if needed'
-                });
-                schedule.push({
-                    time: formatTime(leaveHomeHour, leaveHomeMin),
-                    title: 'Leave for Work',
-                    desc: 'Bring healthy snacks and water for your shift'
-                });
-            } else if (shiftType === 'fixed-early') {
-                schedule.push({
-                    time: formatTime(leaveHomeHour - 1, leaveHomeMin),
-                    title: 'Wake Up',
-                    desc: 'Use sunrise alarm clock for gentler wake-up'
-                });
-                schedule.push({
-                    time: formatTime(leaveHomeHour, leaveHomeMin),
-                    title: 'Leave for Work',
-                    desc: 'Light breakfast, save caffeine for mid-shift'
-                });
-                schedule.push({
-                    time: formatTime(endHour, endMin),
-                    title: 'Shift Ends',
-                    desc: 'Limit caffeine after this point'
-                });
-                schedule.push({
-                    time: formatTime(endHour + 2, endMin),
-                    title: 'Afternoon Activity',
-                    desc: 'Get light exercise and sunlight exposure'
-                });
-                schedule.push({
-                    time: '20:00',
-                    title: 'Begin Wind Down',
-                    desc: 'Dim lights, reduce screen time, relaxing activities'
-                });
-                schedule.push({
-                    time: '21:00',
-                    title: 'Bedtime',
-                    desc: 'Cool, dark, quiet room for 7-8 hours sleep'
-                });
-            } else if (shiftType === 'fixed-late') {
-                schedule.push({
-                    time: '09:00',
-                    title: 'Wake Up Naturally',
-                    desc: 'Allow natural wake-up, get morning sunlight'
-                });
-                schedule.push({
-                    time: '12:00',
-                    title: 'Main Activity Period',
-                    desc: 'Exercise, errands, social activities'
-                });
-                schedule.push({
-                    time: formatTime(leaveHomeHour, leaveHomeMin),
-                    title: 'Leave for Work',
-                    desc: 'Have a light meal before shift'
-                });
-                schedule.push({
-                    time: formatTime(endHour, endMin),
-                    title: 'Shift Ends',
-                    desc: 'Avoid heavy meals, begin wind-down'
-                });
-                schedule.push({
-                    time: formatTime(arriveHomeHour, arriveHomeMin),
-                    title: 'Arrive Home',
-                    desc: 'Light snack only, dim environment'
-                });
-                schedule.push({
-                    time: formatTime(arriveHomeHour + 1, arriveHomeMin),
-                    title: 'Bedtime',
-                    desc: 'Aim for 7-8 hours of quality sleep'
-                });
-            } else {
-                // Generic schedule for split/on-call
-                schedule.push({
-                    time: 'Variable',
-                    title: 'Anchor Sleep Period',
-                    desc: 'Try to keep 4-5 hours of sleep at the same time daily'
-                });
-                schedule.push({
-                    time: 'As Needed',
-                    title: 'Recovery Naps',
-                    desc: '20-30 min naps when opportunity allows'
-                });
-                schedule.push({
-                    time: 'Pre-Shift',
-                    title: 'Strategic Nap',
-                    desc: '90-minute nap before expected work if possible'
-                });
+            let prepHour = startHour;
+            let prepMin = startMin - commute - 60;
+            while (prepMin < 0) {
+                prepHour -= 1;
+                prepMin += 60;
             }
+            if (prepHour < 0) prepHour += 24;
             
-            return schedule;
-        }
-        
-        function formatTime(hour, min) {
-            if (hour >= 24) hour -= 24;
-            if (hour < 0) hour += 24;
-            return `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`;
+            const formatTime = (h, m) => `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+            
+            return {
+                arriveHome: formatTime(arriveHomeHour, arriveHomeMin),
+                sleepTime: formatTime(sleepHour, sleepMin),
+                wakeTime: formatTime(wakeHour, wakeMin),
+                prepTime: formatTime(prepHour, prepMin),
+                sleepDuration: '7.5 hours (5 sleep cycles)'
+            };
         }
         
         function generateTips() {
             const tips = [];
-            const challenges = userData.challenges;
             
-            // Always include based on shift type
-            if (userData.shiftType === 'fixed-night' || userData.shiftType === 'rotating') {
+            if (userData.challenges.includes('light')) {
                 tips.push({
-                    icon: '&#127774;',
-                    title: 'Light Exposure Strategy',
-                    text: 'Wear dark sunglasses during your commute home to prevent morning light from resetting your body clock. Get bright light exposure 1-2 hours before your shift starts.'
+                    title: 'Block Out Daylight',
+                    priority: 'high',
+                    text: 'Invest in quality blackout curtains or blinds. Even small amounts of light can reduce melatonin production by up to 50%. Consider adding a sleep mask for complete darkness.',
+                    diy: ['Use heavy blankets over windows as temporary blackout', 'Cover all LED lights with electrical tape', 'Wear sunglasses on commute home']
                 });
             }
             
-            // Challenge-specific tips
-            if (challenges.includes('daytime-light')) {
+            if (userData.challenges.includes('noise')) {
                 tips.push({
-                    icon: '&#128263;',
-                    title: 'Total Blackout Solution',
-                    text: 'Invest in quality blackout curtains that block 99%+ of light. Use blackout tape for any light leaks around edges. A sleep mask provides additional backup.'
+                    title: 'Manage Daytime Noise',
+                    priority: 'high',
+                    text: 'White noise machines are highly effective at masking inconsistent sounds like traffic, conversations, and household activity.',
+                    diy: ['Use a fan for basic white noise', 'Free white noise apps can work in a pinch', 'Communicate your sleep schedule to household members']
                 });
             }
             
-            if (challenges.includes('noise')) {
+            if (userData.challenges.includes('falling-asleep')) {
                 tips.push({
-                    icon: '&#127925;',
-                    title: 'Sound Masking',
-                    text: 'Use a white noise machine set to a consistent volume. It masks sudden noises better than earplugs alone. Consider noise-isolating earplugs for additional protection.'
+                    title: 'Create a Wind-Down Routine',
+                    priority: 'high',
+                    text: 'Your body needs time to transition from work mode to sleep mode. A consistent 30-45 minute wind-down routine signals to your brain that sleep is coming.',
+                    diy: ['Take a warm shower (body temp drop promotes sleep)', 'Avoid screens for 30 min before bed', 'Light stretching or gentle yoga']
                 });
             }
             
-            if (challenges.includes('falling-asleep')) {
+            if (userData.challenges.includes('family')) {
                 tips.push({
-                    icon: '&#129524;',
-                    title: 'Pre-Sleep Routine',
-                    text: 'Create a consistent 30-minute wind-down routine. Use lavender pillow spray, practice deep breathing, and avoid screens. Keep your bedroom cool (16-18C/60-65F).'
+                    title: 'Coordinate with Family',
+                    priority: 'medium',
+                    text: 'Family support is crucial for shift worker sleep success. Clear communication about your schedule helps everyone.',
+                    diy: ['Create a visible sleep schedule for family', 'Use "Do Not Disturb" sign on bedroom door', 'Consider a video doorbell to avoid knocking']
                 });
             }
             
-            if (challenges.includes('staying-asleep')) {
-                tips.push({
-                    icon: '&#128260;',
-                    title: 'Sleep Continuity',
-                    text: 'Set phone to do-not-disturb mode. Inform household of your sleep schedule. Use a "Do Not Disturb" door sign. Consider a white noise machine for consistent background sound.'
-                });
-            }
-            
-            if (challenges.includes('alertness')) {
-                tips.push({
-                    icon: '&#9889;',
-                    title: 'Strategic Caffeine Use',
-                    text: 'Have caffeine at the start of your shift, but stop 4-6 hours before your planned sleep time. A 15-20 minute power nap during breaks can boost alertness more than caffeine.'
-                });
-            }
-            
-            if (challenges.includes('days-off')) {
-                tips.push({
-                    icon: '&#128197;',
-                    title: 'Days Off Strategy',
-                    text: 'On days off, try to maintain a "compromise schedule" - stay up a few hours later than normal, but do not fully flip your schedule. This makes transitions easier.'
-                });
-            }
-            
-            // Living situation tips
-            if (userData.living === 'family') {
-                tips.push({
-                    icon: '&#128106;',
-                    title: 'Family Communication',
-                    text: 'Create a visual "sleep schedule" for family members. Use a red light outside your door when sleeping. Establish quiet hours and explain why uninterrupted sleep matters for your health.'
-                });
-            }
-            
-            if (userData.living === 'roommates') {
-                tips.push({
-                    icon: '&#127968;',
-                    title: 'Shared Space Strategy',
-                    text: 'Invest in quality earplugs and a sleep mask. Use headphones with white noise. Communicate your schedule clearly and negotiate quiet times with housemates.'
-                });
-            }
-            
-            // Add health tip for everyone
             tips.push({
-                icon: '&#10084;&#65039;',
-                title: 'Long-Term Health',
-                text: 'Regular health check-ups are important for shift workers. Monitor your blood pressure, maintain a healthy diet, and stay physically active on your days off.'
+                title: 'Optimize Your Sleep Environment',
+                priority: 'medium',
+                text: 'The ideal sleep environment is cool (15-19C / 60-67F), dark, and quiet. This is even more important for daytime sleeping.',
+                diy: ['Keep bedroom cooler than other rooms', 'Use breathable bedding materials', 'Remove or cover clocks to avoid time-checking']
             });
+            
+            if (userData.shiftType === 'rotating') {
+                tips.push({
+                    title: 'Managing Shift Transitions',
+                    priority: 'high',
+                    text: 'Rotating shifts are the most challenging. Try to shift your sleep time by 1-2 hours per day in the direction of your upcoming shift.',
+                    diy: ['Use light exposure strategically to shift rhythm', 'Maintain an "anchor sleep" period that stays consistent', 'Consider split sleep on transition days']
+                });
+            }
             
             return tips;
         }
         
-        function generateDIYTips() {
-            const diyTips = [];
-            
-            diyTips.push({
-                title: 'DIY Blackout Solutions',
-                tips: [
-                    'Use heavy-duty aluminum foil on windows (temporary but effective)',
-                    'Hang dark blankets or towels over curtain rods',
-                    'Use black plastic bin bags secured with painters tape',
-                    'Place rolled towels at window sills to block light gaps'
-                ]
-            });
-            
-            diyTips.push({
-                title: 'Free Sound Solutions',
-                tips: [
-                    'Run a box fan for consistent white noise',
-                    'Use free white noise apps on an old phone',
-                    'Play brown noise videos on YouTube (set to loop)',
-                    'Close interior doors to create sound barriers'
-                ]
-            });
-            
-            diyTips.push({
-                title: 'Temperature Control',
-                tips: [
-                    'Use a bowl of ice in front of a fan for cooling',
-                    'Sleep with cotton sheets in summer',
-                    'Keep blinds/curtains closed during hot afternoons',
-                    'Take a lukewarm shower before bed to lower body temperature'
-                ]
-            });
-            
-            diyTips.push({
-                title: 'Communication Hacks',
-                tips: [
-                    'Create a laminated "Shift Worker Sleeping" door sign',
-                    'Set up a shared calendar showing your sleep times',
-                    'Use a red sock on the door handle as a "do not disturb" signal',
-                    'Send family/roommates a text when going to sleep'
-                ]
-            });
-            
-            return diyTips;
-        }
-        
-        // Product recommendations - Using real product images (lesson learned)
         function getProductRecommendations() {
             const products = [];
-            const challenges = userData.challenges;
             
-            // Always recommend for shift workers - Core products
-            products.push({
-                name: 'Aegis Simple Blackout Curtains',
-                price: '41.41',
-                category: 'Light Blocking',
-                handle: 'aegis-simple-blackout-curtains-window-privacy-thermal-insulation-for-bedroom-living-room',
-                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/813532525074.jpg?v=1756485750',
-                why: 'Essential for daytime sleeping - blocks 99% of light'
-            });
-            
-            products.push({
-                name: 'Acousticax White Noise Speaker',
-                price: '44.99',
-                category: 'Sound Masking',
-                handle: 'acousticax-white-noise-speaker-touch-lights-sound-machine-sleep-relaxation',
-                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/1619587108742.jpg?v=1756485960',
-                why: 'Masks household and traffic noise during day sleep'
-            });
-            
-            products.push({
-                name: 'Aeriset 3D Blackout Eye Mask',
-                price: '33.30',
-                category: 'Personal Blackout',
-                handle: 'aeriset-3d-blackout-eye-mask-stereo-breathable-memory-cotton-for-sleeping-comfort',
-                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/c2689b41-a873-4a4b-987f-29b9c7841f8c.jpg?v=1756485793',
-                why: 'Memory foam contour blocks light without pressure'
-            });
-            
-            // Challenge-based recommendations
-            if (challenges.includes('falling-asleep') || challenges.includes('staying-asleep')) {
+            if (userData.challenges.includes('light')) {
                 products.push({
-                    name: 'Arl Elastic Silk Eye Mask',
-                    price: '34.79',
-                    category: 'Luxury Comfort',
-                    handle: 'arl-elastic-blackout-sleep-goggles-silk-eye-mask-for-comfortable-rest-and-night-sleep',
-                    image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/6094660843074.jpg?v=1756485669',
-                    why: 'Premium silk is gentle on skin for longer sleep sessions'
+                    name: 'Blackout Sleep Mask',
+                    price: '12.99',
+                    url: 'https://spacire.com/collections/sleep-masks',
+                    image: 'https://spacire.com/cdn/shop/files/contoured-blackout-sleep-mask-spacire-768.jpg?v=1748787368',
+                    reason: 'Essential for blocking daylight during daytime sleep'
+                });
+                products.push({
+                    name: 'Blackout Curtains',
+                    price: '34.99',
+                    url: 'https://spacire.com/collections/blackout-curtains',
+                    image: 'https://spacire.com/cdn/shop/files/blackout-curtains-grommet-spacire.jpg?v=1748888186',
+                    reason: '99% light blocking for optimal daytime darkness'
                 });
             }
             
-            if (challenges.includes('noise')) {
+            if (userData.challenges.includes('noise')) {
                 products.push({
-                    name: 'Aerozx 3D Memory Foam Mask',
-                    price: '32.43',
-                    category: 'Contoured Design',
-                    handle: 'aerozx-3d-breathable-blackout-sleep-mask-memory-foam-eye-mask-for-fatigue-relief-and-comfort-sleep',
-                    image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/c2689b41-a873-4a4b-987f-29b9c7841f8c.jpg?v=1756485793',
-                    why: '3D contour design allows for REM eye movement'
+                    name: 'White Noise Machine',
+                    price: '29.99',
+                    url: 'https://spacire.com/collections/white-noise-machines',
+                    image: 'https://spacire.com/cdn/shop/files/wireless-white-noise-machine-spacire_5.jpg?v=1749033218',
+                    reason: 'Masks household and street noise effectively'
                 });
             }
             
-            products.push({
-                name: 'Balmzx Silk Full Surround Mask',
-                price: '31.88',
-                category: 'Full Coverage',
-                handle: 'balmzx-silk-eye-mask-full-surround-soft-breathable-sleep-mask-for-restful-sleep-and-relaxation',
-                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/8d79212c-7a83-43cd-a36f-11c6a96796bc.jpg?v=1756485770',
-                why: 'Mulberry silk with full surround for complete darkness'
-            });
+            if (userData.challenges.includes('falling-asleep')) {
+                products.push({
+                    name: 'Lavender Sleep Spray',
+                    price: '9.99',
+                    url: 'https://spacire.com/collections/pillow-sleep-sprays',
+                    image: 'https://spacire.com/cdn/shop/files/lavender-pillow-sleep-spray-essential-oils-spacire.jpg?v=1748891199',
+                    reason: 'Aromatherapy shown to improve sleep onset'
+                });
+            }
             
-            return products;
+            if (userData.challenges.includes('quality') || userData.goal === 'better-quality') {
+                products.push({
+                    name: 'Weighted Blanket',
+                    price: '49.99',
+                    url: 'https://spacire.com/collections/weighted-blankets',
+                    image: 'https://spacire.com/cdn/shop/files/weighted-blanket-dark-grey-spacire-quilt.jpg?v=1748892007',
+                    reason: 'Deep pressure therapy for deeper, more restful sleep'
+                });
+            }
+            
+            return products.slice(0, 4);
         }
         
-        function renderResults() {
-            // Update badge
-            const shiftNames = {
-                'fixed-night': 'Night Shift Worker',
-                'fixed-early': 'Early Shift Worker',
-                'fixed-late': 'Evening Shift Worker',
-                'rotating': 'Rotating Shift Worker',
-                'split': 'Split Shift Worker',
-                'on-call': 'On-Call Worker'
-            };
-            document.getElementById('shiftBadge').textContent = shiftNames[userData.shiftType] || 'Shift Worker';
-            document.getElementById('shiftSummary').textContent = userData.shiftStart + ' - ' + userData.shiftEnd;
-            
-            // Render schedule
-            const scheduleHtml = userData.schedule.map(item => `
-                <div class="timeline-item">
-                    <div class="timeline-time">${item.time}</div>
-                    <div class="timeline-content">
-                        <h4>${item.title}</h4>
-                        <p>${item.desc}</p>
+        function buildResultsHTML(schedule, tips, products) {
+            let html = `
+                <div class="score-display">
+                    <div class="score-label">Your Personalized Sleep Plan</div>
+                    <div class="score-value">Ready!</div>
+                    <div class="score-subtitle">Optimized for ${getShiftTypeName(userData.shiftType)}</div>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3 class="schedule-title">Your Recommended Schedule</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-item">
+                            <div class="schedule-time">${schedule.arriveHome}</div>
+                            <div class="schedule-activity">Arrive Home</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">${schedule.sleepTime}</div>
+                            <div class="schedule-activity">Go to Sleep</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">${schedule.wakeTime}</div>
+                            <div class="schedule-activity">Wake Up</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">${schedule.prepTime}</div>
+                            <div class="schedule-activity">Start Preparing</div>
+                        </div>
                     </div>
+                    <p style="text-align: center; margin-top: 16px; font-size: 14px; color: var(--text-secondary);">
+                        Target sleep: <strong>${schedule.sleepDuration}</strong>
+                    </p>
                 </div>
-            `).join('');
-            document.getElementById('scheduleTimeline').innerHTML = scheduleHtml;
+                
+                <div class="recommendations-section">
+                    <h3 class="section-title">Personalized Recommendations</h3>
+            `;
             
-            // Render tips
-            const tipsHtml = userData.tips.map(tip => `
-                <div class="tip-card">
-                    <h4>${tip.icon} ${tip.title}</h4>
-                    <p>${tip.text}</p>
-                </div>
-            `).join('');
-            document.getElementById('tipsGrid').innerHTML = tipsHtml;
-            
-            // Render products
-            const productsHtml = userData.products.map(product => `
-                <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
-                    <div class="product-info">
-                        <div class="product-category">${product.category}</div>
-                        <div class="product-name">${product.name}</div>
-                        <div class="product-price">£${product.price}</div>
-                        <a href="https://spacire.com/products/${product.handle}" class="product-btn" target="_blank">View Product</a>
+            tips.forEach(tip => {
+                html += `
+                    <div class="recommendation-card priority-${tip.priority}">
+                        <div class="recommendation-header">
+                            <div class="recommendation-title">${tip.title}</div>
+                            <span class="priority-badge ${tip.priority}">${tip.priority} priority</span>
+                        </div>
+                        <p class="recommendation-text">${tip.text}</p>
+                        ${tip.diy ? `
+                            <div class="diy-tips">
+                                <div class="diy-tips-title">DIY Tips:</div>
+                                <ul>
+                                    ${tip.diy.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
                     </div>
-                </div>
-            `).join('');
-            document.getElementById('productsGrid').innerHTML = productsHtml;
+                `;
+            });
             
-            // Render DIY tips
-            const diyHtml = userData.diyTips.map(section => `
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: #042548; margin-bottom: 0.75rem;">${section.title}</h4>
-                    <ul style="margin-left: 1.5rem; color: #555;">
-                        ${section.tips.map(tip => `<li style="margin-bottom: 0.5rem;">${tip}</li>`).join('')}
-                    </ul>
-                </div>
-            `).join('');
-            document.getElementById('diyContent').innerHTML = diyHtml;
+            html += `</div>`;
             
-            // Render FAQs
-            const faqHtml = `
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: #042548; margin-bottom: 0.5rem;">How long does it take to adapt to night shifts?</h4>
-                    <p style="color: #555;">Most people need 1-3 weeks to partially adapt to a new shift schedule. Complete circadian adaptation to permanent night shift may never fully occur for some individuals, which is why environmental controls (blackout, white noise) are so important.</p>
+            if (products.length > 0) {
+                html += `<div class="recommendations-section"><h3 class="section-title">Recommended Products</h3>`;
+                products.forEach(product => {
+                    html += `
+                        <div class="product-recommendation">
+                            <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.style.background='#f0f0f0'">
+                            <div class="product-info">
+                                <div class="product-name">${product.name}</div>
+                                <div style="font-size: 12px; color: var(--text-light); margin-bottom: 4px;">${product.reason}</div>
+                                <div class="product-price">From £${product.price}</div>
+                            </div>
+                            <a href="${product.url}" class="product-link" target="_blank">View Options</a>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+            
+            html += `
+                <div class="email-capture">
+                    <div class="email-capture-title">Get Your Full Report (Optional)</div>
+                    <p class="email-capture-text">Receive your complete sleep plan with detailed schedule, all tips, and printable guide via email.</p>
+                    <div class="email-form">
+                        <input type="text" id="userName" class="email-input" placeholder="First name *" maxlength="64" required>
+                        <input type="email" id="userEmail" class="email-input" placeholder="Email address *" required>
+                        <button class="btn btn-primary" onclick="sendReport()">Send Report</button>
+                    </div>
+                    <div class="form-error" id="formError" style="display: none; color: #D93333; font-size: 13px; margin-top: 8px;"></div>
+                    <div class="email-success" id="emailSuccess">Report sent! Check your inbox.</div>
                 </div>
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: #042548; margin-bottom: 0.5rem;">Should I try to maintain a night schedule on days off?</h4>
-                    <p style="color: #555;">This depends on your situation. For permanent night workers, maintaining a somewhat shifted schedule on days off (going to bed at 2-3am instead of 7am) can help. For rotating shift workers, it is often better to partially adjust toward a normal schedule to maintain social life and family time.</p>
-                </div>
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: #042548; margin-bottom: 0.5rem;">Is it better to sleep in one block or split sleep?</h4>
-                    <p style="color: #555;">Research suggests consolidated sleep is generally better for cognitive function. However, if you cannot get 7-8 hours in one block due to environmental factors, a main sleep of 5-6 hours plus a 1-2 hour nap before work is an acceptable alternative.</p>
-                </div>
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: #042548; margin-bottom: 0.5rem;">When should I seek medical help for sleep issues?</h4>
-                    <p style="color: #555;">Consult a healthcare provider if you experience: persistent insomnia despite good sleep practices, excessive sleepiness affecting your safety at work, symptoms of depression or anxiety, or if you have been struggling for more than 3 months. Shift Work Disorder is a recognized condition that can be treated.</p>
+                
+                <div style="text-align: center; margin-top: 24px;">
+                    <button class="btn btn-secondary" onclick="startOver()">Start Over</button>
                 </div>
             `;
-            document.getElementById('faqContent').innerHTML = faqHtml;
+            
+            return html;
         }
         
-        // Store submission to Appwrite - Immediate storage (lesson learned)
-        async function storeSubmission() {
+        function getShiftTypeName(type) {
+            const names = {
+                'fixed-night': 'Fixed Night Shifts',
+                'fixed-early': 'Fixed Early Shifts',
+                'fixed-late': 'Fixed Late/Evening Shifts',
+                'rotating': 'Rotating Shifts',
+                'split': 'Split Shifts',
+                'on-call': 'On-Call/Irregular Hours'
+            };
+            return names[type] || 'Your Shift Pattern';
+        }
+        
+        function startOver() {
+            location.reload();
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL
+        // ========================================
+        async function saveResults(schedule, tips) {
             try {
                 const response = await fetch(`${APPWRITE_ENDPOINT}/databases/${APPWRITE_DATABASE_ID}/collections/${APPWRITE_COLLECTION_ID}/documents`, {
                     method: 'POST',
@@ -2110,83 +2383,65 @@
                         documentId: 'unique()',
                         data: {
                             tool_name: 'shift-worker-sleep-planner',
-                            score: 0,
-                            scores_json: JSON.stringify({
-                                shiftType: userData.shiftType,
-                                shiftStart: userData.shiftStart,
-                                shiftEnd: userData.shiftEnd,
-                                challenges: userData.challenges,
-                                living: userData.living,
-                                experience: userData.experience,
-                                goal: userData.goal
-                            }),
-                            recommendations_json: JSON.stringify({
-                                schedule: userData.schedule,
-                                tips: userData.tips.map(t => t.title),
-                                products: userData.products.map(p => p.name)
+                            results_json: JSON.stringify({
+                                userData,
+                                schedule,
+                                tips: tips.map(t => t.title)
                             }),
                             created_at: new Date().toISOString()
                         }
                     })
                 });
                 
-                if (!response.ok) {
-                    console.log('Storage response:', await response.text());
+                if (response.ok) {
+                    console.log('Results saved successfully');
                 }
             } catch (error) {
-                console.error('Error storing submission:', error);
+                console.error('Error saving results:', error);
             }
         }
         
-        // Email submission
-        async function sendEmail(event) {
-            event.preventDefault();
+        function copyShareLink() {
+            const linkInput = document.getElementById('shareLink');
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(linkInput.value);
+            document.getElementById('copyConfirm').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('copyConfirm').style.display = 'none';
+            }, 3000);
+        }
+        
+        async function sendReport() {
+            const firstName = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const formError = document.getElementById('formError');
             
-            const firstName = document.getElementById('firstName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const marketing = document.getElementById('marketing').checked;
+            // Clear previous errors
+            formError.style.display = 'none';
             
-            // Required field validation (lesson learned - firstName is required)
-            if (!firstName || !email) {
-                alert('Please enter your name and email address.');
+            // Validate first name
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                document.getElementById('userName').focus();
                 return;
             }
             
-            const emailBtn = document.getElementById('emailBtn');
-            emailBtn.disabled = true;
-            emailBtn.innerHTML = '<span class="spinner"></span> Sending...';
+            // Validate email
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                document.getElementById('userEmail').focus();
+                return;
+            }
+            
+            const schedule = calculateSleepSchedule();
+            const tips = generateTips();
+            const products = getProductRecommendations();
             
             try {
-                // Store email submission
-                await fetch(`${APPWRITE_ENDPOINT}/databases/${APPWRITE_DATABASE_ID}/collections/${APPWRITE_COLLECTION_ID}/documents`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Appwrite-Project': APPWRITE_PROJECT_ID
-                    },
-                    body: JSON.stringify({
-                        documentId: 'unique()',
-                        data: {
-                            tool_name: 'shift-worker-sleep-planner',
-                            email: email,
-                            first_name: firstName,
-                            marketing_consent: marketing,
-                            score: 0,
-                            scores_json: JSON.stringify({
-                                shiftType: userData.shiftType,
-                                challenges: userData.challenges
-                            }),
-                            recommendations_json: JSON.stringify({
-                                schedule: userData.schedule,
-                                tips: userData.tips.map(t => t.title)
-                            }),
-                            created_at: new Date().toISOString()
-                        }
-                    })
-                });
-                
-                // Call email function
-                const functionResponse = await fetch(`${APPWRITE_ENDPOINT}/functions/${APPWRITE_FUNCTION_ID}/executions`, {
+                const response = await fetch(`${APPWRITE_ENDPOINT}/functions/${APPWRITE_FUNCTION_ID}/executions`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -2194,75 +2449,30 @@
                     },
                     body: JSON.stringify({
                         body: JSON.stringify({
-                            toolName: 'shift-worker-sleep-planner',
                             email: email,
                             firstName: firstName,
-                            shiftType: userData.shiftType,
-                            shiftStart: userData.shiftStart,
-                            shiftEnd: userData.shiftEnd,
-                            schedule: userData.schedule,
-                            tips: userData.tips,
-                            diyTips: userData.diyTips,
-                            products: userData.products
+                            toolName: 'shift-worker-sleep-planner',
+                            userData: userData,
+                            schedule: schedule,
+                            tips: tips,
+                            products: products
                         })
                     })
                 });
                 
-                document.getElementById('successMessage').classList.add('show');
-                emailBtn.innerHTML = '&#10004; Sent!';
-                
+                if (response.ok) {
+                    document.getElementById('emailSuccess').style.display = 'block';
+                    document.getElementById('userEmail').disabled = true;
+                    document.getElementById('userName').disabled = true;
+                } else {
+                    throw new Error('Failed to send email');
+                }
             } catch (error) {
-                console.error('Error sending email:', error);
-                emailBtn.disabled = false;
-                emailBtn.innerHTML = '&#128231; Send My Sleep Plan';
-                alert('There was an error sending your email. Please try again.');
+                console.error('Error sending report:', error);
+                formError.textContent = 'Sorry, there was an error sending your report. Please try again.';
+                formError.style.display = 'block';
             }
         }
-        
-        // Restart tool
-        function restartTool() {
-            // Reset state
-            userData = {
-                shiftType: null,
-                shiftStart: '22:00',
-                shiftEnd: '06:00',
-                commute: 30,
-                challenges: [],
-                living: null,
-                experience: null,
-                goal: null,
-                schedule: null,
-                tips: [],
-                products: [],
-                diyTips: []
-            };
-            
-            // Reset UI
-            document.querySelectorAll('.option-card').forEach(card => {
-                card.classList.remove('selected');
-                const input = card.querySelector('input');
-                if (input) input.checked = false;
-            });
-            
-            document.getElementById('nextBtn1').disabled = true;
-            document.getElementById('nextBtn4').disabled = true;
-            document.getElementById('generateBtn').disabled = true;
-            document.getElementById('emailBtn').disabled = false;
-            document.getElementById('emailBtn').innerHTML = '&#128231; Send My Sleep Plan';
-            document.getElementById('successMessage').classList.remove('show');
-            document.getElementById('firstName').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('marketing').checked = false;
-            document.getElementById('shiftStart').value = '22:00';
-            document.getElementById('shiftEnd').value = '06:00';
-            
-            // Show step 1
-            showStep(1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // Initialize
-        updateProgress();
     </script>
 </body>
 </html>
