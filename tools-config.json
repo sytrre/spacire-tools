@@ -74,16 +74,16 @@
     {
       "id": "sleep-sound-finder",
       "name": "Sleep Sound Finder",
-      "description": "Discover the perfect sleep sounds for your preferences - from white noise to nature sounds to ambient music.",
-      "status": "coming-soon",
+      "description": "Discover whether white noise, pink noise, brown noise, or nature sounds work best for your sleep.",
+      "status": "active",
       "file": "sleep-sound-finder.html",
       "icon": "sound",
       "duration": "2-3 minutes",
       "features": [
         "Sound preference quiz",
-        "Personalized recommendations",
-        "Sample sound clips",
-        "Volume guidelines"
+        "Audio samples to test",
+        "Science behind each sound",
+        "Machine recommendations"
       ],
       "ctaText": "Find My Sound",
       "order": 5
