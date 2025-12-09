@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Sleep Sound Finder - Discover whether white noise, pink noise, brown noise, or nature sounds work best for your sleep. Take our quiz and listen to audio samples to find your perfect sleep sound.">
+    <meta name="keywords" content="white noise for sleep, pink noise vs white noise, brown noise sleep, best sleep sounds, noise for sleeping, sleep sound quiz, green noise, which noise color for sleep, sound masking">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Sleep Sound Finder - Which Noise Color Helps You Sleep? | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/sleep-sound-finder">
+    
+    <meta property="og:title" content="Sleep Sound Finder - Which Noise Color Helps You Sleep?">
+    <meta property="og:description" content="Discover whether white, pink, brown, or green noise works best for your sleep. Free quiz with audio samples to test each sound type.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/sleep-sound-finder">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Sound Finder - Which Noise Color Helps You Sleep?">
+    <meta name="twitter:description" content="Discover whether white, pink, brown, or green noise works best for your sleep.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sleep Sound Finder",
+        "description": "Free tool to discover which noise color (white, pink, brown, or green noise) works best for your sleep based on your environment and preferences.",
+        "url": "https://tools.spacire.com/sleep-sound-finder",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is the difference between white noise and pink noise?", "acceptedAnswer": {"@type": "Answer", "text": "White noise contains equal energy across all frequencies, creating a hissing sound like TV static. Pink noise has more energy in lower frequencies, creating a deeper, more balanced sound like steady rainfall. Research suggests pink noise may be better for deep sleep."}},
+            {"@type": "Question", "name": "What is brown noise good for?", "acceptedAnswer": {"@type": "Answer", "text": "Brown noise (also called red noise) emphasizes even lower frequencies, creating a deep rumbling sound like thunder or a waterfall. It's often preferred by people who find white noise too harsh or high-pitched, and may help with focus and relaxation."}},
+            {"@type": "Question", "name": "Which noise color is best for sleep?", "acceptedAnswer": {"@type": "Answer", "text": "The best noise color depends on your individual preferences and what sounds you're trying to mask. White noise is best for high-pitched sounds like voices, pink noise may enhance deep sleep, and brown noise suits those who prefer deeper, rumbling sounds."}}
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Spacire", "item": "https://spacire.com"},
+            {"@type": "ListItem", "position": 2, "name": "Sleep Tools", "item": "https://tools.spacire.com"},
+            {"@type": "ListItem", "position": 3, "name": "Sleep Sound Finder", "item": "https://tools.spacire.com/sleep-sound-finder"}
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5d98a;
+            --background: #FFFFFF;
+            --text-primary: #232323;
+            --text-secondary: #323232;
+            --text-light: #969696;
+            --border: #E6E6E6;
+            --hover: #F8F8F8;
+            --success: #DFF0D8;
+            --success-dark: #3c763d;
+            --warning: #FCF8E3;
+            --warning-dark: #8a6d3b;
+            --error: #D93333;
+            --error-light: #F2DEDE;
+            --info-bg: #e6f4ff;
+            --font-primary: 'Domine', Georgia, serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s ease;
+            
+            /* Noise color coding */
+            --white-noise: #9CA3AF;
+            --pink-noise: #EC4899;
+            --brown-noise: #92400E;
+            --green-noise: #10B981;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-primary); font-size: 16px; line-height: 1.6; color: var(--text-primary); background: var(--background); -webkit-font-smoothing: antialiased; }
+        
+        .site-header { background: var(--primary); padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-text { color: #fff; font-size: 20px; font-weight: 600; letter-spacing: 0.05em; }
+        .header-nav { display: flex; gap: 24px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; letter-spacing: 0.02em; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-light); margin: 0 8px; }
+        
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        
+        .tool-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; }
+        .tool-body { padding: 28px; }
+        
+        .progress-container { margin-bottom: 28px; }
+        .progress-steps { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .progress-step { display: flex; flex-direction: column; align-items: center; flex: 1; }
+        .step-circle { width: 32px; height: 32px; border-radius: 50%; background: var(--border); color: var(--text-light); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; transition: var(--transition); }
+        .progress-step.active .step-circle { background: var(--primary); color: #fff; }
+        .progress-step.completed .step-circle { background: var(--success-dark); color: #fff; }
+        .step-label { font-size: 11px; color: var(--text-light); margin-top: 6px; text-align: center; }
+        .progress-step.active .step-label { color: var(--primary); font-weight: 600; }
+        .progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); transition: width 0.5s ease; }
+        
+        .question-section { display: none; animation: fadeIn 0.4s ease; }
+        .question-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .question-title { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .question-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        
+        .option-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+        .option-card { padding: 16px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); text-align: center; }
+        .option-card:hover { border-color: var(--primary); background: var(--hover); }
+        .option-card.selected { border-color: var(--primary); background: var(--info-bg); }
+        .option-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+        .option-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .option-desc { font-size: 12px; color: var(--text-light); }
+        
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 20px; }
+        .checkbox-option { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); }
+        .checkbox-option:hover { border-color: var(--primary); background: var(--hover); }
+        .checkbox-option.selected { border-color: var(--success-dark); background: var(--success); }
+        .checkbox-box { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0; }
+        .checkbox-option.selected .checkbox-box { background: var(--success-dark); border-color: var(--success-dark); }
+        .checkbox-check { display: none; color: #fff; font-size: 12px; font-weight: bold; }
+        .checkbox-option.selected .checkbox-check { display: block; }
+        .checkbox-label { font-size: 14px; color: var(--text-primary); }
+        
+        .nav-buttons { display: flex; justify-content: space-between; gap: 16px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
+        .btn { padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-light); }
+        .btn-primary:disabled { background: var(--text-light); cursor: not-allowed; }
+        .btn-secondary { background: var(--hover); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--border); }
+        
+        /* Audio Player Styles */
+        .audio-sampler { background: var(--hover); border-radius: var(--radius-lg); padding: 24px; margin: 20px 0; }
+        .audio-sampler-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; text-align: center; }
+        .sound-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+        .sound-card { background: #fff; border: 2px solid var(--border); border-radius: var(--radius-md); padding: 16px; text-align: center; cursor: pointer; transition: var(--transition); }
+        .sound-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .sound-card.playing { border-color: var(--success-dark); background: var(--success); }
+        .sound-card.selected { border-color: var(--primary); background: var(--info-bg); }
+        .sound-color-dot { width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; }
+        .sound-color-dot.white { background: linear-gradient(135deg, #E5E7EB 0%, #9CA3AF 100%); }
+        .sound-color-dot.pink { background: linear-gradient(135deg, #F9A8D4 0%, #EC4899 100%); }
+        .sound-color-dot.brown { background: linear-gradient(135deg, #D97706 0%, #92400E 100%); }
+        .sound-color-dot.green { background: linear-gradient(135deg, #6EE7B7 0%, #10B981 100%); }
+        .sound-color-dot svg { width: 20px; height: 20px; fill: #fff; }
+        .sound-card-title { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .sound-card-desc { font-size: 11px; color: var(--text-light); }
+        .play-icon { margin-top: 8px; }
+        .play-icon svg { width: 24px; height: 24px; fill: var(--primary); }
+        .sound-card.playing .play-icon svg { fill: var(--success-dark); }
+        
+        .volume-control { margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .volume-label { font-size: 12px; color: var(--text-secondary); }
+        .volume-slider { width: 150px; height: 6px; border-radius: 3px; background: var(--border); outline: none; -webkit-appearance: none; cursor: pointer; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); cursor: pointer; }
+        
+        .results-section { display: none; }
+        .results-section.active { display: block; animation: fadeIn 0.5s ease; }
+        
+        .result-header { text-align: center; padding: 32px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); color: #fff; margin-bottom: 28px; }
+        .result-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
+        .result-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .result-subtitle { font-size: 16px; opacity: 0.9; }
+        
+        .recommendation-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 24px; }
+        .recommendation-header { padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+        .rec-color-badge { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .rec-color-badge svg { width: 28px; height: 28px; fill: #fff; }
+        .rec-info h3 { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .rec-info p { font-size: 14px; color: var(--text-secondary); }
+        .rec-match { background: var(--success); color: var(--success-dark); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-left: auto; }
+        .recommendation-body { padding: 0 24px 24px; }
+        .rec-section { margin-bottom: 20px; }
+        .rec-section-title { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .rec-section-title svg { width: 18px; height: 18px; fill: var(--primary); }
+        .rec-section p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        .rec-section ul { margin: 0; padding-left: 20px; }
+        .rec-section li { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+        
+        .try-sound-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: var(--primary); color: #fff; border: none; border-radius: var(--radius-md); cursor: pointer; font-family: var(--font-primary); font-size: 14px; font-weight: 600; transition: var(--transition); }
+        .try-sound-btn:hover { background: var(--primary-light); }
+        .try-sound-btn.playing { background: var(--success-dark); }
+        .try-sound-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        
+        .alternatives-section { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .alternatives-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .alt-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+        .alt-card { background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+        .alt-card-color { width: 36px; height: 36px; border-radius: 50%; margin: 0 auto 8px; }
+        .alt-card-title { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .alt-card-match { font-size: 11px; color: var(--text-light); }
+        
+        .section-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        
+        .tip-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; }
+        .tip-card.priority-high { border-left: 4px solid var(--error); }
+        .tip-card.priority-medium { border-left: 4px solid var(--accent); }
+        .tip-card.priority-low { border-left: 4px solid #5cb85c; }
+        .tip-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+        .tip-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .priority-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+        .priority-badge.high { background: var(--error-light); color: var(--error); }
+        .priority-badge.medium { background: var(--warning); color: var(--warning-dark); }
+        .priority-badge.low { background: var(--success); color: var(--success-dark); }
+        .tip-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        
+        .product-recommendation { display: flex; gap: 16px; background: var(--hover); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; align-items: center; }
+        .product-image { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 24px; }
+        .product-info { flex: 1; }
+        .product-name { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .product-reason { font-size: 12px; color: var(--text-light); margin-bottom: 4px; }
+        .product-price { font-size: 16px; font-weight: 700; color: var(--primary); }
+        .product-link { display: inline-block; padding: 10px 16px; background: var(--primary); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
+        .product-link:hover { background: var(--primary-light); }
+        @media (max-width: 500px) { .product-recommendation { flex-direction: column; text-align: center; } }
+        
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--info-bg) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-top: 28px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--primary); }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .info-table th, .info-table td { padding: 12px; text-align: left; border: 1px solid var(--border); }
+        .info-table th { background: var(--hover); font-weight: 600; color: var(--primary); }
+        .info-table td { color: var(--text-secondary); }
+        
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>></span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>></span>
+            <span style="color: var(--text-primary);">Sleep Sound Finder</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Sleep Sound Finder</h1>
+            <p class="page-subtitle">Discover whether white noise, pink noise, brown noise, or nature sounds work best for your sleep. Listen to samples and find your perfect match.</p>
+        </header>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Find Your Perfect Sleep Sound</h2>
+                <p>Answer a few questions and try audio samples to discover your ideal noise color</p>
+            </div>
+            
+            <div class="tool-body">
+                <!-- Progress -->
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-circle">1</div>
+                            <span class="step-label">Environment</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-circle">2</div>
+                            <span class="step-label">Challenges</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-circle">3</div>
+                            <span class="step-label">Preferences</span>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-circle">4</div>
+                            <span class="step-label">Listen</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 12.5%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Question 1: Environment Noise -->
+                <div class="question-section active" id="question1">
+                    <h3 class="question-title">What sounds do you need to block or mask?</h3>
+                    <p class="question-subtitle">Select all that disturb your sleep.</p>
+                    
+                    <div class="checkbox-grid">
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Traffic / Street noise</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Neighbors / Voices</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Partner snoring</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Pets moving around</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">HVAC / Appliance hum</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Sudden noises (dogs, alarms)</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Complete silence (too quiet)</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'noises')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Tinnitus / Ringing in ears</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <div></div>
+                        <button class="btn btn-primary" onclick="nextQuestion(1)">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 2: Sleep Challenges -->
+                <div class="question-section" id="question2">
+                    <h3 class="question-title">What are your main sleep challenges?</h3>
+                    <p class="question-subtitle">Select all that apply.</p>
+                    
+                    <div class="checkbox-grid">
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Difficulty falling asleep</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Waking up during the night</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Racing thoughts / Anxiety</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Light sleeper / Easily disturbed</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Need help focusing (ADHD)</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Trouble with deep sleep</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(2)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(2)">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 3: Sound Preferences -->
+                <div class="question-section" id="question3">
+                    <h3 class="question-title">What type of sounds do you generally prefer?</h3>
+                    <p class="question-subtitle">Choose the option that feels most appealing.</p>
+                    
+                    <div class="option-grid">
+                        <div class="option-card" data-value="steady" onclick="selectOption(this, 'soundPref')">
+                            <span class="option-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                            </span>
+                            <div class="option-title">Steady & Consistent</div>
+                            <div class="option-desc">Unchanging, predictable sound</div>
+                        </div>
+                        <div class="option-card" data-value="deep" onclick="selectOption(this, 'soundPref')">
+                            <span class="option-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17l5-5 5 5 5-10 5 10"/></svg>
+                            </span>
+                            <div class="option-title">Deep & Rumbling</div>
+                            <div class="option-desc">Low frequency, bass-like</div>
+                        </div>
+                        <div class="option-card" data-value="natural" onclick="selectOption(this, 'soundPref')">
+                            <span class="option-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </span>
+                            <div class="option-title">Natural & Organic</div>
+                            <div class="option-desc">Rain, ocean, forest sounds</div>
+                        </div>
+                        <div class="option-card" data-value="bright" onclick="selectOption(this, 'soundPref')">
+                            <span class="option-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+                            </span>
+                            <div class="option-title">Bright & Full</div>
+                            <div class="option-desc">Higher frequencies included</div>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(3)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(3)">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 4: Audio Sampling -->
+                <div class="question-section" id="question4">
+                    <h3 class="question-title">Listen and compare these noise colors</h3>
+                    <p class="question-subtitle">Click each sound to preview it. Select the one you find most relaxing.</p>
+                    
+                    <div class="audio-sampler">
+                        <div class="sound-cards">
+                            <div class="sound-card" data-sound="white" onclick="playAndSelectSound('white', this)">
+                                <div class="sound-color-dot white">
+                                    <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/><path d="M15.54,8.46a5,5,0,0,1,0,7.07"/><path d="M19.07,4.93a10,10,0,0,1,0,14.14"/></svg>
+                                </div>
+                                <div class="sound-card-title">White Noise</div>
+                                <div class="sound-card-desc">Like TV static or a fan</div>
+                                <div class="play-icon">
+                                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+                                </div>
+                            </div>
+                            <div class="sound-card" data-sound="pink" onclick="playAndSelectSound('pink', this)">
+                                <div class="sound-color-dot pink">
+                                    <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/><path d="M15.54,8.46a5,5,0,0,1,0,7.07"/><path d="M19.07,4.93a10,10,0,0,1,0,14.14"/></svg>
+                                </div>
+                                <div class="sound-card-title">Pink Noise</div>
+                                <div class="sound-card-desc">Like steady rainfall</div>
+                                <div class="play-icon">
+                                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+                                </div>
+                            </div>
+                            <div class="sound-card" data-sound="brown" onclick="playAndSelectSound('brown', this)">
+                                <div class="sound-color-dot brown">
+                                    <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/><path d="M15.54,8.46a5,5,0,0,1,0,7.07"/><path d="M19.07,4.93a10,10,0,0,1,0,14.14"/></svg>
+                                </div>
+                                <div class="sound-card-title">Brown Noise</div>
+                                <div class="sound-card-desc">Like thunder or waterfall</div>
+                                <div class="play-icon">
+                                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+                                </div>
+                            </div>
+                            <div class="sound-card" data-sound="green" onclick="playAndSelectSound('green', this)">
+                                <div class="sound-color-dot green">
+                                    <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/><path d="M15.54,8.46a5,5,0,0,1,0,7.07"/><path d="M19.07,4.93a10,10,0,0,1,0,14.14"/></svg>
+                                </div>
+                                <div class="sound-card-title">Green Noise</div>
+                                <div class="sound-card-desc">Like wind through trees</div>
+                                <div class="play-icon">
+                                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="volume-control">
+                            <span class="volume-label">Volume:</span>
+                            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="30" oninput="updateVolume(this.value)">
+                            <span class="volume-label" id="volumeValue">30%</span>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; font-size: 13px; color: var(--text-light); margin-top: 12px;">
+                        Tip: Listen for at least 10 seconds each. The best sound often feels like it "disappears" into the background.
+                    </p>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(4); stopAllSounds();">Back</button>
+                        <button class="btn btn-primary" onclick="generateResults()">Find My Sound</button>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Our Matching Process</h4>
+                    <ul>
+                        <li><strong>Step 1:</strong> Tell us what environmental sounds disturb your sleep</li>
+                        <li><strong>Step 2:</strong> Identify your sleep challenges so we can match effectively</li>
+                        <li><strong>Step 3:</strong> Share your sound preferences (deep vs. bright, steady vs. natural)</li>
+                        <li><strong>Step 4:</strong> Listen to actual audio samples to confirm your preference</li>
+                    </ul>
+                    
+                    <h4>How Different Noise Colors Work</h4>
+                    <table class="info-table">
+                        <tr>
+                            <th>Noise Color</th>
+                            <th>Frequency Profile</th>
+                            <th>Best For</th>
+                        </tr>
+                        <tr>
+                            <td><strong>White</strong></td>
+                            <td>Equal energy all frequencies</td>
+                            <td>Masking high-pitched sounds (voices, traffic)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pink</strong></td>
+                            <td>More bass, balanced</td>
+                            <td>Deep sleep enhancement, general relaxation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brown</strong></td>
+                            <td>Heavy bass, rumbling</td>
+                            <td>Those who find white noise harsh, focus/ADHD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Green</strong></td>
+                            <td>Mid-range focused</td>
+                            <td>Natural sound lovers, anxiety relief</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>The Science of Sound Masking</h4>
+                    <p>Sound masking works by adding a consistent background sound that covers up disruptive noises. Rather than blocking sound (like earplugs), it makes sudden noises less noticeable by reducing the contrast between silence and disturbance.</p>
+                    
+                    <h4>Why "Noise Colors" Matter</h4>
+                    <p>Different noise colors have different frequency distributions. This matters because our ears are more sensitive to certain frequencies, and different types of environmental noise occupy different frequency ranges. Matching the right noise color to your specific situation produces better results.</p>
+                    
+                    <h4>Research-Backed Benefits</h4>
+                    <ul>
+                        <li>Pink noise has been shown to enhance deep sleep and memory consolidation in multiple studies</li>
+                        <li>White noise is effective for masking speech and high-frequency sounds</li>
+                        <li>Brown noise is increasingly popular for focus and concentration, particularly among those with ADHD</li>
+                        <li>Consistent background sound reduces the number of times sleepers wake during the night</li>
+                    </ul>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a sleep wellness company dedicated to helping people achieve better rest through natural, science-backed solutions. We offer white noise machines, sleep masks, blackout curtains, and aromatherapy products.</p>
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Others Find Their Perfect Sleep Sound</h4>
+                    <p>If this tool helped you discover your ideal noise color, share it with friends or family who struggle with sleep.</p>
+                    
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0;">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/sleep-sound-finder&text=I%20just%20discovered%20my%20perfect%20sleep%20sound%20with%20this%20free%20tool!%20Find%20out%20if%20white,%20pink,%20brown,%20or%20green%20noise%20works%20best%20for%20you:" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #1DA1F2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on X/Twitter</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/sleep-sound-finder" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #4267B2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on Facebook</a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tools.spacire.com/sleep-sound-finder&title=Sleep%20Sound%20Finder%20-%20Which%20Noise%20Color%20Helps%20You%20Sleep?" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #0077B5; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on LinkedIn</a>
+                    </div>
+                    
+                    <h4>Direct Link</h4>
+                    <div style="display: flex; gap: 8px; margin-top: 8px;">
+                        <input type="text" value="https://tools.spacire.com/sleep-sound-finder" readonly style="flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px;">
+                        <button onclick="copyToolLink()" style="padding: 10px 16px; background: var(--primary); color: #fff; border: none; border-radius: var(--radius-sm); cursor: pointer; font-size: 13px;">Copy</button>
+                    </div>
+                    <div id="copyConfirmTool" style="display: none; color: var(--success-dark); font-size: 12px; margin-top: 8px;">Link copied to clipboard!</div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Great Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Explore our other free sleep tools:</p>
+                    <div class="tools-grid">
+                        <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card">
+                            <h5>Sleep Environment Optimizer</h5>
+                            <p>Assess your bedroom for optimal sleep conditions</p>
+                        </a>
+                        <a href="https://tools.spacire.com/shift-worker-sleep-planner" class="tool-link-card">
+                            <h5>Shift Worker Sleep Planner</h5>
+                            <p>Get personalized sleep schedules for shift work</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-debt-calculator" class="tool-link-card">
+                            <h5>Sleep Debt Calculator</h5>
+                            <p>Track your sleep debt and get a recovery plan</p>
+                        </a>
+                        <a href="https://tools.spacire.com/bedtime-routine-builder" class="tool-link-card">
+                            <h5>Bedtime Routine Builder</h5>
+                            <p>Create a personalized wind-down routine</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                    <a href="https://tools.spacire.com/sleep-sound-finder">Sleep Sound Finder</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // WEB AUDIO API - NOISE GENERATION
+        // ========================================
+        let audioContext = null;
+        let currentSource = null;
+        let gainNode = null;
+        let isPlaying = false;
+        let currentlyPlayingSound = null;
+        
+        function initAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                gainNode = audioContext.createGain();
+                gainNode.connect(audioContext.destination);
+                gainNode.gain.value = 0.3;
+            }
+        }
+        
+        function generateWhiteNoise(duration = 2) {
+            const bufferSize = audioContext.sampleRate * duration;
+            const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+            return buffer;
+        }
+        
+        function generatePinkNoise(duration = 2) {
+            const bufferSize = audioContext.sampleRate * duration;
+            const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+            const data = buffer.getChannelData(0);
+            let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+            for (let i = 0; i < bufferSize; i++) {
+                const white = Math.random() * 2 - 1;
+                b0 = 0.99886 * b0 + white * 0.0555179;
+                b1 = 0.99332 * b1 + white * 0.0750759;
+                b2 = 0.96900 * b2 + white * 0.1538520;
+                b3 = 0.86650 * b3 + white * 0.3104856;
+                b4 = 0.55000 * b4 + white * 0.5329522;
+                b5 = -0.7616 * b5 - white * 0.0168980;
+                data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
+                b6 = white * 0.115926;
+            }
+            return buffer;
+        }
+        
+        function generateBrownNoise(duration = 2) {
+            const bufferSize = audioContext.sampleRate * duration;
+            const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+            const data = buffer.getChannelData(0);
+            let lastOut = 0;
+            for (let i = 0; i < bufferSize; i++) {
+                const white = Math.random() * 2 - 1;
+                data[i] = (lastOut + (0.02 * white)) / 1.02;
+                lastOut = data[i];
+                data[i] *= 3.5;
+            }
+            return buffer;
+        }
+        
+        function generateGreenNoise(duration = 2) {
+            // Green noise is pink noise with a bandpass filter around 500Hz
+            const bufferSize = audioContext.sampleRate * duration;
+            const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+            const data = buffer.getChannelData(0);
+            let b0 = 0, b1 = 0, b2 = 0;
+            for (let i = 0; i < bufferSize; i++) {
+                const white = Math.random() * 2 - 1;
+                // Pink noise generation
+                b0 = 0.99765 * b0 + white * 0.0990460;
+                b1 = 0.96300 * b1 + white * 0.2965164;
+                b2 = 0.57000 * b2 + white * 1.0526913;
+                const pink = (b0 + b1 + b2 + white * 0.1848) * 0.15;
+                // Simple bandpass effect for "green" character
+                data[i] = pink * 0.8;
+            }
+            return buffer;
+        }
+        
+        function playNoise(type) {
+            initAudio();
+            stopAllSounds();
+            
+            let buffer;
+            switch(type) {
+                case 'white': buffer = generateWhiteNoise(10); break;
+                case 'pink': buffer = generatePinkNoise(10); break;
+                case 'brown': buffer = generateBrownNoise(10); break;
+                case 'green': buffer = generateGreenNoise(10); break;
+                default: buffer = generateWhiteNoise(10);
+            }
+            
+            currentSource = audioContext.createBufferSource();
+            currentSource.buffer = buffer;
+            currentSource.loop = true;
+            currentSource.connect(gainNode);
+            currentSource.start();
+            isPlaying = true;
+            currentlyPlayingSound = type;
+        }
+        
+        function stopAllSounds() {
+            if (currentSource) {
+                try {
+                    currentSource.stop();
+                } catch(e) {}
+                currentSource = null;
+            }
+            isPlaying = false;
+            currentlyPlayingSound = null;
+            
+            // Update UI
+            document.querySelectorAll('.sound-card').forEach(card => {
+                card.classList.remove('playing');
+            });
+        }
+        
+        function updateVolume(value) {
+            if (gainNode) {
+                gainNode.gain.value = value / 100;
+            }
+            document.getElementById('volumeValue').textContent = value + '%';
+        }
+        
+        // ========================================
+        // STATE MANAGEMENT
+        // ========================================
+        let currentQuestion = 1;
+        const totalQuestions = 4;
+        
+        const userData = {
+            noises: [],
+            challenges: [],
+            soundPref: null,
+            selectedSound: null
+        };
+        
+        let calculatedResults = null;
+        
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.parentElement;
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        // ========================================
+        // QUESTION NAVIGATION
+        // ========================================
+        function updateProgress() {
+            const progressFill = document.querySelector('.progress-fill');
+            const steps = document.querySelectorAll('.progress-step');
+            
+            progressFill.style.width = `${(currentQuestion / totalQuestions) * 100}%`;
+            
+            steps.forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                if (stepNum < currentQuestion) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentQuestion) {
+                    step.classList.add('active');
+                }
+            });
+        }
+        
+        function showQuestion(num) {
+            document.querySelectorAll('.question-section').forEach(q => q.classList.remove('active'));
+            document.getElementById(`question${num}`).classList.add('active');
+            currentQuestion = num;
+            updateProgress();
+        }
+        
+        function nextQuestion(current) {
+            if (current < totalQuestions) {
+                showQuestion(current + 1);
+            }
+        }
+        
+        function prevQuestion(current) {
+            if (current > 1) {
+                showQuestion(current - 1);
+            }
+        }
+        
+        // ========================================
+        // OPTION SELECTION
+        // ========================================
+        function selectOption(element, field) {
+            const container = element.parentElement;
+            container.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            userData[field] = element.dataset.value;
+        }
+        
+        function toggleCheckbox(element, field) {
+            element.classList.toggle('selected');
+            const label = element.querySelector('.checkbox-label').textContent;
+            
+            if (element.classList.contains('selected')) {
+                if (!userData[field].includes(label)) {
+                    userData[field].push(label);
+                }
+            } else {
+                userData[field] = userData[field].filter(item => item !== label);
+            }
+        }
+        
+        function playAndSelectSound(type, element) {
+            // If clicking same sound that's playing, stop it
+            if (currentlyPlayingSound === type && isPlaying) {
+                stopAllSounds();
+                return;
+            }
+            
+            // Play the sound
+            playNoise(type);
+            
+            // Update UI - playing state
+            document.querySelectorAll('.sound-card').forEach(card => {
+                card.classList.remove('playing');
+            });
+            element.classList.add('playing');
+            
+            // Mark as selected
+            document.querySelectorAll('.sound-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            userData.selectedSound = type;
+        }
+        
+        // ========================================
+        // RESULTS GENERATION
+        // ========================================
+        function generateResults() {
+            stopAllSounds();
+            
+            // Hide questions, show results
+            document.querySelectorAll('.question-section').forEach(q => q.classList.remove('active'));
+            document.getElementById('resultsSection').classList.add('active');
+            
+            // Calculate best sound match
+            const results = calculateSoundMatch();
+            calculatedResults = results;
+            
+            // Render results
+            renderResults(results);
+            
+            // Save to database
+            saveResults(results);
+        }
+        
+        function calculateSoundMatch() {
+            const scores = {
+                white: 0,
+                pink: 0,
+                brown: 0,
+                green: 0
+            };
+            
+            // Score based on noises to mask
+            userData.noises.forEach(noise => {
+                if (noise.includes('Traffic') || noise.includes('Neighbors') || noise.includes('Voices')) {
+                    scores.white += 3;
+                    scores.pink += 2;
+                }
+                if (noise.includes('snoring')) {
+                    scores.white += 2;
+                    scores.pink += 2;
+                    scores.brown += 1;
+                }
+                if (noise.includes('Sudden noises')) {
+                    scores.white += 2;
+                    scores.pink += 3;
+                }
+                if (noise.includes('HVAC') || noise.includes('hum')) {
+                    scores.brown += 2;
+                    scores.pink += 1;
+                }
+                if (noise.includes('silence') || noise.includes('too quiet')) {
+                    scores.pink += 2;
+                    scores.brown += 2;
+                    scores.green += 2;
+                }
+                if (noise.includes('Tinnitus')) {
+                    scores.white += 3;
+                    scores.pink += 2;
+                }
+            });
+            
+            // Score based on sleep challenges
+            userData.challenges.forEach(challenge => {
+                if (challenge.includes('Difficulty falling asleep')) {
+                    scores.pink += 2;
+                    scores.brown += 2;
+                }
+                if (challenge.includes('Waking up during')) {
+                    scores.pink += 3;
+                    scores.brown += 1;
+                }
+                if (challenge.includes('Racing thoughts') || challenge.includes('Anxiety')) {
+                    scores.brown += 3;
+                    scores.green += 2;
+                }
+                if (challenge.includes('Light sleeper')) {
+                    scores.white += 2;
+                    scores.pink += 2;
+                }
+                if (challenge.includes('ADHD') || challenge.includes('focusing')) {
+                    scores.brown += 4;
+                    scores.pink += 1;
+                }
+                if (challenge.includes('deep sleep')) {
+                    scores.pink += 4;
+                }
+            });
+            
+            // Score based on sound preferences
+            if (userData.soundPref === 'steady') {
+                scores.white += 2;
+                scores.pink += 1;
+            } else if (userData.soundPref === 'deep') {
+                scores.brown += 3;
+                scores.pink += 1;
+            } else if (userData.soundPref === 'natural') {
+                scores.green += 3;
+                scores.pink += 2;
+            } else if (userData.soundPref === 'bright') {
+                scores.white += 3;
+            }
+            
+            // Bonus for user's actual selection in sampler
+            if (userData.selectedSound) {
+                scores[userData.selectedSound] += 5;
+            }
+            
+            // Sort by score
+            const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+            const maxScore = sorted[0][1];
+            
+            return {
+                primary: sorted[0][0],
+                primaryScore: Math.min(98, Math.round((sorted[0][1] / (maxScore + 5)) * 100)),
+                secondary: sorted[1][0],
+                secondaryScore: Math.min(90, Math.round((sorted[1][1] / (maxScore + 5)) * 100)),
+                tertiary: sorted[2][0],
+                tertiaryScore: Math.min(80, Math.round((sorted[2][1] / (maxScore + 5)) * 100)),
+                allScores: scores
+            };
+        }
+        
+        const soundData = {
+            white: {
+                name: 'White Noise',
+                color: 'linear-gradient(135deg, #E5E7EB 0%, #9CA3AF 100%)',
+                description: 'Equal energy across all frequencies, creating a consistent "hissing" sound like TV static or a fan.',
+                bestFor: ['Masking high-pitched sounds (voices, traffic)', 'Tinnitus relief', 'Creating consistent audio environment', 'Light sleepers who wake easily'],
+                science: 'White noise contains all frequencies at equal intensity. This broadband sound effectively masks other noises by providing a consistent audio "blanket" that reduces the contrast between silence and sudden sounds.',
+                volume: 'Start at 50-60 dB (about the level of a quiet conversation). Position the sound source between you and the noise you want to mask.'
+            },
+            pink: {
+                name: 'Pink Noise',
+                color: 'linear-gradient(135deg, #F9A8D4 0%, #EC4899 100%)',
+                description: 'Deeper and more balanced than white noise, with more bass. Sounds like steady rainfall or a waterfall.',
+                bestFor: ['Enhancing deep sleep', 'Improving sleep quality overall', 'Those who find white noise too harsh', 'Memory consolidation during sleep'],
+                science: 'Pink noise has equal energy per octave, meaning lower frequencies are more prominent. Research from Northwestern University found that pink noise synchronized with brain waves can enhance deep sleep and improve memory.',
+                volume: 'Keep at a moderate level (40-50 dB). Pink noise works well at lower volumes because its frequency profile is naturally pleasing to human ears.'
+            },
+            brown: {
+                name: 'Brown Noise',
+                color: 'linear-gradient(135deg, #D97706 0%, #92400E 100%)',
+                description: 'Deep, rumbling sound like thunder, strong wind, or a powerful waterfall. Much bassier than pink noise.',
+                bestFor: ['Focus and concentration (especially ADHD)', 'Those who find other noise colors too sharp', 'Anxiety and racing thoughts', 'Masking low-frequency sounds'],
+                science: 'Brown noise (also called Brownian or red noise) emphasizes very low frequencies. Its deep, rumbling quality is often described as more "natural" and less fatiguing for extended listening. Many people with ADHD report improved focus.',
+                volume: 'Can be played at slightly higher volumes comfortably due to its low-frequency emphasis. Start moderate and adjust to preference.'
+            },
+            green: {
+                name: 'Green Noise',
+                color: 'linear-gradient(135deg, #6EE7B7 0%, #10B981 100%)',
+                description: 'Mid-range focused sound that mimics natural environments like wind through trees or a gentle stream.',
+                bestFor: ['Nature lovers', 'Stress and anxiety relief', 'Those who want variation without distraction', 'Creating a calming atmosphere'],
+                science: 'Green noise centers around the 500Hz range, which corresponds to many natural environmental sounds. This makes it feel organic and less artificial than pure white or pink noise.',
+                volume: 'Best at moderate to low volumes where it creates ambiance without dominating the room. Think of it as background nature sounds.'
+            }
+        };
+        
+        function renderResults(results) {
+            const primary = soundData[results.primary];
+            const container = document.getElementById('resultsContent');
+            
+            container.innerHTML = `
+                <div class="result-header">
+                    <div class="result-label">Your Best Match</div>
+                    <div class="result-title">${primary.name}</div>
+                    <div class="result-subtitle">${results.primaryScore}% match based on your answers</div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="recommendation-header">
+                        <div class="rec-color-badge" style="background: ${primary.color};">
+                            <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/><path d="M15.54,8.46a5,5,0,0,1,0,7.07"/><path d="M19.07,4.93a10,10,0,0,1,0,14.14"/></svg>
+                        </div>
+                        <div class="rec-info">
+                            <h3>${primary.name}</h3>
+                            <p>${primary.description}</p>
+                        </div>
+                        <div class="rec-match">${results.primaryScore}% Match</div>
+                    </div>
+                    <div class="recommendation-body">
+                        <button class="try-sound-btn" id="trySoundBtn" onclick="toggleResultSound('${results.primary}')">
+                            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+                            <span>Play ${primary.name}</span>
+                        </button>
+                        
+                        <div class="rec-section" style="margin-top: 20px;">
+                            <div class="rec-section-title">
+                                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                Best For
+                            </div>
+                            <ul>
+                                ${primary.bestFor.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="rec-section">
+                            <div class="rec-section-title">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                The Science
+                            </div>
+                            <p>${primary.science}</p>
+                        </div>
+                        
+                        <div class="rec-section">
+                            <div class="rec-section-title">
+                                <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/><path d="M15.54,8.46a5,5,0,0,1,0,7.07"/></svg>
+                                Volume Recommendation
+                            </div>
+                            <p>${primary.volume}</p>
+                        </div>
+                        
+                        <div class="alternatives-section">
+                            <div class="alternatives-title">Also Consider</div>
+                            <div class="alt-cards">
+                                <div class="alt-card">
+                                    <div class="alt-card-color" style="background: ${soundData[results.secondary].color};"></div>
+                                    <div class="alt-card-title">${soundData[results.secondary].name}</div>
+                                    <div class="alt-card-match">${results.secondaryScore}% match</div>
+                                </div>
+                                <div class="alt-card">
+                                    <div class="alt-card-color" style="background: ${soundData[results.tertiary].color};"></div>
+                                    <div class="alt-card-title">${soundData[results.tertiary].name}</div>
+                                    <div class="alt-card-match">${results.tertiaryScore}% match</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Tips for Using ${primary.name}</h3>
+                ${generateTipsHtml(results.primary)}
+                
+                <h3 class="section-title">Recommended Products</h3>
+                ${generateProductsHtml()}
+                
+                <div style="background: var(--warning); border: 1px solid #f0e6c8; border-radius: var(--radius-md); padding: 16px; margin-top: 24px;">
+                    <div style="font-weight: 600; color: var(--warning-dark); margin-bottom: 6px;">Health Note</div>
+                    <p style="font-size: 13px; color: var(--warning-dark); margin: 0; line-height: 1.5;">Sound machines should not be used at high volumes, especially for infants. If you experience hearing discomfort, tinnitus that worsens, or sleep problems that persist despite sound therapy, please consult a healthcare provider or audiologist.</p>
+                </div>
+                
+                <div class="email-capture">
+                    <div class="email-capture-title">Save Your Sound Profile</div>
+                    <p class="email-capture-text">Get your personalized sound recommendations, science-backed tips, and product suggestions sent to your inbox.</p>
+                    <div class="email-form">
+                        <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                        <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                        <button class="btn btn-primary" onclick="sendReport()">Send My Results</button>
+                    </div>
+                    <div class="form-error" id="formError"></div>
+                    <div class="email-success" id="emailSuccess">Your personalized sound profile has been sent! Check your inbox.</div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 24px;">
+                    <button class="btn btn-secondary" onclick="startOver()">Start Over</button>
+                </div>
+            `;
+        }
+        
+        function toggleResultSound(type) {
+            const btn = document.getElementById('trySoundBtn');
+            if (isPlaying && currentlyPlayingSound === type) {
+                stopAllSounds();
+                btn.classList.remove('playing');
+                btn.innerHTML = `<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21 5,3"/></svg><span>Play ${soundData[type].name}</span>`;
+            } else {
+                playNoise(type);
+                btn.classList.add('playing');
+                btn.innerHTML = `<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg><span>Stop ${soundData[type].name}</span>`;
+            }
+        }
+        
+        function generateTipsHtml(soundType) {
+            const tips = [
+                {
+                    title: 'Start Gradually',
+                    priority: 'high',
+                    text: 'Begin using your sound machine 20-30 minutes before bed. This gives your brain time to associate the sound with sleep, creating a powerful sleep cue over time.'
+                },
+                {
+                    title: 'Consistent Volume',
+                    priority: 'medium',
+                    text: 'Keep the volume consistent night after night. Your brain learns to filter out consistent sounds, which is why sound masking works. Changing volumes disrupts this process.'
+                },
+                {
+                    title: 'Position Matters',
+                    priority: 'medium',
+                    text: 'Place your sound machine between you and the source of unwanted noise. If traffic comes from a window, position the machine near that window rather than by your bedside.'
+                },
+                {
+                    title: 'Give It Time',
+                    priority: 'low',
+                    text: 'It can take 1-2 weeks for your brain to fully adapt to sleeping with background sound. Stick with it even if it feels strange at first.'
+                }
+            ];
+            
+            return tips.map(tip => `
+                <div class="tip-card priority-${tip.priority}">
+                    <div class="tip-header">
+                        <div class="tip-title">${tip.title}</div>
+                        <span class="priority-badge ${tip.priority}">${tip.priority}</span>
+                    </div>
+                    <p class="tip-text">${tip.text}</p>
+                </div>
+            `).join('');
+        }
+        
+        function generateProductsHtml() {
+            const products = [
+                {
+                    name: 'White Noise Machine',
+                    price: '19.99',
+                    url: 'https://spacire.com/collections/white-noise-machines',
+                    reason: 'Multiple noise colors built-in'
+                },
+                {
+                    name: 'Portable Sound Machine',
+                    price: '24.99',
+                    url: 'https://spacire.com/collections/portable-travel-sound-machines',
+                    reason: 'Great for travel'
+                }
+            ];
+            
+            return products.map(product => `
+                <div class="product-recommendation">
+                    <div class="product-image">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/>
+                            <path d="M15.54,8.46a5,5,0,0,1,0,7.07"/>
+                            <path d="M19.07,4.93a10,10,0,0,1,0,14.14"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-reason">${product.reason}</div>
+                        <div class="product-price">From GBP ${product.price}</div>
+                    </div>
+                    <a href="${product.url}" class="product-link" target="_blank">View</a>
+                </div>
+            `).join('');
+        }
+        
+        function startOver() {
+            stopAllSounds();
+            location.reload();
+        }
+        
+        function copyToolLink() {
+            const input = document.querySelector('.info-content input[readonly]');
+            input.select();
+            navigator.clipboard.writeText(input.value);
+            document.getElementById('copyConfirmTool').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('copyConfirmTool').style.display = 'none';
+            }, 3000);
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL
+        // ========================================
+        async function saveResults(results) {
+            try {
+                const data = {
+                    tool_name: 'sleep_sound_finder',
+                    results_json: JSON.stringify({
+                        userData,
+                        results
+                    }),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                };
+                
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    data
+                );
+                console.log('Results saved to database');
+            } catch (error) {
+                console.error('Database error (non-critical):', error);
+            }
+        }
+        
+        async function sendReport() {
+            const firstName = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const formError = document.getElementById('formError');
+            const sendBtn = document.querySelector('.email-capture .btn-primary');
+            
+            formError.style.display = 'none';
+            
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
+            const results = calculatedResults;
+            const primary = soundData[results.primary];
+            
+            const emailPayload = JSON.stringify({
+                email: email,
+                firstName: firstName,
+                toolName: 'sleep-sound-finder',
+                
+                heroTitle: `Your Best Match: ${primary.name}`,
+                heroSubtitle: `${results.primaryScore}% match based on your answers`,
+                introText: `Hi {firstName}, based on your sleep challenges and preferences, we've identified ${primary.name} as your ideal sleep sound. Here's everything you need to know to get the best results.`,
+                
+                sections: [
+                    {
+                        type: 'summary',
+                        title: 'Your Sound Profile',
+                        items: [
+                            { label: 'Best Match', value: primary.name },
+                            { label: 'Match Score', value: `${results.primaryScore}%`, highlight: true },
+                            { label: 'Runner Up', value: soundData[results.secondary].name },
+                            { label: 'Third Option', value: soundData[results.tertiary].name }
+                        ]
+                    },
+                    {
+                        type: 'tips',
+                        title: `Why ${primary.name} Works For You`,
+                        items: [
+                            {
+                                title: 'What It Is',
+                                priority: 'high',
+                                text: primary.description
+                            },
+                            {
+                                title: 'The Science',
+                                priority: 'medium',
+                                text: primary.science
+                            },
+                            {
+                                title: 'Volume Tips',
+                                priority: 'low',
+                                text: primary.volume
+                            }
+                        ]
+                    },
+                    {
+                        type: 'products',
+                        title: 'Recommended Products',
+                        items: [
+                            { name: 'White Noise Machine', price: '19.99', url: 'https://spacire.com/collections/white-noise-machines', reason: 'Multiple noise colors built-in' },
+                            { name: 'Portable Sound Machine', price: '24.99', url: 'https://spacire.com/collections/portable-travel-sound-machines', reason: 'Perfect for travel' }
+                        ]
+                    },
+                    {
+                        type: 'warning',
+                        title: 'Health Note',
+                        text: 'Sound machines should not be used at high volumes, especially for infants. If you experience hearing discomfort or tinnitus that worsens, please consult a healthcare provider.'
+                    }
+                ],
+                
+                ctaButton: {
+                    text: 'Shop White Noise Machines',
+                    url: 'https://spacire.com/collections/white-noise-machines'
+                }
+            });
+            
+            try {
+                const response = await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    false
+                );
+                
+                if (response.responseStatusCode === 200) {
+                    const result = JSON.parse(response.responseBody);
+                    if (result.success) {
+                        document.getElementById('emailSuccess').style.display = 'block';
+                        document.getElementById('userEmail').disabled = true;
+                        document.getElementById('userName').disabled = true;
+                        sendBtn.style.display = 'none';
+                    } else {
+                        throw new Error(result.message);
+                    }
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                console.error('Email error:', error);
+                formError.textContent = 'Sorry, there was an error. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
