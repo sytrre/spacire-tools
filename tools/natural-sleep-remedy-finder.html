@@ -142,7 +142,7 @@
         .option-grid.two-col { grid-template-columns: repeat(2, 1fr); }
         @media (max-width: 500px) { .option-grid.two-col { grid-template-columns: 1fr; } }
         
-        .option-card { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); background: #fff; }
+        .option-card { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); background: #fff; user-select: none; }
         .option-card:hover { border-color: var(--leaf-green); background: var(--leaf-light); }
         .option-card.selected { border-color: var(--leaf-green); background: var(--leaf-light); }
         .option-card input { display: none; }
@@ -205,26 +205,29 @@
         .section-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
         
         .tip-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; }
-        .tip-card.priority-high { border-left: 4px solid var(--error); }
+        .tip-card.priority-high { border-left: 4px solid var(--leaf-green); }
         .tip-card.priority-medium { border-left: 4px solid var(--accent); }
-        .tip-card.priority-low { border-left: 4px solid var(--leaf-green); }
+        .tip-card.priority-low { border-left: 4px solid #3b82f6; }
         .tip-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
         .tip-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
         .priority-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
-        .priority-badge.high { background: var(--error-light); color: var(--error); }
+        .priority-badge.high { background: var(--leaf-light); color: var(--success-dark); }
         .priority-badge.medium { background: var(--warning); color: var(--warning-dark); }
-        .priority-badge.low { background: var(--success); color: var(--success-dark); }
+        .priority-badge.low { background: var(--info-bg); color: #1e40af; }
         .tip-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
         
-        .product-recommendation { display: flex; gap: 16px; background: var(--hover); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; align-items: center; }
-        .product-image { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); background: linear-gradient(135deg, var(--leaf-light) 0%, #f0f8ff 100%); display: flex; align-items: center; justify-content: center; color: var(--leaf-green); font-size: 24px; }
-        .product-info { flex: 1; }
-        .product-name { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
-        .product-reason { font-size: 12px; color: var(--text-light); margin-bottom: 4px; }
-        .product-price { font-size: 16px; font-weight: 700; color: var(--primary); }
-        .product-link { display: inline-block; padding: 10px 16px; background: var(--primary); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
-        .product-link:hover { background: var(--primary-light); }
-        @media (max-width: 500px) { .product-recommendation { flex-direction: column; text-align: center; } }
+        .supplements-note { background: var(--herb-light); border: 1px solid #c4b5fd; border-radius: var(--radius-md); padding: 20px; margin-top: 24px; }
+        .supplements-title { font-size: 15px; font-weight: 600; color: #5b21b6; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .supplements-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+        .supplements-list { margin: 0; padding-left: 20px; }
+        .supplements-list li { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+        .supplements-list strong { color: #5b21b6; }
+        
+        .product-note { background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-top: 24px; }
+        .product-note-title { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 10px; }
+        .product-note-text { font-size: 13px; color: var(--text-light); line-height: 1.6; margin-bottom: 12px; }
+        .product-link-subtle { display: inline-block; color: var(--primary); text-decoration: none; font-size: 13px; font-weight: 500; }
+        .product-link-subtle:hover { text-decoration: underline; }
         
         .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--leaf-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-top: 28px; }
         .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
@@ -270,8 +273,6 @@
         .share-btn.twitter:hover { background: #1a8cd8; }
         .share-btn.facebook { background: #4267B2; color: #fff; }
         .share-btn.facebook:hover { background: #365899; }
-        .share-btn.linkedin { background: #0077B5; color: #fff; }
-        .share-btn.linkedin:hover { background: #006097; }
         .share-btn.whatsapp { background: #25D366; color: #fff; }
         .share-btn.whatsapp:hover { background: #20bd5a; }
         .share-btn.email-share { background: var(--primary); color: #fff; }
@@ -359,7 +360,7 @@
                     <h3 class="question-title">What's your main sleep challenge?</h3>
                     <p class="question-subtitle">Select the issue that affects you most</p>
                     <div class="option-grid two-col">
-                        <label class="option-card" onclick="selectOption(1, 'falling-asleep')">
+                        <div class="option-card" onclick="selectOption(1, 'falling-asleep')">
                             <input type="radio" name="q1" value="falling-asleep">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128564;</span>
@@ -367,8 +368,8 @@
                                 <span class="option-label">Can't Fall Asleep</span>
                                 <span class="option-desc">Takes 30+ minutes to drift off</span>
                             </span>
-                        </label>
-                        <label class="option-card" onclick="selectOption(1, 'staying-asleep')">
+                        </div>
+                        <div class="option-card" onclick="selectOption(1, 'staying-asleep')">
                             <input type="radio" name="q1" value="staying-asleep">
                             <span class="option-check"></span>
                             <span class="option-icon">&#127769;</span>
@@ -376,8 +377,8 @@
                                 <span class="option-label">Can't Stay Asleep</span>
                                 <span class="option-desc">Wake up during the night</span>
                             </span>
-                        </label>
-                        <label class="option-card" onclick="selectOption(1, 'wake-early')">
+                        </div>
+                        <div class="option-card" onclick="selectOption(1, 'wake-early')">
                             <input type="radio" name="q1" value="wake-early">
                             <span class="option-check"></span>
                             <span class="option-icon">&#127749;</span>
@@ -385,8 +386,8 @@
                                 <span class="option-label">Wake Too Early</span>
                                 <span class="option-desc">Can't get back to sleep</span>
                             </span>
-                        </label>
-                        <label class="option-card" onclick="selectOption(1, 'poor-quality')">
+                        </div>
+                        <div class="option-card" onclick="selectOption(1, 'poor-quality')">
                             <input type="radio" name="q1" value="poor-quality">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128148;</span>
@@ -394,7 +395,7 @@
                                 <span class="option-label">Poor Sleep Quality</span>
                                 <span class="option-desc">Wake up feeling unrefreshed</span>
                             </span>
-                        </label>
+                        </div>
                     </div>
                     <div class="nav-buttons">
                         <button class="btn btn-primary" onclick="nextQuestion(1)" disabled id="nextBtn1">Continue</button>
@@ -406,7 +407,7 @@
                     <h3 class="question-title">Which of these do you experience?</h3>
                     <p class="question-subtitle">Select all that apply</p>
                     <div class="option-grid">
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 2)">
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 2)">
                             <input type="checkbox" name="q2" value="racing-thoughts">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128173;</span>
@@ -414,8 +415,8 @@
                                 <span class="option-label">Racing Thoughts</span>
                                 <span class="option-desc">Mind won't quiet down at night</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 2)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 2)">
                             <input type="checkbox" name="q2" value="anxiety">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128556;</span>
@@ -423,8 +424,8 @@
                                 <span class="option-label">Anxiety or Stress</span>
                                 <span class="option-desc">Feeling worried or tense</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 2)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 2)">
                             <input type="checkbox" name="q2" value="restlessness">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128400;</span>
@@ -432,8 +433,8 @@
                                 <span class="option-label">Physical Restlessness</span>
                                 <span class="option-desc">Can't get comfortable, fidgety</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 2)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 2)">
                             <input type="checkbox" name="q2" value="temperature">
                             <span class="option-check"></span>
                             <span class="option-icon">&#127777;</span>
@@ -441,8 +442,8 @@
                                 <span class="option-label">Temperature Issues</span>
                                 <span class="option-desc">Too hot or too cold</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 2)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 2)">
                             <input type="checkbox" name="q2" value="pain">
                             <span class="option-check"></span>
                             <span class="option-icon">&#129657;</span>
@@ -450,8 +451,8 @@
                                 <span class="option-label">Pain or Discomfort</span>
                                 <span class="option-desc">Aches, tension, or soreness</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 2)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 2)">
                             <input type="checkbox" name="q2" value="none">
                             <span class="option-check"></span>
                             <span class="option-icon">&#10004;</span>
@@ -459,7 +460,7 @@
                                 <span class="option-label">None of These</span>
                                 <span class="option-desc">Just general sleep trouble</span>
                             </span>
-                        </label>
+                        </div>
                     </div>
                     <div class="nav-buttons">
                         <button class="btn btn-secondary" onclick="prevQuestion(2)">Back</button>
@@ -472,7 +473,7 @@
                     <h3 class="question-title">What have you already tried?</h3>
                     <p class="question-subtitle">Select all that apply (helps us suggest new approaches)</p>
                     <div class="option-grid">
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 3)">
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 3)">
                             <input type="checkbox" name="q3" value="herbal-tea">
                             <span class="option-check"></span>
                             <span class="option-icon">&#9749;</span>
@@ -480,8 +481,8 @@
                                 <span class="option-label">Herbal Tea</span>
                                 <span class="option-desc">Chamomile, valerian, etc.</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 3)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 3)">
                             <input type="checkbox" name="q3" value="aromatherapy">
                             <span class="option-check"></span>
                             <span class="option-icon">&#127803;</span>
@@ -489,8 +490,8 @@
                                 <span class="option-label">Aromatherapy</span>
                                 <span class="option-desc">Essential oils, diffusers</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 3)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 3)">
                             <input type="checkbox" name="q3" value="supplements">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128138;</span>
@@ -498,8 +499,8 @@
                                 <span class="option-label">Supplements</span>
                                 <span class="option-desc">Melatonin, magnesium, etc.</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 3)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 3)">
                             <input type="checkbox" name="q3" value="weighted-blanket">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128716;</span>
@@ -507,8 +508,8 @@
                                 <span class="option-label">Weighted Blanket</span>
                                 <span class="option-desc">Deep pressure therapy</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 3)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 3)">
                             <input type="checkbox" name="q3" value="sleep-mask">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128065;</span>
@@ -516,8 +517,8 @@
                                 <span class="option-label">Sleep Mask</span>
                                 <span class="option-desc">Light blocking</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 3)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 3)">
                             <input type="checkbox" name="q3" value="nothing">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128075;</span>
@@ -525,7 +526,7 @@
                                 <span class="option-label">Nothing Yet</span>
                                 <span class="option-desc">This is my first step</span>
                             </span>
-                        </label>
+                        </div>
                     </div>
                     <div class="nav-buttons">
                         <button class="btn btn-secondary" onclick="prevQuestion(3)">Back</button>
@@ -538,7 +539,7 @@
                     <h3 class="question-title">What are your preferences?</h3>
                     <p class="question-subtitle">Select all that apply</p>
                     <div class="option-grid">
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 4)">
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 4)">
                             <input type="checkbox" name="q4" value="love-scents">
                             <span class="option-check"></span>
                             <span class="option-icon">&#127804;</span>
@@ -546,8 +547,8 @@
                                 <span class="option-label">Love Scents</span>
                                 <span class="option-desc">Enjoy aromatherapy and fragrances</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 4)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 4)">
                             <input type="checkbox" name="q4" value="scent-sensitive">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128683;</span>
@@ -555,8 +556,8 @@
                                 <span class="option-label">Scent Sensitive</span>
                                 <span class="option-desc">Prefer unscented or mild options</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 4)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 4)">
                             <input type="checkbox" name="q4" value="quick-fix">
                             <span class="option-check"></span>
                             <span class="option-icon">&#9889;</span>
@@ -564,8 +565,8 @@
                                 <span class="option-label">Quick Solutions</span>
                                 <span class="option-desc">Want fast-acting remedies</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 4)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 4)">
                             <input type="checkbox" name="q4" value="gradual">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128336;</span>
@@ -573,8 +574,8 @@
                                 <span class="option-label">Gradual Approach</span>
                                 <span class="option-desc">Patient with building habits</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 4)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 4)">
                             <input type="checkbox" name="q4" value="budget-conscious">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128176;</span>
@@ -582,8 +583,8 @@
                                 <span class="option-label">Budget-Conscious</span>
                                 <span class="option-desc">Prefer free or low-cost options</span>
                             </span>
-                        </label>
-                        <label class="option-card checkbox-option" onclick="toggleCheckbox(this, 4)">
+                        </div>
+                        <div class="option-card checkbox-option" onclick="toggleCheckbox(event, this, 4)">
                             <input type="checkbox" name="q4" value="willing-invest">
                             <span class="option-check"></span>
                             <span class="option-icon">&#11088;</span>
@@ -591,7 +592,7 @@
                                 <span class="option-label">Willing to Invest</span>
                                 <span class="option-desc">Quality products are worth it</span>
                             </span>
-                        </label>
+                        </div>
                     </div>
                     <div class="nav-buttons">
                         <button class="btn btn-secondary" onclick="prevQuestion(4)">Back</button>
@@ -604,7 +605,7 @@
                     <h3 class="question-title">What's most important to you?</h3>
                     <p class="question-subtitle">Select your top priority</p>
                     <div class="option-grid">
-                        <label class="option-card" onclick="selectOption(5, 'fall-asleep-faster')">
+                        <div class="option-card" onclick="selectOption(5, 'fall-asleep-faster')">
                             <input type="radio" name="q5" value="fall-asleep-faster">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128164;</span>
@@ -612,8 +613,8 @@
                                 <span class="option-label">Fall Asleep Faster</span>
                                 <span class="option-desc">Reduce time to fall asleep</span>
                             </span>
-                        </label>
-                        <label class="option-card" onclick="selectOption(5, 'stay-asleep')">
+                        </div>
+                        <div class="option-card" onclick="selectOption(5, 'stay-asleep')">
                             <input type="radio" name="q5" value="stay-asleep">
                             <span class="option-check"></span>
                             <span class="option-icon">&#127769;</span>
@@ -621,8 +622,8 @@
                                 <span class="option-label">Stay Asleep Longer</span>
                                 <span class="option-desc">Fewer nighttime awakenings</span>
                             </span>
-                        </label>
-                        <label class="option-card" onclick="selectOption(5, 'deeper-sleep')">
+                        </div>
+                        <div class="option-card" onclick="selectOption(5, 'deeper-sleep')">
                             <input type="radio" name="q5" value="deeper-sleep">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128171;</span>
@@ -630,8 +631,8 @@
                                 <span class="option-label">Deeper, More Restful Sleep</span>
                                 <span class="option-desc">Better sleep quality overall</span>
                             </span>
-                        </label>
-                        <label class="option-card" onclick="selectOption(5, 'reduce-anxiety')">
+                        </div>
+                        <div class="option-card" onclick="selectOption(5, 'reduce-anxiety')">
                             <input type="radio" name="q5" value="reduce-anxiety">
                             <span class="option-check"></span>
                             <span class="option-icon">&#128524;</span>
@@ -639,7 +640,7 @@
                                 <span class="option-label">Reduce Bedtime Anxiety</span>
                                 <span class="option-desc">Feel calmer before sleep</span>
                             </span>
-                        </label>
+                        </div>
                     </div>
                     <div class="nav-buttons">
                         <button class="btn btn-secondary" onclick="prevQuestion(5)">Back</button>
@@ -841,129 +842,144 @@
         let calculatedResults = null;
         
         // ========================================
-        // REMEDIES DATABASE
+        // REMEDIES DATABASE (User-First, Evidence-Based)
         // ========================================
         const REMEDIES = {
+            breathingTechniques: {
+                name: '4-7-8 Breathing Technique',
+                category: 'Free Relaxation Practice',
+                icon: 'breath',
+                color: '#06b6d4',
+                description: 'A powerful, free technique that calms your nervous system in minutes',
+                howItWorks: 'Controlled breathing activates the vagus nerve and parasympathetic nervous system, reducing heart rate and blood pressure. The 4-7-8 pattern forces you to slow down, and the held breath increases CO2 which has a calming effect.',
+                bestFor: ['racing-thoughts', 'anxiety', 'falling-asleep'],
+                evidence: 'Multiple studies support breathing techniques for sleep. Research shows slow, deep breathing can reduce cortisol levels by up to 50% and improve sleep onset. The 4-7-8 technique was popularized by Dr. Andrew Weil based on ancient yogic practices.',
+                howToUse: ['Inhale quietly through your nose for 4 seconds', 'Hold your breath for 7 seconds', 'Exhale completely through your mouth for 8 seconds', 'Repeat 3-4 cycles'],
+                diyTips: ['Practice during the day first to build the habit', 'Do it lying in bed with eyes closed', 'Combine with progressive muscle relaxation for deeper effect', 'Use consistently - benefits increase with practice'],
+                isFree: true
+            },
+            temperatureControl: {
+                name: 'Bedroom Temperature Optimization',
+                category: 'Free Environment Change',
+                icon: 'temperature',
+                color: '#0ea5e9',
+                description: 'Simple adjustments that signal your body its time to sleep',
+                howItWorks: 'Your core body temperature naturally drops 1-2 degrees as you fall asleep. Keeping your bedroom cool (16-19C / 60-67F) supports this process. A warm shower before bed also helps - it causes blood vessels to dilate, releasing heat and cooling your core.',
+                bestFor: ['temperature', 'staying-asleep', 'poor-quality'],
+                evidence: 'Research shows the optimal bedroom temperature for sleep is 16-19C (60-67F). A study in Sleep Medicine Reviews found that a cooler environment significantly improved deep sleep duration.',
+                howToUse: ['Set thermostat to 16-19C (60-67F) at night', 'Open a window for fresh, cool air', 'Use lighter bedding than you think you need', 'Take a warm bath/shower 1-2 hours before bed'],
+                diyTips: ['Put a fan near your bed for air circulation', 'Sleep with cotton or linen sheets (not synthetic)', 'Keep a glass of cool water by your bed', 'Wear light, breathable sleepwear or sleep nude'],
+                isFree: true
+            },
             lavender: {
                 name: 'Lavender Aromatherapy',
                 category: 'Aromatherapy',
                 icon: 'flower',
                 color: '#a855f7',
-                description: 'Calming scent that promotes relaxation and reduces anxiety',
-                howItWorks: 'Lavender contains linalool and linalyl acetate, compounds that interact with the nervous system to produce calming effects. Inhaling lavender activates the parasympathetic nervous system, lowering heart rate and promoting relaxation.',
+                description: 'One of the most researched natural sleep aids with calming properties',
+                howItWorks: 'Lavender contains linalool and linalyl acetate, compounds that interact with the GABA system to produce calming effects. Inhaling lavender activates the parasympathetic nervous system, lowering heart rate and promoting relaxation.',
                 bestFor: ['falling-asleep', 'anxiety', 'racing-thoughts'],
-                evidence: 'Multiple studies show lavender improves sleep quality and reduces anxiety. A 2015 study in the Journal of Alternative and Complementary Medicine found lavender improved sleep quality by 45%.',
-                howToUse: ['Spray pillow 15-30 minutes before bed', 'Use a diffuser in the bedroom', 'Apply diluted oil to temples or wrists'],
-                diyTips: ['Grow lavender plants on your windowsill', 'Place dried lavender sachets under your pillow', 'Add a few drops of lavender oil to a warm bath before bed'],
-                products: [
-                    { name: 'Laniska Lavender Sleep Spray', handle: 'laniska-lavender-sleep-spray', price: '8.99', reason: 'Natural lavender pillow mist' },
-                    { name: 'Ximonth Lavender Soothing Spray', handle: 'ximonth-lavender-soothing-sleep-spray', price: '7.99', reason: 'Room and linen spray' }
-                ]
+                evidence: 'A 2015 study in the Journal of Alternative and Complementary Medicine found lavender improved sleep quality by 45%. Multiple studies confirm its anxiety-reducing effects with no side effects reported.',
+                howToUse: ['Apply 15-30 minutes before bed for best effect', 'Use a diffuser for consistent scent throughout the night', 'Try lavender pillow spray or sachets', 'Dilute essential oil before applying to skin'],
+                diyTips: ['Grow lavender on your windowsill for free access', 'Dry lavender flowers and place in a cloth bag under your pillow', 'Add a few drops of lavender oil to a warm bath', 'Make your own linen spray with water and a few drops of oil'],
+                isFree: false
+            },
+            magnesium: {
+                name: 'Magnesium Supplementation',
+                category: 'Supplement (Not Sold by Spacire)',
+                icon: 'supplement',
+                color: '#10b981',
+                description: 'An essential mineral many people lack, with proven sleep benefits',
+                howItWorks: 'Magnesium plays a role in over 300 enzymatic reactions including those that regulate sleep. It activates the parasympathetic nervous system, helps regulate melatonin, and binds to GABA receptors to quiet nerve activity.',
+                bestFor: ['restlessness', 'staying-asleep', 'pain', 'poor-quality'],
+                evidence: 'Research in the Journal of Research in Medical Sciences found that magnesium supplementation improved sleep quality, sleep time, and reduced early morning awakening. Up to 50% of people may have inadequate magnesium intake.',
+                howToUse: ['Magnesium glycinate is best tolerated for sleep (200-400mg)', 'Take 30-60 minutes before bed', 'Start with a lower dose and increase gradually', 'Topical magnesium (oil, lotion) can also help'],
+                diyTips: ['Eat magnesium-rich foods: dark chocolate, almonds, spinach, bananas, avocados', 'Take Epsom salt (magnesium sulfate) baths before bed', 'Reduce alcohol and caffeine which deplete magnesium', 'Check with your doctor before starting any supplement'],
+                isFree: false,
+                notSold: true,
+                buyingTip: 'Look for magnesium glycinate or magnesium bisglycinate at your local pharmacy or health food store. Avoid magnesium oxide which is poorly absorbed.'
             },
             chamomile: {
-                name: 'Chamomile',
+                name: 'Chamomile Tea',
                 category: 'Herbal Remedy',
                 icon: 'tea',
                 color: '#fbbf24',
-                description: 'Gentle herb that promotes calmness and eases into sleep',
-                howItWorks: 'Chamomile contains apigenin, an antioxidant that binds to certain receptors in the brain that may decrease anxiety and initiate sleep. It has been used as a sleep aid for thousands of years.',
+                description: 'A gentle, time-tested herb that promotes calmness',
+                howItWorks: 'Chamomile contains apigenin, an antioxidant that binds to certain receptors in the brain that decrease anxiety and initiate sleep. It has been used as a sleep aid for thousands of years across many cultures.',
                 bestFor: ['falling-asleep', 'anxiety', 'poor-quality'],
-                evidence: 'A 2017 study found that chamomile extract significantly improved sleep quality in elderly people. Research in Phytomedicine showed chamomile reduces anxiety by modulating GABA receptors.',
-                howToUse: ['Drink chamomile tea 30-60 minutes before bed', 'Use chamomile-infused products', 'Combine with honey for enhanced relaxation'],
-                diyTips: ['Brew fresh chamomile tea (steep 5-10 minutes for best effect)', 'Add chamomile to a warm bath', 'Create a bedtime ritual around your evening tea'],
-                products: [
-                    { name: 'Ilisya Chamomile Steam Eye Mask', handle: 'ilisya-chamomile-steam-warm-eye-mask', price: '12.99', reason: 'Self-heating mask with chamomile' }
-                ]
+                evidence: 'A 2017 study found chamomile extract significantly improved sleep quality in elderly people. Research in Phytomedicine showed chamomile reduces anxiety by modulating GABA receptors - similar to some anti-anxiety medications but without side effects.',
+                howToUse: ['Drink chamomile tea 30-60 minutes before bed', 'Steep for 5-10 minutes for maximum benefit', 'Use 2-3 teaspoons of dried chamomile per cup', 'Combine with honey for enhanced relaxation'],
+                diyTips: ['Buy loose dried chamomile flowers (cheaper than tea bags)', 'Create a bedtime ritual around your evening tea', 'Grow chamomile in your garden - its very easy', 'Try combining with other calming herbs like passionflower'],
+                isFree: false
+            },
+            glycine: {
+                name: 'Glycine',
+                category: 'Supplement (Not Sold by Spacire)',
+                icon: 'supplement',
+                color: '#8b5cf6',
+                description: 'An amino acid that lowers body temperature and improves sleep quality',
+                howItWorks: 'Glycine is an amino acid that lowers core body temperature by dilating blood vessels in the extremities. It also increases serotonin production and may improve how quickly you reach REM sleep.',
+                bestFor: ['temperature', 'poor-quality', 'falling-asleep'],
+                evidence: 'A study in Sleep and Biological Rhythms found that 3g of glycine before bed improved subjective sleep quality and reduced daytime sleepiness. Participants felt more refreshed upon waking.',
+                howToUse: ['Take 3 grams about 30-60 minutes before bed', 'Can be taken as powder dissolved in water (slightly sweet taste)', 'Generally very safe with few side effects', 'Can also help with exercise recovery'],
+                diyTips: ['Glycine is found naturally in bone broth - try drinking a cup before bed', 'Foods high in glycine: gelatin, chicken skin, pork skin, beef', 'Collagen supplements contain high amounts of glycine', 'Glycine powder is inexpensive and widely available'],
+                isFree: false,
+                notSold: true,
+                buyingTip: 'Look for pure glycine powder at health food stores or online. Its one of the most affordable sleep supplements available.'
             },
             weightedBlanket: {
                 name: 'Weighted Blanket',
                 category: 'Deep Pressure Therapy',
                 icon: 'blanket',
                 color: '#3b82f6',
-                description: 'Provides gentle pressure that calms the nervous system',
-                howItWorks: 'Deep pressure stimulation triggers the release of serotonin and dopamine while reducing cortisol (stress hormone). This mimics the feeling of being hugged, activating the parasympathetic nervous system.',
+                description: 'Provides gentle pressure that calms the nervous system like a hug',
+                howItWorks: 'Deep pressure stimulation triggers the release of serotonin and dopamine while reducing cortisol (stress hormone). This mimics the feeling of being held or hugged, activating the parasympathetic nervous system.',
                 bestFor: ['restlessness', 'anxiety', 'staying-asleep', 'poor-quality'],
-                evidence: 'A 2020 study in the Journal of Clinical Sleep Medicine found that weighted blankets significantly improved sleep for people with insomnia and anxiety. Participants fell asleep faster and had fewer nighttime awakenings.',
-                howToUse: ['Choose a blanket 7-12% of your body weight', 'Use every night for best results', 'Cover your entire body from shoulders to feet'],
-                diyTips: ['Layer regular blankets for similar effect (less ideal)', 'Ensure your mattress can support the extra weight', 'Start with a lighter weight if new to weighted blankets'],
-                products: [
-                    { name: 'SnugCraft Weighted Blanket', handle: 'snugcraft-weighted-blanket', price: '35.99', reason: 'Premium stress relief quilt' },
-                    { name: 'BlissLoom Weighted Blanket', handle: 'blissloom-weighted-blanket', price: '32.99', reason: 'Even pressure distribution' },
-                    { name: 'QuiltAura Gravity Blanket', handle: 'quiltaura-gravity-weighted-blanket', price: '38.99', reason: '100% cotton comfort' }
-                ]
+                evidence: 'A 2020 study in the Journal of Clinical Sleep Medicine found that weighted blankets significantly improved sleep for people with insomnia and anxiety. 78% of participants preferred the weighted blanket and had calmer nights.',
+                howToUse: ['Choose a blanket 7-12% of your body weight', 'Use every night for best results', 'Cover your entire body from shoulders to feet', 'May take a few nights to adjust to the weight'],
+                diyTips: ['Start with a lighter weight if youre new to this', 'Ensure your bed frame can support the extra weight', 'Layer regular blankets for a similar (though less effective) effect', 'Some people find just covering their chest/torso helpful'],
+                isFree: false
             },
             sleepMask: {
                 name: 'Sleep Mask',
                 category: 'Light Blocking',
                 icon: 'mask',
                 color: '#1e293b',
-                description: 'Blocks light to support natural melatonin production',
-                howItWorks: 'Even small amounts of light can suppress melatonin production. A quality sleep mask creates complete darkness, signaling to your brain that its time to sleep. This helps regulate your circadian rhythm.',
+                description: 'Creates darkness anywhere to support melatonin production',
+                howItWorks: 'Even small amounts of light can suppress melatonin production by up to 50%. A quality sleep mask creates complete darkness, signaling to your brain that its time to sleep. This is especially helpful if you cant fully darken your room.',
                 bestFor: ['falling-asleep', 'wake-early', 'poor-quality'],
-                evidence: 'Research shows that sleeping in complete darkness improves sleep quality and duration. Light exposure at night disrupts melatonin production and can delay sleep onset by up to 30 minutes.',
-                howToUse: ['Choose a contoured mask that doesnt press on eyes', 'Ensure complete light blockage around nose', 'Use consistently every night'],
-                diyTips: ['Make your bedroom as dark as possible first', 'Combine with blackout curtains for best results', 'Choose breathable materials for comfort'],
-                products: [
-                    { name: 'Esasilk Mulberry Silk Eye Mask', handle: 'esasilk-22m-silk-eye-mask', price: '11.99', reason: 'Luxurious silk for skin health' },
-                    { name: 'Ursusx Memory Foam Sleep Mask', handle: 'ursusx-groove-memory-foam-sleep-mask', price: '14.99', reason: 'Contoured design for comfort' },
-                    { name: 'Zhenyuan 3D Sleep Mask', handle: 'zhenyuan-3d-sleeping-eye-mask', price: '9.99', reason: 'Blocks light without pressure' }
-                ]
+                evidence: 'Research shows that sleeping in complete darkness improves sleep quality and duration. Light exposure at night disrupts circadian rhythms and can delay sleep onset by up to 30 minutes.',
+                howToUse: ['Choose a contoured mask that doesnt press on your eyes', 'Ensure complete light blockage around the nose bridge', 'Use consistently every night for best results', 'Keep one in your travel bag for hotels'],
+                diyTips: ['First, make your bedroom as dark as possible (cheaper than a mask)', 'Cover LED lights on electronics with tape', 'Use blackout curtains or blinds', 'A folded dark t-shirt can work as a temporary eye cover'],
+                isFree: false
             },
             whiteNoise: {
-                name: 'White Noise Machine',
+                name: 'Sound Masking',
                 category: 'Sound Therapy',
                 icon: 'sound',
                 color: '#6366f1',
-                description: 'Consistent sound that masks disruptive noises',
-                howItWorks: 'White noise works by masking sudden changes in sound that can wake you. Your brain focuses on the consistent sound instead of intermittent noises. This is especially helpful for light sleepers.',
+                description: 'Consistent sound that masks disruptive noises in your environment',
+                howItWorks: 'White noise and similar sounds work by masking sudden changes in sound that can wake you. Your brain focuses on the consistent sound instead of intermittent noises like traffic, neighbors, or snoring partners.',
                 bestFor: ['staying-asleep', 'falling-asleep', 'poor-quality'],
-                evidence: 'A study in Sleep Medicine Reviews found that white noise significantly improved sleep quality in hospital patients. Research shows it can reduce the time to fall asleep by 38%.',
-                howToUse: ['Place the device 3-6 feet from your bed', 'Set volume to mask external noises without being too loud', 'Use consistently to build association with sleep'],
-                diyTips: ['Use a fan for natural white noise', 'Free white noise apps can work temporarily', 'Close windows and use draft stoppers to reduce noise'],
-                products: [
-                    { name: 'Zenith White Noise Sleep Aid', handle: 'zenith-white-noise-sleep-aid', price: '24.99', reason: 'Bluetooth with timer function' },
-                    { name: 'Quietoiz Insomnia Help Device', handle: 'quietoiz-insomnia-help-device', price: '19.99', reason: 'Multiple sound options' },
-                    { name: 'Pebbleo Portable Noise Machine', handle: 'pebbleo-white-portable-noise-machine', price: '16.99', reason: 'Compact for travel' }
-                ]
+                evidence: 'A study in Sleep Medicine Reviews found that white noise significantly improved sleep quality in hospital patients. Research shows it can reduce the time to fall asleep by 38% in noisy environments.',
+                howToUse: ['Place the sound source 3-6 feet from your bed', 'Set volume to mask external noises without being too loud', 'Use consistently to build association with sleep', 'Experiment with different sounds (white, pink, brown noise)'],
+                diyTips: ['A simple fan provides natural white noise for free', 'Free white noise apps can work well (but screen light is a problem)', 'YouTube has 10-hour sleep sound videos', 'Close windows and use draft stoppers to reduce outside noise first'],
+                isFree: false
             },
-            magnesium: {
-                name: 'Magnesium',
-                category: 'Supplement',
+            ltheanine: {
+                name: 'L-Theanine',
+                category: 'Supplement (Not Sold by Spacire)',
                 icon: 'supplement',
-                color: '#10b981',
-                description: 'Essential mineral that supports muscle relaxation and calm',
-                howItWorks: 'Magnesium plays a role in over 300 enzymatic reactions including those that regulate sleep. It activates the parasympathetic nervous system, helps regulate melatonin, and binds to GABA receptors.',
-                bestFor: ['restlessness', 'staying-asleep', 'pain', 'poor-quality'],
-                evidence: 'Research in the Journal of Research in Medical Sciences found that magnesium supplementation improved sleep quality, sleep time, and reduced early morning awakening in elderly subjects.',
-                howToUse: ['Take 200-400mg about 30 minutes before bed', 'Magnesium glycinate is often best tolerated for sleep', 'Consider topical magnesium (creams, baths) as well'],
-                diyTips: ['Eat magnesium-rich foods: dark chocolate, almonds, spinach, bananas', 'Take Epsom salt (magnesium sulfate) baths before bed', 'Reduce alcohol and caffeine which deplete magnesium'],
-                products: []
-            },
-            breathingTechniques: {
-                name: 'Breathing Techniques',
-                category: 'Relaxation Practice',
-                icon: 'breath',
-                color: '#06b6d4',
-                description: 'Free, evidence-based technique to calm mind and body',
-                howItWorks: 'Controlled breathing activates the vagus nerve and parasympathetic nervous system, reducing heart rate and blood pressure. The 4-7-8 technique is particularly effective for sleep.',
-                bestFor: ['racing-thoughts', 'anxiety', 'falling-asleep'],
-                evidence: 'Multiple studies support breathing techniques for sleep. Research shows that slow, deep breathing can reduce cortisol levels by up to 50% and improve sleep onset.',
-                howToUse: ['4-7-8 Technique: Inhale 4 seconds, hold 7 seconds, exhale 8 seconds', 'Practice 3-4 breath cycles before sleep', 'Make exhale longer than inhale for maximum relaxation'],
-                diyTips: ['Practice during the day first to build the habit', 'Combine with progressive muscle relaxation', 'Use before bed as part of your wind-down routine'],
-                products: []
-            },
-            temperatureControl: {
-                name: 'Temperature Optimization',
-                category: 'Environment',
-                icon: 'temperature',
-                color: '#0ea5e9',
-                description: 'Cooling the body signals to the brain that its time to sleep',
-                howItWorks: 'Your core body temperature naturally drops as you fall asleep. Keeping your bedroom cool (16-19C / 60-67F) supports this process. Being too warm is one of the most common causes of poor sleep.',
-                bestFor: ['temperature', 'staying-asleep', 'poor-quality'],
-                evidence: 'Research shows the optimal bedroom temperature for sleep is 16-19C (60-67F). A study in Sleep Medicine Reviews found that a cooler environment significantly improved deep sleep duration.',
-                howToUse: ['Keep bedroom at 16-19C (60-67F)', 'Use breathable bedding materials', 'Take a warm bath 1-2 hours before bed (counterintuitively cools you down)'],
-                diyTips: ['Open a window or use a fan', 'Wear light, breathable sleepwear', 'Keep feet warm (socks) while keeping room cool', 'Avoid heavy meals close to bedtime'],
-                products: []
+                color: '#14b8a6',
+                description: 'An amino acid from tea that promotes calm without drowsiness',
+                howItWorks: 'L-theanine increases alpha brain waves (associated with calm alertness) and boosts GABA, serotonin, and dopamine. Unlike other sleep aids, it promotes relaxation without sedation - you feel calm but not drowsy.',
+                bestFor: ['anxiety', 'racing-thoughts', 'falling-asleep'],
+                evidence: 'Research shows L-theanine improves sleep quality not by sedation but by reducing anxiety. A study in the Journal of Clinical Psychiatry found it improved sleep in boys with ADHD.',
+                howToUse: ['Typical dose is 100-400mg before bed', 'Can be taken during the day for calm focus too', 'Often combined with magnesium for enhanced effect', 'Very safe with no known side effects at normal doses'],
+                diyTips: ['Green tea contains L-theanine (but also caffeine, so not ideal for evening)', 'Decaffeinated green tea still has some L-theanine', 'L-theanine supplements are widely available and affordable', 'Try it during stressful days as well as before bed'],
+                isFree: false,
+                notSold: true,
+                buyingTip: 'Available at most pharmacies and health food stores. Look for "Suntheanine" brand which is well-researched.'
             }
         };
         
@@ -985,14 +1001,28 @@
             document.getElementById(`nextBtn${question}`).disabled = false;
         }
         
-        function toggleCheckbox(element, question) {
-            element.classList.toggle('selected');
-            const input = element.querySelector('input');
-            input.checked = !input.checked;
+        // FIXED: Checkbox toggle function
+        function toggleCheckbox(event, element, question) {
+            // Prevent any default behavior
+            event.preventDefault();
+            event.stopPropagation();
             
-            // Handle "None" option for symptoms
+            const input = element.querySelector('input');
+            const isCurrentlySelected = element.classList.contains('selected');
+            
+            // Toggle the current element
+            if (isCurrentlySelected) {
+                element.classList.remove('selected');
+                input.checked = false;
+            } else {
+                element.classList.add('selected');
+                input.checked = true;
+            }
+            
+            // Handle "None" option for symptoms (Q2)
             if (question === 2) {
                 if (input.value === 'none' && input.checked) {
+                    // Deselect all others when "None" is selected
                     document.querySelectorAll('#q2 .option-card').forEach(card => {
                         if (card !== element) {
                             card.classList.remove('selected');
@@ -1000,13 +1030,14 @@
                         }
                     });
                 } else if (input.value !== 'none' && input.checked) {
+                    // Deselect "None" when any other option is selected
                     const noneCard = document.querySelector('#q2 input[value="none"]').closest('.option-card');
                     noneCard.classList.remove('selected');
                     noneCard.querySelector('input').checked = false;
                 }
             }
             
-            // Handle "Nothing" option for tried before
+            // Handle "Nothing" option for tried before (Q3)
             if (question === 3) {
                 if (input.value === 'nothing' && input.checked) {
                     document.querySelectorAll('#q3 .option-card').forEach(card => {
@@ -1055,7 +1086,7 @@
         }
         
         // ========================================
-        // RESULTS GENERATION
+        // RESULTS GENERATION (User-First Approach)
         // ========================================
         function calculateRemedyScores() {
             const scores = {};
@@ -1063,6 +1094,14 @@
             Object.keys(REMEDIES).forEach(key => {
                 scores[key] = 0;
                 const remedy = REMEDIES[key];
+                
+                // Boost free remedies for budget-conscious users
+                if (remedy.isFree) {
+                    scores[key] += 10;
+                    if (userData.preferences.includes('budget-conscious')) {
+                        scores[key] += 25;
+                    }
+                }
                 
                 // Score based on primary challenge match
                 if (remedy.bestFor.includes(userData.primaryChallenge)) {
@@ -1082,25 +1121,23 @@
                 if (userData.goal === 'deeper-sleep' && remedy.bestFor.includes('poor-quality')) scores[key] += 20;
                 if (userData.goal === 'reduce-anxiety' && (remedy.bestFor.includes('anxiety') || remedy.bestFor.includes('racing-thoughts'))) scores[key] += 20;
                 
-                // Penalize if already tried (unless it's something they should continue)
-                if (userData.triedBefore.includes('aromatherapy') && key === 'lavender') scores[key] -= 10;
-                if (userData.triedBefore.includes('herbal-tea') && key === 'chamomile') scores[key] -= 10;
-                if (userData.triedBefore.includes('weighted-blanket') && key === 'weightedBlanket') scores[key] -= 10;
-                if (userData.triedBefore.includes('sleep-mask') && key === 'sleepMask') scores[key] -= 10;
+                // Penalize if already tried
+                if (userData.triedBefore.includes('aromatherapy') && key === 'lavender') scores[key] -= 15;
+                if (userData.triedBefore.includes('herbal-tea') && key === 'chamomile') scores[key] -= 15;
+                if (userData.triedBefore.includes('weighted-blanket') && key === 'weightedBlanket') scores[key] -= 15;
+                if (userData.triedBefore.includes('sleep-mask') && key === 'sleepMask') scores[key] -= 15;
+                if (userData.triedBefore.includes('supplements') && (key === 'magnesium' || key === 'glycine' || key === 'ltheanine')) scores[key] -= 10;
                 
-                // Bonus based on preferences
-                if (userData.preferences.includes('love-scents') && (key === 'lavender' || key === 'chamomile')) scores[key] += 10;
-                if (userData.preferences.includes('scent-sensitive') && (key === 'lavender' || key === 'chamomile')) scores[key] -= 15;
-                if (userData.preferences.includes('quick-fix') && (key === 'lavender' || key === 'whiteNoise' || key === 'sleepMask')) scores[key] += 10;
-                if (userData.preferences.includes('budget-conscious') && key === 'breathingTechniques') scores[key] += 15;
-                if (userData.preferences.includes('budget-conscious') && key === 'temperatureControl') scores[key] += 10;
+                // Preference adjustments
+                if (userData.preferences.includes('love-scents') && key === 'lavender') scores[key] += 10;
+                if (userData.preferences.includes('scent-sensitive') && key === 'lavender') scores[key] -= 20;
+                if (userData.preferences.includes('quick-fix') && remedy.isFree) scores[key] += 10;
             });
             
             return scores;
         }
         
         function generateResults() {
-            // Save final question data
             userData.preferences = Array.from(document.querySelectorAll('#q4 input:checked')).map(i => i.value);
             
             const scores = calculateRemedyScores();
@@ -1108,20 +1145,17 @@
             // Sort remedies by score
             const sortedRemedies = Object.entries(scores)
                 .sort((a, b) => b[1] - a[1])
-                .slice(0, 5); // Top 5 remedies
+                .slice(0, 6);
             
             calculatedResults = {
                 topRemedies: sortedRemedies,
                 scores: scores
             };
             
-            // Save to database
             saveResults(calculatedResults);
             
-            // Generate results HTML
             const resultsHtml = generateResultsHtml(sortedRemedies);
             
-            // Hide questions, show results
             document.getElementById('q5').classList.remove('active');
             document.getElementById('resultsSection').classList.add('active');
             document.getElementById('resultsSection').innerHTML = resultsHtml;
@@ -1148,9 +1182,9 @@
             
             let html = `
                 <div class="result-header">
-                    <div class="result-label">Your Top Natural Remedy</div>
+                    <div class="result-label">Your Best Match</div>
                     <div class="result-title">${primaryRemedy.name}</div>
-                    <div class="result-subtitle">${matchPercentage}% match for your sleep profile</div>
+                    <div class="result-subtitle">${primaryRemedy.isFree ? 'Free technique' : 'Evidence-based remedy'} - ${matchPercentage}% match</div>
                 </div>
                 
                 <div class="remedy-card">
@@ -1162,7 +1196,7 @@
                             <h3>${primaryRemedy.name}</h3>
                             <p>${primaryRemedy.description}</p>
                         </div>
-                        <span class="remedy-match">${matchPercentage}% Match</span>
+                        ${primaryRemedy.isFree ? '<span class="remedy-match" style="background: #dcfce7; color: #166534;">Free</span>' : ''}
                     </div>
                     <div class="remedy-body">
                         <div class="remedy-section">
@@ -1201,38 +1235,23 @@
                             </ul>
                         </div>
                         
-                        ${primaryRemedy.products.length > 0 ? `
-                            <div class="remedy-section" style="margin-top: 20px;">
-                                <div class="remedy-section-title">
-                                    <svg viewBox="0 0 24 24"><path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"/></svg>
-                                    Recommended Products
-                                </div>
-                                ${primaryRemedy.products.map(product => `
-                                    <div class="product-recommendation">
-                                        <div class="product-image">
-                                            ${getRemedyIcon(primaryRemedy.icon)}
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="product-name">${product.name}</div>
-                                            <div class="product-reason">${product.reason}</div>
-                                            <div class="product-price">From GBP ${product.price}</div>
-                                        </div>
-                                        <a href="https://spacire.com/products/${product.handle}" class="product-link" target="_blank">View</a>
-                                    </div>
-                                `).join('')}
+                        ${primaryRemedy.notSold ? `
+                            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-top: 16px; border-radius: 0 8px 8px 0;">
+                                <div style="font-size: 13px; color: #92400e; font-weight: 600; margin-bottom: 4px;">Where to Buy</div>
+                                <p style="font-size: 13px; color: #92400e; margin: 0;">${primaryRemedy.buyingTip}</p>
                             </div>
                         ` : ''}
                     </div>
                 </div>
             `;
             
-            // Add alternative remedies section
+            // Add alternative remedies
             if (sortedRemedies.length > 1) {
                 html += `
                     <div class="alternatives-section">
-                        <h3 class="alternatives-title">Also Consider These Remedies</h3>
+                        <h3 class="alternatives-title">Other Remedies Worth Trying</h3>
                         <div class="alt-cards">
-                            ${sortedRemedies.slice(1, 4).map(([key, score]) => {
+                            ${sortedRemedies.slice(1, 5).map(([key, score]) => {
                                 const remedy = REMEDIES[key];
                                 const altMatch = Math.min(95, Math.round(45 + (score / 2)));
                                 return `
@@ -1241,7 +1260,7 @@
                                             ${getRemedyIcon(remedy.icon)}
                                         </div>
                                         <div class="alt-card-title">${remedy.name}</div>
-                                        <div class="alt-card-match">${altMatch}% match</div>
+                                        <div class="alt-card-match">${remedy.isFree ? 'Free' : remedy.notSold ? 'Supplement' : altMatch + '% match'}</div>
                                     </div>
                                 `;
                             }).join('')}
@@ -1250,10 +1269,8 @@
                 `;
             }
             
-            // Add personalized tips based on challenges
-            html += `
-                <h3 class="section-title" style="margin-top: 32px;">Personalized Tips for Your Challenges</h3>
-            `;
+            // Add personalized tips
+            html += `<h3 class="section-title" style="margin-top: 32px;">Personalized Tips for Your Situation</h3>`;
             
             const tips = generatePersonalizedTips();
             tips.forEach(tip => {
@@ -1261,12 +1278,32 @@
                     <div class="tip-card priority-${tip.priority}">
                         <div class="tip-header">
                             <span class="tip-title">${tip.title}</span>
-                            <span class="priority-badge ${tip.priority}">${tip.priority}</span>
+                            <span class="priority-badge ${tip.priority}">${tip.priority === 'high' ? 'Try First' : tip.priority === 'medium' ? 'Important' : 'Helpful'}</span>
                         </div>
                         <p class="tip-text">${tip.text}</p>
                     </div>
                 `;
             });
+            
+            // Add supplements info section (honest, not selling)
+            const hasSupplementRecommendation = sortedRemedies.some(([key]) => REMEDIES[key].notSold);
+            if (hasSupplementRecommendation || userData.symptoms.includes('restlessness') || userData.symptoms.includes('pain')) {
+                html += `
+                    <div class="supplements-note">
+                        <div class="supplements-title">
+                            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #5b21b6;"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16Z"/></svg>
+                            About Sleep Supplements
+                        </div>
+                        <p class="supplements-text">We don't sell supplements, but these evidence-based options may help your specific situation:</p>
+                        <ul class="supplements-list">
+                            <li><strong>Magnesium glycinate</strong> - Best for muscle tension, restlessness, and staying asleep (200-400mg before bed)</li>
+                            <li><strong>L-theanine</strong> - Best for racing thoughts and anxiety without drowsiness (100-200mg)</li>
+                            <li><strong>Glycine</strong> - Best for temperature regulation and sleep quality (3g before bed)</li>
+                        </ul>
+                        <p class="supplements-text" style="margin-bottom: 0; font-size: 12px;">Always check with your doctor before starting supplements, especially if you take medications.</p>
+                    </div>
+                `;
+            }
             
             // Safety notice
             html += `
@@ -1275,15 +1312,27 @@
                         <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #856404;"><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"/></svg>
                         Important Health Information
                     </div>
-                    <p class="safety-text">Natural remedies can be helpful for mild to moderate sleep difficulties but are not substitutes for medical treatment. If you have persistent insomnia, sleep apnea, or other sleep disorders, please consult a healthcare provider. Some supplements may interact with medications - always check with your doctor before starting new supplements, especially if pregnant, nursing, or taking prescription medications.</p>
+                    <p class="safety-text">Natural remedies can help mild to moderate sleep difficulties but are not substitutes for medical treatment. If you have persistent insomnia lasting more than 3 weeks, sleep apnea symptoms, or other sleep disorders, please consult a healthcare provider. Some supplements may interact with medications.</p>
                 </div>
             `;
+            
+            // Optional product mention (very subtle, user-focused)
+            const showProducts = userData.preferences.includes('willing-invest') && !userData.preferences.includes('budget-conscious');
+            if (showProducts) {
+                html += `
+                    <div class="product-note">
+                        <div class="product-note-title">Looking for sleep products?</div>
+                        <p class="product-note-text">If you decide you'd like to try aromatherapy sprays, weighted blankets, sleep masks, or white noise machines, we have a selection in our store. No pressure - the free techniques above work great on their own.</p>
+                        <a href="https://spacire.com/collections/sleep-aids-for-better-rest" class="product-link-subtle" target="_blank">Browse sleep products (optional) &rarr;</a>
+                    </div>
+                `;
+            }
             
             // Email capture
             html += `
                 <div class="email-capture">
-                    <h3 class="email-capture-title">Get Your Complete Remedy Guide</h3>
-                    <p class="email-capture-text">Receive a detailed PDF with all your personalized recommendations, DIY tips, and implementation timeline.</p>
+                    <h3 class="email-capture-title">Save Your Personalized Results</h3>
+                    <p class="email-capture-text">Get your complete remedy guide with all recommendations, DIY tips, and implementation timeline sent to your inbox.</p>
                     <form class="email-form" onsubmit="sendReport(event)">
                         <input type="text" class="email-input" id="userName" placeholder="First name" required>
                         <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
@@ -1304,7 +1353,7 @@
                 tips.push({
                     title: 'Create a Wind-Down Buffer',
                     priority: 'high',
-                    text: 'Stop stimulating activities 60-90 minutes before bed. Dim lights, put away screens, and do calming activities. This signals to your brain that sleep is approaching.'
+                    text: 'Stop stimulating activities 60-90 minutes before bed. Dim lights, put away screens, and do calming activities. This signals to your brain that sleep is approaching - its one of the most impactful changes you can make.'
                 });
             }
             
@@ -1312,40 +1361,48 @@
                 tips.push({
                     title: 'Limit Fluids Before Bed',
                     priority: 'medium',
-                    text: 'Stop drinking 2-3 hours before bed to reduce nighttime bathroom trips. If you must drink, take small sips only.'
+                    text: 'Stop drinking 2-3 hours before bed to reduce nighttime bathroom trips. If you must drink, take small sips only. Also consider if alcohol is disrupting your sleep - even small amounts can cause middle-of-the-night waking.'
                 });
             }
             
             if (userData.symptoms.includes('racing-thoughts')) {
                 tips.push({
-                    title: 'Try a Brain Dump',
+                    title: 'Try a "Brain Dump" Before Bed',
                     priority: 'high',
-                    text: 'Keep a notepad by your bed. Write down worries or to-dos before sleep to clear your mind. Studies show this reduces sleep onset time by up to 9 minutes.'
+                    text: 'Keep a notepad by your bed. Spend 5 minutes writing down worries, to-dos, or thoughts before trying to sleep. Research shows this simple technique reduces sleep onset time by up to 9 minutes because your brain knows the information is "saved."'
                 });
             }
             
             if (userData.symptoms.includes('anxiety')) {
                 tips.push({
-                    title: 'Practice Progressive Muscle Relaxation',
+                    title: 'Progressive Muscle Relaxation',
                     priority: 'high',
-                    text: 'Tense and release each muscle group from toes to head. This physical release helps calm an anxious mind and signals safety to your nervous system.'
+                    text: 'Lie in bed and systematically tense then release each muscle group, starting from your toes and working up to your face. Hold tension for 5 seconds, release for 10. This physical release helps calm an anxious mind.'
                 });
             }
             
             if (userData.symptoms.includes('temperature')) {
                 tips.push({
-                    title: 'Optimize Your Bedroom Temperature',
+                    title: 'Take a Warm Shower Before Bed',
                     priority: 'medium',
-                    text: 'Keep your bedroom between 16-19 degrees C (60-67 degrees F). Use breathable bedding and consider sleeping with a fan for air circulation.'
+                    text: 'Counterintuitively, a warm shower 1-2 hours before bed helps you cool down faster. The warm water dilates blood vessels, and when you get out, heat rapidly leaves your body, triggering sleepiness.'
                 });
             }
             
-            // Add at least one tip if none generated
-            if (tips.length === 0) {
+            if (userData.symptoms.includes('restlessness')) {
                 tips.push({
-                    title: 'Maintain a Consistent Sleep Schedule',
+                    title: 'Avoid Screens for 1 Hour Before Bed',
                     priority: 'medium',
-                    text: 'Go to bed and wake up at the same time every day, even on weekends. This regulates your circadian rhythm and improves sleep quality over time.'
+                    text: 'Blue light from phones and computers suppresses melatonin. But beyond light, the content itself is stimulating - social media, news, and messages keep your brain active. Try reading a physical book instead.'
+                });
+            }
+            
+            // Always include sleep consistency
+            if (tips.length < 3) {
+                tips.push({
+                    title: 'Keep a Consistent Wake Time',
+                    priority: 'low',
+                    text: 'Your wake time is more important than your bedtime. Waking at the same time daily (even weekends) anchors your circadian rhythm. Allow flexibility on bedtime based on sleepiness, but protect your wake time.'
                 });
             }
             
@@ -1401,7 +1458,6 @@
             sendBtn.textContent = 'Sending...';
             errorEl.style.display = 'none';
             
-            // Build email payload
             const primaryRemedy = REMEDIES[calculatedResults.topRemedies[0][0]];
             const matchPercentage = Math.min(98, Math.round(50 + (calculatedResults.topRemedies[0][1] / 2)));
             
@@ -1411,17 +1467,16 @@
                 firstName: firstName,
                 heroTitle: `Your Natural Sleep Remedy Guide`,
                 heroSubtitle: `Personalized recommendations from Spacire`,
-                introText: `Hi {firstName}, based on your sleep profile, we've identified the best natural remedies to help you sleep better. Your top match is ${primaryRemedy.name} with a ${matchPercentage}% compatibility score.`,
+                introText: `Hi {firstName}, based on your sleep profile, we've identified the best natural remedies to help you sleep better. Your top match is ${primaryRemedy.name}${primaryRemedy.isFree ? ' - a free technique you can start using tonight' : ''}.`,
                 sections: [
                     {
                         type: 'summary',
                         title: 'Your Top Remedy',
                         items: [
                             { label: 'Primary Remedy', value: primaryRemedy.name, highlight: true },
-                            { label: 'Match Score', value: `${matchPercentage}%` },
                             { label: 'Category', value: primaryRemedy.category },
-                            { label: 'Main Challenge', value: userData.primaryChallenge.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) },
-                            { label: 'Primary Goal', value: userData.goal.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) }
+                            { label: 'Cost', value: primaryRemedy.isFree ? 'Free' : (primaryRemedy.notSold ? 'Purchase separately' : 'Low cost') },
+                            { label: 'Main Challenge', value: userData.primaryChallenge.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) }
                         ]
                     },
                     {
@@ -1434,7 +1489,7 @@
                                 text: primaryRemedy.howItWorks,
                                 diyTips: primaryRemedy.diyTips
                             },
-                            ...generatePersonalizedTips().map(tip => ({
+                            ...generatePersonalizedTips().slice(0, 2).map(tip => ({
                                 title: tip.title,
                                 priority: tip.priority,
                                 text: tip.text
@@ -1442,29 +1497,18 @@
                         ]
                     },
                     {
-                        type: 'products',
-                        title: 'Recommended Products',
-                        items: primaryRemedy.products.map(p => ({
-                            name: p.name,
-                            price: p.price,
-                            reason: p.reason,
-                            url: `https://spacire.com/products/${p.handle}`
-                        }))
-                    },
-                    {
                         type: 'warning',
                         title: 'Important Note',
-                        text: 'Natural remedies work best as part of good sleep hygiene. If you have persistent sleep problems, please consult a healthcare provider. Some supplements may interact with medications.'
+                        text: 'Natural remedies work best as part of good sleep hygiene. Give each remedy 2-3 weeks of consistent use before judging effectiveness. If sleep problems persist, please consult a healthcare provider.'
                     }
                 ],
                 ctaButton: {
-                    text: 'Shop Natural Sleep Aids',
-                    url: 'https://spacire.com/collections/sleep-aids-for-better-rest'
+                    text: 'Explore More Sleep Tools',
+                    url: 'https://tools.spacire.com'
                 }
             });
             
             try {
-                // Save email submission to database
                 try {
                     await databases.createDocument(
                         CONFIG.databaseId,
@@ -1483,19 +1527,16 @@
                             created_at: new Date().toISOString()
                         }
                     );
-                    console.log('Email submission saved to database');
                 } catch (dbError) {
                     console.error('Database error (non-critical):', dbError);
                 }
                 
-                // Use async execution (true) to avoid 30-second timeout
                 const response = await functions.createExecution(
                     CONFIG.functionId,
                     emailPayload,
-                    true  // async = true
+                    true
                 );
                 
-                // With async execution, we get immediate acceptance
                 document.getElementById('emailSuccess').style.display = 'block';
                 document.getElementById('userEmail').disabled = true;
                 document.getElementById('userName').disabled = true;
