@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Sleep Debt Calculator - Track your weekly sleep patterns, calculate accumulated sleep debt, and get a personalized recovery plan. Science-backed recommendations for better rest.">
+    <meta name="keywords" content="sleep debt calculator, sleep deficit, weekly sleep tracker, sleep recovery plan, how much sleep do I need, catch up on sleep, sleep deprivation effects, cumulative sleep loss">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Sleep Debt Calculator - Free Weekly Sleep Tracker | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/sleep-debt-calculator">
+    
+    <meta property="og:title" content="Sleep Debt Calculator - Free Weekly Sleep Tracker">
+    <meta property="og:description" content="Calculate your sleep debt and get a personalized recovery plan. Free tool to track weekly sleep patterns and improve your rest.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/sleep-debt-calculator">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Debt Calculator - Free Weekly Sleep Tracker">
+    <meta name="twitter:description" content="Calculate your sleep debt and get a personalized recovery plan.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sleep Debt Calculator",
+        "description": "Free tool to calculate sleep debt, track weekly sleep patterns, and get personalized recovery plans based on your age and lifestyle.",
+        "url": "https://tools.spacire.com/sleep-debt-calculator",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is sleep debt?", "acceptedAnswer": {"@type": "Answer", "text": "Sleep debt is the cumulative effect of not getting enough sleep over time. If you need 8 hours but only sleep 6, you accumulate 2 hours of sleep debt per night."}},
+            {"@type": "Question", "name": "Can you catch up on sleep debt?", "acceptedAnswer": {"@type": "Answer", "text": "Research shows you can recover from short-term sleep debt within a few days of adequate rest. However, chronic sleep debt may take longer to recover from."}},
+            {"@type": "Question", "name": "How much sleep do adults need?", "acceptedAnswer": {"@type": "Answer", "text": "Adults aged 18-64 need 7-9 hours of sleep per night according to the National Sleep Foundation."}}
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Spacire", "item": "https://spacire.com"},
+            {"@type": "ListItem", "position": 2, "name": "Sleep Tools", "item": "https://tools.spacire.com"},
+            {"@type": "ListItem", "position": 3, "name": "Sleep Debt Calculator", "item": "https://tools.spacire.com/sleep-debt-calculator"}
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5d98a;
+            --background: #FFFFFF;
+            --text-primary: #232323;
+            --text-secondary: #323232;
+            --text-light: #969696;
+            --border: #E6E6E6;
+            --hover: #F8F8F8;
+            --success: #DFF0D8;
+            --success-dark: #3c763d;
+            --warning: #FCF8E3;
+            --warning-dark: #8a6d3b;
+            --error: #D93333;
+            --error-light: #F2DEDE;
+            --info-bg: #e6f4ff;
+            --font-primary: 'Domine', Georgia, serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-primary); font-size: 16px; line-height: 1.6; color: var(--text-primary); background: var(--background); -webkit-font-smoothing: antialiased; }
+        
+        .site-header { background: var(--primary); padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-text { color: #fff; font-size: 20px; font-weight: 600; letter-spacing: 0.05em; }
+        .header-nav { display: flex; gap: 24px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; letter-spacing: 0.02em; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-light); margin: 0 8px; }
+        
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        
+        .tool-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; }
+        .tool-body { padding: 28px; }
+        
+        .progress-container { margin-bottom: 28px; }
+        .progress-steps { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .progress-step { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+        .step-number { width: 32px; height: 32px; border-radius: 50%; background: var(--border); color: var(--text-light); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; margin-bottom: 6px; transition: var(--transition); position: relative; z-index: 2; }
+        .progress-step.active .step-number { background: var(--primary); color: #fff; }
+        .progress-step.completed .step-number { background: var(--success-dark); color: #fff; }
+        .step-label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
+        .progress-step.active .step-label, .progress-step.completed .step-label { color: var(--text-primary); }
+        .progress-bar-bg { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%); border-radius: 2px; transition: width 0.5s ease; }
+        @media (max-width: 600px) { .step-label { display: none; } }
+        
+        .question-section { display: none; }
+        .question-section.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .question-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+        .question-description { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+        .option-card { border: 2px solid var(--border); border-radius: var(--radius-md); padding: 16px; cursor: pointer; transition: var(--transition); text-align: center; background: #fff; }
+        .option-card:hover { border-color: var(--primary); background: var(--hover); }
+        .option-card.selected { border-color: var(--primary); background: var(--info-bg); }
+        .option-card input { display: none; }
+        .option-icon { font-size: 28px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; }
+        .option-icon svg { width: 32px; height: 32px; fill: var(--primary); }
+        .option-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .option-desc { font-size: 12px; color: var(--text-light); }
+        
+        .week-tracker { background: var(--hover); border-radius: var(--radius-md); padding: 20px; margin-bottom: 20px; }
+        .tracker-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+        .tracker-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .quick-fill { display: flex; gap: 8px; }
+        .quick-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; font-family: var(--font-primary); font-size: 12px; color: var(--text-secondary); cursor: pointer; transition: var(--transition); }
+        .quick-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .day-row { display: grid; grid-template-columns: 100px 1fr 60px; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .day-row:last-child { border-bottom: none; }
+        .day-name { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+        .sleep-slider { width: 100%; height: 6px; border-radius: 3px; background: var(--border); outline: none; -webkit-appearance: none; cursor: pointer; }
+        .sleep-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: var(--shadow-md); }
+        .sleep-slider::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--primary); cursor: pointer; border: none; }
+        .hours-display { font-size: 14px; font-weight: 600; text-align: right; min-width: 50px; }
+        .hours-display.under { color: var(--error); }
+        .hours-display.optimal { color: var(--success-dark); }
+        .hours-display.over { color: #3498db; }
+        
+        .nav-buttons { display: flex; justify-content: space-between; gap: 16px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
+        .btn { padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-light); }
+        .btn-primary:disabled { background: var(--text-light); cursor: not-allowed; }
+        .btn-secondary { background: var(--hover); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--border); }
+        
+        .results-section { display: none; }
+        .results-section.active { display: block; animation: fadeIn 0.5s ease; }
+        
+        .score-display { text-align: center; padding: 32px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); color: #fff; margin-bottom: 28px; }
+        .score-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
+        .score-value { font-size: 48px; font-weight: 700; margin-bottom: 8px; }
+        .score-subtitle { font-size: 16px; opacity: 0.9; }
+        
+        .summary-card { background: var(--info-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .summary-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+        .summary-item { background: #fff; border-radius: var(--radius-md); padding: 14px; text-align: center; }
+        .summary-value { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .summary-label { font-size: 13px; color: var(--text-secondary); }
+        
+        .chart-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .chart-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; }
+        .chart-container { display: flex; align-items: flex-end; justify-content: space-between; height: 160px; padding-bottom: 30px; position: relative; }
+        .chart-baseline { position: absolute; left: 0; right: 0; height: 2px; background: var(--primary); opacity: 0.3; }
+        .chart-baseline-label { position: absolute; right: 0; font-size: 10px; color: var(--primary); transform: translateY(-14px); }
+        .chart-bar-wrapper { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 50px; }
+        .chart-bar { width: 32px; border-radius: 4px 4px 0 0; transition: height 0.5s ease; }
+        .chart-bar.under { background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%); }
+        .chart-bar.optimal { background: linear-gradient(180deg, #27ae60 0%, #1e8449 100%); }
+        .chart-bar.over { background: linear-gradient(180deg, #3498db 0%, #2980b9 100%); }
+        .chart-label { font-size: 11px; color: var(--text-light); margin-top: 8px; text-transform: uppercase; }
+        .chart-value { font-size: 10px; font-weight: 600; color: var(--text-secondary); margin-top: 4px; }
+        .chart-legend { display: flex; justify-content: center; gap: 20px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-secondary); }
+        .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+        .legend-dot.under { background: #e74c3c; }
+        .legend-dot.optimal { background: #27ae60; }
+        .legend-dot.over { background: #3498db; }
+        
+        .section-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        
+        .recommendation-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; }
+        .recommendation-card.priority-high { border-left: 4px solid var(--error); }
+        .recommendation-card.priority-medium { border-left: 4px solid var(--accent); }
+        .recommendation-card.priority-low { border-left: 4px solid #5cb85c; }
+        .recommendation-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+        .recommendation-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .priority-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+        .priority-badge.high { background: var(--error-light); color: var(--error); }
+        .priority-badge.medium { background: var(--warning); color: var(--warning-dark); }
+        .priority-badge.low { background: var(--success); color: var(--success-dark); }
+        .recommendation-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        
+        .diy-tips { background: var(--info-bg); border-radius: var(--radius-md); padding: 20px; margin-top: 12px; }
+        .diy-tips-title { font-size: 13px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .diy-tips ul { margin: 0; padding-left: 18px; }
+        .diy-tips li { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+        
+        .product-recommendation { display: flex; gap: 16px; background: var(--hover); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; align-items: center; }
+        .product-image { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 24px; }
+        .product-info { flex: 1; }
+        .product-name { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .product-price { font-size: 16px; font-weight: 700; color: var(--primary); }
+        .product-link { display: inline-block; padding: 10px 16px; background: var(--primary); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
+        .product-link:hover { background: var(--primary-light); }
+        @media (max-width: 500px) { .product-recommendation { flex-direction: column; text-align: center; } }
+        
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--info-bg) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-top: 28px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--primary); }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .info-table th, .info-table td { padding: 12px; text-align: left; border: 1px solid var(--border); }
+        .info-table th { background: var(--hover); font-weight: 600; color: var(--primary); }
+        .info-table td { color: var(--text-secondary); }
+        
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>></span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>></span>
+            <span style="color: var(--text-primary);">Sleep Debt Calculator</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Sleep Debt Calculator</h1>
+            <p class="page-subtitle">Track your weekly sleep patterns, calculate accumulated sleep debt, and get a personalized recovery plan. Free tool based on sleep science research. Takes about 2 minutes.</p>
+        </header>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Calculate Your Sleep Debt</h2>
+                <p>Answer a few questions about your sleep patterns</p>
+            </div>
+            
+            <div class="tool-body">
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span class="step-label">Profile</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span class="step-label">Sleep Log</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span class="step-label">Results</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progressFill" style="width: 16%;"></div>
+                    </div>
+                </div>
+                
+                <div id="questions-container">
+                    <!-- Question 1: Age Group -->
+                    <section class="question-section active" data-question="1">
+                        <h3 class="question-title">What is your age group?</h3>
+                        <p class="question-description">This determines your recommended sleep duration based on National Sleep Foundation guidelines</p>
+                        
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="ageGroup" value="teen">
+                                <div class="option-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg></div>
+                                <div class="option-title">Teen (14-17)</div>
+                                <div class="option-desc">8-10 hours recommended</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="ageGroup" value="young-adult">
+                                <div class="option-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                                <div class="option-title">Young Adult (18-25)</div>
+                                <div class="option-desc">7-9 hours recommended</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="ageGroup" value="adult">
+                                <div class="option-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+                                <div class="option-title">Adult (26-64)</div>
+                                <div class="option-desc">7-9 hours recommended</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="ageGroup" value="senior">
+                                <div class="option-icon"><svg viewBox="0 0 24 24"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/></svg></div>
+                                <div class="option-title">Senior (65+)</div>
+                                <div class="option-desc">7-8 hours recommended</div>
+                            </label>
+                        </div>
+                        
+                        <h3 class="question-title" style="margin-top: 24px;">Your ideal sleep duration</h3>
+                        <p class="question-description">How many hours do you feel best with?</p>
+                        
+                        <div class="options-grid" style="margin-top: 16px;">
+                            <label class="option-card">
+                                <input type="radio" name="idealSleep" value="7">
+                                <div class="option-title">7 hours</div>
+                                <div class="option-desc">Minimum for most adults</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="idealSleep" value="8">
+                                <div class="option-title">8 hours</div>
+                                <div class="option-desc">Most common ideal</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="idealSleep" value="9">
+                                <div class="option-title">9 hours</div>
+                                <div class="option-desc">For high performers</div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="idealSleep" value="10">
+                                <div class="option-title">10 hours</div>
+                                <div class="option-desc">For teens/recovery</div>
+                            </label>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <div></div>
+                            <button class="btn btn-primary" onclick="nextQuestion()" id="btn-next-1" disabled>Continue</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Question 2: Sleep Log -->
+                    <section class="question-section" data-question="2">
+                        <h3 class="question-title">Your Sleep Log (Past 7 Days)</h3>
+                        <p class="question-description">Use the sliders to enter how many hours you actually slept each night</p>
+                        
+                        <div class="week-tracker">
+                            <div class="tracker-header">
+                                <span class="tracker-title">Hours slept each night</span>
+                                <div class="quick-fill">
+                                    <button class="quick-btn" onclick="quickFill(6)">6h all</button>
+                                    <button class="quick-btn" onclick="quickFill(7)">7h all</button>
+                                    <button class="quick-btn" onclick="quickFill(8)">8h all</button>
+                                </div>
+                            </div>
+                            <div class="day-row">
+                                <span class="day-name">Monday</span>
+                                <input type="range" class="sleep-slider" id="sleep-mon" min="0" max="12" step="0.5" value="7" oninput="updateSliderDisplay('mon')">
+                                <span class="hours-display" id="display-mon">7h</span>
+                            </div>
+                            <div class="day-row">
+                                <span class="day-name">Tuesday</span>
+                                <input type="range" class="sleep-slider" id="sleep-tue" min="0" max="12" step="0.5" value="7" oninput="updateSliderDisplay('tue')">
+                                <span class="hours-display" id="display-tue">7h</span>
+                            </div>
+                            <div class="day-row">
+                                <span class="day-name">Wednesday</span>
+                                <input type="range" class="sleep-slider" id="sleep-wed" min="0" max="12" step="0.5" value="7" oninput="updateSliderDisplay('wed')">
+                                <span class="hours-display" id="display-wed">7h</span>
+                            </div>
+                            <div class="day-row">
+                                <span class="day-name">Thursday</span>
+                                <input type="range" class="sleep-slider" id="sleep-thu" min="0" max="12" step="0.5" value="7" oninput="updateSliderDisplay('thu')">
+                                <span class="hours-display" id="display-thu">7h</span>
+                            </div>
+                            <div class="day-row">
+                                <span class="day-name">Friday</span>
+                                <input type="range" class="sleep-slider" id="sleep-fri" min="0" max="12" step="0.5" value="7" oninput="updateSliderDisplay('fri')">
+                                <span class="hours-display" id="display-fri">7h</span>
+                            </div>
+                            <div class="day-row">
+                                <span class="day-name">Saturday</span>
+                                <input type="range" class="sleep-slider" id="sleep-sat" min="0" max="12" step="0.5" value="7" oninput="updateSliderDisplay('sat')">
+                                <span class="hours-display" id="display-sat">7h</span>
+                            </div>
+                            <div class="day-row">
+                                <span class="day-name">Sunday</span>
+                                <input type="range" class="sleep-slider" id="sleep-sun" min="0" max="12" step="0.5" value="7" oninput="updateSliderDisplay('sun')">
+                                <span class="hours-display" id="display-sun">7h</span>
+                            </div>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <button class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                            <button class="btn btn-primary" onclick="generateResults()">Calculate My Sleep Debt</button>
+                        </div>
+                    </section>
+                </div>
+                
+                <section class="results-section" id="resultsSection">
+                    <!-- Results will be dynamically generated -->
+                </section>
+            </div>
+        </div>
+        
+        <!-- Info Sections -->
+        <div class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Understanding Sleep Debt</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>What is Sleep Debt?</h4>
+                    <p>Sleep debt (also called sleep deficit) is the cumulative effect of not getting enough sleep. If your body needs 8 hours of sleep but you only get 6, you accumulate 2 hours of sleep debt that night. Over a week, this can add up to 14+ hours of deficit.</p>
+                    
+                    <h4>Can You "Catch Up" on Sleep?</h4>
+                    <p>Research from Harvard Medical School and the University of Pennsylvania suggests that short-term sleep debt (a few days) can be recovered within 1-2 days of adequate rest. However, chronic sleep debt accumulated over weeks or months takes longer to recover from and cannot simply be "repaid" with weekend lie-ins.</p>
+                    
+                    <h4>Effects of Sleep Debt</h4>
+                    <p>Sleep debt affects multiple body systems:</p>
+                    <ul>
+                        <li><strong>Cognitive:</strong> Reduced attention, slower reaction times, impaired decision-making</li>
+                        <li><strong>Physical:</strong> Weakened immune function, increased inflammation, hormonal imbalances</li>
+                        <li><strong>Emotional:</strong> Irritability, increased stress response, higher risk of anxiety</li>
+                        <li><strong>Metabolic:</strong> Increased appetite, weight gain tendency, insulin resistance</li>
+                    </ul>
+                    
+                    <h4>Global Impact</h4>
+                    <p>Sleep deprivation affects millions worldwide. Studies show that people in the United Kingdom, United States, Japan, South Korea, Germany, and other industrialized nations consistently report insufficient sleep. The economic cost of sleep deprivation runs into billions annually across countries including Australia, Canada, France, and the Netherlands.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Sleep Requirements by Age</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Age Group</th>
+                                <th>Recommended Sleep</th>
+                                <th>May Be Appropriate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Teenagers (14-17)</td>
+                                <td>8-10 hours</td>
+                                <td>7-11 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Young Adults (18-25)</td>
+                                <td>7-9 hours</td>
+                                <td>6-11 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Adults (26-64)</td>
+                                <td>7-9 hours</td>
+                                <td>6-10 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Older Adults (65+)</td>
+                                <td>7-8 hours</td>
+                                <td>5-9 hours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Source: National Sleep Foundation, Sleep Health Journal</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">When to Seek Professional Help</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Consult a Healthcare Provider If You Experience:</h4>
+                    <ul>
+                        <li>Persistent difficulty falling asleep or staying asleep for more than 3 weeks</li>
+                        <li>Excessive daytime sleepiness despite adequate sleep hours</li>
+                        <li>Loud snoring with pauses in breathing (may indicate sleep apnoea)</li>
+                        <li>Restless legs or uncomfortable sensations at night</li>
+                        <li>Falling asleep inappropriately during conversations or while driving</li>
+                        <li>Needing medication or alcohol to fall asleep regularly</li>
+                    </ul>
+                    
+                    <h4>Red Flag Symptoms - Seek Immediate Help</h4>
+                    <p style="color: #D93333; font-weight: 500;">Contact a healthcare provider urgently if you experience:</p>
+                    <ul>
+                        <li>Choking or gasping during sleep</li>
+                        <li>Severe chest pain or difficulty breathing</li>
+                        <li>Falling asleep while driving or operating machinery</li>
+                        <li>Hallucinations or severe confusion from sleep deprivation</li>
+                    </ul>
+                    
+                    <h4>Emergency Contacts by Region</h4>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Emergency</th>
+                                <th>Health Line</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>United Kingdom</td><td>999</td><td>NHS 111</td></tr>
+                            <tr><td>United States</td><td>911</td><td>Primary care</td></tr>
+                            <tr><td>Canada</td><td>911</td><td>Telehealth</td></tr>
+                            <tr><td>Australia</td><td>000</td><td>1800 022 222</td></tr>
+                            <tr><td>Ireland</td><td>999/112</td><td>1800 700 700</td></tr>
+                            <tr><td>Germany</td><td>112</td><td>116 117</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">For other countries including India, Japan, China, Netherlands, New Zealand, Italy, Spain, UAE, Poland, Portugal, Sweden, Turkey, Brazil, and Russia - please search for your local emergency services.</p>
+                    
+                    <div style="background: var(--warning); border-left: 4px solid var(--accent); padding: 16px; margin-top: 16px; border-radius: var(--radius-md);">
+                        <strong>Medical Disclaimer</strong>
+                        <p style="margin-top: 8px; font-size: 13px;">This tool provides general guidance based on sleep research and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your GP, physician, or other qualified health provider with any questions about sleep disorders or health concerns.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>How the Sleep Debt Calculator Works</h4>
+                    <p>This free tool calculates your accumulated sleep debt based on your age-appropriate sleep needs and actual sleep logged over the past week. The recommendations are based on evidence from sleep science research, including studies from the National Sleep Foundation, Harvard Medical School, and peer-reviewed sleep journals.</p>
+                    
+                    <h4>Calculation Method</h4>
+                    <ul>
+                        <li><strong>Ideal sleep:</strong> Based on your selected personal target</li>
+                        <li><strong>Weekly need:</strong> Ideal sleep x 7 days</li>
+                        <li><strong>Sleep debt:</strong> Weekly need minus actual sleep logged</li>
+                        <li><strong>Recovery plan:</strong> Customized based on debt severity</li>
+                    </ul>
+                    
+                    <h4>What We Do With Your Data</h4>
+                    <p>Your assessment responses are processed entirely in your browser - we do not store your answers on our servers unless you choose to receive a report via email. If you opt in to receive an email report, we store only your first name, email address, and assessment results to deliver your report.</p>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a sleep wellness company dedicated to helping people achieve better rest through natural, science-backed solutions. We offer sleep masks, white noise machines, blackout curtains, aromatherapy sprays, and weighted blankets.</p>
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Others Track Their Sleep</h4>
+                    <p>If you found this tool helpful, please consider sharing it with friends, family, or colleagues who might benefit from understanding their sleep patterns.</p>
+                    
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0;">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/sleep-debt-calculator&text=Free%20Sleep%20Debt%20Calculator%20-%20Track%20your%20sleep%20and%20get%20a%20recovery%20plan" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #1DA1F2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on X/Twitter</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/sleep-debt-calculator" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #4267B2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on Facebook</a>
+                        <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20free%20Sleep%20Debt%20Calculator:%20https://tools.spacire.com/sleep-debt-calculator" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #25D366; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on WhatsApp</a>
+                    </div>
+                    
+                    <h4>Copy Link</h4>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="text" value="https://tools.spacire.com/sleep-debt-calculator" readonly style="flex: 1; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 13px; background: var(--hover);" id="shareLink">
+                        <button onclick="copyShareLink()" style="padding: 10px 16px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; font-size: 13px; font-weight: 500;">Copy</button>
+                    </div>
+                    <p id="copyConfirm" style="display: none; color: var(--success-dark); font-size: 13px; margin-top: 8px;">Link copied to clipboard!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer.html">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner.html">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator.html">Sleep Debt Calculator</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appwrite SDK (same version as Tool 2) -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION (same as Tool 2)
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite (same as Tool 2)
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // STATE MANAGEMENT
+        // ========================================
+        let currentQuestion = 1;
+        const totalQuestions = 2;
+        const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+        const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        const dayNamesFull = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        
+        const userData = {
+            ageGroup: null,
+            idealSleep: null,
+            sleepLog: { mon: 7, tue: 7, wed: 7, thu: 7, fri: 7, sat: 7, sun: 7 }
+        };
+        
+        let calculatedResults = null;
+        
+        // Product data with real images
+        const products = {
+            sleepMask: {
+                name: 'Blackout Sleep Mask',
+                price: '12.99',
+                url: 'https://spacire.com/collections/sleep-masks',
+                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/contoured-blackout-sleep-mask-spacire-773.webp?v=1748787373',
+                reason: 'Block light for deeper sleep'
+            },
+            weightedBlanket: {
+                name: 'Weighted Blanket',
+                price: '49.99',
+                url: 'https://spacire.com/collections/weighted-blankets',
+                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/959576637600.jpg?v=1757123140',
+                reason: 'Deep pressure for better sleep quality'
+            },
+            whiteNoise: {
+                name: 'White Noise Machine',
+                price: '29.99',
+                url: 'https://spacire.com/collections/white-noise-machines',
+                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/wireless-white-noise-machine-spacire_5-768.webp?v=1749033221',
+                reason: 'Mask disruptions for uninterrupted rest'
+            },
+            sleepSpray: {
+                name: 'Lavender Sleep Spray',
+                price: '9.99',
+                url: 'https://spacire.com/collections/pillow-sleep-sprays',
+                image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/lavender-pillow-sleep-spray-essential-oils-spacire-768.webp?v=1748891203',
+                reason: 'Aromatherapy for faster sleep onset'
+            }
+        };
+        
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.parentElement;
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        // ========================================
+        // OPTION SELECTION
+        // ========================================
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const input = this.querySelector('input');
+                const name = input.name;
+                
+                if (input.type === 'radio') {
+                    // Find the parent options-grid and deselect siblings
+                    const grid = this.closest('.options-grid');
+                    grid.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
+                        radio.closest('.option-card').classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    input.checked = true;
+                    
+                    if (name === 'ageGroup') {
+                        userData.ageGroup = input.value;
+                        checkQuestion1();
+                    } else if (name === 'idealSleep') {
+                        userData.idealSleep = parseInt(input.value);
+                        checkQuestion1();
+                    }
+                }
+            });
+        });
+        
+        function checkQuestion1() {
+            const btn = document.getElementById('btn-next-1');
+            if (userData.ageGroup && userData.idealSleep) {
+                btn.disabled = false;
+            }
+        }
+        
+        // ========================================
+        // SLIDER UPDATES
+        // ========================================
+        function updateSliderDisplay(day) {
+            const slider = document.getElementById('sleep-' + day);
+            const display = document.getElementById('display-' + day);
+            const value = parseFloat(slider.value);
+            
+            userData.sleepLog[day] = value;
+            
+            const hours = Math.floor(value);
+            const mins = (value % 1) * 60;
+            display.textContent = mins > 0 ? hours + 'h ' + mins + 'm' : hours + 'h';
+            
+            // Color coding based on ideal
+            const ideal = userData.idealSleep || 8;
+            display.classList.remove('under', 'optimal', 'over');
+            
+            if (value < ideal - 0.5) {
+                display.classList.add('under');
+            } else if (value > ideal + 0.5) {
+                display.classList.add('over');
+            } else {
+                display.classList.add('optimal');
+            }
+            
+            // Update slider background
+            const percent = (value / 12) * 100;
+            slider.style.background = `linear-gradient(90deg, var(--primary) 0%, var(--primary) ${percent}%, var(--border) ${percent}%)`;
+        }
+        
+        function quickFill(hours) {
+            days.forEach(day => {
+                document.getElementById('sleep-' + day).value = hours;
+                updateSliderDisplay(day);
+            });
+        }
+        
+        // Initialize sliders on load
+        document.addEventListener('DOMContentLoaded', () => {
+            days.forEach(day => updateSliderDisplay(day));
+        });
+        
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        function updateProgress() {
+            const progressFill = document.getElementById('progressFill');
+            const percentage = (currentQuestion / totalQuestions) * 100;
+            progressFill.style.width = percentage + '%';
+            
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                if (stepNum < currentQuestion) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentQuestion) {
+                    step.classList.add('active');
+                }
+            });
+        }
+        
+        function showQuestion(num) {
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelector(`[data-question="${num}"]`).classList.add('active');
+            currentQuestion = num;
+            updateProgress();
+        }
+        
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                showQuestion(currentQuestion + 1);
+            }
+        }
+        
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+        
+        // ========================================
+        // CALCULATIONS
+        // ========================================
+        function calculateDebt() {
+            const ideal = userData.idealSleep || 8;
+            let totalSlept = 0;
+            
+            days.forEach(day => {
+                totalSlept += userData.sleepLog[day];
+            });
+            
+            const totalNeeded = ideal * 7;
+            const debt = totalNeeded - totalSlept;
+            const avgSleep = totalSlept / 7;
+            
+            // Determine severity
+            let severity = 'none';
+            let severityLabel = 'No Debt';
+            
+            if (debt > 10) {
+                severity = 'severe';
+                severityLabel = 'Severe Debt';
+            } else if (debt > 5) {
+                severity = 'moderate';
+                severityLabel = 'Moderate Debt';
+            } else if (debt > 2) {
+                severity = 'mild';
+                severityLabel = 'Mild Debt';
+            } else if (debt < -3) {
+                severity = 'surplus';
+                severityLabel = 'Sleep Surplus';
+            }
+            
+            return {
+                totalSlept,
+                totalNeeded,
+                debt,
+                avgSleep,
+                ideal,
+                severity,
+                severityLabel,
+                sleepLog: { ...userData.sleepLog }
+            };
+        }
+        
+        function generateTips(results) {
+            const tips = [];
+            
+            if (results.debt > 5) {
+                tips.push({
+                    title: 'Gradual Recovery Strategy',
+                    priority: 'high',
+                    text: 'With ' + results.debt.toFixed(1) + ' hours of sleep debt, avoid trying to recover all at once. Add 30-60 minutes to your nightly sleep over the next 1-2 weeks.',
+                    diy: ['Go to bed 30 minutes earlier each night', 'Avoid weekend "sleep binges" which can disrupt your rhythm', 'Take a 20-minute power nap if needed (before 3pm)']
+                });
+            }
+            
+            if (results.avgSleep < 7) {
+                tips.push({
+                    title: 'Create a Sleep Schedule',
+                    priority: 'high',
+                    text: 'Your average of ' + results.avgSleep.toFixed(1) + ' hours is below the minimum recommendation. Consistent sleep and wake times are crucial.',
+                    diy: ['Set a non-negotiable bedtime alarm', 'Wake at the same time even on weekends', 'Track your sleep for accountability']
+                });
+            }
+            
+            tips.push({
+                title: 'Optimize Your Sleep Environment',
+                priority: results.debt > 3 ? 'high' : 'medium',
+                text: 'A dark, cool, quiet bedroom improves both sleep quality and duration. Even small improvements can add up.',
+                diy: ['Keep bedroom cool (16-18C / 60-67F)', 'Block all light sources including LEDs', 'Use earplugs or white noise for noise disruption']
+            });
+            
+            if (results.debt > 0) {
+                tips.push({
+                    title: 'Wind-Down Routine',
+                    priority: 'medium',
+                    text: 'A consistent pre-sleep routine signals to your body that sleep is approaching, helping you fall asleep faster.',
+                    diy: ['No screens 30-60 minutes before bed', 'Dim lights in the evening', 'Try relaxation techniques like deep breathing']
+                });
+            }
+            
+            return tips;
+        }
+        
+        function getProductRecommendations(results) {
+            const recs = [];
+            
+            if (results.debt > 3) {
+                recs.push(products.sleepMask);
+                recs.push(products.weightedBlanket);
+            }
+            
+            recs.push(products.whiteNoise);
+            recs.push(products.sleepSpray);
+            
+            return recs.slice(0, 4);
+        }
+        
+        // ========================================
+        // RESULTS GENERATION
+        // ========================================
+        function generateResults() {
+            calculatedResults = calculateDebt();
+            const tips = generateTips(calculatedResults);
+            const productRecs = getProductRecommendations(calculatedResults);
+            
+            const resultsHtml = buildResultsHTML(calculatedResults, tips, productRecs);
+            
+            document.getElementById('questions-container').style.display = 'none';
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.innerHTML = resultsHtml;
+            resultsSection.classList.add('active');
+            
+            // Update progress to complete
+            document.getElementById('progressFill').style.width = '100%';
+            document.querySelectorAll('.progress-step').forEach(step => {
+                step.classList.add('completed');
+                step.classList.remove('active');
+            });
+            
+            document.querySelector('.tool-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Save to database (non-blocking)
+            saveResults(calculatedResults, tips);
+        }
+        
+        function buildResultsHTML(results, tips, productRecs) {
+            const isDebt = results.debt > 0;
+            const scoreLabel = isDebt ? 'Sleep Debt' : (results.debt < -1 ? 'Sleep Surplus' : 'Balanced');
+            const scoreValue = isDebt ? results.debt.toFixed(1) : Math.abs(results.debt).toFixed(1);
+            
+            let html = `
+                <div class="score-display">
+                    <div class="score-label">${scoreLabel}</div>
+                    <div class="score-value">${scoreValue} hrs</div>
+                    <div class="score-subtitle">${results.severityLabel} - Based on ${results.ideal}h/night target</div>
+                </div>
+                
+                <div class="summary-card">
+                    <h3 class="summary-title">Your Week at a Glance</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-value">${results.totalSlept.toFixed(1)}h</div>
+                            <div class="summary-label">Total Sleep</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value">${results.avgSleep.toFixed(1)}h</div>
+                            <div class="summary-label">Daily Average</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value">${results.totalNeeded}h</div>
+                            <div class="summary-label">Weekly Need</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value">${results.ideal}h</div>
+                            <div class="summary-label">Your Target</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <h3 class="chart-title">Daily Sleep Chart</h3>
+                    <div class="chart-container" id="chartContainer">
+            `;
+            
+            // Add baseline
+            const baselineBottom = (results.ideal / 12) * 120 + 30;
+            html += `<div class="chart-baseline" style="bottom: ${baselineBottom}px;"><span class="chart-baseline-label">${results.ideal}h target</span></div>`;
+            
+            // Add bars
+            days.forEach((day, i) => {
+                const hours = results.sleepLog[day];
+                const height = Math.max((hours / 12) * 120, 4);
+                let barClass = 'optimal';
+                if (hours < results.ideal - 0.5) barClass = 'under';
+                else if (hours > results.ideal + 0.5) barClass = 'over';
+                
+                html += `
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar ${barClass}" style="height: ${height}px;"></div>
+                        <span class="chart-label">${dayNames[i]}</span>
+                        <span class="chart-value">${hours}h</span>
+                    </div>
+                `;
+            });
+            
+            html += `
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item"><span class="legend-dot under"></span> Under target</div>
+                        <div class="legend-item"><span class="legend-dot optimal"></span> On target</div>
+                        <div class="legend-item"><span class="legend-dot over"></span> Over target</div>
+                    </div>
+                </div>
+                
+                <div class="recommendations-section">
+                    <h3 class="section-title">Your Personalized Recovery Plan</h3>
+            `;
+            
+            // Add tips
+            tips.forEach(tip => {
+                html += `
+                    <div class="recommendation-card priority-${tip.priority}">
+                        <div class="recommendation-header">
+                            <div class="recommendation-title">${tip.title}</div>
+                            <span class="priority-badge ${tip.priority}">${tip.priority} priority</span>
+                        </div>
+                        <p class="recommendation-text">${tip.text}</p>
+                        ${tip.diy ? `
+                            <div class="diy-tips">
+                                <div class="diy-tips-title">DIY Tips (No Cost):</div>
+                                <ul>
+                                    ${tip.diy.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            
+            html += `</div>`;
+            
+            // Add product recommendations
+            if (productRecs.length > 0) {
+                html += `<div class="recommendations-section"><h3 class="section-title">Recommended Products</h3>`;
+                productRecs.forEach(product => {
+                    html += `
+                        <div class="product-recommendation">
+                            <div class="product-image">
+                                <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);" onerror="this.style.display='none'; this.parentElement.innerHTML='&#128716;';">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">${product.name}</div>
+                                <div style="font-size: 12px; color: var(--text-light); margin-bottom: 4px;">${product.reason}</div>
+                                <div class="product-price">From GBP ${product.price}</div>
+                            </div>
+                            <a href="${product.url}" class="product-link" target="_blank">View Options</a>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+            
+            // Email capture (matching Tool 2 structure)
+            html += `
+                <div class="email-capture">
+                    <div class="email-capture-title">Get Your Complete Sleep Debt Report</div>
+                    <p class="email-capture-text">Receive your full analysis with detailed recovery calendar, all tips, and personalized sleep improvement guide via email.</p>
+                    <div class="email-form">
+                        <input type="text" id="userName" class="email-input" placeholder="First name *" maxlength="64" required>
+                        <input type="email" id="userEmail" class="email-input" placeholder="Email address *" required>
+                        <button class="btn btn-primary" onclick="sendReport()">Send Report</button>
+                    </div>
+                    <div class="form-error" id="formError"></div>
+                    <div class="email-success" id="emailSuccess">Report sent! Check your inbox.</div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 24px;">
+                    <button class="btn btn-secondary" onclick="startOver()">Start Over</button>
+                </div>
+            `;
+            
+            return html;
+        }
+        
+        function startOver() {
+            location.reload();
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL (same pattern as Tool 2)
+        // ========================================
+        async function saveResults(results, tips) {
+            try {
+                const data = {
+                    tool_name: 'sleep_debt_calculator',
+                    results_json: JSON.stringify({
+                        userData,
+                        results,
+                        tips: tips.map(t => t.title)
+                    }),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                };
+                
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    data
+                );
+                console.log('Results saved to database');
+            } catch (error) {
+                console.error('Database error (non-critical):', error);
+            }
+        }
+        
+        function copyShareLink() {
+            const linkInput = document.getElementById('shareLink');
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(linkInput.value);
+            document.getElementById('copyConfirm').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('copyConfirm').style.display = 'none';
+            }, 3000);
+        }
+        
+        async function sendReport() {
+            console.log('=== SEND REPORT STARTED ===');
+            
+            const firstName = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const formError = document.getElementById('formError');
+            const sendBtn = document.querySelector('.email-capture .btn-primary');
+            
+            console.log('1. Form values:', { firstName, email });
+            console.log('2. Send button found:', !!sendBtn);
+            
+            // Clear previous errors
+            formError.style.display = 'none';
+            
+            // Validate first name
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                document.getElementById('userName').focus();
+                return;
+            }
+            
+            // Validate email
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                document.getElementById('userEmail').focus();
+                return;
+            }
+            
+            console.log('3. Validation passed');
+            
+            // Show loading state
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
+            const results = calculatedResults;
+            const tips = generateTips(results);
+            const productRecs = getProductRecommendations(results);
+            
+            console.log('4. Data calculated:', { debt: results.debt, tipsCount: tips.length, productsCount: productRecs.length });
+            
+            // Build sleep log details for email
+            const sleepLogItems = days.map((day, i) => ({
+                day: dayNamesFull[i],
+                hours: results.sleepLog[day],
+                status: results.sleepLog[day] < results.ideal - 0.5 ? 'under' : 
+                        results.sleepLog[day] > results.ideal + 0.5 ? 'over' : 'optimal'
+            }));
+            
+            // Build payload for email function (same structure as Tool 2)
+            const emailPayload = JSON.stringify({
+                email: email,
+                firstName: firstName,
+                toolName: 'sleep-debt-calculator',
+                
+                heroTitle: 'Your Sleep Debt Report',
+                heroSubtitle: 'Personalized analysis from Spacire',
+                introText: `Hi {firstName}, here's your complete sleep debt analysis based on your ${results.ideal}-hour nightly target. Your weekly sleep debt is ${results.debt > 0 ? results.debt.toFixed(1) + ' hours' : 'balanced/surplus'}.`,
+                
+                sections: [
+                    // Summary section
+                    {
+                        type: 'summary',
+                        title: 'Your Sleep Summary',
+                        items: [
+                            { label: 'Sleep Debt', value: results.debt > 0 ? results.debt.toFixed(1) + ' hours' : 'None', highlight: results.debt > 5 },
+                            { label: 'Daily Average', value: results.avgSleep.toFixed(1) + ' hours' },
+                            { label: 'Total This Week', value: results.totalSlept.toFixed(1) + ' hours' },
+                            { label: 'Weekly Need', value: results.totalNeeded + ' hours' },
+                            { label: 'Status', value: results.severityLabel }
+                        ]
+                    },
+                    // Daily breakdown
+                    {
+                        type: 'sleepLog',
+                        title: 'Your Week at a Glance',
+                        items: sleepLogItems,
+                        target: results.ideal
+                    },
+                    // Tips section
+                    {
+                        type: 'tips',
+                        title: 'Your Personalized Recovery Plan',
+                        items: tips.map(tip => ({
+                            title: tip.title,
+                            priority: tip.priority,
+                            text: tip.text,
+                            diyTips: tip.diy || []
+                        }))
+                    },
+                    // Products section
+                    ...(productRecs.length > 0 ? [{
+                        type: 'products',
+                        title: 'Recommended Products',
+                        items: productRecs.map(p => ({
+                            name: p.name,
+                            price: p.price,
+                            url: p.url,
+                            image: p.image,
+                            reason: p.reason
+                        }))
+                    }] : []),
+                    // Warning section
+                    {
+                        type: 'warning',
+                        title: 'Health Note',
+                        text: 'This report provides general guidance based on sleep research. If you experience persistent sleep problems, excessive daytime fatigue, or symptoms like loud snoring with pauses, please consult a healthcare provider.'
+                    }
+                ],
+                
+                ctaButton: {
+                    text: 'Shop Sleep Essentials',
+                    url: 'https://spacire.com/collections/sleep-aids-for-better-rest'
+                }
+            });
+            
+            console.log('5. Payload built, size:', emailPayload.length, 'bytes');
+            console.log('6. Appwrite SDK loaded:', typeof Appwrite !== 'undefined');
+            console.log('7. Functions client:', typeof functions !== 'undefined');
+            console.log('8. Config:', CONFIG);
+            
+            try {
+                console.log('9. Calling functions.createExecution...');
+                console.log('   Function ID:', CONFIG.functionId);
+                
+                // Use Appwrite SDK (same as Tool 2)
+                const response = await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    false
+                );
+                
+                console.log('10. Response received:', response);
+                console.log('    Status code:', response.responseStatusCode);
+                console.log('    Response body:', response.responseBody);
+                
+                if (response.responseStatusCode === 200) {
+                    const result = JSON.parse(response.responseBody);
+                    console.log('11. Parsed result:', result);
+                    
+                    if (result.success) {
+                        console.log('12. SUCCESS! Email sent');
+                        document.getElementById('emailSuccess').style.display = 'block';
+                        document.getElementById('userEmail').disabled = true;
+                        document.getElementById('userName').disabled = true;
+                        sendBtn.style.display = 'none';
+                    } else {
+                        throw new Error(result.message || 'Failed to send email');
+                    }
+                } else {
+                    throw new Error('Server error: ' + response.responseStatusCode);
+                }
+            } catch (error) {
+                console.error('=== ERROR DETAILS ===');
+                console.error('Error name:', error.name);
+                console.error('Error message:', error.message);
+                console.error('Error stack:', error.stack);
+                console.error('Full error object:', error);
+                
+                formError.textContent = 'Sorry, there was an error sending your report. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
