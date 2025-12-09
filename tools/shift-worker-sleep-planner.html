@@ -2439,6 +2439,67 @@
             const schedule = calculateSleepSchedule();
             const tips = generateTips();
             const products = getProductRecommendations();
+            const shiftName = getShiftTypeName(userData.shiftType);
+            
+            // Build STANDARDIZED payload for universal email function
+            const emailPayload = {
+                email: email,
+                firstName: firstName,
+                toolName: 'shift-worker-sleep-planner',
+                
+                heroTitle: 'Your Shift Worker Sleep Plan',
+                heroSubtitle: 'Personalized schedule from Spacire',
+                introText: `Hi {firstName}, here's your optimized sleep schedule for your ${shiftName.toLowerCase()} pattern (${userData.shiftStart || '—'} to ${userData.shiftEnd || '—'}).`,
+                
+                sections: [
+                    // Schedule section
+                    {
+                        type: 'schedule',
+                        title: 'Your Recommended Schedule',
+                        items: [
+                            { time: schedule.arriveHome, label: 'Arrive Home', description: 'Wind down from your shift' },
+                            { time: schedule.sleepTime, label: 'Go to Sleep', description: 'Begin your sleep period' },
+                            { time: schedule.wakeTime, label: 'Wake Up', description: 'End of sleep period' },
+                            { time: schedule.prepTime, label: 'Start Preparing', description: 'Get ready for your shift' }
+                        ].filter(item => item.time),
+                        note: 'Target sleep: 7.5 hours (5 sleep cycles)'
+                    },
+                    // Tips section
+                    {
+                        type: 'tips',
+                        title: 'Personalized Recommendations',
+                        items: tips.map(tip => ({
+                            title: tip.title,
+                            priority: tip.priority,
+                            text: tip.text,
+                            diyTips: tip.diy || []
+                        }))
+                    },
+                    // Products section (only if products exist)
+                    ...(products.length > 0 ? [{
+                        type: 'products',
+                        title: 'Recommended Products',
+                        items: products.map(p => ({
+                            name: p.name,
+                            price: p.price,
+                            url: p.url,
+                            image: p.image,
+                            reason: p.reason
+                        }))
+                    }] : []),
+                    // Warning section
+                    {
+                        type: 'warning',
+                        title: 'Health Note',
+                        text: 'This plan provides general guidance for shift workers. If you experience persistent sleep problems, excessive fatigue, or symptoms of shift work disorder, please consult a healthcare provider.'
+                    }
+                ],
+                
+                ctaButton: {
+                    text: 'Shop Shift Worker Essentials',
+                    url: 'https://spacire.com/collections/sleep-aids-for-shift-workers'
+                }
+            };
             
             try {
                 const response = await fetch(`${APPWRITE_ENDPOINT}/functions/${APPWRITE_FUNCTION_ID}/executions`, {
@@ -2448,15 +2509,7 @@
                         'X-Appwrite-Project': APPWRITE_PROJECT_ID
                     },
                     body: JSON.stringify({
-                        body: JSON.stringify({
-                            email: email,
-                            firstName: firstName,
-                            toolName: 'shift-worker-sleep-planner',
-                            userData: userData,
-                            schedule: schedule,
-                            tips: tips,
-                            products: products
-                        })
+                        body: JSON.stringify(emailPayload)
                     })
                 });
                 
