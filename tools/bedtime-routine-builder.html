@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Bedtime Routine Builder - Create a personalized wind-down routine based on your lifestyle, sleep challenges, and preferences. Science-backed recommendations for better sleep.">
+    <meta name="keywords" content="bedtime routine generator, sleep routine planner, wind-down routine, evening routine for sleep, bedtime habits, sleep hygiene routine, personalized sleep routine, relaxation before bed">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Bedtime Routine Builder - Free Personalized Sleep Routine | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/bedtime-routine-builder">
+    
+    <meta property="og:title" content="Bedtime Routine Builder - Free Personalized Sleep Routine">
+    <meta property="og:description" content="Build a personalized bedtime routine based on your lifestyle and sleep goals. Free tool with science-backed recommendations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/bedtime-routine-builder">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bedtime Routine Builder - Free Personalized Sleep Routine">
+    <meta name="twitter:description" content="Build a personalized bedtime routine based on your lifestyle and sleep goals.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Bedtime Routine Builder",
+        "description": "Free tool to create personalized bedtime routines based on your lifestyle, sleep challenges, and preferences. Science-backed recommendations for better sleep.",
+        "url": "https://tools.spacire.com/bedtime-routine-builder",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is a bedtime routine?", "acceptedAnswer": {"@type": "Answer", "text": "A bedtime routine is a consistent set of activities performed in the 30-90 minutes before sleep. It signals to your body that it's time to wind down and helps transition from wakefulness to sleep."}},
+            {"@type": "Question", "name": "How long should a bedtime routine be?", "acceptedAnswer": {"@type": "Answer", "text": "An effective bedtime routine typically lasts 30-60 minutes, though some people benefit from routines up to 90 minutes. The key is consistency rather than length."}},
+            {"@type": "Question", "name": "What activities should be in a bedtime routine?", "acceptedAnswer": {"@type": "Answer", "text": "Effective bedtime activities include dimming lights, avoiding screens, light stretching, reading, meditation, warm baths, and aromatherapy. The best routine is personalized to your preferences and lifestyle."}}
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Spacire", "item": "https://spacire.com"},
+            {"@type": "ListItem", "position": 2, "name": "Sleep Tools", "item": "https://tools.spacire.com"},
+            {"@type": "ListItem", "position": 3, "name": "Bedtime Routine Builder", "item": "https://tools.spacire.com/bedtime-routine-builder"}
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5d98a;
+            --background: #FFFFFF;
+            --text-primary: #232323;
+            --text-secondary: #323232;
+            --text-light: #969696;
+            --border: #E6E6E6;
+            --hover: #F8F8F8;
+            --success: #DFF0D8;
+            --success-dark: #3c763d;
+            --warning: #FCF8E3;
+            --warning-dark: #8a6d3b;
+            --error: #D93333;
+            --error-light: #F2DEDE;
+            --info-bg: #e6f4ff;
+            --font-primary: 'Domine', Georgia, serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-primary); font-size: 16px; line-height: 1.6; color: var(--text-primary); background: var(--background); -webkit-font-smoothing: antialiased; }
+        
+        .site-header { background: var(--primary); padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-text { color: #fff; font-size: 20px; font-weight: 600; letter-spacing: 0.05em; }
+        .header-nav { display: flex; gap: 24px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; letter-spacing: 0.02em; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-light); margin: 0 8px; }
+        
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        
+        .tool-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; }
+        .tool-body { padding: 28px; }
+        
+        .progress-container { margin-bottom: 28px; }
+        .progress-steps { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .progress-step { display: flex; flex-direction: column; align-items: center; flex: 1; }
+        .step-circle { width: 32px; height: 32px; border-radius: 50%; background: var(--border); color: var(--text-light); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; transition: var(--transition); }
+        .progress-step.active .step-circle { background: var(--primary); color: #fff; }
+        .progress-step.completed .step-circle { background: var(--success-dark); color: #fff; }
+        .step-label { font-size: 11px; color: var(--text-light); margin-top: 6px; text-align: center; }
+        .progress-step.active .step-label { color: var(--primary); font-weight: 600; }
+        .progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); transition: width 0.5s ease; }
+        
+        .question-section { display: none; animation: fadeIn 0.4s ease; }
+        .question-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .question-title { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .question-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        
+        .option-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+        .option-card { padding: 16px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); text-align: center; }
+        .option-card:hover { border-color: var(--primary); background: var(--hover); }
+        .option-card.selected { border-color: var(--primary); background: var(--info-bg); }
+        .option-card.multi-select.selected { border-color: var(--success-dark); background: var(--success); }
+        .option-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+        .option-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .option-desc { font-size: 12px; color: var(--text-light); }
+        
+        .time-input-group { display: flex; gap: 12px; align-items: center; justify-content: center; margin: 20px 0; }
+        .time-select { padding: 14px 20px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 16px; cursor: pointer; min-width: 100px; }
+        .time-select:focus { outline: none; border-color: var(--primary); }
+        .time-separator { font-size: 24px; font-weight: 600; color: var(--text-primary); }
+        
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 20px; }
+        .checkbox-option { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); }
+        .checkbox-option:hover { border-color: var(--primary); background: var(--hover); }
+        .checkbox-option.selected { border-color: var(--success-dark); background: var(--success); }
+        .checkbox-box { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0; }
+        .checkbox-option.selected .checkbox-box { background: var(--success-dark); border-color: var(--success-dark); }
+        .checkbox-check { display: none; color: #fff; font-size: 12px; font-weight: bold; }
+        .checkbox-option.selected .checkbox-check { display: block; }
+        .checkbox-label { font-size: 14px; color: var(--text-primary); }
+        
+        .nav-buttons { display: flex; justify-content: space-between; gap: 16px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
+        .btn { padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-light); }
+        .btn-primary:disabled { background: var(--text-light); cursor: not-allowed; }
+        .btn-secondary { background: var(--hover); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--border); }
+        
+        .results-section { display: none; }
+        .results-section.active { display: block; animation: fadeIn 0.5s ease; }
+        
+        .routine-header { text-align: center; padding: 32px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); color: #fff; margin-bottom: 28px; }
+        .routine-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
+        .routine-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .routine-subtitle { font-size: 16px; opacity: 0.9; }
+        
+        .routine-timeline { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 24px; }
+        .routine-step { display: flex; gap: 20px; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+        .routine-step:last-child { border-bottom: none; }
+        .step-time { min-width: 80px; }
+        .step-time-value { font-size: 18px; font-weight: 700; color: var(--primary); }
+        .step-time-label { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .step-content { flex: 1; }
+        .step-name { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+        .step-description { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+        .step-icon { width: 48px; height: 48px; background: var(--info-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-icon svg { width: 24px; height: 24px; fill: var(--primary); }
+        
+        .section-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        
+        .tip-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; }
+        .tip-card.priority-high { border-left: 4px solid var(--error); }
+        .tip-card.priority-medium { border-left: 4px solid var(--accent); }
+        .tip-card.priority-low { border-left: 4px solid #5cb85c; }
+        .tip-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+        .tip-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .priority-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+        .priority-badge.high { background: var(--error-light); color: var(--error); }
+        .priority-badge.medium { background: var(--warning); color: var(--warning-dark); }
+        .priority-badge.low { background: var(--success); color: var(--success-dark); }
+        .tip-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        
+        .diy-tips { background: var(--info-bg); border-radius: var(--radius-md); padding: 20px; margin-top: 12px; }
+        .diy-tips-title { font-size: 13px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .diy-tips ul { margin: 0; padding-left: 18px; }
+        .diy-tips li { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+        
+        .product-recommendation { display: flex; gap: 16px; background: var(--hover); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; align-items: center; }
+        .product-image { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 24px; }
+        .product-info { flex: 1; }
+        .product-name { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .product-price { font-size: 16px; font-weight: 700; color: var(--primary); }
+        .product-link { display: inline-block; padding: 10px 16px; background: var(--primary); color: #fff; text-decoration: none; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
+        .product-link:hover { background: var(--primary-light); }
+        @media (max-width: 500px) { .product-recommendation { flex-direction: column; text-align: center; } }
+        
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--info-bg) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-top: 28px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--primary); }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>></span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>></span>
+            <span style="color: var(--text-primary);">Bedtime Routine Builder</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Bedtime Routine Builder</h1>
+            <p class="page-subtitle">Create a personalized wind-down routine based on your lifestyle, sleep challenges, and preferences. Science-backed recommendations for better sleep.</p>
+        </header>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Build Your Perfect Bedtime Routine</h2>
+                <p>Answer a few questions to get your personalized routine</p>
+            </div>
+            
+            <div class="tool-body">
+                <!-- Progress -->
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-circle">1</div>
+                            <span class="step-label">Wake Time</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-circle">2</div>
+                            <span class="step-label">Duration</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-circle">3</div>
+                            <span class="step-label">Challenges</span>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-circle">4</div>
+                            <span class="step-label">Activities</span>
+                        </div>
+                        <div class="progress-step" data-step="5">
+                            <div class="step-circle">5</div>
+                            <span class="step-label">Preferences</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 10%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Question 1: Wake Time -->
+                <div class="question-section active" id="question1">
+                    <h3 class="question-title">What time do you need to wake up?</h3>
+                    <p class="question-subtitle">We'll calculate your ideal bedtime and routine start time based on this.</p>
+                    
+                    <div class="time-input-group">
+                        <select class="time-select" id="wakeHour">
+                            <option value="5">5</option>
+                            <option value="6" selected>6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                        </select>
+                        <span class="time-separator">:</span>
+                        <select class="time-select" id="wakeMinute">
+                            <option value="00" selected>00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                        <select class="time-select" id="wakePeriod">
+                            <option value="AM" selected>AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <div></div>
+                        <button class="btn btn-primary" onclick="nextQuestion(1)">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 2: Routine Duration -->
+                <div class="question-section" id="question2">
+                    <h3 class="question-title">How much time can you dedicate to your routine?</h3>
+                    <p class="question-subtitle">Choose a realistic duration you can commit to every night.</p>
+                    
+                    <div class="option-grid">
+                        <div class="option-card" data-value="15" onclick="selectOption(this, 'duration')">
+                            <span class="option-icon">15</span>
+                            <div class="option-title">15 Minutes</div>
+                            <div class="option-desc">Quick essentials only</div>
+                        </div>
+                        <div class="option-card" data-value="30" onclick="selectOption(this, 'duration')">
+                            <span class="option-icon">30</span>
+                            <div class="option-title">30 Minutes</div>
+                            <div class="option-desc">Short but effective</div>
+                        </div>
+                        <div class="option-card selected" data-value="45" onclick="selectOption(this, 'duration')">
+                            <span class="option-icon">45</span>
+                            <div class="option-title">45 Minutes</div>
+                            <div class="option-desc">Balanced routine</div>
+                        </div>
+                        <div class="option-card" data-value="60" onclick="selectOption(this, 'duration')">
+                            <span class="option-icon">60</span>
+                            <div class="option-title">60 Minutes</div>
+                            <div class="option-desc">Comprehensive wind-down</div>
+                        </div>
+                        <div class="option-card" data-value="90" onclick="selectOption(this, 'duration')">
+                            <span class="option-icon">90</span>
+                            <div class="option-title">90 Minutes</div>
+                            <div class="option-desc">Full relaxation ritual</div>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(2)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(2)">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 3: Sleep Challenges -->
+                <div class="question-section" id="question3">
+                    <h3 class="question-title">What are your main sleep challenges?</h3>
+                    <p class="question-subtitle">Select all that apply. This helps us prioritize your routine.</p>
+                    
+                    <div class="checkbox-grid">
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Difficulty falling asleep</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Racing thoughts at night</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Physical tension/restlessness</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Screen/device dependency</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Waking during the night</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'challenges')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Inconsistent sleep schedule</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(3)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(3)">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 4: Preferred Activities -->
+                <div class="question-section" id="question4">
+                    <h3 class="question-title">What activities do you enjoy or want to try?</h3>
+                    <p class="question-subtitle">Select activities you'd like in your routine.</p>
+                    
+                    <div class="checkbox-grid">
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Reading (physical book)</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Meditation/breathing</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Light stretching/yoga</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Warm bath or shower</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Journaling/reflection</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Calming music/sounds</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Skincare routine</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'activities')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Herbal tea</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(4)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(4)">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 5: Environment Preferences -->
+                <div class="question-section" id="question5">
+                    <h3 class="question-title">What are your environment preferences?</h3>
+                    <p class="question-subtitle">Select all that apply to personalize your routine further.</p>
+                    
+                    <div class="checkbox-grid">
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'preferences')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Complete darkness</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'preferences')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Background sounds/noise</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'preferences')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Aromatherapy/scents</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'preferences')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Cool room temperature</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'preferences')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Weighted blanket/pressure</span>
+                        </div>
+                        <div class="checkbox-option" onclick="toggleCheckbox(this, 'preferences')">
+                            <div class="checkbox-box"><span class="checkbox-check">&#10003;</span></div>
+                            <span class="checkbox-label">Phone in another room</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(5)">Back</button>
+                        <button class="btn btn-primary" onclick="generateRoutine()">Build My Routine</button>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Step-by-Step Process</h4>
+                    <ul>
+                        <li><strong>Step 1:</strong> Tell us your wake-up time so we can calculate optimal bedtimes</li>
+                        <li><strong>Step 2:</strong> Choose how much time you can realistically dedicate each night</li>
+                        <li><strong>Step 3:</strong> Identify your sleep challenges so we can address them</li>
+                        <li><strong>Step 4:</strong> Select activities you enjoy for a sustainable routine</li>
+                        <li><strong>Step 5:</strong> Share your environment preferences for final personalization</li>
+                    </ul>
+                    
+                    <h4>What You'll Receive</h4>
+                    <ul>
+                        <li>A timed, step-by-step routine customized to your preferences</li>
+                        <li>Science-backed tips for each activity in your routine</li>
+                        <li>Product recommendations to enhance your wind-down experience</li>
+                        <li>Option to email yourself a printable version</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>The Science of Bedtime Routines</h4>
+                    <p>A consistent bedtime routine is one of the most effective, evidence-based strategies for improving sleep quality. Research from the Sleep Foundation and Harvard Medical School shows that wind-down routines help signal to your body that sleep is approaching, triggering physiological changes that make falling asleep easier.</p>
+                    
+                    <h4>Why Routines Work</h4>
+                    <ul>
+                        <li><strong>Circadian cueing:</strong> Consistent activities at consistent times reinforce your body's natural sleep-wake cycle</li>
+                        <li><strong>Cortisol reduction:</strong> Relaxing activities lower stress hormones that interfere with sleep</li>
+                        <li><strong>Mental transition:</strong> Routines create a psychological boundary between day and night</li>
+                        <li><strong>Sleep pressure:</strong> Screen-free time allows natural melatonin production</li>
+                    </ul>
+                    
+                    <h4>What We Do With Your Data</h4>
+                    <p>Your responses are processed entirely in your browser. We do not store your answers on our servers unless you choose to receive a report via email. If you opt in, we store only your first name, email address, and routine results to deliver your personalized report.</p>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a sleep wellness company dedicated to helping people achieve better rest through natural, science-backed solutions. We offer sleep masks, white noise machines, blackout curtains, aromatherapy sprays, and weighted blankets.</p>
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Others Sleep Better</h4>
+                    <p>If you found this tool helpful, please consider sharing it with friends, family, or colleagues who might benefit from building a better bedtime routine.</p>
+                    
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0;">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/bedtime-routine-builder&text=Free%20Bedtime%20Routine%20Builder%20-%20Create%20your%20personalized%20wind-down%20routine" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #1DA1F2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on X/Twitter</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/bedtime-routine-builder" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #4267B2; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on Facebook</a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tools.spacire.com/bedtime-routine-builder&title=Free%20Bedtime%20Routine%20Builder" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #0077B5; color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 500;">Share on LinkedIn</a>
+                    </div>
+                    
+                    <h4>Direct Link</h4>
+                    <div style="display: flex; gap: 8px; margin-top: 8px;">
+                        <input type="text" value="https://tools.spacire.com/bedtime-routine-builder" readonly style="flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px;">
+                        <button onclick="copyToolLink()" style="padding: 10px 16px; background: var(--primary); color: #fff; border: none; border-radius: var(--radius-sm); cursor: pointer; font-size: 13px;">Copy</button>
+                    </div>
+                    <div id="copyConfirmTool" style="display: none; color: var(--success-dark); font-size: 12px; margin-top: 8px;">Link copied to clipboard!</div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Great Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Explore our other free sleep tools:</p>
+                    <div class="tools-grid">
+                        <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card">
+                            <h5>Sleep Environment Optimizer</h5>
+                            <p>Assess your bedroom for optimal sleep conditions</p>
+                        </a>
+                        <a href="https://tools.spacire.com/shift-worker-sleep-planner" class="tool-link-card">
+                            <h5>Shift Worker Sleep Planner</h5>
+                            <p>Get personalized sleep schedules for shift work</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-debt-calculator" class="tool-link-card">
+                            <h5>Sleep Debt Calculator</h5>
+                            <p>Track your sleep debt and get a recovery plan</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appwrite SDK (same version as Tools 1-3) -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION (same as Tools 1-3)
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite (same as Tools 1-3)
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // STATE MANAGEMENT
+        // ========================================
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        
+        const userData = {
+            wakeTime: { hour: 6, minute: 0, period: 'AM' },
+            duration: 45,
+            challenges: [],
+            activities: [],
+            preferences: []
+        };
+        
+        let generatedRoutine = null;
+        
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.parentElement;
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        // ========================================
+        // QUESTION NAVIGATION
+        // ========================================
+        function updateProgress() {
+            const progressFill = document.querySelector('.progress-fill');
+            const steps = document.querySelectorAll('.progress-step');
+            
+            progressFill.style.width = `${(currentQuestion / totalQuestions) * 100}%`;
+            
+            steps.forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                if (stepNum < currentQuestion) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentQuestion) {
+                    step.classList.add('active');
+                }
+            });
+        }
+        
+        function showQuestion(num) {
+            document.querySelectorAll('.question-section').forEach(q => q.classList.remove('active'));
+            document.getElementById(`question${num}`).classList.add('active');
+            currentQuestion = num;
+            updateProgress();
+        }
+        
+        function nextQuestion(current) {
+            // Save data from current question
+            if (current === 1) {
+                userData.wakeTime.hour = parseInt(document.getElementById('wakeHour').value);
+                userData.wakeTime.minute = parseInt(document.getElementById('wakeMinute').value);
+                userData.wakeTime.period = document.getElementById('wakePeriod').value;
+            }
+            
+            if (current < totalQuestions) {
+                showQuestion(current + 1);
+            }
+        }
+        
+        function prevQuestion(current) {
+            if (current > 1) {
+                showQuestion(current - 1);
+            }
+        }
+        
+        // ========================================
+        // OPTION SELECTION
+        // ========================================
+        function selectOption(element, field) {
+            const container = element.parentElement;
+            container.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            userData[field] = parseInt(element.dataset.value) || element.dataset.value;
+        }
+        
+        function toggleCheckbox(element, field) {
+            element.classList.toggle('selected');
+            const label = element.querySelector('.checkbox-label').textContent;
+            
+            if (element.classList.contains('selected')) {
+                if (!userData[field].includes(label)) {
+                    userData[field].push(label);
+                }
+            } else {
+                userData[field] = userData[field].filter(item => item !== label);
+            }
+        }
+        
+        // ========================================
+        // ROUTINE GENERATION
+        // ========================================
+        function generateRoutine() {
+            // Hide questions, show results
+            document.querySelectorAll('.question-section').forEach(q => q.classList.remove('active'));
+            document.getElementById('resultsSection').classList.add('active');
+            
+            // Calculate times
+            const routine = buildRoutine();
+            generatedRoutine = routine;
+            
+            // Generate tips based on challenges
+            const tips = generateTips();
+            
+            // Get product recommendations
+            const products = getProductRecommendations();
+            
+            // Render results
+            renderResults(routine, tips, products);
+            
+            // Save to database (non-blocking)
+            saveResults(routine, tips);
+        }
+        
+        function buildRoutine() {
+            // Calculate bedtime (assuming 8 hours sleep needed)
+            let wakeHour24 = userData.wakeTime.hour;
+            if (userData.wakeTime.period === 'PM' && wakeHour24 !== 12) wakeHour24 += 12;
+            if (userData.wakeTime.period === 'AM' && wakeHour24 === 12) wakeHour24 = 0;
+            
+            // Bedtime = wake time - 8 hours
+            let bedtimeHour24 = wakeHour24 - 8;
+            if (bedtimeHour24 < 0) bedtimeHour24 += 24;
+            
+            // Routine start = bedtime - routine duration
+            let routineStartMinutes = (bedtimeHour24 * 60) + userData.wakeTime.minute - userData.duration;
+            if (routineStartMinutes < 0) routineStartMinutes += 24 * 60;
+            
+            const routineSteps = [];
+            let currentMinutes = routineStartMinutes;
+            
+            // Build routine steps based on duration and selected activities
+            const stepDuration = Math.floor(userData.duration / Math.max(getStepCount(), 3));
+            
+            // Always start with environment preparation
+            routineSteps.push({
+                time: formatTime(currentMinutes),
+                name: 'Prepare Your Environment',
+                description: 'Dim the lights, set room temperature to 16-18C (60-65F), and put away electronic devices.',
+                icon: 'environment'
+            });
+            currentMinutes += stepDuration;
+            
+            // Add selected activities
+            if (userData.activities.includes('Warm bath or shower')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Warm Bath or Shower',
+                    description: 'Take a warm bath or shower. The drop in body temperature afterward promotes sleepiness.',
+                    icon: 'bath'
+                });
+                currentMinutes += stepDuration;
+            }
+            
+            if (userData.activities.includes('Skincare routine')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Skincare Routine',
+                    description: 'Complete your evening skincare routine. This ritualistic activity signals bedtime to your brain.',
+                    icon: 'skincare'
+                });
+                currentMinutes += Math.floor(stepDuration / 2);
+            }
+            
+            if (userData.activities.includes('Light stretching/yoga')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Gentle Stretching',
+                    description: 'Do 5-10 minutes of gentle stretching or yoga. Focus on releasing tension in your neck, shoulders, and back.',
+                    icon: 'stretch'
+                });
+                currentMinutes += stepDuration;
+            }
+            
+            if (userData.activities.includes('Journaling/reflection')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Evening Journaling',
+                    description: 'Write down 3 things you are grateful for, or brain dump any worries onto paper to clear your mind.',
+                    icon: 'journal'
+                });
+                currentMinutes += Math.floor(stepDuration / 2);
+            }
+            
+            if (userData.activities.includes('Herbal tea')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Enjoy Herbal Tea',
+                    description: 'Sip caffeine-free herbal tea like chamomile or valerian root. The warmth and ritual are calming.',
+                    icon: 'tea'
+                });
+                currentMinutes += Math.floor(stepDuration / 2);
+            }
+            
+            if (userData.activities.includes('Reading (physical book)')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Read a Book',
+                    description: 'Read a physical book (not e-reader with backlight). Choose fiction or something calming rather than stimulating.',
+                    icon: 'book'
+                });
+                currentMinutes += stepDuration;
+            }
+            
+            if (userData.activities.includes('Meditation/breathing')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Meditation or Breathing',
+                    description: 'Practice 5-10 minutes of deep breathing or guided meditation. Try the 4-7-8 technique: inhale 4s, hold 7s, exhale 8s.',
+                    icon: 'meditation'
+                });
+                currentMinutes += stepDuration;
+            }
+            
+            if (userData.activities.includes('Calming music/sounds')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Calming Sounds',
+                    description: 'Turn on white noise, pink noise, or nature sounds. This masks disruptive noises and creates consistency.',
+                    icon: 'sound'
+                });
+                currentMinutes += Math.floor(stepDuration / 2);
+            }
+            
+            // Add aromatherapy if selected in preferences
+            if (userData.preferences.includes('Aromatherapy/scents')) {
+                routineSteps.push({
+                    time: formatTime(currentMinutes),
+                    name: 'Apply Sleep Scent',
+                    description: 'Spritz lavender pillow spray or use a diffuser with calming essential oils. Scent is a powerful sleep cue.',
+                    icon: 'aromatherapy'
+                });
+                currentMinutes += Math.floor(stepDuration / 2);
+            }
+            
+            // Always end with getting into bed
+            const bedtimeFormatted = formatTime((bedtimeHour24 * 60) + userData.wakeTime.minute);
+            routineSteps.push({
+                time: bedtimeFormatted,
+                name: 'Get Into Bed',
+                description: 'Settle into bed. If using a weighted blanket, ensure it covers your body from shoulders to feet for optimal pressure.',
+                icon: 'bed'
+            });
+            
+            return {
+                steps: routineSteps,
+                bedtime: bedtimeFormatted,
+                wakeTime: `${userData.wakeTime.hour}:${userData.wakeTime.minute.toString().padStart(2, '0')} ${userData.wakeTime.period}`,
+                duration: userData.duration
+            };
+        }
+        
+        function getStepCount() {
+            return userData.activities.length + (userData.preferences.includes('Aromatherapy/scents') ? 1 : 0) + 2;
+        }
+        
+        function formatTime(totalMinutes) {
+            if (totalMinutes >= 24 * 60) totalMinutes -= 24 * 60;
+            if (totalMinutes < 0) totalMinutes += 24 * 60;
+            
+            let hours = Math.floor(totalMinutes / 60);
+            const minutes = totalMinutes % 60;
+            const period = hours >= 12 ? 'PM' : 'AM';
+            
+            if (hours > 12) hours -= 12;
+            if (hours === 0) hours = 12;
+            
+            return `${hours}:${minutes.toString().padStart(2, '0')} ${period}`;
+        }
+        
+        function generateTips() {
+            const tips = [];
+            
+            if (userData.challenges.includes('Difficulty falling asleep')) {
+                tips.push({
+                    title: 'Improve Sleep Onset',
+                    priority: 'high',
+                    text: 'Your routine now includes activities proven to reduce the time it takes to fall asleep. Consistency is key - perform this routine at the same time every night.',
+                    diy: ['Keep your bedroom cool (16-18C / 60-65F)', 'Avoid checking the clock - turn it away from view', 'If not asleep in 20 minutes, get up and do something boring until sleepy']
+                });
+            }
+            
+            if (userData.challenges.includes('Racing thoughts at night')) {
+                tips.push({
+                    title: 'Quiet Your Mind',
+                    priority: 'high',
+                    text: 'Racing thoughts are often caused by an unprocessed day. Your routine includes journaling and/or meditation to help clear mental clutter before bed.',
+                    diy: ['Write a to-do list for tomorrow to "offload" tasks from your mind', 'Practice the "cognitive shuffle" - think of random unrelated objects', 'Use a worry journal - write worries down and close the book']
+                });
+            }
+            
+            if (userData.challenges.includes('Physical tension/restlessness')) {
+                tips.push({
+                    title: 'Release Physical Tension',
+                    priority: 'high',
+                    text: 'Physical tension makes it hard to relax into sleep. Stretching and warm baths help release muscle tension and signal relaxation to your nervous system.',
+                    diy: ['Try progressive muscle relaxation: tense and release each muscle group', 'Focus on jaw, shoulders, and lower back - common tension areas', 'A warm bath 1-2 hours before bed drops core temperature and promotes sleep']
+                });
+            }
+            
+            if (userData.challenges.includes('Screen/device dependency')) {
+                tips.push({
+                    title: 'Break the Screen Habit',
+                    priority: 'high',
+                    text: 'Blue light from screens suppresses melatonin production. Your routine is designed to replace screen time with equally engaging but sleep-friendly activities.',
+                    diy: ['Charge your phone in another room', 'Use a physical alarm clock instead of phone', 'If you must use devices, enable night mode and dim brightness']
+                });
+            }
+            
+            if (userData.challenges.includes('Waking during the night')) {
+                tips.push({
+                    title: 'Improve Sleep Continuity',
+                    priority: 'medium',
+                    text: 'Night waking can be caused by environment issues or anxiety. Your routine addresses both with environment prep and relaxation techniques.',
+                    diy: ['Keep water by your bed to avoid getting up', 'Ensure complete darkness - even small LED lights can disrupt sleep', 'Maintain consistent temperature throughout the night']
+                });
+            }
+            
+            if (userData.challenges.includes('Inconsistent sleep schedule')) {
+                tips.push({
+                    title: 'Build Consistency',
+                    priority: 'high',
+                    text: 'An irregular sleep schedule confuses your circadian rhythm. Following this routine at the same time every night - including weekends - will help regulate your body clock.',
+                    diy: ['Set an alarm for when to START your routine, not just wake up', 'Avoid sleeping in more than 1 hour on weekends', 'Expose yourself to bright light first thing in the morning']
+                });
+            }
+            
+            // General tip
+            tips.push({
+                title: 'Give It Time',
+                priority: 'medium',
+                text: 'A new routine takes 2-4 weeks to become habit. Stick with it even if you don not see immediate results. Your brain needs time to associate these activities with sleep.',
+                diy: ['Track your routine completion for accountability', 'Start with the most important steps if time is short', 'Be patient - sleep improvement is gradual']
+            });
+            
+            return tips;
+        }
+        
+        function getProductRecommendations() {
+            const products = [];
+            
+            if (userData.preferences.includes('Complete darkness')) {
+                products.push({
+                    name: 'Contoured Sleep Mask',
+                    price: '8.99',
+                    url: 'https://spacire.com/collections/sleep-masks',
+                    reason: 'For complete darkness',
+                    handle: 'sleep-masks'
+                });
+            }
+            
+            if (userData.preferences.includes('Background sounds/noise') || userData.activities.includes('Calming music/sounds')) {
+                products.push({
+                    name: 'White Noise Machine',
+                    price: '19.99',
+                    url: 'https://spacire.com/collections/white-noise-machines',
+                    reason: 'For consistent background sounds',
+                    handle: 'white-noise-machines'
+                });
+            }
+            
+            if (userData.preferences.includes('Aromatherapy/scents')) {
+                products.push({
+                    name: 'Lavender Pillow Spray',
+                    price: '9.99',
+                    url: 'https://spacire.com/collections/pillow-sleep-sprays',
+                    reason: 'For calming aromatherapy',
+                    handle: 'pillow-sleep-sprays'
+                });
+            }
+            
+            if (userData.preferences.includes('Weighted blanket/pressure')) {
+                products.push({
+                    name: 'Weighted Blanket',
+                    price: '39.99',
+                    url: 'https://spacire.com/collections/weighted-blankets',
+                    reason: 'For deep pressure relaxation',
+                    handle: 'weighted-blankets'
+                });
+            }
+            
+            // Default recommendations based on activities
+            if (products.length < 2) {
+                if (!products.find(p => p.handle === 'pillow-sleep-sprays')) {
+                    products.push({
+                        name: 'Lavender Sleep Spray',
+                        price: '9.99',
+                        url: 'https://spacire.com/collections/pillow-sleep-sprays',
+                        reason: 'Enhances bedtime routine',
+                        handle: 'pillow-sleep-sprays'
+                    });
+                }
+            }
+            
+            return products.slice(0, 4);
+        }
+        
+        // ========================================
+        // RENDER RESULTS
+        // ========================================
+        function renderResults(routine, tips, products) {
+            const container = document.getElementById('resultsContent');
+            
+            // Build routine timeline HTML
+            let timelineHtml = routine.steps.map(step => `
+                <div class="routine-step">
+                    <div class="step-time">
+                        <div class="step-time-value">${step.time}</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-name">${step.name}</div>
+                        <div class="step-description">${step.description}</div>
+                    </div>
+                    <div class="step-icon">
+                        ${getStepIcon(step.icon)}
+                    </div>
+                </div>
+            `).join('');
+            
+            // Build tips HTML
+            let tipsHtml = tips.map(tip => `
+                <div class="tip-card priority-${tip.priority}">
+                    <div class="tip-header">
+                        <div class="tip-title">${tip.title}</div>
+                        <span class="priority-badge ${tip.priority}">${tip.priority}</span>
+                    </div>
+                    <p class="tip-text">${tip.text}</p>
+                    ${tip.diy ? `
+                        <div class="diy-tips">
+                            <div class="diy-tips-title">DIY Tips (No Cost)</div>
+                            <ul>
+                                ${tip.diy.map(d => `<li>${d}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+            
+            // Build products HTML
+            let productsHtml = products.map(product => `
+                <div class="product-recommendation">
+                    <div class="product-image">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 4px;">${product.reason}</div>
+                        <div class="product-price">From GBP ${product.price}</div>
+                    </div>
+                    <a href="${product.url}" class="product-link" target="_blank">View</a>
+                </div>
+            `).join('');
+            
+            container.innerHTML = `
+                <div class="routine-header">
+                    <div class="routine-label">Your Personalized Routine</div>
+                    <div class="routine-title">${routine.duration}-Minute Wind-Down</div>
+                    <div class="routine-subtitle">Bedtime: ${routine.bedtime} | Wake: ${routine.wakeTime}</div>
+                </div>
+                
+                <h3 class="section-title">Your Step-by-Step Routine</h3>
+                <div class="routine-timeline">
+                    ${timelineHtml}
+                </div>
+                
+                <h3 class="section-title">Personalized Tips for Your Challenges</h3>
+                ${tipsHtml}
+                
+                ${products.length > 0 ? `
+                    <h3 class="section-title">Recommended Products</h3>
+                    ${productsHtml}
+                ` : ''}
+                
+                <div style="background: var(--warning); border: 1px solid #f0e6c8; border-radius: var(--radius-md); padding: 16px; margin-top: 24px;">
+                    <div style="font-weight: 600; color: var(--warning-dark); margin-bottom: 6px;">Health Note</div>
+                    <p style="font-size: 13px; color: var(--warning-dark); margin: 0; line-height: 1.5;">This tool provides general guidance for healthy sleep habits. If you experience persistent sleep problems, chronic insomnia, or symptoms like loud snoring with breathing pauses, please consult a healthcare provider. Sleep disorders require professional diagnosis and treatment.</p>
+                </div>
+                
+                <div class="email-capture">
+                    <div class="email-capture-title">Save Your Personalized Routine</div>
+                    <p class="email-capture-text">Get your complete routine, tips, and product recommendations sent to your inbox.</p>
+                    <div class="email-form">
+                        <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                        <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                        <button class="btn btn-primary" onclick="sendReport()">Send My Routine</button>
+                    </div>
+                    <div class="form-error" id="formError"></div>
+                    <div class="email-success" id="emailSuccess">Your personalized routine has been sent! Check your inbox.</div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 24px;">
+                    <button class="btn btn-secondary" onclick="startOver()">Start Over</button>
+                </div>
+            `;
+        }
+        
+        function getStepIcon(type) {
+            const icons = {
+                environment: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+                bath: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z"/><path d="M6 12V5a2 2 0 0 1 2-2h3v2.25"/></svg>',
+                skincare: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>',
+                stretch: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><path d="M12 8v8m-4 4l4-4 4 4"/></svg>',
+                journal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+                tea: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>',
+                book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+                meditation: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+                sound: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>',
+                aromatherapy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+                bed: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>'
+            };
+            return icons[type] || icons.bed;
+        }
+        
+        function startOver() {
+            location.reload();
+        }
+        
+        function copyToolLink() {
+            const input = document.querySelector('.info-content input[readonly]');
+            input.select();
+            navigator.clipboard.writeText(input.value);
+            document.getElementById('copyConfirmTool').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('copyConfirmTool').style.display = 'none';
+            }, 3000);
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL (same pattern as Tools 1-3)
+        // ========================================
+        async function saveResults(routine, tips) {
+            try {
+                const data = {
+                    tool_name: 'bedtime_routine_builder',
+                    results_json: JSON.stringify({
+                        userData,
+                        routine,
+                        tips: tips.map(t => t.title)
+                    }),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                };
+                
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    data
+                );
+                console.log('Results saved to database');
+            } catch (error) {
+                console.error('Database error (non-critical):', error);
+            }
+        }
+        
+        async function sendReport() {
+            console.log('=== SEND REPORT STARTED ===');
+            
+            const firstName = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const formError = document.getElementById('formError');
+            const sendBtn = document.querySelector('.email-capture .btn-primary');
+            
+            console.log('1. Form values:', { firstName, email });
+            
+            // Clear previous errors
+            formError.style.display = 'none';
+            
+            // Validate first name
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                document.getElementById('userName').focus();
+                return;
+            }
+            
+            // Validate email
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                document.getElementById('userEmail').focus();
+                return;
+            }
+            
+            console.log('2. Validation passed');
+            
+            // Show loading state
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
+            const routine = generatedRoutine;
+            const tips = generateTips();
+            const products = getProductRecommendations();
+            
+            console.log('3. Data prepared:', { stepsCount: routine.steps.length, tipsCount: tips.length, productsCount: products.length });
+            
+            // Build payload for email function (same structure as Tools 2-3)
+            const emailPayload = JSON.stringify({
+                email: email,
+                firstName: firstName,
+                toolName: 'bedtime-routine-builder',
+                
+                heroTitle: 'Your Personalized Bedtime Routine',
+                heroSubtitle: 'Custom wind-down plan from Spacire',
+                introText: `Hi {firstName}, here's your personalized ${routine.duration}-minute bedtime routine. Your ideal bedtime is ${routine.bedtime} to wake refreshed at ${routine.wakeTime}.`,
+                
+                sections: [
+                    // Routine steps section
+                    {
+                        type: 'routine',
+                        title: 'Your Step-by-Step Routine',
+                        items: routine.steps.map(step => ({
+                            time: step.time,
+                            label: step.name,
+                            description: step.description
+                        })),
+                        note: `${routine.duration}-minute routine | Bedtime: ${routine.bedtime}`
+                    },
+                    // Tips section
+                    {
+                        type: 'tips',
+                        title: 'Personalized Tips',
+                        items: tips.map(tip => ({
+                            title: tip.title,
+                            priority: tip.priority,
+                            text: tip.text,
+                            diyTips: tip.diy || []
+                        }))
+                    },
+                    // Products section
+                    ...(products.length > 0 ? [{
+                        type: 'products',
+                        title: 'Recommended Products',
+                        items: products.map(p => ({
+                            name: p.name,
+                            price: p.price,
+                            url: p.url,
+                            reason: p.reason
+                        }))
+                    }] : []),
+                    // Warning section
+                    {
+                        type: 'warning',
+                        title: 'Health Note',
+                        text: 'This tool provides general guidance for healthy sleep habits. If you experience persistent sleep problems, chronic insomnia, or symptoms like loud snoring with breathing pauses, please consult a healthcare provider.'
+                    }
+                ],
+                
+                ctaButton: {
+                    text: 'Shop Sleep Essentials',
+                    url: 'https://spacire.com/collections/sleep-aids-for-better-rest'
+                }
+            });
+            
+            console.log('4. Payload built, size:', emailPayload.length, 'bytes');
+            
+            try {
+                console.log('5. Calling functions.createExecution...');
+                
+                const response = await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    false
+                );
+                
+                console.log('6. Response received:', response);
+                console.log('   Status code:', response.responseStatusCode);
+                
+                if (response.responseStatusCode === 200) {
+                    const result = JSON.parse(response.responseBody);
+                    console.log('7. Parsed result:', result);
+                    
+                    if (result.success) {
+                        console.log('8. SUCCESS! Email sent');
+                        document.getElementById('emailSuccess').style.display = 'block';
+                        document.getElementById('userEmail').disabled = true;
+                        document.getElementById('userName').disabled = true;
+                        sendBtn.style.display = 'none';
+                    } else {
+                        throw new Error(result.message || 'Failed to send email');
+                    }
+                } else {
+                    throw new Error('Server error: ' + response.responseStatusCode);
+                }
+            } catch (error) {
+                console.error('=== ERROR DETAILS ===');
+                console.error('Error:', error);
+                
+                formError.textContent = 'Sorry, there was an error sending your report. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
