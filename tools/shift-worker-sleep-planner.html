@@ -2222,14 +2222,14 @@
                     name: 'Blackout Sleep Mask',
                     price: '12.99',
                     url: 'https://spacire.com/collections/sleep-masks',
-                    image: 'https://spacire.com/cdn/shop/files/contoured-blackout-sleep-mask-spacire-768.jpg?v=1748787368',
+                    image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/contoured-blackout-sleep-mask-spacire-773.webp?v=1748787373',
                     reason: 'Essential for blocking daylight during daytime sleep'
                 });
                 products.push({
                     name: 'Blackout Curtains',
                     price: '34.99',
                     url: 'https://spacire.com/collections/blackout-curtains',
-                    image: 'https://spacire.com/cdn/shop/files/blackout-curtains-grommet-spacire.jpg?v=1748888186',
+                    image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/blackout-curtains-grommet-spacire-768.webp?v=1748888192',
                     reason: '99% light blocking for optimal daytime darkness'
                 });
             }
@@ -2239,7 +2239,7 @@
                     name: 'White Noise Machine',
                     price: '29.99',
                     url: 'https://spacire.com/collections/white-noise-machines',
-                    image: 'https://spacire.com/cdn/shop/files/wireless-white-noise-machine-spacire_5.jpg?v=1749033218',
+                    image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/wireless-white-noise-machine-spacire_5-768.webp?v=1749033221',
                     reason: 'Masks household and street noise effectively'
                 });
             }
@@ -2249,7 +2249,7 @@
                     name: 'Lavender Sleep Spray',
                     price: '9.99',
                     url: 'https://spacire.com/collections/pillow-sleep-sprays',
-                    image: 'https://spacire.com/cdn/shop/files/lavender-pillow-sleep-spray-essential-oils-spacire.jpg?v=1748891199',
+                    image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/lavender-pillow-sleep-spray-essential-oils-spacire-768.webp?v=1748891203',
                     reason: 'Aromatherapy shown to improve sleep onset'
                 });
             }
@@ -2259,7 +2259,7 @@
                     name: 'Weighted Blanket',
                     price: '49.99',
                     url: 'https://spacire.com/collections/weighted-blankets',
-                    image: 'https://spacire.com/cdn/shop/files/weighted-blanket-dark-grey-spacire-quilt.jpg?v=1748892007',
+                    image: 'https://cdn.shopify.com/s/files/1/0960/2259/3867/files/959576637600.jpg?v=1757123140',
                     reason: 'Deep pressure therapy for deeper, more restful sleep'
                 });
             }
@@ -2331,7 +2331,9 @@
                 products.forEach(product => {
                     html += `
                         <div class="product-recommendation">
-                            <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.style.background='#f0f0f0'">
+                            <div class="product-image" style="background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 24px;">
+                                <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);" onerror="this.style.display='none'; this.parentElement.innerHTML='&#128716;';">
+                            </div>
                             <div class="product-info">
                                 <div class="product-name">${product.name}</div>
                                 <div style="font-size: 12px; color: var(--text-light); margin-bottom: 4px;">${product.reason}</div>
@@ -2425,7 +2427,7 @@
             const firstName = document.getElementById('userName').value.trim();
             const email = document.getElementById('userEmail').value.trim();
             const formError = document.getElementById('formError');
-            const sendBtn = document.querySelector('.email-section .btn-primary');
+            const sendBtn = document.querySelector('.email-capture .btn-primary');
             
             // Clear previous errors
             formError.style.display = 'none';
