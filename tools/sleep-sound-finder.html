@@ -1384,9 +1384,19 @@
             try {
                 const data = {
                     tool_name: 'sleep_sound_finder',
-                    results_json: JSON.stringify({
-                        userData,
-                        results
+                    overall_score: results.primaryScore,
+                    scores_json: JSON.stringify({
+                        primary: results.primary,
+                        primaryScore: results.primaryScore,
+                        secondary: results.secondary,
+                        secondaryScore: results.secondaryScore,
+                        tertiary: results.tertiary,
+                        tertiaryScore: results.tertiaryScore,
+                        allScores: results.allScores
+                    }),
+                    recommendations_json: JSON.stringify({
+                        userData: userData,
+                        recommendedSound: results.primary
                     }),
                     user_agent: navigator.userAgent.substring(0, 500),
                     created_at: new Date().toISOString()
@@ -1495,25 +1505,44 @@
             });
             
             try {
+                // Save email submission to database
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'sleep_sound_finder',
+                            user_email: email,
+                            user_first_name: firstName,
+                            results_json: JSON.stringify({
+                                userData: userData,
+                                results: calculatedResults,
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                    console.log('Email submission saved to database');
+                } catch (dbError) {
+                    console.error('Database error (non-critical):', dbError);
+                }
+                
+                // Use async execution (true) to avoid 30-second timeout
                 const response = await functions.createExecution(
                     CONFIG.functionId,
                     emailPayload,
-                    false
+                    true  // async = true
                 );
                 
-                if (response.responseStatusCode === 200) {
-                    const result = JSON.parse(response.responseBody);
-                    if (result.success) {
-                        document.getElementById('emailSuccess').style.display = 'block';
-                        document.getElementById('userEmail').disabled = true;
-                        document.getElementById('userName').disabled = true;
-                        sendBtn.style.display = 'none';
-                    } else {
-                        throw new Error(result.message);
-                    }
-                } else {
-                    throw new Error('Server error');
-                }
+                // With async execution, we get immediate acceptance
+                // Show success since the request was accepted
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('userEmail').disabled = true;
+                document.getElementById('userName').disabled = true;
+                sendBtn.style.display = 'none';
+                
             } catch (error) {
                 console.error('Email error:', error);
                 formError.textContent = 'Sorry, there was an error. Please try again.';
