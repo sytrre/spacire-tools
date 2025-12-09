@@ -1,124 +1,109 @@
 {
-  "site": {
-    "name": "Spacire Sleep Tools",
-    "tagline": "Free, Science-Backed Tools for Better Sleep",
-    "description": "Discover your path to better sleep with our collection of free, science-backed assessment tools. No sign-up required.",
-    "url": "https://tools.spacire.com",
-    "storeUrl": "https://spacire.com"
-  },
-  "branding": {
-    "primaryColor": "#042548",
-    "accentColor": "#E0B252",
-    "logo": "images/spacire-logo.png",
-    "favicon": "images/favicon.png"
-  },
-  "appwrite": {
-    "endpoint": "https://nyc.cloud.appwrite.io/v1",
-    "projectId": "6839f9c60026aborfc7a",
-    "siteId": "6937398d00002827ae17",
-    "databaseId": "6839fbb20004c220250a",
-    "collectionId": "683a003c0025bf169ceb",
-    "functionId": "683a0144003b3bfc5ee0"
-  },
+  "siteName": "Spacire Sleep Tools",
+  "siteDescription": "Free interactive tools to help you optimize your sleep environment and improve sleep quality.",
   "tools": [
     {
       "id": "sleep-environment-optimizer",
       "name": "Sleep Environment Optimizer",
-      "description": "Assess your bedroom temperature, light, noise, humidity, and air quality for optimal sleep conditions.",
+      "description": "Assess your bedroom environment and get personalized recommendations for better sleep quality.",
       "status": "active",
       "file": "sleep-environment-optimizer.html",
-      "icon": "bedroom",
-      "duration": "2-3 minutes",
+      "icon": "thermometer",
+      "duration": "3-4 minutes",
       "features": [
-        "5-factor bedroom assessment",
-        "Personalized improvement plan",
-        "DIY solutions + product recommendations",
-        "Score your environment 0-100"
+        "Temperature assessment",
+        "Light level analysis",
+        "Noise evaluation",
+        "Humidity check",
+        "Air quality review"
       ],
-      "ctaText": "Start Assessment",
+      "ctaText": "Optimize My Sleep",
       "order": 1
     },
     {
       "id": "shift-worker-sleep-planner",
       "name": "Shift Worker Sleep Planner",
-      "description": "Create personalized sleep schedules for rotating shifts, night work, and irregular hours.",
+      "description": "Get a personalized sleep schedule optimized for your shift pattern, whether you work nights, rotating shifts, or irregular hours.",
       "status": "active",
       "file": "shift-worker-sleep-planner.html",
       "icon": "clock",
-      "duration": "3-4 minutes",
+      "duration": "2-3 minutes",
       "features": [
-        "Custom schedules for any shift pattern",
-        "Circadian rhythm optimization",
-        "Recovery day planning",
-        "Light exposure timing"
+        "Custom shift patterns",
+        "Optimized sleep windows",
+        "Circadian rhythm tips",
+        "Adaptation strategies"
       ],
-      "ctaText": "Create Sleep Plan",
+      "ctaText": "Plan My Sleep",
       "order": 2
     },
     {
-      "id": "sleep-sound-finder",
-      "name": "Sleep Sound Finder",
-      "description": "Discover whether white noise, pink noise, brown noise, or nature sounds work best for your sleep.",
-      "status": "coming-soon",
-      "file": "sleep-sound-finder.html",
-      "icon": "sound",
+      "id": "sleep-debt-calculator",
+      "name": "Sleep Debt Calculator",
+      "description": "Track your weekly sleep patterns, calculate accumulated sleep debt, and get a personalized recovery plan.",
+      "status": "active",
+      "file": "sleep-debt-calculator.html",
+      "icon": "calculator",
       "duration": "2-3 minutes",
       "features": [
-        "Personalized sound recommendations",
-        "White, pink, and brown noise options",
-        "Nature sounds matching",
-        "Volume and mixing guidance"
+        "Weekly sleep tracking",
+        "Debt calculation",
+        "Recovery timeline",
+        "Personalized tips"
       ],
-      "ctaText": "Find Your Sounds",
+      "ctaText": "Calculate My Debt",
       "order": 3
     },
     {
       "id": "bedtime-routine-builder",
       "name": "Bedtime Routine Builder",
       "description": "Build a personalized wind-down routine based on your lifestyle, preferences, and sleep goals.",
-      "status": "coming-soon",
+      "status": "active",
       "file": "bedtime-routine-builder.html",
       "icon": "moon",
-      "duration": "4-5 minutes",
+      "duration": "3-4 minutes",
       "features": [
-        "Customized routine timeline",
-        "Activity recommendations",
-        "Relaxation techniques",
-        "Progress tracking tips"
+        "Custom routine for adults",
+        "Time-based scheduling",
+        "Activity suggestions",
+        "Printable routine card"
       ],
-      "ctaText": "Build Your Routine",
+      "ctaText": "Build My Routine",
       "order": 4
     },
     {
-      "id": "natural-sleep-remedies-finder",
-      "name": "Natural Remedies Finder",
-      "description": "Find evidence-based natural remedies and lifestyle changes to improve your sleep without medication.",
+      "id": "sleep-sound-finder",
+      "name": "Sleep Sound Finder",
+      "description": "Discover the perfect sleep sounds for your preferences - from white noise to nature sounds to ambient music.",
       "status": "coming-soon",
-      "file": "natural-sleep-remedies-finder.html",
+      "file": "sleep-sound-finder.html",
+      "icon": "sound",
+      "duration": "2-3 minutes",
+      "features": [
+        "Sound preference quiz",
+        "Personalized recommendations",
+        "Sample sound clips",
+        "Volume guidelines"
+      ],
+      "ctaText": "Find My Sound",
+      "order": 5
+    },
+    {
+      "id": "natural-sleep-remedy-finder",
+      "name": "Natural Sleep Remedy Finder",
+      "description": "Find evidence-based natural remedies for your specific sleep challenges - from herbs to supplements to lifestyle changes.",
+      "status": "coming-soon",
+      "file": "natural-sleep-remedy-finder.html",
       "icon": "leaf",
       "duration": "3-4 minutes",
       "features": [
-        "Herbal remedy recommendations",
-        "Aromatherapy guidance",
-        "Lifestyle modifications",
-        "Safety considerations"
+        "Symptom assessment",
+        "Evidence-based remedies",
+        "Safety information",
+        "Dosage guidelines"
       ],
-      "ctaText": "Find Remedies",
-      "order": 5
+      "ctaText": "Find My Remedy",
+      "order": 6
     }
-  ],
-  "footer": {
-    "collections": [
-      { "name": "Sleep Masks", "url": "https://spacire.com/collections/sleep-masks" },
-      { "name": "White Noise Machines", "url": "https://spacire.com/collections/white-noise-machines" },
-      { "name": "Blackout Curtains", "url": "https://spacire.com/collections/blackout-curtains" },
-      { "name": "Sleep Sprays", "url": "https://spacire.com/collections/pillow-sleep-sprays" },
-      { "name": "Weighted Blankets", "url": "https://spacire.com/collections/weighted-blankets" }
-    ],
-    "company": {
-      "name": "Spacire",
-      "legalName": "The Valen Collective LTD",
-      "address": "167 Kennington Road, Nottingham, NG8 1QE, UK"
-    }
-  }
+  ]
 }
