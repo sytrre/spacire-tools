@@ -1913,10 +1913,10 @@
         // ========================================
         const CONFIG = {
             endpoint: 'https://nyc.cloud.appwrite.io/v1',
-            projectId: '6839f9c60026aborfc7a',
-            databaseId: '6839fbb20004c220250a',
-            tableId: '683a003c0025bf169ceb',
-            functionId: '683a0144003b3bfc5ee0'
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
         };
         
         // Initialize Appwrite (same as Tool 1)
@@ -2424,10 +2424,15 @@
         }
         
         async function sendReport() {
+            console.log('=== SEND REPORT STARTED ===');
+            
             const firstName = document.getElementById('userName').value.trim();
             const email = document.getElementById('userEmail').value.trim();
             const formError = document.getElementById('formError');
             const sendBtn = document.querySelector('.email-capture .btn-primary');
+            
+            console.log('1. Form values:', { firstName, email });
+            console.log('2. Send button found:', !!sendBtn);
             
             // Clear previous errors
             formError.style.display = 'none';
@@ -2449,6 +2454,8 @@
                 return;
             }
             
+            console.log('3. Validation passed');
+            
             // Show loading state
             const originalText = sendBtn.innerHTML;
             sendBtn.innerHTML = 'Sending...';
@@ -2458,6 +2465,8 @@
             const tips = generateTips();
             const products = getProductRecommendations();
             const shiftName = getShiftTypeName(userData.shiftType);
+            
+            console.log('4. Data calculated:', { schedule, tipsCount: tips.length, productsCount: products.length });
             
             // Build payload for email function
             const emailPayload = JSON.stringify({
@@ -2519,7 +2528,15 @@
                 }
             });
             
+            console.log('5. Payload built, size:', emailPayload.length, 'bytes');
+            console.log('6. Appwrite SDK loaded:', typeof Appwrite !== 'undefined');
+            console.log('7. Functions client:', typeof functions !== 'undefined');
+            console.log('8. Config:', CONFIG);
+            
             try {
+                console.log('9. Calling functions.createExecution...');
+                console.log('   Function ID:', CONFIG.functionId);
+                
                 // Use Appwrite SDK (same as Tool 1)
                 const response = await functions.createExecution(
                     CONFIG.functionId,
@@ -2527,9 +2544,16 @@
                     false
                 );
                 
+                console.log('10. Response received:', response);
+                console.log('    Status code:', response.responseStatusCode);
+                console.log('    Response body:', response.responseBody);
+                
                 if (response.responseStatusCode === 200) {
                     const result = JSON.parse(response.responseBody);
+                    console.log('11. Parsed result:', result);
+                    
                     if (result.success) {
+                        console.log('12. SUCCESS! Email sent');
                         document.getElementById('emailSuccess').style.display = 'block';
                         document.getElementById('userEmail').disabled = true;
                         document.getElementById('userName').disabled = true;
@@ -2541,10 +2565,15 @@
                         throw new Error(result.message || 'Failed to send email');
                     }
                 } else {
-                    throw new Error('Server error');
+                    throw new Error('Server error: ' + response.responseStatusCode);
                 }
             } catch (error) {
-                console.error('Error sending report:', error);
+                console.error('=== ERROR DETAILS ===');
+                console.error('Error name:', error.name);
+                console.error('Error message:', error.message);
+                console.error('Error stack:', error.stack);
+                console.error('Full error object:', error);
+                
                 formError.textContent = 'Sorry, there was an error sending your report. Please try again.';
                 formError.style.display = 'block';
                 sendBtn.innerHTML = originalText;
