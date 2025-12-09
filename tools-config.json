@@ -81,9 +81,9 @@
       "duration": "2-3 minutes",
       "features": [
         "Sound preference quiz",
-        "Audio samples to test",
-        "Science behind each sound",
-        "Machine recommendations"
+        "Personalized recommendations",
+        "Sample sound clips",
+        "Volume guidelines"
       ],
       "ctaText": "Find My Sound",
       "order": 5
@@ -92,7 +92,7 @@
       "id": "natural-sleep-remedy-finder",
       "name": "Natural Sleep Remedy Finder",
       "description": "Find evidence-based natural remedies for your specific sleep challenges - from herbs to supplements to lifestyle changes.",
-      "status": "coming-soon",
+      "status": "active",
       "file": "natural-sleep-remedy-finder.html",
       "icon": "leaf",
       "duration": "3-4 minutes",
@@ -100,7 +100,7 @@
         "Symptom assessment",
         "Evidence-based remedies",
         "Safety information",
-        "Dosage guidelines"
+        "DIY alternatives"
       ],
       "ctaText": "Find My Remedy",
       "order": 6
