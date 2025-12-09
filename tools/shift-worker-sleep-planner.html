@@ -1903,16 +1903,29 @@
         </div>
     </footer>
 
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
     <!-- JavaScript -->
     <script>
         // ========================================
-        // CONFIGURATION (correct Appwrite IDs)
+        // CONFIGURATION (same structure as Tool 1)
         // ========================================
-        const APPWRITE_ENDPOINT = 'https://nyc.cloud.appwrite.io/v1';
-        const APPWRITE_PROJECT_ID = '6839f9c60026aborfc7a';
-        const APPWRITE_DATABASE_ID = '6839fbb20004c220250a';
-        const APPWRITE_COLLECTION_ID = '683a003c0025bf169ceb';
-        const APPWRITE_FUNCTION_ID = '683a0144003b3bfc5ee0';
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: '6839f9c60026aborfc7a',
+            databaseId: '6839fbb20004c220250a',
+            tableId: '683a003c0025bf169ceb',
+            functionId: '683a0144003b3bfc5ee0'
+        };
+        
+        // Initialize Appwrite (same as Tool 1)
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
         
         // ========================================
         // STATE MANAGEMENT
@@ -2369,35 +2382,31 @@
         }
         
         // ========================================
-        // DATABASE & EMAIL
+        // DATABASE & EMAIL (using Appwrite SDK like Tool 1)
         // ========================================
         async function saveResults(schedule, tips) {
             try {
-                const response = await fetch(`${APPWRITE_ENDPOINT}/databases/${APPWRITE_DATABASE_ID}/collections/${APPWRITE_COLLECTION_ID}/documents`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Appwrite-Project': APPWRITE_PROJECT_ID
-                    },
-                    body: JSON.stringify({
-                        documentId: 'unique()',
-                        data: {
-                            tool_name: 'shift-worker-sleep-planner',
-                            results_json: JSON.stringify({
-                                userData,
-                                schedule,
-                                tips: tips.map(t => t.title)
-                            }),
-                            created_at: new Date().toISOString()
-                        }
-                    })
-                });
+                const data = {
+                    tool_name: 'shift_worker_sleep_planner',
+                    results_json: JSON.stringify({
+                        userData,
+                        schedule,
+                        tips: tips.map(t => t.title)
+                    }),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                };
                 
-                if (response.ok) {
-                    console.log('Results saved successfully');
-                }
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    data
+                );
+                console.log('Results saved to database');
             } catch (error) {
-                console.error('Error saving results:', error);
+                console.error('Database error (non-critical):', error);
+                // Don't block email sending if database fails
             }
         }
         
@@ -2416,6 +2425,7 @@
             const firstName = document.getElementById('userName').value.trim();
             const email = document.getElementById('userEmail').value.trim();
             const formError = document.getElementById('formError');
+            const sendBtn = document.querySelector('.email-section .btn-primary');
             
             // Clear previous errors
             formError.style.display = 'none';
@@ -2429,20 +2439,26 @@
             }
             
             // Validate email
-            if (!email || !email.includes('@') || !email.includes('.')) {
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
                 formError.textContent = 'Please enter a valid email address';
                 formError.style.display = 'block';
                 document.getElementById('userEmail').focus();
                 return;
             }
             
+            // Show loading state
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
             const schedule = calculateSleepSchedule();
             const tips = generateTips();
             const products = getProductRecommendations();
             const shiftName = getShiftTypeName(userData.shiftType);
             
-            // Build STANDARDIZED payload for universal email function
-            const emailPayload = {
+            // Build payload for email function
+            const emailPayload = JSON.stringify({
                 email: email,
                 firstName: firstName,
                 toolName: 'shift-worker-sleep-planner',
@@ -2499,31 +2515,38 @@
                     text: 'Shop Shift Worker Essentials',
                     url: 'https://spacire.com/collections/sleep-aids-for-shift-workers'
                 }
-            };
+            });
             
             try {
-                const response = await fetch(`${APPWRITE_ENDPOINT}/functions/${APPWRITE_FUNCTION_ID}/executions`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Appwrite-Project': APPWRITE_PROJECT_ID
-                    },
-                    body: JSON.stringify({
-                        body: JSON.stringify(emailPayload)
-                    })
-                });
+                // Use Appwrite SDK (same as Tool 1)
+                const response = await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    false
+                );
                 
-                if (response.ok) {
-                    document.getElementById('emailSuccess').style.display = 'block';
-                    document.getElementById('userEmail').disabled = true;
-                    document.getElementById('userName').disabled = true;
+                if (response.responseStatusCode === 200) {
+                    const result = JSON.parse(response.responseBody);
+                    if (result.success) {
+                        document.getElementById('emailSuccess').style.display = 'block';
+                        document.getElementById('userEmail').disabled = true;
+                        document.getElementById('userName').disabled = true;
+                        sendBtn.style.display = 'none';
+                        
+                        // Also save to database (non-blocking)
+                        saveResults(schedule, tips);
+                    } else {
+                        throw new Error(result.message || 'Failed to send email');
+                    }
                 } else {
-                    throw new Error('Failed to send email');
+                    throw new Error('Server error');
                 }
             } catch (error) {
                 console.error('Error sending report:', error);
                 formError.textContent = 'Sorry, there was an error sending your report. Please try again.';
                 formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
             }
         }
     </script>
