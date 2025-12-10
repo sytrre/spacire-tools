@@ -60,7 +60,7 @@
       "icon": "routine",
       "duration": "3-4 minutes",
       "features": [
-        "Customizable activities",
+        "Activity sequencing",
         "Time-based scheduling",
         "Relaxation techniques",
         "Habit tracking tips"
@@ -71,41 +71,41 @@
     {
       "id": "sleep-sound-finder",
       "name": "Sleep Sound Finder",
-      "description": "Discover the perfect sounds for your sleep style - from white noise to nature sounds to ambient music.",
+      "description": "Discover your ideal sleep soundscape - white noise, pink noise, nature sounds, or silence.",
       "status": "active",
       "file": "sleep-sound-finder.html",
       "icon": "sound",
       "duration": "2-3 minutes",
       "features": [
-        "Personalized sound matching",
-        "Multiple sound categories",
-        "Volume recommendations",
-        "Device setup tips"
+        "Sound preference quiz",
+        "Audio sample testing",
+        "Science-backed recommendations",
+        "Machine comparisons"
       ],
-      "ctaText": "Find My Sounds",
+      "ctaText": "Find My Sound",
       "order": 5
     },
     {
       "id": "natural-sleep-remedy-finder",
       "name": "Natural Sleep Remedy Finder",
-      "description": "Explore evidence-based natural remedies tailored to your specific sleep challenges and preferences.",
+      "description": "Find evidence-based natural remedies tailored to your specific sleep challenges.",
       "status": "active",
       "file": "natural-sleep-remedy-finder.html",
       "icon": "remedy",
       "duration": "3-4 minutes",
       "features": [
-        "Personalized remedy matching",
-        "Evidence-based options",
-        "Safety considerations",
-        "Usage guidelines"
+        "Symptom-based matching",
+        "Safety information",
+        "Dosage guidelines",
+        "Interaction warnings"
       ],
-      "ctaText": "Find Remedies",
+      "ctaText": "Find My Remedy",
       "order": 6
     },
     {
       "id": "jet-lag-calculator",
       "name": "Jet Lag Calculator",
-      "description": "Get a personalized jet lag recovery plan based on your travel route, schedule, and sleep preferences.",
+      "description": "Get a personalized jet lag recovery plan based on your flight details and chronotype.",
       "status": "active",
       "file": "jet-lag-calculator.html",
       "icon": "travel",
@@ -139,7 +139,7 @@
     {
       "id": "sleep-cycle-calculator",
       "name": "Sleep Cycle Calculator",
-      "description": "Calculate optimal bedtime or wake time based on 90-minute sleep cycles. Includes visual sleep architecture and power nap calculator.",
+      "description": "Calculate optimal bedtime or wake time based on 90-minute sleep cycles. Includes visual sleep architecture.",
       "status": "active",
       "file": "sleep-cycle-calculator.html",
       "icon": "cycle",
@@ -148,7 +148,7 @@
         "Visual sleep architecture",
         "Quality ratings for each option",
         "Smart alarm window",
-        "Power nap calculator"
+        "Multiple time options"
       ],
       "ctaText": "Calculate My Sleep",
       "order": 9
@@ -169,11 +169,28 @@
       ],
       "ctaText": "Take the Quiz",
       "order": 10
+    },
+    {
+      "id": "power-nap-calculator",
+      "name": "Power Nap Calculator",
+      "description": "Find your optimal nap duration and timing based on your chronotype, energy level, and schedule. Includes caffeine nap (nappuccino) calculator.",
+      "status": "active",
+      "file": "power-nap-calculator.html",
+      "icon": "nap",
+      "duration": "2-3 minutes",
+      "features": [
+        "Chronotype-aware timing",
+        "Caffeine nap calculator",
+        "Grogginess risk predictor",
+        "Sleep pressure visualization"
+      ],
+      "ctaText": "Calculate My Nap",
+      "order": 11
     }
   ],
   "config": {
-    "version": "1.10.0",
-    "lastUpdated": "2025-01-10",
-    "totalTools": 10
+    "version": "1.11.0",
+    "lastUpdated": "2025-12-10",
+    "totalTools": 11
   }
 }
