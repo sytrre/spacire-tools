@@ -220,11 +220,28 @@
       ],
       "ctaText": "Take The Quiz",
       "order": 13
+    },
+    {
+      "id": "dream-calculator",
+      "name": "Dream Calculator",
+      "description": "Find optimal wake times during REM sleep for vivid dream recall and lucid dreaming.",
+      "status": "active",
+      "file": "dream-calculator.html",
+      "icon": "dream",
+      "duration": "1-2 minutes",
+      "features": [
+        "REM sleep timing",
+        "Dream window optimization",
+        "Lucid dreaming tips",
+        "Sleep architecture visualization"
+      ],
+      "ctaText": "Calculate Dreams",
+      "order": 14
     }
   ],
   "config": {
-    "version": "1.13.0",
+    "version": "1.14.0",
     "lastUpdated": "2025-01-15",
-    "totalTools": 13
+    "totalTools": 14
   }
 }
