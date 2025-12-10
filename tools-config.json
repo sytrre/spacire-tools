@@ -1,38 +1,35 @@
 {
-  "siteName": "Spacire Sleep Tools",
-  "siteDescription": "Free interactive tools to help you optimize your sleep environment and improve sleep quality.",
   "tools": [
     {
       "id": "sleep-environment-optimizer",
       "name": "Sleep Environment Optimizer",
-      "description": "Assess your bedroom environment and get personalized recommendations for better sleep quality.",
+      "description": "Analyze your bedroom setup and get personalized recommendations to create the perfect sleep sanctuary.",
       "status": "active",
       "file": "sleep-environment-optimizer.html",
-      "icon": "thermometer",
-      "duration": "3-4 minutes",
+      "icon": "environment",
+      "duration": "3-5 minutes",
       "features": [
-        "Temperature assessment",
-        "Light level analysis",
-        "Noise evaluation",
-        "Humidity check",
-        "Air quality review"
+        "Room-by-room analysis",
+        "Light and noise assessment",
+        "Temperature optimization",
+        "Product recommendations"
       ],
-      "ctaText": "Optimize My Sleep",
+      "ctaText": "Optimize My Space",
       "order": 1
     },
     {
       "id": "shift-worker-sleep-planner",
       "name": "Shift Worker Sleep Planner",
-      "description": "Get a personalized sleep schedule optimized for your shift pattern, whether you work nights, rotating shifts, or irregular hours.",
+      "description": "Custom sleep schedules for night shifts, rotating shifts, and irregular work hours. Maximize rest with your unique schedule.",
       "status": "active",
       "file": "shift-worker-sleep-planner.html",
-      "icon": "clock",
-      "duration": "2-3 minutes",
+      "icon": "shift",
+      "duration": "3-4 minutes",
       "features": [
-        "Custom shift patterns",
-        "Optimized sleep windows",
-        "Circadian rhythm tips",
-        "Adaptation strategies"
+        "Multiple shift pattern support",
+        "Anchor sleep scheduling",
+        "Nap optimization",
+        "Light exposure timing"
       ],
       "ctaText": "Plan My Sleep",
       "order": 2
@@ -40,16 +37,16 @@
     {
       "id": "sleep-debt-calculator",
       "name": "Sleep Debt Calculator",
-      "description": "Track your weekly sleep patterns, calculate accumulated sleep debt, and get a personalized recovery plan.",
+      "description": "Calculate your accumulated sleep debt and get a personalized recovery plan to restore optimal rest.",
       "status": "active",
       "file": "sleep-debt-calculator.html",
       "icon": "calculator",
       "duration": "2-3 minutes",
       "features": [
         "Weekly sleep tracking",
-        "Debt calculation",
+        "Debt accumulation analysis",
         "Recovery timeline",
-        "Personalized tips"
+        "Personalized catch-up plan"
       ],
       "ctaText": "Calculate My Debt",
       "order": 3
@@ -57,16 +54,16 @@
     {
       "id": "bedtime-routine-builder",
       "name": "Bedtime Routine Builder",
-      "description": "Build a personalized wind-down routine based on your lifestyle, preferences, and sleep goals.",
+      "description": "Create a personalized wind-down routine based on your preferences, schedule, and sleep goals.",
       "status": "active",
       "file": "bedtime-routine-builder.html",
-      "icon": "moon",
+      "icon": "routine",
       "duration": "3-4 minutes",
       "features": [
-        "Custom routine for adults",
+        "Customizable activities",
         "Time-based scheduling",
-        "Activity suggestions",
-        "Printable routine card"
+        "Relaxation techniques",
+        "Habit tracking tips"
       ],
       "ctaText": "Build My Routine",
       "order": 4
@@ -74,67 +71,67 @@
     {
       "id": "sleep-sound-finder",
       "name": "Sleep Sound Finder",
-      "description": "Discover whether white noise, pink noise, brown noise, or nature sounds work best for your sleep.",
+      "description": "Discover the perfect sounds for your sleep style - from white noise to nature sounds to ambient music.",
       "status": "active",
       "file": "sleep-sound-finder.html",
       "icon": "sound",
       "duration": "2-3 minutes",
       "features": [
-        "Sound preference quiz",
-        "Audio samples to test",
-        "Science behind each sound",
-        "Machine recommendations"
+        "Personalized sound matching",
+        "Multiple sound categories",
+        "Volume recommendations",
+        "Device setup tips"
       ],
-      "ctaText": "Find My Sound",
+      "ctaText": "Find My Sounds",
       "order": 5
     },
     {
       "id": "natural-sleep-remedy-finder",
       "name": "Natural Sleep Remedy Finder",
-      "description": "Find evidence-based natural remedies for your specific sleep challenges - from herbs to supplements to lifestyle changes.",
+      "description": "Explore evidence-based natural remedies tailored to your specific sleep challenges and preferences.",
       "status": "active",
       "file": "natural-sleep-remedy-finder.html",
-      "icon": "leaf",
+      "icon": "remedy",
       "duration": "3-4 minutes",
       "features": [
-        "Symptom assessment",
-        "Evidence-based remedies",
-        "Safety information",
-        "Free DIY tips"
+        "Personalized remedy matching",
+        "Evidence-based options",
+        "Safety considerations",
+        "Usage guidelines"
       ],
-      "ctaText": "Find My Remedy",
+      "ctaText": "Find Remedies",
       "order": 6
     },
     {
       "id": "jet-lag-calculator",
       "name": "Jet Lag Calculator",
-      "description": "Get a personalized jet lag recovery plan based on your travel route, flight times, and sleep patterns.",
+      "description": "Get a personalized jet lag recovery plan based on your travel route, schedule, and sleep preferences.",
       "status": "active",
       "file": "jet-lag-calculator.html",
-      "icon": "plane",
+      "icon": "travel",
       "duration": "2-3 minutes",
       "features": [
-        "Route analysis",
-        "Light exposure schedule",
-        "In-flight strategy",
-        "Day-by-day recovery plan"
+        "Pre-flight preparation",
+        "Light exposure timing",
+        "Sleep schedule adjustment",
+        "Recovery timeline"
       ],
-      "ctaText": "Calculate My Plan",
+      "ctaText": "Plan My Recovery",
       "order": 7
     },
     {
       "id": "chronotype-quiz",
       "name": "Chronotype Quiz",
-      "description": "Discover if you're a Lion, Bear, Wolf, or Dolphin and get your personalized ideal daily schedule and productivity windows.",
+      "description": "Discover your natural sleep-wake rhythm and learn how to optimize your schedule for peak performance.",
       "status": "active",
       "file": "chronotype-quiz.html",
-      "icon": "brain",
-      "duration": "2-3 minutes",
+      "icon": "chronotype",
+      "duration": "3-5 minutes",
       "features": [
-        "Social jet lag score",
-        "Hour-by-hour schedule",
-        "Productivity windows",
-        "Work compatibility analysis"
+        "Scientific assessment",
+        "Four chronotype profiles",
+        "Ideal sleep windows",
+        "Productivity optimization"
       ],
       "ctaText": "Find My Chronotype",
       "order": 8
@@ -155,6 +152,28 @@
       ],
       "ctaText": "Calculate My Sleep",
       "order": 9
+    },
+    {
+      "id": "insomnia-quiz",
+      "name": "Insomnia Quiz",
+      "description": "Assess your insomnia severity based on the clinically validated ISI, identify your insomnia type, and get a personalized action plan.",
+      "status": "active",
+      "file": "insomnia-quiz.html",
+      "icon": "assessment",
+      "duration": "4-6 minutes",
+      "features": [
+        "ISI-based severity scoring",
+        "Insomnia type identification",
+        "Sleep efficiency calculator",
+        "Personalized action plan"
+      ],
+      "ctaText": "Take the Quiz",
+      "order": 10
     }
-  ]
+  ],
+  "config": {
+    "version": "1.10.0",
+    "lastUpdated": "2025-01-10",
+    "totalTools": 10
+  }
 }
