@@ -138,6 +138,23 @@
       ],
       "ctaText": "Find My Chronotype",
       "order": 8
+    },
+    {
+      "id": "sleep-cycle-calculator",
+      "name": "Sleep Cycle Calculator",
+      "description": "Calculate optimal bedtime or wake time based on 90-minute sleep cycles. Includes visual sleep architecture and power nap calculator.",
+      "status": "active",
+      "file": "sleep-cycle-calculator.html",
+      "icon": "cycle",
+      "duration": "1-2 minutes",
+      "features": [
+        "Visual sleep architecture",
+        "Quality ratings for each option",
+        "Smart alarm window",
+        "Power nap calculator"
+      ],
+      "ctaText": "Calculate My Sleep",
+      "order": 9
     }
   ]
 }
