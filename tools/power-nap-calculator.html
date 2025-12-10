@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Power Nap Calculator - Find your optimal nap duration and timing based on your chronotype, energy level, and schedule. Includes Caffeine Nap calculator.">
+    <meta name="keywords" content="power nap calculator, nap calculator, best time to nap, caffeine nap, nappuccino, how long to nap, optimal nap time">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    <title>Power Nap Calculator - Find Your Optimal Nap Time | Spacire</title>
+    <link rel="canonical" href="https://tools.spacire.com/power-nap-calculator">
+    
+    <meta property="og:title" content="Power Nap Calculator - Optimize Your Naps">
+    <meta property="og:description" content="Calculate your perfect nap duration and timing based on science.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/power-nap-calculator">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Power Nap Calculator",
+        "description": "Free tool to calculate optimal nap duration and timing based on chronotype, energy level, and schedule.",
+        "url": "https://tools.spacire.com/power-nap-calculator",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5e6c4;
+            --text-primary: #232323;
+            --text-secondary: #666666;
+            --text-muted: #969696;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --hover: #f8f9fa;
+            --border: #e6e6e6;
+            --success: #28a745;
+            --success-light: #d4edda;
+            --warning: #ffc107;
+            --warning-light: #fff3cd;
+            --error: #dc3545;
+            --error-light: #f8d7da;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.12);
+            --transition: all 0.2s ease;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Domine', Georgia, serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+        .header-nav { display: flex; gap: 28px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        /* Breadcrumb */
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-muted); margin: 0 8px; }
+        
+        /* Main Container */
+        .main-container { max-width: 800px; margin: 0 auto; padding: 32px 20px 60px; }
+        
+        /* Page Title */
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        
+        /* Tool Card */
+        .tool-card { background: var(--bg); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); overflow: hidden; }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 28px 32px; text-align: center; }
+        .tool-header h2 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; }
+        .tool-body { padding: 32px; }
+        
+        /* Progress */
+        .progress-container { margin-bottom: 32px; }
+        .progress-steps { display: flex; justify-content: space-between; margin-bottom: 16px; }
+        .progress-step { display: flex; flex-direction: column; align-items: center; flex: 1; }
+        .step-circle { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-light); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; transition: var(--transition); }
+        .step-circle.active { background: var(--primary); border-color: var(--primary); color: white; }
+        .step-circle.completed { background: var(--success); border-color: var(--success); color: white; }
+        .step-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .progress-bar { height: 4px; background: var(--bg-light); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.3s ease; }
+        
+        /* Questions */
+        .quiz-section { display: none; animation: fadeIn 0.3s ease; }
+        .quiz-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .question-title { font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .question-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+        
+        /* Form Elements */
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        
+        .time-picker { display: flex; align-items: center; gap: 8px; background: var(--bg-light); padding: 12px 16px; border-radius: var(--radius-sm); border: 2px solid var(--border); }
+        .time-picker select { background: transparent; border: none; font-family: inherit; font-size: 16px; color: var(--text-primary); cursor: pointer; padding: 4px; }
+        .time-picker select:focus { outline: none; }
+        .time-separator { font-size: 18px; font-weight: 600; color: var(--text-muted); }
+        
+        /* Option Cards */
+        .option-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        @media (max-width: 500px) { .option-grid { grid-template-columns: 1fr; } }
+        .option-card { background: var(--bg-light); border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 16px; cursor: pointer; transition: var(--transition); text-align: center; }
+        .option-card:hover { border-color: var(--primary); background: var(--hover); }
+        .option-card.selected { border-color: var(--primary); background: rgba(4, 37, 72, 0.05); }
+        .option-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+        .option-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .option-desc { font-size: 12px; color: var(--text-secondary); }
+        
+        /* Energy Slider */
+        .energy-slider-container { padding: 20px 0; }
+        .energy-slider { width: 100%; height: 8px; border-radius: 4px; background: linear-gradient(to right, #dc3545, #ffc107, #28a745); -webkit-appearance: none; appearance: none; cursor: pointer; }
+        .energy-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--primary); border: 3px solid white; box-shadow: var(--shadow); cursor: pointer; }
+        .energy-slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--primary); border: 3px solid white; box-shadow: var(--shadow); cursor: pointer; }
+        .energy-labels { display: flex; justify-content: space-between; margin-top: 12px; font-size: 12px; color: var(--text-muted); }
+        .energy-display { text-align: center; margin-top: 16px; padding: 12px; background: var(--bg-light); border-radius: var(--radius-sm); }
+        .energy-level { font-size: 18px; font-weight: 600; color: var(--primary); }
+        .energy-desc { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        
+        /* Toggle Switch */
+        .toggle-container { display: flex; align-items: center; justify-content: space-between; padding: 16px; background: var(--bg-light); border-radius: var(--radius-sm); margin-top: 16px; }
+        .toggle-label { display: flex; align-items: center; gap: 12px; }
+        .toggle-icon { font-size: 24px; }
+        .toggle-text h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .toggle-text p { font-size: 12px; color: var(--text-secondary); }
+        .toggle-switch { position: relative; width: 52px; height: 28px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: var(--border); border-radius: 28px; transition: var(--transition); }
+        .toggle-slider:before { position: absolute; content: ""; height: 22px; width: 22px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: var(--transition); }
+        .toggle-switch input:checked + .toggle-slider { background: var(--accent); }
+        .toggle-switch input:checked + .toggle-slider:before { transform: translateX(24px); }
+        
+        /* Navigation Buttons */
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 32px; gap: 16px; }
+        .btn { padding: 14px 28px; border-radius: var(--radius-sm); font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--primary); color: white; flex: 1; }
+        .btn-primary:hover { background: var(--primary-light); }
+        .btn-secondary { background: var(--bg-light); color: var(--text-primary); border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+        .btn-accent { background: var(--accent); color: var(--primary); }
+        .btn-accent:hover { background: #d4a247; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        /* Results Section */
+        .results-section { display: none; }
+        .results-section.active { display: block; }
+        
+        /* Result Header */
+        .result-header { text-align: center; padding: 32px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; border-radius: var(--radius-md) var(--radius-md) 0 0; margin: -32px -32px 32px -32px; }
+        .result-badge { display: inline-block; background: var(--accent); color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+        .result-nap-type { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .result-duration { font-size: 48px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+        .result-duration span { font-size: 20px; color: rgba(255,255,255,0.8); }
+        .result-description { font-size: 14px; opacity: 0.9; max-width: 400px; margin: 0 auto; }
+        
+        /* Time Cards */
+        .time-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+        @media (max-width: 500px) { .time-cards { grid-template-columns: 1fr; } }
+        .time-card { background: var(--bg-light); border-radius: var(--radius-sm); padding: 20px; text-align: center; }
+        .time-card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px; }
+        .time-card-value { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .time-card-note { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+        
+        /* Meters */
+        .meter-section { background: var(--bg-light); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 20px; }
+        .meter-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .meter-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .meter-value { font-size: 14px; font-weight: 600; color: var(--primary); }
+        .meter-bar { height: 12px; background: var(--border); border-radius: 6px; overflow: hidden; }
+        .meter-fill { height: 100%; border-radius: 6px; transition: width 0.5s ease; }
+        .meter-fill.low { background: linear-gradient(90deg, #28a745, #5cb85c); }
+        .meter-fill.medium { background: linear-gradient(90deg, #ffc107, #ffda6a); }
+        .meter-fill.high { background: linear-gradient(90deg, #fd7e14, #dc3545); }
+        .meter-labels { display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; color: var(--text-muted); }
+        
+        /* Risk Indicator */
+        .risk-indicator { display: flex; gap: 6px; margin-top: 12px; }
+        .risk-bar { flex: 1; height: 8px; background: var(--border); border-radius: 4px; transition: var(--transition); }
+        .risk-bar.active.level-1 { background: #28a745; }
+        .risk-bar.active.level-2 { background: #5cb85c; }
+        .risk-bar.active.level-3 { background: #ffc107; }
+        .risk-bar.active.level-4 { background: #fd7e14; }
+        .risk-bar.active.level-5 { background: #dc3545; }
+        
+        /* Warning Box */
+        .warning-box { background: var(--warning-light); border-left: 4px solid var(--warning); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 16px 20px; margin-bottom: 20px; }
+        .warning-box h4 { font-size: 14px; font-weight: 600; color: #856404; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .warning-box p { font-size: 13px; color: #856404; }
+        
+        /* Caffeine Protocol */
+        .caffeine-protocol { background: linear-gradient(135deg, #f5e6c4 0%, #fff8e7 100%); border: 2px solid var(--accent); border-radius: var(--radius-md); padding: 24px; margin-bottom: 24px; }
+        .caffeine-protocol h3 { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .protocol-steps { display: grid; gap: 12px; }
+        .protocol-step { display: flex; align-items: flex-start; gap: 12px; }
+        .step-number { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+        .step-content h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+        .step-content p { font-size: 13px; color: var(--text-secondary); }
+        
+        /* Tips Section */
+        .tips-section { margin-bottom: 24px; }
+        .tips-section h3 { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        .tip-card { background: var(--bg-light); border-radius: var(--radius-sm); padding: 14px; display: flex; align-items: flex-start; gap: 12px; }
+        .tip-icon { width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .tip-icon svg { width: 16px; height: 16px; fill: white; }
+        .tip-text { font-size: 13px; color: var(--text-primary); }
+        
+        /* Alternatives */
+        .alternatives-section { margin-bottom: 24px; }
+        .alternatives-section h3 { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .alt-grid { display: grid; gap: 12px; }
+        .alt-card { background: var(--bg-light); border-radius: var(--radius-sm); padding: 16px; display: flex; justify-content: space-between; align-items: center; }
+        .alt-info h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .alt-info p { font-size: 12px; color: var(--text-secondary); }
+        .alt-duration { font-size: 18px; font-weight: 700; color: var(--primary); }
+        
+        /* Related Tools */
+        .related-tools { margin-bottom: 24px; }
+        .related-tools h3 { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .tool-link-card { display: block; padding: 14px; background: var(--bg-light); border-radius: var(--radius-sm); text-decoration: none; color: var(--text-primary); transition: var(--transition); }
+        .tool-link-card:hover { background: var(--hover); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); }
+        
+        /* Email Capture */
+        .email-capture { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-md); padding: 28px; margin-bottom: 24px; text-align: center; color: white; }
+        .email-capture h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .email-capture > p { font-size: 14px; opacity: 0.9; margin-bottom: 20px; }
+        .email-form { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+        .email-input { padding: 14px 16px; border: none; border-radius: var(--radius-sm); font-family: inherit; font-size: 15px; width: 100%; }
+        .email-input:focus { outline: 2px solid var(--accent); }
+        #emailSuccess { display: none; background: var(--success-light); color: var(--success); padding: 14px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; }
+        #formError { display: none; background: var(--error-light); color: var(--error); padding: 14px; border-radius: var(--radius-sm); font-size: 14px; margin-top: 12px; }
+        
+        /* Info Toggles */
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: var(--bg); border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        
+        /* Restart Button */
+        .restart-section { text-align: center; margin-top: 24px; }
+        
+        /* Medical Disclaimer */
+        .medical-disclaimer { background: var(--warning-light); border: 1px solid #f5e79e; border-radius: var(--radius-md); padding: 16px; margin-top: 24px; font-size: 12px; color: #856404; line-height: 1.6; }
+        .medical-disclaimer strong { display: block; margin-bottom: 4px; }
+        
+        /* Footer - EXACT same as other tools */
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>&gt;</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>&gt;</span>
+            <span style="color: var(--text-primary);">Power Nap Calculator</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Power Nap Calculator</h1>
+            <p class="page-subtitle">Find your optimal nap duration and timing based on your chronotype, energy level, and schedule. Free tool backed by sleep science.</p>
+        </header>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Calculate Your Perfect Nap</h2>
+                <p>Answer 4 quick questions for personalized recommendations</p>
+            </div>
+            
+            <div class="tool-body">
+                <!-- Progress -->
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-steps">
+                        <div class="progress-step"><div class="step-circle active" id="step1">1</div><span class="step-label">Schedule</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step2">2</div><span class="step-label">Chronotype</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step3">3</div><span class="step-label">Energy</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step4">4</div><span class="step-label">Context</span></div>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 25%;"></div></div>
+                </div>
+                
+                <!-- Section 1: Schedule -->
+                <div class="quiz-section active" id="section1">
+                    <h3 class="question-title">What's your schedule today?</h3>
+                    <p class="question-subtitle">We'll calculate the best nap window based on your day</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">What time did you wake up?</label>
+                        <div class="time-picker">
+                            <select id="wakeHour"><option value="4">4</option><option value="5">5</option><option value="6" selected>6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
+                            <span class="time-separator">:</span>
+                            <select id="wakeMinute"><option value="0">00</option><option value="15">15</option><option value="30" selected>30</option><option value="45">45</option></select>
+                            <select id="wakePeriod"><option value="AM" selected>AM</option><option value="PM">PM</option></select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">What time do you usually go to bed?</label>
+                        <div class="time-picker">
+                            <select id="bedHour"><option value="8">8</option><option value="9">9</option><option value="10" selected>10</option><option value="11">11</option><option value="12">12</option></select>
+                            <span class="time-separator">:</span>
+                            <select id="bedMinute"><option value="0">00</option><option value="15">15</option><option value="30" selected>30</option><option value="45">45</option></select>
+                            <select id="bedPeriod"><option value="AM">AM</option><option value="PM" selected>PM</option></select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Current time: <span id="currentTimeDisplay" style="color: var(--primary); font-weight: 700;"></span></label>
+                    </div>
+                    
+                    <div class="nav-buttons"><div></div><button class="btn btn-primary" onclick="nextSection()">Continue</button></div>
+                </div>
+                
+                <!-- Section 2: Chronotype -->
+                <div class="quiz-section" id="section2">
+                    <h3 class="question-title">What's your chronotype?</h3>
+                    <p class="question-subtitle">Your natural sleep-wake preference affects optimal nap timing</p>
+                    
+                    <div class="option-grid">
+                        <div class="option-card" onclick="selectChronotype('lion')">
+                            <span class="option-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+                            <span class="option-title">Lion (Early Bird)</span>
+                            <span class="option-desc">Wake 5-6am, peak morning</span>
+                        </div>
+                        <div class="option-card" onclick="selectChronotype('bear')">
+                            <span class="option-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></span>
+                            <span class="option-title">Bear (Average)</span>
+                            <span class="option-desc">Wake 7am, follow sun cycle</span>
+                        </div>
+                        <div class="option-card" onclick="selectChronotype('wolf')">
+                            <span class="option-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+                            <span class="option-title">Wolf (Night Owl)</span>
+                            <span class="option-desc">Wake 8-9am, peak evening</span>
+                        </div>
+                        <div class="option-card" onclick="selectChronotype('dolphin')">
+                            <span class="option-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
+                            <span class="option-title">Dolphin (Light Sleeper)</span>
+                            <span class="option-desc">Irregular, often tired</span>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--text-secondary);">Not sure? <a href="https://tools.spacire.com/chronotype-quiz" style="color: var(--primary);">Take our Chronotype Quiz</a></p>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevSection()">Back</button>
+                        <button class="btn btn-primary" onclick="nextSection()" id="s2Next" disabled>Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Energy -->
+                <div class="quiz-section" id="section3">
+                    <h3 class="question-title">How's your energy right now?</h3>
+                    <p class="question-subtitle">This helps determine the right nap duration</p>
+                    
+                    <div class="energy-slider-container">
+                        <input type="range" min="1" max="5" value="3" class="energy-slider" id="energySlider" oninput="updateEnergyDisplay()">
+                        <div class="energy-labels"><span>Exhausted</span><span>Tired</span><span>Okay</span><span>Good</span><span>Energized</span></div>
+                    </div>
+                    
+                    <div class="energy-display">
+                        <div class="energy-level" id="energyLevel">Okay</div>
+                        <div class="energy-desc" id="energyDesc">You could use a short boost</div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevSection()">Back</button>
+                        <button class="btn btn-primary" onclick="nextSection()">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Section 4: Context -->
+                <div class="quiz-section" id="section4">
+                    <h3 class="question-title">What will you do after your nap?</h3>
+                    <p class="question-subtitle">Different activities benefit from different nap types</p>
+                    
+                    <div class="option-grid">
+                        <div class="option-card" onclick="selectActivity('driving')">
+                            <span class="option-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16,8 20,8 23,11 23,16 16,16"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+                            <span class="option-title">Driving</span>
+                            <span class="option-desc">Safety is priority</span>
+                        </div>
+                        <div class="option-card" onclick="selectActivity('work')">
+                            <span class="option-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                            <span class="option-title">Work/Meetings</span>
+                            <span class="option-desc">Need alertness</span>
+                        </div>
+                        <div class="option-card" onclick="selectActivity('creative')">
+                            <span class="option-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></span>
+                            <span class="option-title">Creative Work</span>
+                            <span class="option-desc">Writing, art, ideas</span>
+                        </div>
+                        <div class="option-card" onclick="selectActivity('study')">
+                            <span class="option-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+                            <span class="option-title">Studying</span>
+                            <span class="option-desc">Learning, memory</span>
+                        </div>
+                        <div class="option-card" onclick="selectActivity('exercise')">
+                            <span class="option-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 6.5l11 11"/><path d="M21 21l-4-4"/><path d="M17 3l4 4"/><path d="M3 17l4 4"/><path d="M11 3l10 10"/><path d="M3 11l10 10"/></svg></span>
+                            <span class="option-title">Exercise</span>
+                            <span class="option-desc">Gym, sports, workout</span>
+                        </div>
+                        <div class="option-card" onclick="selectActivity('general')">
+                            <span class="option-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                            <span class="option-title">General/Leisure</span>
+                            <span class="option-desc">Errands, relaxing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="toggle-container">
+                        <div class="toggle-label">
+                            <span class="toggle-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
+                            <div class="toggle-text"><h4>Caffeine Nap (Nappuccino)</h4><p>Drink coffee before napping for extra alertness</p></div>
+                        </div>
+                        <label class="toggle-switch"><input type="checkbox" id="caffeineToggle"><span class="toggle-slider"></span></label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevSection()">Back</button>
+                        <button class="btn btn-accent" onclick="calculateResults()" id="s4Next" disabled>Calculate My Nap</button>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div class="result-header">
+                        <span class="result-badge" id="resultBadge">Recommended</span>
+                        <div class="result-nap-type" id="resultNapType">Power Nap</div>
+                        <div class="result-duration"><span id="resultDuration">20</span> <span>minutes</span></div>
+                        <p class="result-description" id="resultDescription">Quick energy boost without entering deep sleep</p>
+                    </div>
+                    
+                    <div class="time-cards">
+                        <div class="time-card"><div class="time-card-label">Start Nap</div><div class="time-card-value" id="napStartTime">1:30 PM</div><div class="time-card-note">Lie down now</div></div>
+                        <div class="time-card"><div class="time-card-label">Set Alarm</div><div class="time-card-value" id="napAlarmTime">1:50 PM</div><div class="time-card-note">Wake up alert</div></div>
+                        <div class="time-card"><div class="time-card-label">Alert By</div><div class="time-card-value" id="napAlertTime">2:05 PM</div><div class="time-card-note">Full alertness</div></div>
+                    </div>
+                    
+                    <div class="meter-section">
+                        <div class="meter-header"><span class="meter-title">Sleep Pressure</span><span class="meter-value" id="sleepPressureValue">Moderate</span></div>
+                        <div class="meter-bar"><div class="meter-fill medium" id="sleepPressureFill" style="width: 50%;"></div></div>
+                        <div class="meter-labels"><span>Low</span><span>Moderate</span><span>High</span></div>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;" id="sleepPressureNote">Based on 7 hours awake - adenosine has built up moderately</p>
+                    </div>
+                    
+                    <div class="meter-section">
+                        <div class="meter-header"><span class="meter-title">Grogginess Risk</span><span class="meter-value" id="grogginessValue">Low</span></div>
+                        <div class="risk-indicator" id="riskIndicator">
+                            <div class="risk-bar active level-1"></div><div class="risk-bar"></div><div class="risk-bar"></div><div class="risk-bar"></div><div class="risk-bar"></div>
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;" id="grogginessNote">Short naps avoid deep sleep, minimizing sleep inertia</p>
+                    </div>
+                    
+                    <div class="warning-box" id="nightWarning" style="display: none;">
+                        <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Late Nap Warning</h4>
+                        <p id="nightWarningText">Napping after 3 PM may affect your ability to fall asleep tonight.</p>
+                    </div>
+                    
+                    <div class="caffeine-protocol" id="caffeineProtocol" style="display: none;">
+                        <h3><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> Caffeine Nap Protocol</h3>
+                        <div class="protocol-steps">
+                            <div class="protocol-step"><span class="step-number">1</span><div class="step-content"><h4>Drink Coffee Quickly</h4><p>150-200mg caffeine (1 cup). Don't sip - drink it fast.</p></div></div>
+                            <div class="protocol-step"><span class="step-number">2</span><div class="step-content"><h4>Lie Down Immediately</h4><p>Don't wait. Caffeine takes 20 minutes to absorb.</p></div></div>
+                            <div class="protocol-step"><span class="step-number">3</span><div class="step-content"><h4>Set 20-Minute Alarm</h4><p>This is the sweet spot for nap + caffeine timing.</p></div></div>
+                            <div class="protocol-step"><span class="step-number">4</span><div class="step-content"><h4>Wake Up Supercharged</h4><p>The nap clears adenosine as caffeine kicks in. Double effect.</p></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="tips-section">
+                        <h3>Nap Environment Checklist</h3>
+                        <div class="tips-grid">
+                            <div class="tip-card"><div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div><span class="tip-text">Use a sleep mask or darken the room</span></div>
+                            <div class="tip-card"><div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></div><span class="tip-text">Use earplugs or white noise</span></div>
+                            <div class="tip-card"><div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><span class="tip-text">Keep room cool (18-20C / 65-68F)</span></div>
+                            <div class="tip-card"><div class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><span class="tip-text">Set alarm and enable Do Not Disturb</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="alternatives-section">
+                        <h3>Alternative Nap Options</h3>
+                        <div class="alt-grid" id="alternativesGrid"></div>
+                    </div>
+                    
+                    <div class="related-tools">
+                        <h3>Related Sleep Tools</h3>
+                        <div class="tools-grid">
+                            <a href="https://tools.spacire.com/chronotype-quiz" class="tool-link-card"><h5>Chronotype Quiz</h5><p>Discover your sleep personality</p></a>
+                            <a href="https://tools.spacire.com/sleep-cycle-calculator" class="tool-link-card"><h5>Sleep Cycle Calculator</h5><p>Optimal bedtimes for your wake time</p></a>
+                            <a href="https://tools.spacire.com/sleep-debt-calculator" class="tool-link-card"><h5>Sleep Debt Calculator</h5><p>Track and recover sleep debt</p></a>
+                            <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card"><h5>Sleep Environment Optimizer</h5><p>Assess your bedroom conditions</p></a>
+                        </div>
+                    </div>
+                    
+                    <div class="email-capture">
+                        <h3>Save Your Nap Plan</h3>
+                        <p>Get your personalized nap schedule sent to your inbox</p>
+                        <div class="email-form" id="emailForm">
+                            <input type="text" class="email-input" id="userName" placeholder="First name">
+                            <input type="email" class="email-input" id="userEmail" placeholder="Email address">
+                            <button class="btn btn-accent" id="sendReportBtn" onclick="sendReport()">Send My Plan</button>
+                        </div>
+                        <div id="emailSuccess">Your nap plan has been sent! Check your inbox.</div>
+                        <div id="formError"></div>
+                    </div>
+                    
+                    <div class="restart-section">
+                        <button class="btn btn-secondary" onclick="resetQuiz()">Calculate Another Nap</button>
+                    </div>
+                    
+                    <div class="medical-disclaimer">
+                        <strong>Disclaimer:</strong> This calculator provides general recommendations based on sleep research. Individual needs vary. If you experience persistent fatigue, excessive daytime sleepiness, or sleep problems, consult a healthcare provider. Do not nap if you have been advised against it by a medical professional.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Section -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Our Power Nap Calculator uses sleep science research to determine your optimal nap duration and timing based on four key factors:</p>
+                    <ul>
+                        <li><strong>Sleep Pressure:</strong> How long you've been awake determines adenosine buildup - the chemical that makes you sleepy.</li>
+                        <li><strong>Chronotype:</strong> Your natural sleep-wake preference affects when you experience your afternoon dip.</li>
+                        <li><strong>Energy Level:</strong> Your current fatigue level helps determine whether you need a quick boost or deeper recovery.</li>
+                        <li><strong>Post-Nap Activity:</strong> Different activities benefit from different nap types (e.g., driving needs alertness, creative work benefits from REM).</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Nap Types Explained</h4>
+                    <ul>
+                        <li><strong>Micro Nap (5-10 min):</strong> Quick reset when short on time. Provides mild alertness boost.</li>
+                        <li><strong>Power Nap (15-20 min):</strong> Ideal balance - boosts alertness and mood without grogginess.</li>
+                        <li><strong>Recovery Nap (60 min):</strong> Includes deep sleep for physical recovery. May cause some grogginess.</li>
+                        <li><strong>Full Cycle (90 min):</strong> Complete sleep cycle with REM. Best for creativity and memory.</li>
+                        <li><strong>Caffeine Nap (20 min):</strong> Drink coffee then nap - wake as caffeine kicks in for maximum effect.</li>
+                    </ul>
+                    
+                    <h4>Limitations</h4>
+                    <ul>
+                        <li>This is an educational tool, not medical advice</li>
+                        <li>Results may vary based on individual physiology</li>
+                        <li>Health conditions and medications can affect napping</li>
+                        <li>For persistent sleep issues, consult a sleep specialist</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Found this tool helpful? Share it with others who might benefit:</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+                        <button class="btn btn-secondary" onclick="copyLink()" style="flex: 1; min-width: 140px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 8px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy Link</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Great Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Explore our other free sleep tools:</p>
+                    <div class="tools-grid" style="margin-top: 16px;">
+                        <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card"><h5>Sleep Environment Optimizer</h5><p>Assess your bedroom for optimal sleep conditions</p></a>
+                        <a href="https://tools.spacire.com/shift-worker-sleep-planner" class="tool-link-card"><h5>Shift Worker Sleep Planner</h5><p>Get personalized sleep schedules for shift work</p></a>
+                        <a href="https://tools.spacire.com/insomnia-quiz" class="tool-link-card"><h5>Insomnia Severity Quiz</h5><p>Assess your insomnia with the clinical ISI scale</p></a>
+                        <a href="https://tools.spacire.com/jet-lag-calculator" class="tool-link-card"><h5>Jet Lag Calculator</h5><p>Get a recovery plan for your trip</p></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer - EXACT match to LIVE tools.spacire.com -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                    <a href="https://tools.spacire.com/sleep-sound-finder">Sleep Sound Finder</a>
+                    <a href="https://tools.spacire.com/natural-sleep-remedy-finder">Natural Sleep Remedy Finder</a>
+                    <a href="https://tools.spacire.com/jet-lag-calculator">Jet Lag Calculator</a>
+                    <a href="https://tools.spacire.com/chronotype-quiz">Chronotype Quiz</a>
+                    <a href="https://tools.spacire.com/sleep-cycle-calculator">Sleep Cycle Calculator</a>
+                    <a href="https://tools.spacire.com/insomnia-quiz">Insomnia Quiz</a>
+                    <a href="https://tools.spacire.com/power-nap-calculator">Power Nap Calculator</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Appwrite SDK - EXACT same as other tools -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION - EXACT same as other tools
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite - EXACT same as other tools
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // STATE MANAGEMENT
+        // ========================================
+        let currentSection = 1;
+        const totalSections = 4;
+        
+        const userData = {
+            wakeTime: { hour: 6, minute: 30, period: 'AM' },
+            bedTime: { hour: 10, minute: 30, period: 'PM' },
+            chronotype: null,
+            energyLevel: 3,
+            activity: null,
+            useCaffeine: false
+        };
+        
+        let calculatedResults = null;
+        
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.parentElement;
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        // ========================================
+        // PROGRESS & NAVIGATION
+        // ========================================
+        function updateProgress() {
+            const progress = (currentSection / totalSections) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            for (let i = 1; i <= totalSections; i++) {
+                const step = document.getElementById('step' + i);
+                step.classList.remove('active', 'completed');
+                if (i < currentSection) {
+                    step.classList.add('completed');
+                    step.innerHTML = '&#10003;';
+                } else if (i === currentSection) {
+                    step.classList.add('active');
+                    step.innerHTML = i;
+                } else {
+                    step.innerHTML = i;
+                }
+            }
+        }
+        
+        function showSection(num) {
+            document.querySelectorAll('.quiz-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('section' + num).classList.add('active');
+            updateProgress();
+        }
+        
+        function nextSection() {
+            if (currentSection < totalSections) {
+                currentSection++;
+                showSection(currentSection);
+            }
+        }
+        
+        function prevSection() {
+            if (currentSection > 1) {
+                currentSection--;
+                showSection(currentSection);
+            }
+        }
+        
+        // ========================================
+        // USER INPUT HANDLERS
+        // ========================================
+        function updateUserData() {
+            userData.wakeTime = {
+                hour: parseInt(document.getElementById('wakeHour').value),
+                minute: parseInt(document.getElementById('wakeMinute').value),
+                period: document.getElementById('wakePeriod').value
+            };
+            userData.bedTime = {
+                hour: parseInt(document.getElementById('bedHour').value),
+                minute: parseInt(document.getElementById('bedMinute').value),
+                period: document.getElementById('bedPeriod').value
+            };
+            userData.useCaffeine = document.getElementById('caffeineToggle').checked;
+        }
+        
+        function selectChronotype(type) {
+            userData.chronotype = type;
+            document.querySelectorAll('#section2 .option-card').forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            document.getElementById('s2Next').disabled = false;
+        }
+        
+        function updateEnergyDisplay() {
+            const level = parseInt(document.getElementById('energySlider').value);
+            userData.energyLevel = level;
+            const levels = {
+                1: { label: 'Exhausted', desc: 'You really need rest - consider a longer nap' },
+                2: { label: 'Tired', desc: 'A recovery nap would help significantly' },
+                3: { label: 'Okay', desc: 'A power nap could give you a nice boost' },
+                4: { label: 'Good', desc: 'A micro-nap might be all you need' },
+                5: { label: 'Energized', desc: 'You might not need a nap right now' }
+            };
+            document.getElementById('energyLevel').textContent = levels[level].label;
+            document.getElementById('energyDesc').textContent = levels[level].desc;
+        }
+        
+        function selectActivity(activity) {
+            userData.activity = activity;
+            document.querySelectorAll('#section4 .option-card').forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            document.getElementById('s4Next').disabled = false;
+        }
+        
+        // ========================================
+        // TIME UTILITIES
+        // ========================================
+        function to24Hour(hour, minute, period) {
+            let h = hour;
+            if (period === 'PM' && hour !== 12) h += 12;
+            if (period === 'AM' && hour === 12) h = 0;
+            return h * 60 + minute;
+        }
+        
+        function formatTime(totalMinutes) {
+            let hours = Math.floor(totalMinutes / 60) % 24;
+            const minutes = totalMinutes % 60;
+            const period = hours >= 12 ? 'PM' : 'AM';
+            if (hours > 12) hours -= 12;
+            if (hours === 0) hours = 12;
+            return `${hours}:${minutes.toString().padStart(2, '0')} ${period}`;
+        }
+        
+        function getCurrentTimeMinutes() {
+            const now = new Date();
+            return now.getHours() * 60 + now.getMinutes();
+        }
+        
+        function updateCurrentTime() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const period = hours >= 12 ? 'PM' : 'AM';
+            const displayHour = hours > 12 ? hours - 12 : (hours === 0 ? 12 : hours);
+            document.getElementById('currentTimeDisplay').textContent = `${displayHour}:${minutes.toString().padStart(2, '0')} ${period}`;
+        }
+        
+        // ========================================
+        // NAP CALCULATION
+        // ========================================
+        function calculateResults() {
+            updateUserData();
+            
+            const wakeMinutes = to24Hour(userData.wakeTime.hour, userData.wakeTime.minute, userData.wakeTime.period);
+            const bedMinutes = to24Hour(userData.bedTime.hour, userData.bedTime.minute, userData.bedTime.period);
+            const currentMinutes = getCurrentTimeMinutes();
+            
+            let hoursAwake = (currentMinutes - wakeMinutes) / 60;
+            if (hoursAwake < 0) hoursAwake += 24;
+            
+            let timeUntilBed = (bedMinutes - currentMinutes) / 60;
+            if (timeUntilBed < 0) timeUntilBed += 24;
+            
+            let napType, duration, description, badge;
+            
+            if (userData.activity === 'driving') {
+                napType = 'Power Nap'; duration = 15;
+                description = 'A 15-minute power nap is optimal before driving. It boosts alertness without grogginess.';
+                badge = 'Safety First';
+            } else if (userData.useCaffeine) {
+                napType = 'Caffeine Nap'; duration = 20;
+                description = 'Drink coffee then nap for 20 minutes. You\'ll wake as caffeine kicks in for maximum alertness.';
+                badge = 'Nappuccino';
+            } else if (timeUntilBed < 3) {
+                napType = 'Micro Nap'; duration = 10;
+                description = 'A short 10-minute nap won\'t interfere with your nighttime sleep this close to bedtime.';
+                badge = 'Late Day';
+            } else if (userData.activity === 'creative' && timeUntilBed > 5) {
+                napType = 'Full Cycle'; duration = 90;
+                description = 'A full sleep cycle with REM enhances creativity, problem-solving, and emotional processing.';
+                badge = 'Creative Boost';
+            } else if (userData.activity === 'study' && timeUntilBed > 4) {
+                napType = 'Recovery Nap'; duration = 60;
+                description = 'Slow-wave sleep consolidates declarative memory - perfect before studying or after learning.';
+                badge = 'Memory Boost';
+            } else if (userData.energyLevel <= 2 && timeUntilBed > 5) {
+                napType = 'Recovery Nap'; duration = 60;
+                description = 'Your low energy suggests you need deep sleep. This duration helps physical and mental recovery.';
+                badge = 'Deep Recovery';
+            } else {
+                napType = 'Power Nap'; duration = 20;
+                description = 'Quick energy boost without entering deep sleep. You\'ll wake alert without grogginess.';
+                badge = 'Recommended';
+            }
+            
+            const napStartTime = currentMinutes;
+            const napEndTime = napStartTime + duration;
+            const alertByTime = napEndTime + 15;
+            
+            let sleepPressure = Math.min(100, (hoursAwake / 16) * 100);
+            let pressureLabel, pressureClass;
+            if (sleepPressure < 35) { pressureLabel = 'Low'; pressureClass = 'low'; }
+            else if (sleepPressure < 65) { pressureLabel = 'Moderate'; pressureClass = 'medium'; }
+            else { pressureLabel = 'High'; pressureClass = 'high'; }
+            
+            let grogginessLevel = 1, grogginessLabel = 'Very Low';
+            if (duration >= 90) { grogginessLevel = 1; grogginessLabel = 'Very Low'; }
+            else if (duration >= 60) { grogginessLevel = 4; grogginessLabel = 'Moderate-High'; }
+            else if (duration >= 30) { grogginessLevel = 5; grogginessLabel = 'High'; }
+            else if (duration >= 20) { grogginessLevel = 2; grogginessLabel = 'Low'; }
+            else { grogginessLevel = 1; grogginessLabel = 'Very Low'; }
+            
+            const showNightWarning = timeUntilBed < 4 && duration > 10;
+            
+            calculatedResults = {
+                napType, duration, description, badge,
+                napStartTime, napEndTime, alertByTime,
+                sleepPressure, pressureLabel, pressureClass,
+                grogginessLevel, grogginessLabel,
+                showNightWarning, timeUntilBed, hoursAwake,
+                useCaffeine: userData.useCaffeine,
+                chronotype: userData.chronotype,
+                activity: userData.activity,
+                energyLevel: userData.energyLevel
+            };
+            
+            displayResults();
+        }
+        
+        // ========================================
+        // DISPLAY RESULTS
+        // ========================================
+        function displayResults() {
+            document.getElementById('progressContainer').style.display = 'none';
+            document.querySelectorAll('.quiz-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('resultsSection').classList.add('active');
+            
+            document.getElementById('resultBadge').textContent = calculatedResults.badge;
+            document.getElementById('resultNapType').textContent = calculatedResults.napType;
+            document.getElementById('resultDuration').textContent = calculatedResults.duration;
+            document.getElementById('resultDescription').textContent = calculatedResults.description;
+            
+            document.getElementById('napStartTime').textContent = formatTime(calculatedResults.napStartTime);
+            document.getElementById('napAlarmTime').textContent = formatTime(calculatedResults.napEndTime);
+            document.getElementById('napAlertTime').textContent = formatTime(calculatedResults.alertByTime);
+            
+            document.getElementById('sleepPressureValue').textContent = calculatedResults.pressureLabel;
+            const pressureFill = document.getElementById('sleepPressureFill');
+            pressureFill.style.width = calculatedResults.sleepPressure + '%';
+            pressureFill.className = 'meter-fill ' + calculatedResults.pressureClass;
+            document.getElementById('sleepPressureNote').textContent = `Based on ${calculatedResults.hoursAwake.toFixed(1)} hours awake - adenosine has built up ${calculatedResults.pressureLabel.toLowerCase()}`;
+            
+            document.getElementById('grogginessValue').textContent = calculatedResults.grogginessLabel;
+            const riskBars = document.querySelectorAll('#riskIndicator .risk-bar');
+            riskBars.forEach((bar, i) => {
+                bar.classList.remove('active', 'level-1', 'level-2', 'level-3', 'level-4', 'level-5');
+                if (i < calculatedResults.grogginessLevel) bar.classList.add('active', 'level-' + (i + 1));
+            });
+            
+            const grogginessNotes = {
+                1: 'Micro/power naps avoid deep sleep, minimizing sleep inertia',
+                2: 'Short naps stay in light sleep for easy waking',
+                3: 'You may touch N2 sleep - slight grogginess possible',
+                4: 'Likely to enter deep sleep - expect 15-20 min grogginess',
+                5: 'High risk of waking during deep sleep - grogginess likely'
+            };
+            document.getElementById('grogginessNote').textContent = grogginessNotes[calculatedResults.grogginessLevel];
+            
+            const nightWarning = document.getElementById('nightWarning');
+            if (calculatedResults.showNightWarning) {
+                nightWarning.style.display = 'block';
+                document.getElementById('nightWarningText').textContent = `With only ${calculatedResults.timeUntilBed.toFixed(1)} hours until bedtime, this nap may affect your ability to fall asleep tonight. Consider a shorter micro-nap (10 min) instead.`;
+            } else { nightWarning.style.display = 'none'; }
+            
+            document.getElementById('caffeineProtocol').style.display = calculatedResults.useCaffeine ? 'block' : 'none';
+            
+            renderAlternatives();
+            saveResults();
+        }
+        
+        function renderAlternatives() {
+            const grid = document.getElementById('alternativesGrid');
+            const alternatives = [];
+            if (calculatedResults.napType !== 'Micro Nap') alternatives.push({ type: 'Micro Nap', duration: 10, desc: 'Quick reset, minimal time' });
+            if (calculatedResults.napType !== 'Power Nap' && calculatedResults.duration !== 20) alternatives.push({ type: 'Power Nap', duration: 20, desc: 'Best alertness boost' });
+            if (calculatedResults.napType !== 'Recovery Nap' && calculatedResults.timeUntilBed > 4) alternatives.push({ type: 'Recovery Nap', duration: 60, desc: 'Deep rest, some grogginess' });
+            if (calculatedResults.napType !== 'Full Cycle' && calculatedResults.timeUntilBed > 5) alternatives.push({ type: 'Full Cycle', duration: 90, desc: 'Complete rest with REM' });
+            
+            grid.innerHTML = alternatives.slice(0, 3).map(alt => `<div class="alt-card"><div class="alt-info"><h4>${alt.type}</h4><p>${alt.desc}</p></div><div class="alt-duration">${alt.duration} min</div></div>`).join('');
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL - same pattern as other tools
+        // ========================================
+        async function saveResults() {
+            try {
+                const data = {
+                    tool_name: 'power_nap_calculator',
+                    results_json: JSON.stringify({
+                        napType: calculatedResults.napType,
+                        duration: calculatedResults.duration,
+                        chronotype: calculatedResults.chronotype,
+                        activity: calculatedResults.activity,
+                        energyLevel: calculatedResults.energyLevel,
+                        useCaffeine: calculatedResults.useCaffeine,
+                        hoursAwake: calculatedResults.hoursAwake
+                    }),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                };
+                await databases.createDocument(CONFIG.databaseId, CONFIG.tableId, 'unique()', data);
+                console.log('Results saved to database');
+            } catch (error) { console.error('Database error (non-critical):', error); }
+        }
+        
+        async function sendReport() {
+            console.log('=== SEND REPORT STARTED ===');
+            
+            const firstName = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const formError = document.getElementById('formError');
+            const sendBtn = document.getElementById('sendReportBtn');
+            
+            console.log('1. Form values:', { firstName, email });
+            
+            formError.style.display = 'none';
+            
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                document.getElementById('userName').focus();
+                return;
+            }
+            
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                document.getElementById('userEmail').focus();
+                return;
+            }
+            
+            console.log('2. Validation passed');
+            
+            const originalText = sendBtn.textContent;
+            sendBtn.textContent = 'Sending...';
+            sendBtn.disabled = true;
+            
+            try {
+                // Save email lead to database
+                await databases.createDocument(CONFIG.databaseId, CONFIG.tableId, 'unique()', {
+                    tool_name: 'power_nap_calculator_lead',
+                    user_email: email,
+                    user_first_name: firstName,
+                    results_json: JSON.stringify({ ...calculatedResults, emailSent: true }),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                });
+                console.log('3. Email lead saved to database');
+                
+                // Build email payload
+                const emailPayload = JSON.stringify({
+                    toolName: 'power-nap-calculator',
+                    email: email,
+                    firstName: firstName,
+                    napType: calculatedResults.napType,
+                    duration: calculatedResults.duration,
+                    description: calculatedResults.description,
+                    napStartTime: formatTime(calculatedResults.napStartTime),
+                    napAlarmTime: formatTime(calculatedResults.napEndTime),
+                    napAlertTime: formatTime(calculatedResults.alertByTime),
+                    sleepPressure: calculatedResults.pressureLabel,
+                    grogginessRisk: calculatedResults.grogginessLabel,
+                    chronotype: calculatedResults.chronotype,
+                    activity: calculatedResults.activity,
+                    useCaffeine: calculatedResults.useCaffeine,
+                    hoursAwake: calculatedResults.hoursAwake.toFixed(1),
+                    timeUntilBed: calculatedResults.timeUntilBed.toFixed(1)
+                });
+                
+                console.log('4. Payload built, size:', emailPayload.length, 'bytes');
+                
+                const response = await functions.createExecution(CONFIG.functionId, emailPayload, false);
+                
+                console.log('5. Response received:', response);
+                console.log('   Status code:', response.responseStatusCode);
+                
+                if (response.responseStatusCode === 200) {
+                    const result = JSON.parse(response.responseBody);
+                    console.log('6. Parsed result:', result);
+                    
+                    if (result.success) {
+                        console.log('7. SUCCESS! Email sent');
+                        document.getElementById('emailSuccess').style.display = 'block';
+                        document.getElementById('userEmail').disabled = true;
+                        document.getElementById('userName').disabled = true;
+                        sendBtn.style.display = 'none';
+                    } else {
+                        throw new Error(result.message || 'Failed to send email');
+                    }
+                } else {
+                    throw new Error('Server error: ' + response.responseStatusCode);
+                }
+            } catch (error) {
+                console.error('=== ERROR DETAILS ===');
+                console.error('Error:', error);
+                
+                formError.textContent = 'Sorry, there was an error sending your report. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.textContent = originalText;
+                sendBtn.disabled = false;
+            }
+        }
+        
+        // ========================================
+        // UTILITY FUNCTIONS
+        // ========================================
+        function copyLink() {
+            navigator.clipboard.writeText('https://tools.spacire.com/power-nap-calculator').then(() => {
+                const btn = event.target.closest('.btn');
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 8px;"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>Copied!';
+                setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+            });
+        }
+        
+        function resetQuiz() {
+            currentSection = 1;
+            userData.chronotype = null;
+            userData.activity = null;
+            userData.energyLevel = 3;
+            userData.useCaffeine = false;
+            calculatedResults = null;
+            
+            document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            document.getElementById('energySlider').value = 3;
+            document.getElementById('caffeineToggle').checked = false;
+            document.getElementById('s2Next').disabled = true;
+            document.getElementById('s4Next').disabled = true;
+            
+            document.getElementById('progressContainer').style.display = 'block';
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('emailForm').style.display = 'flex';
+            document.getElementById('emailSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+            document.getElementById('userName').value = '';
+            document.getElementById('userName').disabled = false;
+            document.getElementById('userEmail').value = '';
+            document.getElementById('userEmail').disabled = false;
+            document.getElementById('sendReportBtn').style.display = 'inline-block';
+            document.getElementById('sendReportBtn').disabled = false;
+            
+            updateEnergyDisplay();
+            showSection(1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // ========================================
+        // INITIALIZATION
+        // ========================================
+        updateCurrentTime();
+        setInterval(updateCurrentTime, 60000);
+        updateEnergyDisplay();
+        updateProgress();
+    </script>
+</body>
+</html>
