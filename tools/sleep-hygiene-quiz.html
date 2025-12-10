@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Sleep Hygiene Quiz - Assess your sleep habits across 6 key categories. Get your sleep hygiene grade, personalized habit analysis, and a priority action plan to improve your sleep.">
+    <meta name="keywords" content="sleep hygiene quiz, sleep habits test, sleep hygiene assessment, sleep hygiene index, am I sleeping well, sleep habits quiz, sleep hygiene score, sleep behavior test">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Sleep Hygiene Quiz - Assess Your Sleep Habits | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/sleep-hygiene-quiz">
+    
+    <meta property="og:title" content="Sleep Hygiene Quiz - How Good Are Your Sleep Habits?">
+    <meta property="og:description" content="Comprehensive sleep hygiene assessment across 6 categories. Get your grade, habit analysis, and personalized improvement plan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/sleep-hygiene-quiz">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Hygiene Quiz - Assess Your Sleep Habits">
+    <meta name="twitter:description" content="Discover how your daily habits affect your sleep with our comprehensive quiz.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sleep Hygiene Quiz",
+        "description": "Comprehensive sleep hygiene assessment tool that evaluates habits across 6 categories and provides personalized recommendations.",
+        "url": "https://tools.spacire.com/sleep-hygiene-quiz",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5e6c4;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-light: #777;
+            --text-muted: #888;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --hover: #f8f9fa;
+            --border: #e0e0e0;
+            --success: #d4edda;
+            --success-dark: #28a745;
+            --warning: #fff3cd;
+            --warning-dark: #ffc107;
+            --error: #f8d7da;
+            --error-dark: #dc3545;
+            --info: #d1ecf1;
+            --info-dark: #17a2b8;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --transition: all 0.2s ease;
+            --font-primary: 'Domine', Georgia, serif;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: var(--font-primary); background: #f5f5f5; color: var(--text-primary); line-height: 1.6; }
+        
+        /* Header */
+        .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+        .header-nav { display: flex; gap: 28px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        /* Breadcrumb */
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-muted); margin: 0 8px; }
+        
+        /* Main Container */
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 650px; margin: 0 auto; }
+        
+        /* Tool Card */
+        .tool-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 24px; }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; margin: 0; }
+        .tool-body { padding: 28px; }
+        
+        /* Progress */
+        .progress-container { margin-bottom: 28px; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .progress-text { font-size: 13px; color: var(--text-secondary); }
+        .progress-bar { height: 6px; background: var(--bg-light); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.3s ease; }
+        
+        /* Quiz Sections */
+        .quiz-section { display: none; }
+        .quiz-section.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .section-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .section-icon { width: 28px; height: 28px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .section-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+        
+        /* Questions */
+        .question-group { margin-bottom: 24px; }
+        .question-label { display: block; font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
+        
+        /* Options - Frequency Scale */
+        .options-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .option-btn { flex: 1; min-width: 80px; padding: 12px 8px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 12px; color: var(--text-secondary); cursor: pointer; transition: var(--transition); text-align: center; }
+        .option-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+        .option-btn.selected { border-color: var(--primary); background: #e8f4fc; color: var(--primary); font-weight: 600; }
+        @media (max-width: 500px) { .option-btn { min-width: 60px; font-size: 11px; padding: 10px 6px; } }
+        
+        /* Navigation Buttons */
+        .nav-buttons { display: flex; gap: 12px; margin-top: 28px; }
+        .btn { padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 15px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--accent); color: var(--primary); flex: 1; }
+        .btn-primary:hover { background: #c9a047; }
+        .btn-primary:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+        .btn-secondary { background: var(--bg); color: var(--primary); border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); }
+        
+        /* Section Error */
+        .section-error { background: #f8d7da; color: #721c24; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center; }
+        
+        /* Results Section */
+        .results-section { display: none; }
+        .results-section.active { display: block; animation: fadeIn 0.4s ease; }
+        
+        /* Grade Hero */
+        .grade-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); padding: 32px; text-align: center; color: #fff; margin-bottom: 24px; }
+        .grade-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 12px; }
+        .grade-display { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+        .grade-letter { font-size: 80px; font-weight: 700; line-height: 1; }
+        .grade-details { text-align: left; }
+        .grade-score { font-size: 24px; font-weight: 600; }
+        .grade-desc { font-size: 14px; opacity: 0.9; margin-top: 4px; }
+        .grade-A { color: #98FB98; }
+        .grade-B { color: #87CEEB; }
+        .grade-C { color: #FFD700; }
+        .grade-D { color: #FFA500; }
+        .grade-F { color: #FF6B6B; }
+        
+        /* Category Cards */
+        .categories-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .categories-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .categories-title svg { width: 20px; height: 20px; fill: var(--accent); }
+        
+        /* Radar Chart */
+        .radar-container { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+        .radar-chart { flex: 1; min-width: 280px; max-width: 350px; }
+        .categories-bars { flex: 1; min-width: 280px; }
+        
+        /* Category Bars */
+        .category-item { margin-bottom: 16px; }
+        .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .category-name { font-size: 14px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+        .category-icon { font-size: 16px; }
+        .category-score { font-size: 14px; font-weight: 700; }
+        .category-bar { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+        .category-fill { height: 100%; border-radius: 5px; transition: width 0.6s ease; }
+        
+        /* Problem Areas */
+        .problems-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .problems-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .problem-card { background: var(--bg-light); border-radius: var(--radius-md); padding: 16px; margin-bottom: 12px; border-left: 4px solid var(--error-dark); }
+        .problem-card:last-child { margin-bottom: 0; }
+        .problem-habit { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+        .problem-impact { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+        .problem-fix { font-size: 13px; color: var(--success-dark); font-weight: 500; }
+        
+        /* Quick Wins */
+        .quickwins-section { background: var(--success); border: 1px solid var(--success-dark); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .quickwins-title { font-size: 16px; font-weight: 600; color: #155724; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .quickwin-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+        .quickwin-item:last-child { margin-bottom: 0; }
+        .quickwin-check { width: 24px; height: 24px; background: #155724; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .quickwin-check svg { width: 14px; height: 14px; fill: #fff; }
+        .quickwin-text { font-size: 14px; color: #155724; }
+        
+        /* 7-Day Challenge */
+        .challenge-section { background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .challenge-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .challenge-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+        @media (max-width: 600px) { .challenge-grid { grid-template-columns: repeat(4, 1fr); } }
+        .challenge-day { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 8px; text-align: center; }
+        .challenge-day-num { font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
+        .challenge-day-task { font-size: 12px; color: var(--primary); font-weight: 500; }
+        
+        /* Tool Recommendations */
+        .tools-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .tools-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        .tool-rec-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; text-decoration: none; transition: var(--transition); }
+        .tool-rec-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .tool-rec-name { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-rec-reason { font-size: 12px; color: var(--text-secondary); }
+        
+        /* Email Capture */
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--accent-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 24px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--accent); }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error-dark); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        /* Disclaimer */
+        .disclaimer { background: var(--info); border: 1px solid var(--info-dark); border-radius: var(--radius-md); padding: 16px; margin-bottom: 24px; }
+        .disclaimer-title { font-size: 14px; font-weight: 600; color: #0c5460; margin-bottom: 6px; }
+        .disclaimer-text { font-size: 13px; color: #0c5460; line-height: 1.6; margin: 0; }
+        
+        /* New Assessment Button */
+        .new-calc-btn { display: block; margin: 20px auto 0; padding: 12px 24px; background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); }
+        .new-calc-btn:hover { border-color: var(--primary); }
+        
+        /* Info Toggles */
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .info-table th, .info-table td { padding: 12px; text-align: left; border: 1px solid var(--border); }
+        .info-table th { background: var(--hover); font-weight: 600; color: var(--primary); }
+        .info-table td { color: var(--text-secondary); }
+        .tools-grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        .share-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); text-decoration: none; font-size: 13px; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
+        .share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .share-btn.twitter { background: #1DA1F2; color: white; }
+        .share-btn.twitter:hover { background: #1a8cd8; }
+        .share-btn.facebook { background: #4267B2; color: white; }
+        .share-btn.facebook:hover { background: #365899; }
+        .share-btn.copy { background: var(--hover); color: var(--primary); border: 1px solid var(--border); }
+        .share-btn.copy:hover { border-color: var(--primary); }
+        
+        /* Footer */
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>&gt;</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>&gt;</span>
+            <span style="color: var(--text-primary);">Sleep Hygiene Quiz</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Sleep Hygiene Quiz</h1>
+            <p class="page-subtitle">Discover how your daily habits affect your sleep. Get your personalized sleep hygiene grade and a targeted improvement plan.</p>
+        </header>
+        
+        <!-- Quiz Card -->
+        <div class="tool-card" id="quizCard">
+            <div class="tool-header">
+                <h2>Sleep Habits Assessment</h2>
+                <p>Rate how often each statement applies to you</p>
+            </div>
+            
+            <div class="tool-body">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span class="progress-text" id="progressText">Category 1 of 6</span>
+                        <span class="progress-text" id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Section 1: Schedule Consistency -->
+                <div class="quiz-section active" id="section1">
+                    <div class="section-title">
+                        <span class="section-icon">&#128337;</span>
+                        Schedule Consistency
+                    </div>
+                    <div class="section-desc">Consistent sleep timing is one of the most important factors for quality sleep.</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I go to bed at different times from day to day</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q1')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q1')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q1')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q1')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q1')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I wake up at different times from day to day</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q2')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q2')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q2')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q2')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q2')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I sleep in much later on weekends than weekdays (2+ hours)</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q3')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q3')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q3')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q3')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q3')">Always</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Pre-Sleep Behaviors -->
+                <div class="quiz-section" id="section2">
+                    <div class="section-title">
+                        <span class="section-icon">&#128241;</span>
+                        Pre-Sleep Behaviors
+                    </div>
+                    <div class="section-desc">What you do in the hours before bed significantly impacts sleep quality.</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I use electronic devices (phone, tablet, computer) in bed</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q4')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q4')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q4')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q4')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q4')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I eat a heavy meal within 2 hours of bedtime</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q5')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q5')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q5')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q5')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q5')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I exercise vigorously within 2 hours of bedtime</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q6')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q6')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q6')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q6')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q6')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I go to bed without a wind-down routine (reading, stretching, etc.)</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q7')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q7')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q7')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q7')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q7')">Always</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Sleep Environment -->
+                <div class="quiz-section" id="section3">
+                    <div class="section-title">
+                        <span class="section-icon">&#127969;</span>
+                        Sleep Environment
+                    </div>
+                    <div class="section-desc">Your bedroom conditions play a major role in sleep quality.</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I sleep in a room that is too warm or too cold</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q8')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q8')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q8')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q8')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q8')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Light from outside or devices disturbs my sleep</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q9')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q9')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q9')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q9')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q9')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I use my bed for activities other than sleep (work, TV, eating)</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q10')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q10')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q10')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q10')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q10')">Always</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 4: Stimulants & Substances -->
+                <div class="quiz-section" id="section4">
+                    <div class="section-title">
+                        <span class="section-icon">&#9749;</span>
+                        Stimulants &amp; Substances
+                    </div>
+                    <div class="section-desc">Caffeine, alcohol, and nicotine can significantly disrupt sleep.</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I consume caffeine (coffee, tea, energy drinks) within 6 hours of bedtime</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q11')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q11')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q11')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q11')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q11')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I drink alcohol within 3 hours of bedtime</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q12')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q12')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q12')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q12')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q12')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I smoke or use nicotine products close to bedtime</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q13')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q13')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q13')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q13')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q13')">Always</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 5: Daytime Habits -->
+                <div class="quiz-section" id="section5">
+                    <div class="section-title">
+                        <span class="section-icon">&#9728;</span>
+                        Daytime Habits
+                    </div>
+                    <div class="section-desc">What you do during the day affects how well you sleep at night.</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I take daytime naps lasting 2 hours or more</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q14')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q14')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q14')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q14')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q14')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I get little natural daylight exposure during the day</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q15')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q15')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q15')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q15')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q15')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I stay in bed when I cannot fall asleep (more than 20 minutes)</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q16')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q16')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q16')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q16')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q16')">Always</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 6: Mental Factors -->
+                <div class="quiz-section" id="section6">
+                    <div class="section-title">
+                        <span class="section-icon">&#128173;</span>
+                        Mental Factors
+                    </div>
+                    <div class="section-desc">Stress and mental habits at bedtime can prevent quality sleep.</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I think, plan, or worry when I am in bed</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q17')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q17')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q17')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q17')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q17')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I watch the clock when trying to fall asleep</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q18')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q18')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q18')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q18')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q18')">Always</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">I go to bed feeling stressed or anxious</label>
+                        <div class="options-row">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'q19')">Never</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'q19')">Rarely</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'q19')">Sometimes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'q19')">Often</button>
+                            <button class="option-btn" data-value="4" onclick="selectOption(this, 'q19')">Always</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()" style="display: none;">Back</button>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextSection()">Continue</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <!-- Grade Hero -->
+            <div class="grade-hero">
+                <div class="grade-label">Your Sleep Hygiene Grade</div>
+                <div class="grade-display">
+                    <div class="grade-letter" id="gradeLetter">B</div>
+                    <div class="grade-details">
+                        <div class="grade-score" id="gradeScore">72/100</div>
+                        <div class="grade-desc" id="gradeDesc">Good sleep habits with room for improvement</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <div class="categories-title">
+                    <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/></svg>
+                    Your 6 Sleep Hygiene Categories
+                </div>
+                <div class="radar-container">
+                    <canvas id="radarChart" class="radar-chart" width="350" height="350"></canvas>
+                    <div class="categories-bars" id="categoriesBars">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Problem Areas -->
+            <div class="problems-section" id="problemsSection">
+                <div class="problems-title">Top Habits to Improve</div>
+                <div id="problemsContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Quick Wins -->
+            <div class="quickwins-section" id="quickwinsSection">
+                <div class="quickwins-title">
+                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: #155724;"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/></svg>
+                    Quick Wins - Easy Changes for Tonight
+                </div>
+                <div id="quickwinsContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- 7-Day Challenge -->
+            <div class="challenge-section">
+                <div class="challenge-title">Your 7-Day Sleep Hygiene Challenge</div>
+                <div class="challenge-grid" id="challengeGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Tool Recommendations -->
+            <div class="tools-section">
+                <div class="tools-title">Recommended Tools For You</div>
+                <div class="tools-grid" id="toolsGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Email Capture -->
+            <div class="email-capture">
+                <h3 class="email-capture-title">Save Your Sleep Hygiene Report</h3>
+                <p class="email-capture-text">Get your complete results, personalized tips, and 7-day challenge sent to your inbox.</p>
+                <form class="email-form" onsubmit="sendReport(event)">
+                    <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                    <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                    <button type="submit" class="btn btn-primary" id="sendReportBtn" style="min-width: 140px;">Send Report</button>
+                </form>
+                <p class="email-success" id="emailSuccess">Report sent! Check your inbox.</p>
+                <p class="form-error" id="formError"></p>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <div class="disclaimer-title">Important Note</div>
+                <p class="disclaimer-text">This quiz provides general guidance based on established sleep hygiene principles. It is not a medical diagnosis. If you experience persistent sleep problems despite good sleep hygiene, consider consulting a healthcare provider or sleep specialist.</p>
+            </div>
+            
+            <button class="new-calc-btn" onclick="resetQuiz()">Take Quiz Again</button>
+        </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Our Assessment Process</h4>
+                    <ul>
+                        <li><strong>Step 1:</strong> Answer questions about your schedule consistency</li>
+                        <li><strong>Step 2:</strong> Share your pre-sleep behaviors and routines</li>
+                        <li><strong>Step 3:</strong> Describe your sleep environment</li>
+                        <li><strong>Step 4:</strong> Report your stimulant and substance use</li>
+                        <li><strong>Step 5:</strong> Tell us about your daytime habits</li>
+                        <li><strong>Step 6:</strong> Share mental factors affecting your sleep</li>
+                    </ul>
+                    
+                    <h4>What You'll Receive</h4>
+                    <ul>
+                        <li>Overall sleep hygiene grade (A through F)</li>
+                        <li>Visual breakdown of all 6 habit categories</li>
+                        <li>Your top problem areas with specific fixes</li>
+                        <li>Quick wins you can implement tonight</li>
+                        <li>A personalized 7-day improvement challenge</li>
+                        <li>Recommended tools based on your weak areas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Understanding Sleep Hygiene</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>What Is Sleep Hygiene?</h4>
+                    <p>Sleep hygiene refers to the daily habits, behaviors, and environmental factors that affect your ability to get quality sleep. Good sleep hygiene means practicing behaviors that facilitate sleep and avoiding those that interfere with it.</p>
+                    
+                    <h4>The 6 Categories We Assess</h4>
+                    <table class="info-table">
+                        <tr>
+                            <th>Category</th>
+                            <th>Why It Matters</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Schedule Consistency</strong></td>
+                            <td>Regular sleep-wake times strengthen your circadian rhythm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pre-Sleep Behaviors</strong></td>
+                            <td>Activities before bed affect how quickly you fall asleep</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleep Environment</strong></td>
+                            <td>Temperature, light, and noise directly impact sleep quality</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stimulants &amp; Substances</strong></td>
+                            <td>Caffeine, alcohol, and nicotine disrupt sleep architecture</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Daytime Habits</strong></td>
+                            <td>Light exposure, napping, and activity affect nighttime sleep</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental Factors</strong></td>
+                            <td>Stress and racing thoughts prevent sleep onset</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>Grading Scale</h4>
+                    <ul>
+                        <li><strong>A (85-100):</strong> Excellent sleep hygiene - maintain these habits</li>
+                        <li><strong>B (70-84):</strong> Good habits with minor improvements needed</li>
+                        <li><strong>C (55-69):</strong> Fair - several habits are affecting your sleep</li>
+                        <li><strong>D (40-54):</strong> Poor - significant changes recommended</li>
+                        <li><strong>F (0-39):</strong> Very poor - major habit overhaul needed</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">When to Seek Professional Help</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Signs You Should Consult a Healthcare Provider</h4>
+                    <ul>
+                        <li>Persistent sleep problems despite improving sleep hygiene</li>
+                        <li>Chronic insomnia lasting more than 3 months</li>
+                        <li>Excessive daytime sleepiness affecting daily function</li>
+                        <li>Loud snoring with breathing pauses (possible sleep apnea)</li>
+                        <li>Restless legs or periodic limb movements</li>
+                        <li>Acting out dreams physically during sleep</li>
+                        <li>Sleep problems accompanied by mood changes</li>
+                    </ul>
+                    
+                    <h4>Emergency Contacts by Region</h4>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Emergency</th>
+                                <th>Health Line</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>United Kingdom</td><td>999</td><td>NHS 111</td></tr>
+                            <tr><td>United States</td><td>911</td><td>Primary care</td></tr>
+                            <tr><td>Canada</td><td>911</td><td>Telehealth</td></tr>
+                            <tr><td>Australia</td><td>000</td><td>1800 022 222</td></tr>
+                            <tr><td>Ireland</td><td>999/112</td><td>1800 700 700</td></tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="background: var(--warning); border-left: 4px solid var(--accent); padding: 16px; margin-top: 16px; border-radius: var(--radius-md);">
+                        <strong>Medical Disclaimer</strong>
+                        <p style="margin-top: 8px; font-size: 13px;">This quiz provides general guidance based on sleep hygiene research. It is not a substitute for professional medical advice. Always consult a healthcare provider for persistent sleep problems.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Scientific Foundation</h4>
+                    <p>This Sleep Hygiene Quiz is inspired by the Sleep Hygiene Index (SHI), a validated clinical assessment tool developed by Mastin, Bryson, and Corwyn (2006). The SHI items are derived from diagnostic criteria in the International Classification of Sleep Disorders.</p>
+                    
+                    <p>We've enhanced the standard assessment with category-based scoring, visual analytics, and actionable recommendations to make the results more useful for improving your sleep habits.</p>
+                    
+                    <h4>What Makes This Tool Different</h4>
+                    <ul>
+                        <li><strong>6-Category Breakdown:</strong> See which specific areas need work</li>
+                        <li><strong>Letter Grade System:</strong> Easy-to-understand A-F grading</li>
+                        <li><strong>Visual Radar Chart:</strong> See all categories at a glance</li>
+                        <li><strong>Priority Actions:</strong> Focus on what matters most</li>
+                        <li><strong>Quick Wins:</strong> Changes you can make tonight</li>
+                        <li><strong>7-Day Challenge:</strong> Structured improvement plan</li>
+                    </ul>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a UK-based sleep wellness company offering free science-backed tools and curated sleep products. We believe everyone deserves better sleep.</p>
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Others Improve Their Sleep Habits</h4>
+                    <p>If you found this quiz helpful, please share it with friends, family, or colleagues who might benefit from assessing their sleep hygiene.</p>
+                    
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/sleep-hygiene-quiz&text=Free%20Sleep%20Hygiene%20Quiz%20-%20Find%20out%20how%20your%20habits%20affect%20your%20sleep" target="_blank" rel="noopener noreferrer" class="share-btn twitter">
+                            <svg viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/></svg>
+                            Share on X/Twitter
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/sleep-hygiene-quiz" target="_blank" rel="noopener noreferrer" class="share-btn facebook">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                            Share on Facebook
+                        </a>
+                        <button class="share-btn copy" onclick="copyLink()">
+                            <svg viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Sleep Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Continue Your Sleep Journey</h4>
+                    <p>Explore these complementary tools to address specific areas of your sleep:</p>
+                    
+                    <div class="tools-grid-info">
+                        <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card">
+                            <h5>Sleep Environment Optimizer</h5>
+                            <p>Optimize your bedroom conditions</p>
+                        </a>
+                        <a href="https://tools.spacire.com/bedtime-routine-builder" class="tool-link-card">
+                            <h5>Bedtime Routine Builder</h5>
+                            <p>Create a personalized wind-down routine</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-quality-assessment" class="tool-link-card">
+                            <h5>Sleep Quality Assessment</h5>
+                            <p>Comprehensive 7-dimension sleep analysis</p>
+                        </a>
+                        <a href="https://tools.spacire.com/chronotype-quiz" class="tool-link-card">
+                            <h5>Chronotype Quiz</h5>
+                            <p>Discover your natural sleep-wake rhythm</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-cycle-calculator" class="tool-link-card">
+                            <h5>Sleep Cycle Calculator</h5>
+                            <p>Find optimal bedtime and wake times</p>
+                        </a>
+                        <a href="https://tools.spacire.com/natural-sleep-remedy-finder" class="tool-link-card">
+                            <h5>Natural Sleep Remedy Finder</h5>
+                            <p>Evidence-based natural remedies</p>
+                        </a>
+                    </div>
+                    
+                    <p style="margin-top: 20px; text-align: center;"><a href="https://tools.spacire.com" style="color: var(--primary); font-weight: 600;">View All 13 Sleep Tools</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                    <a href="https://tools.spacire.com/sleep-sound-finder">Sleep Sound Finder</a>
+                    <a href="https://tools.spacire.com/natural-sleep-remedy-finder">Natural Sleep Remedy Finder</a>
+                    <a href="https://tools.spacire.com/jet-lag-calculator">Jet Lag Calculator</a>
+                    <a href="https://tools.spacire.com/chronotype-quiz">Chronotype Quiz</a>
+                    <a href="https://tools.spacire.com/sleep-cycle-calculator">Sleep Cycle Calculator</a>
+                    <a href="https://tools.spacire.com/insomnia-quiz">Insomnia Quiz</a>
+                    <a href="https://tools.spacire.com/power-nap-calculator">Power Nap Calculator</a>
+                    <a href="https://tools.spacire.com/sleep-quality-assessment">Sleep Quality Assessment</a>
+                    <a href="https://tools.spacire.com/sleep-hygiene-quiz">Sleep Hygiene Quiz</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // STATE
+        // ========================================
+        let currentSection = 1;
+        const totalSections = 6;
+        
+        const responses = {};
+        for (let i = 1; i <= 19; i++) {
+            responses['q' + i] = null;
+        }
+        
+        let calculatedResults = null;
+        
+        // Question to category mapping
+        const categoryQuestions = {
+            schedule: ['q1', 'q2', 'q3'],
+            preSleep: ['q4', 'q5', 'q6', 'q7'],
+            environment: ['q8', 'q9', 'q10'],
+            substances: ['q11', 'q12', 'q13'],
+            daytime: ['q14', 'q15', 'q16'],
+            mental: ['q17', 'q18', 'q19']
+        };
+        
+        const categoryNames = {
+            schedule: 'Schedule Consistency',
+            preSleep: 'Pre-Sleep Behaviors',
+            environment: 'Sleep Environment',
+            substances: 'Stimulants & Substances',
+            daytime: 'Daytime Habits',
+            mental: 'Mental Factors'
+        };
+        
+        const categoryIcons = {
+            schedule: '&#128337;',
+            preSleep: '&#128241;',
+            environment: '&#127969;',
+            substances: '&#9749;',
+            daytime: '&#9728;',
+            mental: '&#128173;'
+        };
+        
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.closest('.info-toggle');
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText('https://tools.spacire.com/sleep-hygiene-quiz').then(() => {
+                const btn = event.target.closest('.share-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            });
+        }
+        
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        function updateProgress() {
+            const percent = Math.round(((currentSection - 1) / totalSections) * 100);
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressPercent').textContent = percent + '%';
+            document.getElementById('progressText').textContent = `Category ${currentSection} of ${totalSections}`;
+        }
+        
+        function showSection(num) {
+            document.querySelectorAll('.quiz-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('section' + num).classList.add('active');
+            
+            document.getElementById('prevBtn').style.display = num === 1 ? 'none' : 'block';
+            document.getElementById('nextBtn').textContent = num === totalSections ? 'Get Results' : 'Continue';
+            
+            updateProgress();
+        }
+        
+        function validateSection(sectionNum) {
+            const sectionQuestions = {
+                1: ['q1', 'q2', 'q3'],
+                2: ['q4', 'q5', 'q6', 'q7'],
+                3: ['q8', 'q9', 'q10'],
+                4: ['q11', 'q12', 'q13'],
+                5: ['q14', 'q15', 'q16'],
+                6: ['q17', 'q18', 'q19']
+            };
+            
+            const required = sectionQuestions[sectionNum] || [];
+            const missing = required.filter(key => responses[key] === null);
+            
+            if (missing.length > 0) {
+                const section = document.getElementById('section' + sectionNum);
+                const questionGroups = section.querySelectorAll('.question-group');
+                
+                questionGroups.forEach((group, idx) => {
+                    const qKey = required[idx];
+                    if (responses[qKey] === null) {
+                        group.style.background = '#fff8f8';
+                        group.style.border = '1px solid #dc3545';
+                        group.style.borderRadius = '8px';
+                        group.style.padding = '12px';
+                        group.style.marginLeft = '-12px';
+                        group.style.marginRight = '-12px';
+                    }
+                });
+                return false;
+            }
+            return true;
+        }
+        
+        function clearValidationHighlights() {
+            document.querySelectorAll('.question-group').forEach(group => {
+                group.style.background = '';
+                group.style.border = '';
+                group.style.borderRadius = '';
+                group.style.padding = '';
+                group.style.marginLeft = '';
+                group.style.marginRight = '';
+            });
+        }
+        
+        function nextSection() {
+            if (!validateSection(currentSection)) {
+                const existingError = document.querySelector('.section-error');
+                if (!existingError) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'section-error';
+                    errorDiv.textContent = 'Please answer all questions before continuing.';
+                    document.querySelector('.nav-buttons').insertAdjacentElement('beforebegin', errorDiv);
+                }
+                return;
+            }
+            
+            const existingError = document.querySelector('.section-error');
+            if (existingError) existingError.remove();
+            clearValidationHighlights();
+            
+            if (currentSection < totalSections) {
+                currentSection++;
+                showSection(currentSection);
+                window.scrollTo({ top: document.querySelector('.tool-card').offsetTop - 100, behavior: 'smooth' });
+            } else {
+                calculateResults();
+            }
+        }
+        
+        function previousSection() {
+            if (currentSection > 1) {
+                currentSection--;
+                showSection(currentSection);
+            }
+        }
+        
+        // ========================================
+        // INPUT HANDLERS
+        // ========================================
+        function selectOption(btn, key) {
+            const parent = btn.closest('.options-row');
+            parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            responses[key] = parseInt(btn.dataset.value);
+            
+            // Clear validation highlight
+            const questionGroup = btn.closest('.question-group');
+            if (questionGroup) {
+                questionGroup.style.background = '';
+                questionGroup.style.border = '';
+                questionGroup.style.borderRadius = '';
+                questionGroup.style.padding = '';
+                questionGroup.style.marginLeft = '';
+                questionGroup.style.marginRight = '';
+            }
+            
+            // Remove error if all answered
+            const existingError = document.querySelector('.section-error');
+            if (existingError && validateSection(currentSection)) {
+                existingError.remove();
+                clearValidationHighlights();
+            }
+        }
+        
+        // ========================================
+        // CALCULATIONS
+        // ========================================
+        function calculateResults() {
+            // Calculate category scores (0-100, higher = better)
+            const categoryScores = {};
+            
+            Object.entries(categoryQuestions).forEach(([cat, questions]) => {
+                const scores = questions.map(q => responses[q]).filter(v => v !== null);
+                if (scores.length > 0) {
+                    const avgBad = scores.reduce((a, b) => a + b, 0) / scores.length;
+                    // Convert: 0 (never bad) = 100, 4 (always bad) = 0
+                    categoryScores[cat] = Math.round((4 - avgBad) / 4 * 100);
+                } else {
+                    categoryScores[cat] = 50;
+                }
+            });
+            
+            // Overall score (weighted average)
+            const weights = {
+                schedule: 0.20,
+                preSleep: 0.18,
+                environment: 0.15,
+                substances: 0.17,
+                daytime: 0.15,
+                mental: 0.15
+            };
+            
+            let overallScore = 0;
+            Object.entries(weights).forEach(([cat, weight]) => {
+                overallScore += categoryScores[cat] * weight;
+            });
+            overallScore = Math.round(overallScore);
+            
+            // Determine grade
+            let grade, gradeDesc;
+            if (overallScore >= 85) { grade = 'A'; gradeDesc = 'Excellent sleep hygiene - keep it up!'; }
+            else if (overallScore >= 70) { grade = 'B'; gradeDesc = 'Good habits with minor improvements needed'; }
+            else if (overallScore >= 55) { grade = 'C'; gradeDesc = 'Fair - several habits are affecting your sleep'; }
+            else if (overallScore >= 40) { grade = 'D'; gradeDesc = 'Poor - significant changes recommended'; }
+            else { grade = 'F'; gradeDesc = 'Very poor - major habit overhaul needed'; }
+            
+            // Find problem habits
+            const problemHabits = findProblemHabits();
+            
+            // Generate quick wins
+            const quickWins = generateQuickWins();
+            
+            // Generate 7-day challenge
+            const challenge = generate7DayChallenge(categoryScores);
+            
+            // Generate tool recommendations
+            const toolRecs = generateToolRecommendations(categoryScores);
+            
+            calculatedResults = {
+                overallScore,
+                grade,
+                gradeDesc,
+                categoryScores,
+                problemHabits,
+                quickWins,
+                challenge,
+                toolRecs,
+                responses
+            };
+            
+            renderResults();
+            saveResults();
+        }
+        
+        function findProblemHabits() {
+            const habits = [
+                { q: 'q1', name: 'Inconsistent bedtime', impact: 'Disrupts your circadian rhythm', fix: 'Set a fixed bedtime and stick to it within 30 minutes' },
+                { q: 'q2', name: 'Inconsistent wake time', impact: 'Weakens your body clock', fix: 'Wake at the same time daily, even weekends' },
+                { q: 'q3', name: 'Weekend sleep-ins', impact: 'Creates "social jet lag"', fix: 'Limit weekend sleep-in to max 1 hour difference' },
+                { q: 'q4', name: 'Screen use in bed', impact: 'Blue light suppresses melatonin', fix: 'Stop screens 1 hour before bed, or use night mode' },
+                { q: 'q5', name: 'Late heavy meals', impact: 'Digestion interferes with sleep', fix: 'Eat dinner 3+ hours before bed, keep it light if late' },
+                { q: 'q6', name: 'Late exercise', impact: 'Raises body temperature and alertness', fix: 'Finish workouts 3+ hours before bedtime' },
+                { q: 'q7', name: 'No wind-down routine', impact: 'Brain stays in "active" mode', fix: 'Create a 30-minute relaxing routine before bed' },
+                { q: 'q8', name: 'Wrong room temperature', impact: 'Body needs to cool for sleep', fix: 'Keep bedroom at 16-19°C (60-67°F)' },
+                { q: 'q9', name: 'Light pollution', impact: 'Any light can disrupt melatonin', fix: 'Use blackout curtains or a sleep mask' },
+                { q: 'q10', name: 'Using bed for non-sleep', impact: 'Weakens bed-sleep association', fix: 'Reserve bed for sleep and intimacy only' },
+                { q: 'q11', name: 'Late caffeine', impact: 'Caffeine half-life is 5-6 hours', fix: 'Cut off caffeine 6+ hours before bed' },
+                { q: 'q12', name: 'Alcohol before bed', impact: 'Disrupts REM sleep, causes awakenings', fix: 'Stop alcohol 3+ hours before bed' },
+                { q: 'q13', name: 'Nicotine at night', impact: 'Nicotine is a stimulant', fix: 'Avoid nicotine products close to bedtime' },
+                { q: 'q14', name: 'Long daytime naps', impact: 'Reduces sleep pressure', fix: 'Limit naps to 20-30 minutes before 3pm' },
+                { q: 'q15', name: 'Low daylight exposure', impact: 'Weakens circadian rhythm', fix: 'Get 20+ minutes of natural light each morning' },
+                { q: 'q16', name: 'Staying in bed awake', impact: 'Associates bed with frustration', fix: 'Get up after 20 min if not sleeping' },
+                { q: 'q17', name: 'Worrying in bed', impact: 'Activates stress response', fix: 'Write concerns in a journal before bed' },
+                { q: 'q18', name: 'Clock watching', impact: 'Increases sleep anxiety', fix: 'Turn clocks away from view' },
+                { q: 'q19', name: 'Going to bed stressed', impact: 'Cortisol prevents sleep', fix: 'Practice relaxation techniques before bed' }
+            ];
+            
+            return habits
+                .filter(h => responses[h.q] >= 2)
+                .sort((a, b) => responses[b.q] - responses[a.q])
+                .slice(0, 5);
+        }
+        
+        function generateQuickWins() {
+            const wins = [];
+            
+            if (responses.q18 >= 2) wins.push('Turn your clock away from view tonight');
+            if (responses.q9 >= 2) wins.push('Cover any LED lights in your bedroom');
+            if (responses.q4 >= 2) wins.push('Charge your phone outside the bedroom');
+            if (responses.q8 >= 2) wins.push('Open a window or adjust AC to cool the room');
+            if (responses.q10 >= 2) wins.push('Move any work materials out of the bedroom');
+            if (responses.q7 >= 2) wins.push('Set a 30-minute alarm before your target bedtime');
+            
+            return wins.slice(0, 4);
+        }
+        
+        function generate7DayChallenge(scores) {
+            const tasks = [];
+            
+            // Day 1-2: Schedule
+            if (scores.schedule < 80) {
+                tasks.push({ day: 'Day 1', task: 'Set fixed bedtime' });
+                tasks.push({ day: 'Day 2', task: 'Set fixed wake time' });
+            } else {
+                tasks.push({ day: 'Day 1', task: 'Track sleep times' });
+                tasks.push({ day: 'Day 2', task: 'Maintain schedule' });
+            }
+            
+            // Day 3: Environment
+            if (scores.environment < 80) {
+                tasks.push({ day: 'Day 3', task: 'Optimize bedroom' });
+            } else {
+                tasks.push({ day: 'Day 3', task: 'Check room temp' });
+            }
+            
+            // Day 4: Pre-sleep
+            if (scores.preSleep < 80) {
+                tasks.push({ day: 'Day 4', task: 'Screen-free hour' });
+            } else {
+                tasks.push({ day: 'Day 4', task: 'Refine routine' });
+            }
+            
+            // Day 5: Substances
+            if (scores.substances < 80) {
+                tasks.push({ day: 'Day 5', task: 'Caffeine cutoff' });
+            } else {
+                tasks.push({ day: 'Day 5', task: 'Review intake' });
+            }
+            
+            // Day 6: Mental
+            if (scores.mental < 80) {
+                tasks.push({ day: 'Day 6', task: 'Worry journal' });
+            } else {
+                tasks.push({ day: 'Day 6', task: 'Relaxation time' });
+            }
+            
+            // Day 7: Review
+            tasks.push({ day: 'Day 7', task: 'Review progress' });
+            
+            return tasks;
+        }
+        
+        function generateToolRecommendations(scores) {
+            const tools = [];
+            
+            if (scores.environment < 70) {
+                tools.push({ name: 'Sleep Environment Optimizer', url: 'https://tools.spacire.com/sleep-environment-optimizer', reason: 'Improve your bedroom conditions' });
+            }
+            if (scores.preSleep < 70) {
+                tools.push({ name: 'Bedtime Routine Builder', url: 'https://tools.spacire.com/bedtime-routine-builder', reason: 'Create a relaxing wind-down routine' });
+            }
+            if (scores.schedule < 70) {
+                tools.push({ name: 'Sleep Cycle Calculator', url: 'https://tools.spacire.com/sleep-cycle-calculator', reason: 'Find optimal sleep and wake times' });
+            }
+            if (scores.mental < 70) {
+                tools.push({ name: 'Natural Sleep Remedy Finder', url: 'https://tools.spacire.com/natural-sleep-remedy-finder', reason: 'Find natural calming remedies' });
+            }
+            if (scores.daytime < 70) {
+                tools.push({ name: 'Power Nap Calculator', url: 'https://tools.spacire.com/power-nap-calculator', reason: 'Optimize your daytime naps' });
+            }
+            
+            tools.push({ name: 'Sleep Quality Assessment', url: 'https://tools.spacire.com/sleep-quality-assessment', reason: 'Get a comprehensive sleep health analysis' });
+            
+            return tools.slice(0, 4);
+        }
+        
+        // ========================================
+        // RENDER RESULTS
+        // ========================================
+        function renderResults() {
+            const r = calculatedResults;
+            
+            // Hide quiz, show results
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('active');
+            
+            // Grade
+            const letterEl = document.getElementById('gradeLetter');
+            letterEl.textContent = r.grade;
+            letterEl.className = 'grade-letter grade-' + r.grade;
+            document.getElementById('gradeScore').textContent = r.overallScore + '/100';
+            document.getElementById('gradeDesc').textContent = r.gradeDesc;
+            
+            // Category bars
+            renderCategoryBars(r.categoryScores);
+            
+            // Radar chart
+            drawRadarChart(r.categoryScores);
+            
+            // Problem habits
+            renderProblemHabits(r.problemHabits);
+            
+            // Quick wins
+            renderQuickWins(r.quickWins);
+            
+            // 7-day challenge
+            renderChallenge(r.challenge);
+            
+            // Tool recommendations
+            renderToolRecs(r.toolRecs);
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function renderCategoryBars(scores) {
+            const container = document.getElementById('categoriesBars');
+            const getColor = (score) => {
+                if (score >= 80) return '#28a745';
+                if (score >= 60) return '#17a2b8';
+                if (score >= 40) return '#ffc107';
+                return '#dc3545';
+            };
+            
+            const categories = Object.keys(categoryNames);
+            container.innerHTML = categories.map(cat => `
+                <div class="category-item">
+                    <div class="category-header">
+                        <span class="category-name"><span class="category-icon">${categoryIcons[cat]}</span> ${categoryNames[cat]}</span>
+                        <span class="category-score" style="color: ${getColor(scores[cat])}">${scores[cat]}%</span>
+                    </div>
+                    <div class="category-bar">
+                        <div class="category-fill" style="width: ${scores[cat]}%; background: ${getColor(scores[cat])};"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function drawRadarChart(scores) {
+            const canvas = document.getElementById('radarChart');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const maxRadius = 130;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const categories = Object.keys(categoryNames);
+            const labels = categories.map(c => categoryNames[c].split(' ')[0]);
+            const values = categories.map(c => scores[c]);
+            const numPoints = 6;
+            const angleStep = (2 * Math.PI) / numPoints;
+            
+            // Draw grid
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            for (let r = 25; r <= 100; r += 25) {
+                ctx.beginPath();
+                for (let i = 0; i <= numPoints; i++) {
+                    const angle = -Math.PI / 2 + i * angleStep;
+                    const x = centerX + Math.cos(angle) * (r / 100 * maxRadius);
+                    const y = centerY + Math.sin(angle) * (r / 100 * maxRadius);
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+            }
+            
+            // Draw axes
+            for (let i = 0; i < numPoints; i++) {
+                const angle = -Math.PI / 2 + i * angleStep;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(centerX + Math.cos(angle) * maxRadius, centerY + Math.sin(angle) * maxRadius);
+                ctx.stroke();
+            }
+            
+            // Draw data
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(224, 178, 82, 0.3)';
+            ctx.strokeStyle = '#E0B252';
+            ctx.lineWidth = 3;
+            
+            for (let i = 0; i <= numPoints; i++) {
+                const idx = i % numPoints;
+                const angle = -Math.PI / 2 + idx * angleStep;
+                const value = values[idx] / 100;
+                const x = centerX + Math.cos(angle) * value * maxRadius;
+                const y = centerY + Math.sin(angle) * value * maxRadius;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            // Draw points
+            ctx.fillStyle = '#042548';
+            for (let i = 0; i < numPoints; i++) {
+                const angle = -Math.PI / 2 + i * angleStep;
+                const value = values[i] / 100;
+                const x = centerX + Math.cos(angle) * value * maxRadius;
+                const y = centerY + Math.sin(angle) * value * maxRadius;
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            
+            // Draw labels
+            ctx.fillStyle = '#333';
+            ctx.font = '11px Domine, Georgia, serif';
+            ctx.textAlign = 'center';
+            
+            for (let i = 0; i < numPoints; i++) {
+                const angle = -Math.PI / 2 + i * angleStep;
+                const labelRadius = maxRadius + 25;
+                const x = centerX + Math.cos(angle) * labelRadius;
+                const y = centerY + Math.sin(angle) * labelRadius;
+                ctx.fillText(labels[i], x, y + 4);
+            }
+        }
+        
+        function renderProblemHabits(habits) {
+            const container = document.getElementById('problemsContainer');
+            
+            if (habits.length === 0) {
+                document.getElementById('problemsSection').style.display = 'none';
+                return;
+            }
+            
+            container.innerHTML = habits.map(h => `
+                <div class="problem-card">
+                    <div class="problem-habit">${h.name}</div>
+                    <div class="problem-impact">Impact: ${h.impact}</div>
+                    <div class="problem-fix">Fix: ${h.fix}</div>
+                </div>
+            `).join('');
+        }
+        
+        function renderQuickWins(wins) {
+            const container = document.getElementById('quickwinsContainer');
+            
+            if (wins.length === 0) {
+                document.getElementById('quickwinsSection').style.display = 'none';
+                return;
+            }
+            
+            container.innerHTML = wins.map(w => `
+                <div class="quickwin-item">
+                    <div class="quickwin-check"><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></div>
+                    <div class="quickwin-text">${w}</div>
+                </div>
+            `).join('');
+        }
+        
+        function renderChallenge(challenge) {
+            const container = document.getElementById('challengeGrid');
+            container.innerHTML = challenge.map(c => `
+                <div class="challenge-day">
+                    <div class="challenge-day-num">${c.day}</div>
+                    <div class="challenge-day-task">${c.task}</div>
+                </div>
+            `).join('');
+        }
+        
+        function renderToolRecs(tools) {
+            const container = document.getElementById('toolsGrid');
+            container.innerHTML = tools.map(t => `
+                <a href="${t.url}" class="tool-rec-card">
+                    <div class="tool-rec-name">${t.name}</div>
+                    <div class="tool-rec-reason">${t.reason}</div>
+                </a>
+            `).join('');
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL
+        // ========================================
+        async function saveResults() {
+            if (!calculatedResults) return;
+            
+            try {
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    {
+                        tool_name: 'sleep_hygiene_quiz',
+                        results_json: JSON.stringify({
+                            overallScore: calculatedResults.overallScore,
+                            grade: calculatedResults.grade,
+                            categoryScores: calculatedResults.categoryScores
+                        }),
+                        user_agent: navigator.userAgent.substring(0, 500),
+                        created_at: new Date().toISOString()
+                    }
+                );
+            } catch (error) {
+                console.error('DB error:', error);
+            }
+        }
+        
+        async function sendReport(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('userEmail').value.trim();
+            const firstName = document.getElementById('userName').value.trim();
+            const sendBtn = document.getElementById('sendReportBtn');
+            const formError = document.getElementById('formError');
+            
+            console.log('1. Form values:', { firstName, email });
+            
+            formError.style.display = 'none';
+            
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                document.getElementById('userName').focus();
+                return;
+            }
+            
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                document.getElementById('userEmail').focus();
+                return;
+            }
+            
+            if (!calculatedResults) {
+                formError.textContent = 'Please complete the quiz first.';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            console.log('2. Validation passed');
+            
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
+            const emailPayload = JSON.stringify({
+                toolName: 'sleep-hygiene-quiz',
+                email: email,
+                firstName: firstName,
+                overallScore: calculatedResults.overallScore,
+                grade: calculatedResults.grade,
+                gradeDesc: calculatedResults.gradeDesc,
+                categoryScores: calculatedResults.categoryScores,
+                problemHabits: calculatedResults.problemHabits,
+                quickWins: calculatedResults.quickWins,
+                challenge: calculatedResults.challenge,
+                toolRecs: calculatedResults.toolRecs
+            });
+            
+            console.log('3. Payload built');
+            
+            try {
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'sleep_hygiene_quiz',
+                            user_email: email,
+                            user_first_name: firstName,
+                            results_json: JSON.stringify({
+                                overallScore: calculatedResults.overallScore,
+                                grade: calculatedResults.grade,
+                                categoryScores: calculatedResults.categoryScores,
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                } catch (dbError) {
+                    console.error('DB error:', dbError);
+                }
+                
+                console.log('4. Calling email function');
+                
+                await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    true
+                );
+                
+                console.log('5. Email function executed');
+                
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('userEmail').disabled = true;
+                document.getElementById('userName').disabled = true;
+                sendBtn.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Email error:', error);
+                formError.textContent = 'Failed to send. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
+            }
+        }
+        
+        function resetQuiz() {
+            currentSection = 1;
+            Object.keys(responses).forEach(key => responses[key] = null);
+            calculatedResults = null;
+            
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            document.getElementById('userEmail').disabled = false;
+            document.getElementById('userName').disabled = false;
+            document.getElementById('userEmail').value = '';
+            document.getElementById('userName').value = '';
+            document.getElementById('sendReportBtn').style.display = 'inline-block';
+            document.getElementById('sendReportBtn').disabled = false;
+            document.getElementById('sendReportBtn').textContent = 'Send Report';
+            document.getElementById('emailSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+            document.getElementById('problemsSection').style.display = 'block';
+            document.getElementById('quickwinsSection').style.display = 'block';
+            
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('quizCard').style.display = 'block';
+            showSection(1);
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
