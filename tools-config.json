@@ -237,11 +237,28 @@
       ],
       "ctaText": "Calculate Dreams",
       "order": 14
+    },
+    {
+      "id": "sleep-calculator",
+      "name": "Sleep Calculator",
+      "description": "Find your ideal bedtime and wake time based on your age and sleep cycles.",
+      "status": "active",
+      "file": "sleep-calculator.html",
+      "icon": "sleep",
+      "duration": "1-2 minutes",
+      "features": [
+        "Age-based recommendations",
+        "AASM & CDC guidelines",
+        "Sleep cycle optimization",
+        "Multiple time options"
+      ],
+      "ctaText": "Calculate My Sleep",
+      "order": 15
     }
   ],
   "config": {
-    "version": "1.14.0",
+    "version": "1.15.0",
     "lastUpdated": "2025-01-15",
-    "totalTools": 14
+    "totalTools": 15
   }
 }
