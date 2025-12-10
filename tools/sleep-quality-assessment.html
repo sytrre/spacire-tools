@@ -266,6 +266,43 @@
         .new-calc-btn { display: block; margin: 20px auto 0; padding: 12px 24px; background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); }
         .new-calc-btn:hover { border-color: var(--primary); }
         
+        /* Info Toggles */
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .info-table th, .info-table td { padding: 12px; text-align: left; border: 1px solid var(--border); }
+        .info-table th { background: var(--hover); font-weight: 600; color: var(--primary); }
+        .info-table td { color: var(--text-secondary); }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        .share-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); text-decoration: none; font-size: 13px; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
+        .share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .share-btn.twitter { background: #1DA1F2; color: white; }
+        .share-btn.twitter:hover { background: #1a8cd8; }
+        .share-btn.facebook { background: #4267B2; color: white; }
+        .share-btn.facebook:hover { background: #365899; }
+        .share-btn.linkedin { background: #0077B5; color: white; }
+        .share-btn.linkedin:hover { background: #006097; }
+        .share-btn.copy { background: var(--hover); color: var(--primary); border: 1px solid var(--border); }
+        .share-btn.copy:hover { border-color: var(--primary); }
+        
         /* Footer - EXACT pattern */
         .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -669,6 +706,241 @@
             
             <button class="new-calc-btn" onclick="resetAssessment()">Take Assessment Again</button>
         </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Our Assessment Process</h4>
+                    <ul>
+                        <li><strong>Step 1:</strong> Share your typical sleep schedule including bedtime, wake time, and actual sleep hours</li>
+                        <li><strong>Step 2:</strong> Report sleep disturbances like nighttime awakenings, bathroom trips, and discomfort</li>
+                        <li><strong>Step 3:</strong> Describe environmental factors affecting your sleep (temperature, noise, light)</li>
+                        <li><strong>Step 4:</strong> Rate your subjective sleep quality and daytime functioning</li>
+                        <li><strong>Step 5:</strong> Answer questions about modifiable lifestyle factors</li>
+                    </ul>
+                    
+                    <h4>What You'll Receive</h4>
+                    <ul>
+                        <li>Overall sleep quality score (0-100) with rating category</li>
+                        <li>Personalized sleep profile identifying your sleep pattern type</li>
+                        <li>Visual radar chart showing performance across 7 sleep dimensions</li>
+                        <li>Sleep efficiency analysis with time-in-bed vs actual sleep calculations</li>
+                        <li>Priority-ranked action plan with specific recommendations</li>
+                        <li>Suggested tools from our suite based on your weak areas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Understanding the 7 Sleep Dimensions</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>What We Measure</h4>
+                    <p>This assessment evaluates your sleep across seven scientifically-validated dimensions, inspired by the Pittsburgh Sleep Quality Index (PSQI) - the gold standard clinical sleep assessment tool.</p>
+                    
+                    <table class="info-table">
+                        <tr>
+                            <th>Dimension</th>
+                            <th>What It Measures</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Subjective Quality</strong></td>
+                            <td>Your personal perception of how well you sleep</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleep Latency</strong></td>
+                            <td>How long it takes you to fall asleep after getting into bed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleep Duration</strong></td>
+                            <td>Total hours of actual sleep per night</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleep Efficiency</strong></td>
+                            <td>Ratio of time asleep to time in bed (target: 85%+)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleep Disturbances</strong></td>
+                            <td>Frequency of nighttime disruptions from various causes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Daytime Dysfunction</strong></td>
+                            <td>Impact of poor sleep on daytime alertness and motivation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lifestyle Habits</strong></td>
+                            <td>Modifiable behaviors that affect sleep quality</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>Sleep Profile Types</h4>
+                    <ul>
+                        <li><strong>Balanced Sleeper:</strong> Generally healthy sleep with no major problem areas</li>
+                        <li><strong>Sleep Onset Struggler:</strong> Primary difficulty is falling asleep</li>
+                        <li><strong>Light Sleeper:</strong> Sensitive to environmental disturbances</li>
+                        <li><strong>Fragmented Sleeper:</strong> Frequent nighttime awakenings</li>
+                        <li><strong>Sleep Deprived:</strong> Not getting enough total sleep hours</li>
+                        <li><strong>Lifestyle-Impacted:</strong> Habits are the main factor affecting sleep</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">When to Seek Professional Help</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Signs You Should Consult a Healthcare Provider</h4>
+                    <ul>
+                        <li>Persistent poor sleep quality lasting more than 3 months</li>
+                        <li>Excessive daytime sleepiness affecting work or driving safety</li>
+                        <li>Loud snoring with breathing pauses (possible sleep apnea)</li>
+                        <li>Restless legs or periodic limb movements during sleep</li>
+                        <li>Acting out dreams physically (REM sleep behavior disorder)</li>
+                        <li>Regular use of sleep medication to function</li>
+                        <li>Sleep problems accompanied by mood changes or depression</li>
+                    </ul>
+                    
+                    <h4>Emergency Contacts by Region</h4>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Emergency</th>
+                                <th>Health Line</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>United Kingdom</td><td>999</td><td>NHS 111</td></tr>
+                            <tr><td>United States</td><td>911</td><td>Primary care</td></tr>
+                            <tr><td>Canada</td><td>911</td><td>Telehealth</td></tr>
+                            <tr><td>Australia</td><td>000</td><td>1800 022 222</td></tr>
+                            <tr><td>Ireland</td><td>999/112</td><td>1800 700 700</td></tr>
+                            <tr><td>Germany</td><td>112</td><td>116 117</td></tr>
+                            <tr><td>France</td><td>15 (SAMU)/112</td><td>Contact local medecin</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;"><em>For other countries including India, Japan, China, Netherlands, New Zealand, Italy, Spain, UAE, Poland, Portugal, Sweden, Turkey, Brazil, and Russia - please search for your local emergency services.</em></p>
+                    
+                    <div style="background: var(--warning); border-left: 4px solid var(--accent); padding: 16px; margin-top: 16px; border-radius: var(--radius-md);">
+                        <strong>Medical Disclaimer</strong>
+                        <p style="margin-top: 8px; font-size: 13px;">This assessment provides general guidance based on sleep research and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your GP, physician, or qualified sleep specialist with any questions about sleep disorders or health concerns.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Scientific Foundation</h4>
+                    <p>This Sleep Quality Assessment is inspired by the Pittsburgh Sleep Quality Index (PSQI), developed by researchers at the University of Pittsburgh in 1989. The PSQI is the most widely used standardized sleep quality measure in clinical research and has been validated across numerous populations worldwide.</p>
+                    
+                    <p>While maintaining the core scientific principles, we've enhanced the assessment with visual analytics, personalized profiling, and actionable recommendations tailored to each user's specific sleep patterns.</p>
+                    
+                    <h4>What Makes This Tool Different</h4>
+                    <ul>
+                        <li><strong>7-Dimension Radar Chart:</strong> Visual representation of your sleep health across all dimensions</li>
+                        <li><strong>Sleep Profile Assignment:</strong> Identifies your specific sleep pattern type</li>
+                        <li><strong>Sleep Efficiency Gauge:</strong> Calculates actual sleep vs time in bed</li>
+                        <li><strong>Priority-Ranked Actions:</strong> Recommendations sorted by impact potential</li>
+                        <li><strong>Tool Integration:</strong> Connects you to relevant tools in our suite</li>
+                    </ul>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a UK-based sleep wellness company offering free science-backed tools alongside curated sleep products including sleep masks, white noise machines, blackout curtains, and aromatherapy products. We believe everyone deserves better sleep, regardless of budget.</p>
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Others Understand Their Sleep</h4>
+                    <p>If you found this assessment helpful, please consider sharing it with friends, family, or colleagues who might benefit from understanding their sleep quality better.</p>
+                    
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/sleep-quality-assessment&text=Free%20Sleep%20Quality%20Assessment%20-%20Comprehensive%20evaluation%20of%20your%20sleep%20across%207%20dimensions" target="_blank" rel="noopener noreferrer" class="share-btn twitter">
+                            <svg viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/></svg>
+                            Share on X/Twitter
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/sleep-quality-assessment" target="_blank" rel="noopener noreferrer" class="share-btn facebook">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                            Share on Facebook
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tools.spacire.com/sleep-quality-assessment&title=Sleep%20Quality%20Assessment&summary=Comprehensive%20evaluation%20of%20your%20sleep%20across%207%20dimensions" target="_blank" rel="noopener noreferrer" class="share-btn linkedin">
+                            <svg viewBox="0 0 24 24"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
+                            Share on LinkedIn
+                        </a>
+                        <button class="share-btn copy" onclick="copyLink()">
+                            <svg viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Sleep Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Continue Your Sleep Journey</h4>
+                    <p>Based on your assessment results, explore these complementary tools to address specific areas:</p>
+                    
+                    <div class="tools-grid">
+                        <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card">
+                            <h5>Sleep Environment Optimizer</h5>
+                            <p>Optimize your bedroom for better sleep</p>
+                        </a>
+                        <a href="https://tools.spacire.com/bedtime-routine-builder" class="tool-link-card">
+                            <h5>Bedtime Routine Builder</h5>
+                            <p>Create a personalized wind-down routine</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-cycle-calculator" class="tool-link-card">
+                            <h5>Sleep Cycle Calculator</h5>
+                            <p>Find optimal bedtime and wake times</p>
+                        </a>
+                        <a href="https://tools.spacire.com/chronotype-quiz" class="tool-link-card">
+                            <h5>Chronotype Quiz</h5>
+                            <p>Discover your natural sleep-wake rhythm</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-debt-calculator" class="tool-link-card">
+                            <h5>Sleep Debt Calculator</h5>
+                            <p>Track and recover from sleep deficit</p>
+                        </a>
+                        <a href="https://tools.spacire.com/insomnia-quiz" class="tool-link-card">
+                            <h5>Insomnia Quiz</h5>
+                            <p>Assess insomnia severity with the ISI</p>
+                        </a>
+                        <a href="https://tools.spacire.com/power-nap-calculator" class="tool-link-card">
+                            <h5>Power Nap Calculator</h5>
+                            <p>Find the optimal nap time for you</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-sound-finder" class="tool-link-card">
+                            <h5>Sleep Sound Finder</h5>
+                            <p>Discover sounds that help you sleep</p>
+                        </a>
+                    </div>
+                    
+                    <p style="margin-top: 20px; text-align: center;"><a href="https://tools.spacire.com" style="color: var(--primary); font-weight: 600;">View All Sleep Tools</a></p>
+                </div>
+            </div>
+        </section>
     </main>
     
     <!-- Footer - EXACT structure from working tools -->
@@ -777,6 +1049,25 @@
         // ========================================
         function toggleMobileMenu() {
             document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.closest('.info-toggle');
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText('https://tools.spacire.com/sleep-quality-assessment').then(() => {
+                const btn = event.target.closest('.share-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            });
         }
         
         // ========================================
