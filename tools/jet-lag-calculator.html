@@ -1463,57 +1463,169 @@
                 'severe': 'Severe Jet Lag'
             };
             
+            // Build comprehensive pre-travel data
+            let preTravelSchedule = [];
+            if (userData.prepTime !== 'none') {
+                const daysToPrep = userData.prepTime === 'plenty' ? 5 : userData.prepTime === 'moderate' ? 3 : 2;
+                const adjustPerDay = Math.min(60, Math.ceil((timeDifference * 60) / daysToPrep));
+                
+                for (let i = 1; i <= daysToPrep; i++) {
+                    const shiftMinutes = adjustPerDay * i;
+                    const shiftHours = Math.floor(shiftMinutes / 60);
+                    const shiftMins = shiftMinutes % 60;
+                    const shiftDisplay = shiftHours > 0 
+                        ? `${shiftHours}h ${shiftMins > 0 ? shiftMins + 'm' : ''}`
+                        : `${shiftMins}m`;
+                    
+                    preTravelSchedule.push({
+                        day: `Day -${daysToPrep - i + 1}`,
+                        action: isEast 
+                            ? `Go to bed ${shiftDisplay} earlier than usual. Get morning light.`
+                            : `Stay up ${shiftDisplay} later than usual. Get evening light.`
+                    });
+                }
+            }
+            
+            // Build in-flight strategy
+            const depTime = userData.departureTime;
+            const flightDuration = userData.flightDuration;
+            const arrivalHour = (depTime + flightDuration + timeDifference * (isEast ? 1 : -1)) % 24;
+            
+            let sleepAdvice, lightAdvice;
+            if (isEast) {
+                if (arrivalHour >= 5 && arrivalHour <= 12) {
+                    sleepAdvice = 'Try to sleep during the first half of your flight to arrive rested for daytime at your destination.';
+                    lightAdvice = 'Use an eye mask to help sleep. After waking, seek cabin light or use reading light.';
+                } else {
+                    sleepAdvice = 'Stay awake during the flight if possible, as you will be arriving in evening/night.';
+                    lightAdvice = 'Use cabin lights during flight, then sleep naturally after arrival.';
+                }
+            } else {
+                if (arrivalHour >= 18 || arrivalHour <= 6) {
+                    sleepAdvice = 'Nap for 2-3 hours max during the flight, but try to stay mostly awake.';
+                    lightAdvice = 'Keep yourself alert with bright light, save sleep for destination nighttime.';
+                } else {
+                    sleepAdvice = 'Avoid sleeping on the flight as you will need to stay awake upon arrival.';
+                    lightAdvice = 'Use bright light and caffeine (early in flight only) to stay alert.';
+                }
+            }
+            
+            const inFlightStrategy = [
+                { title: 'Sleep Strategy', text: sleepAdvice, priority: 'high' },
+                { title: 'Light Management', text: lightAdvice, priority: 'high' },
+                { title: 'Hydration & Movement', text: 'Drink water regularly (avoid excessive alcohol). Walk the cabin every 2-3 hours. Set your watch to destination time at takeoff.', priority: 'medium' }
+            ];
+            
+            // Build light exposure schedule
+            let lightSchedule;
+            if (isEast) {
+                lightSchedule = {
+                    seek: { action: 'Seek bright light', time: '6:00 AM - 11:00 AM local time' },
+                    avoid: { action: 'Avoid bright light', time: '3:00 PM - sunset' },
+                    sunglasses: 'Wear sunglasses during "avoid light" windows'
+                };
+            } else {
+                lightSchedule = {
+                    seek: { action: 'Seek bright light', time: '4:00 PM - 9:00 PM local time' },
+                    avoid: { action: 'Avoid bright light', time: 'Early morning until 10:00 AM' },
+                    sunglasses: 'Wear sunglasses during "avoid light" windows'
+                };
+            }
+            
+            // Build post-arrival day-by-day plan
+            const daysToShow = Math.min(recoveryDays, 3);
+            let postArrivalPlan = [];
+            
+            for (let day = 1; day <= daysToShow; day++) {
+                if (isEast) {
+                    postArrivalPlan.push({
+                        day: day,
+                        title: `Day ${day} at Destination`,
+                        morning: 'Get bright outdoor light 6-11 AM. Avoid sunglasses.',
+                        afternoon: 'Light exercise, stay active. Limit caffeine after 2 PM.',
+                        evening: 'Dim lights after 6 PM. No screens 1 hour before bed.',
+                        night: day === 1 ? 'Go to bed when tired, even if early' : 'Aim for local bedtime'
+                    });
+                } else {
+                    postArrivalPlan.push({
+                        day: day,
+                        title: `Day ${day} at Destination`,
+                        morning: 'Wear sunglasses if light before 10 AM. Ease into day.',
+                        afternoon: 'Get bright afternoon/evening light 4-8 PM.',
+                        evening: 'Stay active in the evening. Light dinner.',
+                        night: day === 1 ? 'Push through to 10 PM minimum' : 'Aim for local bedtime'
+                    });
+                }
+            }
+            
+            // Build key tips
+            const keyTips = [
+                {
+                    title: isEast ? 'Morning Light is Your Friend' : 'Evening Light is Your Friend',
+                    text: isEast 
+                        ? 'Seek bright outdoor light in the morning to advance your body clock. This is the most powerful tool for eastward adjustment.'
+                        : 'Get bright light in the late afternoon and evening to delay your body clock. Avoid bright morning light with sunglasses.',
+                    priority: 'high'
+                },
+                {
+                    title: 'Strategic Napping',
+                    text: 'Short naps (20-30 min max) before 3 PM can help manage fatigue without disrupting nighttime sleep. Never nap after 3 PM local time.',
+                    priority: 'medium'
+                },
+                {
+                    title: 'Meal Timing Matters',
+                    text: 'Eat meals at local times from day one. This helps reset your peripheral body clocks. Avoid heavy meals close to bedtime.',
+                    priority: 'medium'
+                }
+            ];
+            
+            if (severity === 'severe' || severity === 'significant') {
+                keyTips.push({
+                    title: 'Consider Melatonin (Optional)',
+                    text: 'Low-dose melatonin (0.5-3mg) taken 30 minutes before target bedtime can help signal sleep time. Consult a pharmacist or doctor if unsure.',
+                    priority: 'medium'
+                });
+            }
+            
+            // Build complete email payload
             const emailPayload = JSON.stringify({
                 toolName: 'jet-lag-calculator',
                 email: email,
                 firstName: firstName,
-                heroTitle: 'Your Jet Lag Recovery Plan',
-                heroSubtitle: 'Personalized schedule from Spacire',
-                introText: `Hi ${firstName}, here's your personalized jet lag recovery plan for your ${timeDifference}-hour ${isEast ? 'eastward' : 'westward'} journey. Expected full adjustment: ${recoveryDays} days.`,
-                sections: [
-                    {
-                        type: 'summary',
-                        title: 'Trip Summary',
-                        items: [
-                            { label: 'Time Difference', value: `${timeDifference} hours ${isEast ? 'east' : 'west'}`, highlight: true },
-                            { label: 'Jet Lag Severity', value: severityLabels[severity] },
-                            { label: 'Recovery Time', value: `${recoveryDays} days` },
-                            { label: 'Flight Duration', value: `${userData.flightDuration} hours` }
-                        ]
-                    },
-                    {
-                        type: 'tips',
-                        title: 'Key Strategies',
-                        items: [
-                            {
-                                title: 'Light Exposure',
-                                priority: 'high',
-                                text: isEast 
-                                    ? 'Seek bright morning light (6-11 AM). Avoid evening light after 6 PM.'
-                                    : 'Get bright evening light (4-9 PM). Wear sunglasses in early morning.'
-                            },
-                            {
-                                title: 'Sleep Timing',
-                                priority: 'high',
-                                text: 'Go to bed at local time from night one, even if not tired. Wake at local time too.'
-                            },
-                            {
-                                title: 'Napping',
-                                priority: 'medium',
-                                text: 'Short naps (20-30 min) before 3 PM only. Longer naps will delay adjustment.'
-                            }
-                        ]
-                    },
-                    {
-                        type: 'warning',
-                        title: 'Remember',
-                        text: 'Be patient with yourself - jet lag affects everyone differently. Prioritize light exposure and meal timing for fastest recovery.'
-                    }
-                ],
-                ctaButton: {
-                    text: 'Explore More Sleep Tools',
-                    url: 'https://tools.spacire.com'
-                }
+                
+                // Summary data
+                summary: {
+                    timeDifference: timeDifference,
+                    direction: isEast ? 'east' : 'west',
+                    directionLabel: isEast ? 'Eastward (harder)' : 'Westward (easier)',
+                    severity: severity,
+                    severityLabel: severityLabels[severity],
+                    recoveryDays: recoveryDays,
+                    flightDuration: userData.flightDuration,
+                    tripDuration: userData.tripDuration,
+                    isShortTrip: userData.tripDuration === 'short'
+                },
+                
+                // Pre-travel prep (if applicable)
+                preTravelSchedule: preTravelSchedule,
+                hasPreTravel: preTravelSchedule.length > 0,
+                
+                // In-flight strategy
+                inFlightStrategy: inFlightStrategy,
+                
+                // Light exposure schedule
+                lightSchedule: lightSchedule,
+                
+                // Post-arrival day-by-day plan
+                postArrivalPlan: postArrivalPlan,
+                
+                // Key tips
+                keyTips: keyTips,
+                
+                // Short trip note
+                shortTripNote: userData.tripDuration === 'short' 
+                    ? 'For trips of 1-3 days, consider staying partially on your home timezone rather than fully adjusting. This avoids the challenge of adjusting twice (there and back). Keep meals and sleep somewhat aligned with home time if possible.'
+                    : null
             });
             
             try {
