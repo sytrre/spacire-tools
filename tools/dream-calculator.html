@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Dream Calculator - Find optimal times to wake up during REM sleep for vivid dreams and better dream recall. Includes lucid dreaming tips and personalized dream windows.">
+    <meta name="keywords" content="dream calculator, REM sleep calculator, lucid dreaming, dream recall, when to wake up for dreams, vivid dreams, sleep cycle calculator, dream timing">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Dream Calculator - Optimize Your REM Sleep for Vivid Dreams | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/dream-calculator">
+    
+    <meta property="og:title" content="Dream Calculator - Wake Up During Dreams">
+    <meta property="og:description" content="Find the best times to wake up for vivid dream recall. Optimize your sleep for lucid dreaming.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/dream-calculator">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dream Calculator - Optimize Your Dream Recall">
+    <meta name="twitter:description" content="Calculate optimal wake times for vivid dreams and better dream recall.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Dream Calculator",
+        "description": "Calculate optimal wake times for vivid dream recall and lucid dreaming based on REM sleep cycles.",
+        "url": "https://tools.spacire.com/dream-calculator",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5e6c4;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-light: #777;
+            --text-muted: #888;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --hover: #f8f9fa;
+            --border: #e0e0e0;
+            --success: #d4edda;
+            --success-dark: #28a745;
+            --warning: #fff3cd;
+            --warning-dark: #ffc107;
+            --error: #f8d7da;
+            --error-dark: #dc3545;
+            --info: #d1ecf1;
+            --info-dark: #17a2b8;
+            --dream: #6f42c1;
+            --dream-light: #e9e3f4;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --transition: all 0.2s ease;
+            --font-primary: 'Domine', Georgia, serif;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: var(--font-primary); background: #f5f5f5; color: var(--text-primary); line-height: 1.6; }
+        
+        /* Header */
+        .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+        .header-nav { display: flex; gap: 28px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        /* Breadcrumb */
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-muted); margin: 0 8px; }
+        
+        /* Main Container */
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 650px; margin: 0 auto; }
+        
+        /* Tool Card */
+        .tool-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 24px; }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--dream) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; margin: 0; }
+        .tool-body { padding: 28px; }
+        
+        /* Form Elements */
+        .form-section { margin-bottom: 24px; }
+        .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .form-sublabel { font-size: 13px; color: var(--text-secondary); font-weight: 400; margin-left: 4px; }
+        
+        /* Mode Tabs */
+        .mode-tabs { display: flex; gap: 8px; margin-bottom: 24px; }
+        .mode-tab { flex: 1; padding: 14px 16px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: var(--transition); text-align: center; }
+        .mode-tab:hover { border-color: var(--dream); }
+        .mode-tab.active { border-color: var(--dream); background: var(--dream-light); color: var(--dream); }
+        
+        /* Time Input */
+        .time-input-group { display: flex; gap: 12px; align-items: center; }
+        .time-input { padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 16px; width: 140px; transition: var(--transition); }
+        .time-input:focus { outline: none; border-color: var(--dream); }
+        
+        /* Option Buttons */
+        .options-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .option-btn { flex: 1; min-width: 100px; padding: 12px 16px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 13px; color: var(--text-secondary); cursor: pointer; transition: var(--transition); text-align: center; }
+        .option-btn:hover { border-color: var(--dream); }
+        .option-btn.selected { border-color: var(--dream); background: var(--dream-light); color: var(--dream); font-weight: 600; }
+        
+        /* Calculate Button */
+        .btn { padding: 16px 32px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 16px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; width: 100%; }
+        .btn-primary { background: linear-gradient(135deg, var(--dream) 0%, var(--primary) 100%); color: #fff; }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+        
+        /* Results Section */
+        .results-section { display: none; margin-top: 32px; }
+        .results-section.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Dream Windows */
+        .dream-windows { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .dream-windows-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .dream-windows-title svg { width: 24px; height: 24px; fill: var(--dream); }
+        
+        .dream-time-card { background: linear-gradient(135deg, var(--dream-light) 0%, #f8f4fc 100%); border: 2px solid var(--dream); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; position: relative; overflow: hidden; }
+        .dream-time-card.best { border-width: 3px; }
+        .dream-time-card.best::before { content: 'BEST FOR DREAMS'; position: absolute; top: 0; right: 0; background: var(--dream); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 0 0 0 8px; letter-spacing: 0.05em; }
+        .dream-time { font-size: 32px; font-weight: 700; color: var(--dream); margin-bottom: 4px; }
+        .dream-cycles { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+        .dream-info { display: flex; gap: 16px; flex-wrap: wrap; }
+        .dream-stat { font-size: 13px; color: var(--text-secondary); }
+        .dream-stat strong { color: var(--primary); }
+        
+        .other-times { margin-top: 16px; }
+        .other-times-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+        .other-times-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+        .other-time { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; text-align: center; }
+        .other-time-value { font-size: 18px; font-weight: 600; color: var(--primary); }
+        .other-time-cycles { font-size: 11px; color: var(--text-muted); }
+        
+        /* Sleep Architecture */
+        .architecture-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .architecture-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .cycle-visual { margin-bottom: 20px; }
+        .cycle-row { display: flex; align-items: center; margin-bottom: 8px; }
+        .cycle-label { width: 70px; font-size: 12px; color: var(--text-muted); flex-shrink: 0; }
+        .cycle-bar { flex: 1; height: 28px; display: flex; border-radius: 4px; overflow: hidden; }
+        .stage-light { background: #87CEEB; }
+        .stage-deep { background: #2E4057; }
+        .stage-rem { background: var(--dream); }
+        .cycle-legend { display: flex; gap: 16px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
+        .legend-color { width: 14px; height: 14px; border-radius: 3px; }
+        
+        /* REM Growth Chart */
+        .rem-growth { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+        .rem-growth-title { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 12px; }
+        .rem-bars { display: flex; align-items: flex-end; gap: 8px; height: 100px; }
+        .rem-bar-container { flex: 1; display: flex; flex-direction: column; align-items: center; }
+        .rem-bar { width: 100%; background: linear-gradient(to top, var(--dream), #9370DB); border-radius: 4px 4px 0 0; transition: height 0.5s ease; }
+        .rem-bar-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+        .rem-bar-value { font-size: 10px; color: var(--dream); font-weight: 600; margin-bottom: 2px; }
+        
+        /* Dream Tips */
+        .tips-section { background: var(--dream-light); border: 1px solid var(--dream); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .tips-title { font-size: 16px; font-weight: 600; color: var(--dream); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .tip-card { background: var(--bg); border-radius: var(--radius-md); padding: 16px; margin-bottom: 12px; }
+        .tip-card:last-child { margin-bottom: 0; }
+        .tip-card-title { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .tip-card-title .icon { font-size: 18px; }
+        .tip-card-text { font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.6; }
+        
+        /* Lucid Dreaming */
+        .lucid-section { background: linear-gradient(135deg, var(--primary) 0%, var(--dream) 100%); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; color: #fff; }
+        .lucid-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+        .lucid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .lucid-card { background: rgba(255,255,255,0.15); border-radius: var(--radius-md); padding: 16px; }
+        .lucid-card-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+        .lucid-card-text { font-size: 13px; opacity: 0.9; margin: 0; }
+        
+        /* Email Capture */
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--dream-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 24px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--dream); }
+        .btn-email { background: var(--dream); color: #fff; min-width: 140px; }
+        .btn-email:hover { background: #5a32a3; }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error-dark); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        /* Disclaimer */
+        .disclaimer { background: var(--info); border: 1px solid var(--info-dark); border-radius: var(--radius-md); padding: 16px; margin-bottom: 24px; }
+        .disclaimer-title { font-size: 14px; font-weight: 600; color: #0c5460; margin-bottom: 6px; }
+        .disclaimer-text { font-size: 13px; color: #0c5460; line-height: 1.6; margin: 0; }
+        
+        /* New Calc Button */
+        .new-calc-btn { display: block; margin: 20px auto 0; padding: 12px 24px; background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); }
+        .new-calc-btn:hover { border-color: var(--primary); }
+        
+        /* Info Toggles */
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .info-table th, .info-table td { padding: 12px; text-align: left; border: 1px solid var(--border); }
+        .info-table th { background: var(--hover); font-weight: 600; color: var(--primary); }
+        .info-table td { color: var(--text-secondary); }
+        .tools-grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        .share-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); text-decoration: none; font-size: 13px; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
+        .share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .share-btn.twitter { background: #1DA1F2; color: white; }
+        .share-btn.twitter:hover { background: #1a8cd8; }
+        .share-btn.facebook { background: #4267B2; color: white; }
+        .share-btn.facebook:hover { background: #365899; }
+        .share-btn.copy { background: var(--hover); color: var(--primary); border: 1px solid var(--border); }
+        .share-btn.copy:hover { border-color: var(--primary); }
+        
+        /* Footer */
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>&gt;</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>&gt;</span>
+            <span style="color: var(--text-primary);">Dream Calculator</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Dream Calculator</h1>
+            <p class="page-subtitle">Find the optimal times to wake up during REM sleep for vivid dream recall. Maximize your dreaming potential.</p>
+        </header>
+        
+        <!-- Calculator Card -->
+        <div class="tool-card" id="calculatorCard">
+            <div class="tool-header">
+                <h2>Dream Timing Calculator</h2>
+                <p>Calculate your best wake times for dream recall</p>
+            </div>
+            
+            <div class="tool-body">
+                <!-- Mode Selection -->
+                <div class="form-section">
+                    <label class="form-label">What do you want to calculate?</label>
+                    <div class="mode-tabs">
+                        <button class="mode-tab active" data-mode="wake" onclick="setMode('wake')">
+                            Best wake time for dreams
+                        </button>
+                        <button class="mode-tab" data-mode="bed" onclick="setMode('bed')">
+                            Best bedtime for dreams
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Wake Mode Input -->
+                <div class="form-section" id="bedtimeInput">
+                    <label class="form-label">When are you going to bed?</label>
+                    <div class="time-input-group">
+                        <input type="time" class="time-input" id="bedtimeTime" value="23:00">
+                    </div>
+                </div>
+                
+                <!-- Bed Mode Input -->
+                <div class="form-section" id="wakeInput" style="display: none;">
+                    <label class="form-label">When do you want to wake up?</label>
+                    <div class="time-input-group">
+                        <input type="time" class="time-input" id="wakeTime" value="07:00">
+                    </div>
+                </div>
+                
+                <!-- Sleep Latency -->
+                <div class="form-section">
+                    <label class="form-label">How long does it take you to fall asleep? <span class="form-sublabel">(minutes)</span></label>
+                    <div class="options-row">
+                        <button class="option-btn" data-value="5" onclick="selectLatency(this)">5 min</button>
+                        <button class="option-btn selected" data-value="15" onclick="selectLatency(this)">15 min</button>
+                        <button class="option-btn" data-value="20" onclick="selectLatency(this)">20 min</button>
+                        <button class="option-btn" data-value="30" onclick="selectLatency(this)">30 min</button>
+                        <button class="option-btn" data-value="45" onclick="selectLatency(this)">45 min</button>
+                    </div>
+                </div>
+                
+                <!-- Dream Goal -->
+                <div class="form-section">
+                    <label class="form-label">What's your dream goal?</label>
+                    <div class="options-row">
+                        <button class="option-btn selected" data-value="recall" onclick="selectGoal(this)">Better dream recall</button>
+                        <button class="option-btn" data-value="vivid" onclick="selectGoal(this)">More vivid dreams</button>
+                        <button class="option-btn" data-value="lucid" onclick="selectGoal(this)">Lucid dreaming</button>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="calculateDreams()">Calculate Dream Times</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <!-- Dream Windows -->
+            <div class="dream-windows">
+                <div class="dream-windows-title">
+                    <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4M12,6A1,1 0 0,0 11,7V12.42L14.53,15.94L15.94,14.53L13,11.59V7A1,1 0 0,0 12,6Z"/></svg>
+                    Your Dream Windows
+                </div>
+                
+                <div id="bestDreamTime">
+                    <!-- Populated by JS -->
+                </div>
+                
+                <div class="other-times" id="otherTimes">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Sleep Architecture -->
+            <div class="architecture-section">
+                <div class="architecture-title">Your Sleep Architecture Tonight</div>
+                <div class="cycle-visual" id="cycleVisual">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="cycle-legend">
+                    <div class="legend-item"><div class="legend-color stage-light"></div> Light Sleep</div>
+                    <div class="legend-item"><div class="legend-color stage-deep"></div> Deep Sleep</div>
+                    <div class="legend-item"><div class="legend-color stage-rem"></div> REM (Dreams)</div>
+                </div>
+                
+                <div class="rem-growth">
+                    <div class="rem-growth-title">REM Duration by Cycle (Dreams get longer through the night)</div>
+                    <div class="rem-bars" id="remBars">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dream Recall Tips -->
+            <div class="tips-section" id="tipsSection">
+                <div class="tips-title">
+                    <span style="font-size: 20px;">&#128173;</span>
+                    Maximize Your Dream Recall
+                </div>
+                <div id="tipsContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Lucid Dreaming Section -->
+            <div class="lucid-section" id="lucidSection">
+                <div class="lucid-title">Lucid Dreaming Techniques for Tonight</div>
+                <div class="lucid-grid" id="lucidGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Email Capture -->
+            <div class="email-capture">
+                <h3 class="email-capture-title">Save Your Dream Schedule</h3>
+                <p class="email-capture-text">Get your personalized dream timing report and tips sent to your inbox.</p>
+                <form class="email-form" onsubmit="sendReport(event)">
+                    <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                    <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                    <button type="submit" class="btn btn-email" id="sendReportBtn">Send Report</button>
+                </form>
+                <p class="email-success" id="emailSuccess">Report sent! Check your inbox.</p>
+                <p class="form-error" id="formError"></p>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <div class="disclaimer-title">About Dream Timing</div>
+                <p class="disclaimer-text">Dream calculations are based on average 90-minute sleep cycles and the progressive lengthening of REM periods throughout the night. Individual sleep patterns may vary. This tool is for informational purposes and is not a substitute for professional sleep advice.</p>
+            </div>
+            
+            <button class="new-calc-btn" onclick="resetCalculator()">Calculate New Times</button>
+        </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Understanding Dream Timing</h4>
+                    <p>Dreams primarily occur during REM (Rapid Eye Movement) sleep. REM periods happen at the end of each 90-minute sleep cycle, and they get progressively longer as the night goes on. The first REM period might only last 10 minutes, while later ones can last 45-60 minutes.</p>
+                    
+                    <h4>How We Calculate</h4>
+                    <ul>
+                        <li><strong>Sleep cycles:</strong> We count in 90-minute cycles from when you fall asleep</li>
+                        <li><strong>REM timing:</strong> Each cycle ends with a REM period when dreams occur</li>
+                        <li><strong>Best windows:</strong> Later cycles (4-6) have the longest, most vivid dreams</li>
+                        <li><strong>Wake timing:</strong> Waking during or just after REM maximizes dream recall</li>
+                    </ul>
+                    
+                    <h4>What You'll Get</h4>
+                    <ul>
+                        <li>Optimal wake times for dream recall</li>
+                        <li>Visual sleep architecture diagram</li>
+                        <li>REM duration by cycle</li>
+                        <li>Personalized dream recall tips</li>
+                        <li>Lucid dreaming techniques (if selected)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">The Science of Dreams</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>When Dreams Happen</h4>
+                    <p>While some dreaming can occur in other sleep stages, the most vivid and memorable dreams happen during REM sleep. During REM, your brain is almost as active as when you're awake, but your body is temporarily paralyzed (REM atonia) to prevent you from acting out your dreams.</p>
+                    
+                    <h4>REM Sleep Through the Night</h4>
+                    <table class="info-table">
+                        <tr>
+                            <th>Cycle</th>
+                            <th>Time After Sleep</th>
+                            <th>Typical REM Duration</th>
+                        </tr>
+                        <tr><td>1st</td><td>~90 min</td><td>5-10 minutes</td></tr>
+                        <tr><td>2nd</td><td>~3 hours</td><td>15-20 minutes</td></tr>
+                        <tr><td>3rd</td><td>~4.5 hours</td><td>20-25 minutes</td></tr>
+                        <tr><td>4th</td><td>~6 hours</td><td>25-35 minutes</td></tr>
+                        <tr><td>5th</td><td>~7.5 hours</td><td>35-45 minutes</td></tr>
+                        <tr><td>6th</td><td>~9 hours</td><td>45-60 minutes</td></tr>
+                    </table>
+                    
+                    <h4>Why We Forget Dreams</h4>
+                    <p>Most dreams are forgotten within 5 minutes of waking. This happens because the brain chemicals responsible for memory formation (norepinephrine) are at low levels during REM sleep. Waking directly from REM sleep gives you the best chance of remembering.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Dream Recall Tips</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Before Sleep</h4>
+                    <ul>
+                        <li><strong>Set an intention:</strong> Tell yourself "I will remember my dreams tonight"</li>
+                        <li><strong>Keep a journal ready:</strong> Place a notebook and pen by your bed</li>
+                        <li><strong>Review past dreams:</strong> Read through previous dream entries</li>
+                        <li><strong>Avoid alcohol:</strong> Alcohol suppresses REM sleep</li>
+                    </ul>
+                    
+                    <h4>Upon Waking</h4>
+                    <ul>
+                        <li><strong>Stay still:</strong> Don't move immediately upon waking</li>
+                        <li><strong>Keep eyes closed:</strong> Try to recall dreams before opening your eyes</li>
+                        <li><strong>Record immediately:</strong> Write down any fragments, emotions, or images</li>
+                        <li><strong>Use keywords:</strong> Note key elements even if you can't recall the full dream</li>
+                        <li><strong>Describe emotions:</strong> How did the dream make you feel?</li>
+                    </ul>
+                    
+                    <h4>Building Dream Recall Over Time</h4>
+                    <p>Dream recall is a skill that improves with practice. Even if you remember nothing at first, continue the practice every morning. Within 1-2 weeks, most people notice significant improvement in their dream recall.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Lucid Dreaming Guide</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>What Is Lucid Dreaming?</h4>
+                    <p>Lucid dreaming is when you become aware that you're dreaming while still in the dream. Once lucid, you can often influence the dream's direction and content. Research suggests 55% of people have had at least one lucid dream.</p>
+                    
+                    <h4>Popular Techniques</h4>
+                    <ul>
+                        <li><strong>Reality Testing:</strong> Throughout the day, ask "Am I dreaming?" and look for signs. This habit carries into dreams.</li>
+                        <li><strong>MILD (Mnemonic Induction):</strong> As you fall asleep, repeat "Next time I'm dreaming, I will realize I'm dreaming."</li>
+                        <li><strong>WBTB (Wake Back to Bed):</strong> Wake after 5-6 hours, stay up briefly, then return to sleep focusing on lucid dreaming.</li>
+                        <li><strong>Dream Signs:</strong> Identify recurring elements in your dreams that can serve as triggers for lucidity.</li>
+                    </ul>
+                    
+                    <h4>Reality Check Methods</h4>
+                    <ul>
+                        <li>Try to push your finger through your palm</li>
+                        <li>Look at text, look away, look back (text changes in dreams)</li>
+                        <li>Check a clock twice (time is unstable in dreams)</li>
+                        <li>Try to breathe with your nose pinched</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Our Approach</h4>
+                    <p>This Dream Calculator goes beyond simple sleep cycle calculations. We factor in the progressive lengthening of REM periods throughout the night to identify optimal dream windows, and provide personalized tips based on your dream goals.</p>
+                    
+                    <h4>What Makes This Tool Different</h4>
+                    <ul>
+                        <li><strong>Dream-focused:</strong> Optimized for dream recall, not just avoiding grogginess</li>
+                        <li><strong>REM visualization:</strong> See how dream periods grow through the night</li>
+                        <li><strong>Personalized tips:</strong> Advice tailored to your dream goals</li>
+                        <li><strong>Lucid dreaming support:</strong> Techniques for becoming aware in dreams</li>
+                    </ul>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a UK-based sleep wellness company offering free science-backed tools and curated sleep products. We believe better sleep leads to better dreams.</p>
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Others Explore Their Dreams</h4>
+                    <p>If you found this dream calculator helpful, share it with friends who want to improve their dream recall or try lucid dreaming.</p>
+                    
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/dream-calculator&text=Dream%20Calculator%20-%20Find%20optimal%20wake%20times%20for%20vivid%20dream%20recall" target="_blank" rel="noopener noreferrer" class="share-btn twitter">
+                            <svg viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/></svg>
+                            Share on X/Twitter
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/dream-calculator" target="_blank" rel="noopener noreferrer" class="share-btn facebook">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                            Share on Facebook
+                        </a>
+                        <button class="share-btn copy" onclick="copyLink()">
+                            <svg viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Sleep Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Continue Your Sleep Journey</h4>
+                    <p>Explore these complementary tools:</p>
+                    
+                    <div class="tools-grid-info">
+                        <a href="https://tools.spacire.com/sleep-cycle-calculator" class="tool-link-card">
+                            <h5>Sleep Cycle Calculator</h5>
+                            <p>Calculate optimal bedtime and wake times</p>
+                        </a>
+                        <a href="https://tools.spacire.com/chronotype-quiz" class="tool-link-card">
+                            <h5>Chronotype Quiz</h5>
+                            <p>Discover your natural sleep-wake rhythm</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-quality-assessment" class="tool-link-card">
+                            <h5>Sleep Quality Assessment</h5>
+                            <p>Comprehensive 7-dimension sleep analysis</p>
+                        </a>
+                        <a href="https://tools.spacire.com/bedtime-routine-builder" class="tool-link-card">
+                            <h5>Bedtime Routine Builder</h5>
+                            <p>Create a relaxing wind-down routine</p>
+                        </a>
+                        <a href="https://tools.spacire.com/natural-sleep-remedy-finder" class="tool-link-card">
+                            <h5>Natural Sleep Remedy Finder</h5>
+                            <p>Evidence-based natural remedies</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-hygiene-quiz" class="tool-link-card">
+                            <h5>Sleep Hygiene Quiz</h5>
+                            <p>Assess your sleep habits</p>
+                        </a>
+                    </div>
+                    
+                    <p style="margin-top: 20px; text-align: center;"><a href="https://tools.spacire.com" style="color: var(--primary); font-weight: 600;">View All 14 Sleep Tools</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                    <a href="https://tools.spacire.com/sleep-sound-finder">Sleep Sound Finder</a>
+                    <a href="https://tools.spacire.com/natural-sleep-remedy-finder">Natural Sleep Remedy Finder</a>
+                    <a href="https://tools.spacire.com/jet-lag-calculator">Jet Lag Calculator</a>
+                    <a href="https://tools.spacire.com/chronotype-quiz">Chronotype Quiz</a>
+                    <a href="https://tools.spacire.com/sleep-cycle-calculator">Sleep Cycle Calculator</a>
+                    <a href="https://tools.spacire.com/insomnia-quiz">Insomnia Quiz</a>
+                    <a href="https://tools.spacire.com/power-nap-calculator">Power Nap Calculator</a>
+                    <a href="https://tools.spacire.com/sleep-quality-assessment">Sleep Quality Assessment</a>
+                    <a href="https://tools.spacire.com/sleep-hygiene-quiz">Sleep Hygiene Quiz</a>
+                    <a href="https://tools.spacire.com/dream-calculator">Dream Calculator</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // STATE
+        // ========================================
+        let mode = 'wake'; // 'wake' or 'bed'
+        let sleepLatency = 15;
+        let dreamGoal = 'recall';
+        let calculatedResults = null;
+        
+        // REM durations by cycle (in minutes)
+        const remDurations = [10, 20, 25, 35, 45, 55];
+        
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.closest('.info-toggle');
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText('https://tools.spacire.com/dream-calculator').then(() => {
+                const btn = event.target.closest('.share-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            });
+        }
+        
+        // ========================================
+        // MODE & INPUT HANDLERS
+        // ========================================
+        function setMode(newMode) {
+            mode = newMode;
+            document.querySelectorAll('.mode-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.mode === mode);
+            });
+            
+            document.getElementById('bedtimeInput').style.display = mode === 'wake' ? 'block' : 'none';
+            document.getElementById('wakeInput').style.display = mode === 'bed' ? 'block' : 'none';
+        }
+        
+        function selectLatency(btn) {
+            btn.closest('.options-row').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            sleepLatency = parseInt(btn.dataset.value);
+        }
+        
+        function selectGoal(btn) {
+            btn.closest('.options-row').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            dreamGoal = btn.dataset.value;
+        }
+        
+        // ========================================
+        // TIME UTILITIES
+        // ========================================
+        function parseTime(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            const date = new Date();
+            date.setHours(hours, minutes, 0, 0);
+            return date;
+        }
+        
+        function formatTime(date) {
+            return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+        }
+        
+        function addMinutes(date, minutes) {
+            return new Date(date.getTime() + minutes * 60000);
+        }
+        
+        // ========================================
+        // CALCULATIONS
+        // ========================================
+        function calculateDreams() {
+            const cycleLength = 90; // minutes
+            let sleepStart, dreamTimes = [];
+            
+            if (mode === 'wake') {
+                const bedtime = parseTime(document.getElementById('bedtimeTime').value);
+                sleepStart = addMinutes(bedtime, sleepLatency);
+                
+                // Calculate wake times at end of each cycle (when REM ends)
+                for (let i = 1; i <= 6; i++) {
+                    const wakeTime = addMinutes(sleepStart, cycleLength * i);
+                    const totalSleep = (cycleLength * i) / 60;
+                    const remTotal = remDurations.slice(0, i).reduce((a, b) => a + b, 0);
+                    
+                    dreamTimes.push({
+                        time: wakeTime,
+                        cycles: i,
+                        totalSleep: totalSleep,
+                        remTotal: remTotal,
+                        lastRemDuration: remDurations[i - 1]
+                    });
+                }
+            } else {
+                const wakeTime = parseTime(document.getElementById('wakeTime').value);
+                
+                // Calculate backwards from wake time
+                for (let i = 6; i >= 3; i--) {
+                    const sleepNeeded = cycleLength * i + sleepLatency;
+                    const bedtime = addMinutes(wakeTime, -sleepNeeded);
+                    const totalSleep = (cycleLength * i) / 60;
+                    const remTotal = remDurations.slice(0, i).reduce((a, b) => a + b, 0);
+                    
+                    dreamTimes.push({
+                        time: bedtime,
+                        cycles: i,
+                        totalSleep: totalSleep,
+                        remTotal: remTotal,
+                        lastRemDuration: remDurations[i - 1],
+                        isBedtime: true
+                    });
+                }
+                
+                sleepStart = addMinutes(dreamTimes[0].time, sleepLatency);
+            }
+            
+            // Find best dream time (cycles 5-6 have longest REM)
+            const bestIdx = dreamTimes.findIndex(dt => dt.cycles >= 5) !== -1 
+                ? dreamTimes.findIndex(dt => dt.cycles >= 5) 
+                : dreamTimes.length - 1;
+            
+            calculatedResults = {
+                mode,
+                sleepLatency,
+                dreamGoal,
+                sleepStart,
+                dreamTimes,
+                bestIdx,
+                bedtime: mode === 'wake' ? parseTime(document.getElementById('bedtimeTime').value) : dreamTimes[0].time,
+                wakeTime: mode === 'wake' ? dreamTimes[bestIdx].time : parseTime(document.getElementById('wakeTime').value)
+            };
+            
+            renderResults();
+            saveResults();
+        }
+        
+        // ========================================
+        // RENDER RESULTS
+        // ========================================
+        function renderResults() {
+            const r = calculatedResults;
+            document.getElementById('resultsSection').classList.add('active');
+            
+            // Best dream time
+            const best = r.dreamTimes[r.bestIdx];
+            const bestHtml = `
+                <div class="dream-time-card best">
+                    <div class="dream-time">${formatTime(best.time)}</div>
+                    <div class="dream-cycles">${best.cycles} sleep cycles - ${best.totalSleep.toFixed(1)} hours of sleep</div>
+                    <div class="dream-info">
+                        <div class="dream-stat"><strong>${best.remTotal}</strong> min total REM</div>
+                        <div class="dream-stat"><strong>${best.lastRemDuration}</strong> min final dream period</div>
+                        <div class="dream-stat"><strong>${Math.round(best.remTotal / (best.totalSleep * 60) * 100)}%</strong> dream sleep</div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('bestDreamTime').innerHTML = bestHtml;
+            
+            // Other times
+            const otherTimes = r.dreamTimes.filter((_, i) => i !== r.bestIdx && (mode === 'wake' ? _.cycles >= 4 : true));
+            if (otherTimes.length > 0) {
+                const otherHtml = `
+                    <div class="other-times-label">Other ${mode === 'wake' ? 'wake' : 'bedtime'} options:</div>
+                    <div class="other-times-grid">
+                        ${otherTimes.map(dt => `
+                            <div class="other-time">
+                                <div class="other-time-value">${formatTime(dt.time)}</div>
+                                <div class="other-time-cycles">${dt.cycles} cycles | ${dt.remTotal} min REM</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                document.getElementById('otherTimes').innerHTML = otherHtml;
+            }
+            
+            // Sleep architecture
+            renderSleepArchitecture(r);
+            
+            // REM bars
+            renderRemBars(r);
+            
+            // Tips
+            renderTips();
+            
+            // Lucid section
+            renderLucidSection();
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function renderSleepArchitecture(r) {
+            const targetCycles = r.dreamTimes[r.bestIdx].cycles;
+            let html = '';
+            
+            for (let i = 1; i <= targetCycles; i++) {
+                // Early cycles have more deep sleep, later cycles have more REM
+                const deepPercent = Math.max(10, 30 - (i * 4));
+                const remPercent = Math.min(40, 10 + (i * 6));
+                const lightPercent = 100 - deepPercent - remPercent;
+                
+                html += `
+                    <div class="cycle-row">
+                        <div class="cycle-label">Cycle ${i}</div>
+                        <div class="cycle-bar">
+                            <div class="stage-light" style="width: ${lightPercent * 0.4}%"></div>
+                            <div class="stage-deep" style="width: ${deepPercent}%"></div>
+                            <div class="stage-light" style="width: ${lightPercent * 0.6}%"></div>
+                            <div class="stage-rem" style="width: ${remPercent}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('cycleVisual').innerHTML = html;
+        }
+        
+        function renderRemBars(r) {
+            const targetCycles = r.dreamTimes[r.bestIdx].cycles;
+            const maxRem = Math.max(...remDurations.slice(0, targetCycles));
+            
+            let html = '';
+            for (let i = 0; i < targetCycles; i++) {
+                const height = (remDurations[i] / maxRem) * 80;
+                html += `
+                    <div class="rem-bar-container">
+                        <div class="rem-bar-value">${remDurations[i]}m</div>
+                        <div class="rem-bar" style="height: ${height}px;"></div>
+                        <div class="rem-bar-label">Cycle ${i + 1}</div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('remBars').innerHTML = html;
+        }
+        
+        function renderTips() {
+            const tips = {
+                recall: [
+                    { icon: '&#128221;', title: 'Keep a Dream Journal', text: 'Place a notebook by your bed and write down any dream fragments immediately upon waking, before checking your phone or getting up.' },
+                    { icon: '&#128716;', title: 'Stay Still Upon Waking', text: 'Don\'t move when you first wake up. Lie still with eyes closed and replay any dream memories before they fade.' },
+                    { icon: '&#128173;', title: 'Set an Intention', text: 'Before falling asleep, tell yourself: "I will remember my dreams tonight." This programs your mind for recall.' },
+                    { icon: '&#9203;', title: 'Use a Gentle Alarm', text: 'Harsh alarms can startle dreams away. Use a gradual alarm or wake naturally at your calculated dream window.' }
+                ],
+                vivid: [
+                    { icon: '&#127774;', title: 'Get Enough Sleep', text: 'Vivid dreams happen in later REM cycles. Aim for at least 7.5 hours to experience the longest dream periods.' },
+                    { icon: '&#127859;', title: 'Avoid Late Alcohol', text: 'Alcohol suppresses REM sleep early in the night, reducing dream vividness and recall.' },
+                    { icon: '&#127793;', title: 'Try Vitamin B6', text: 'Some research suggests B6 (before bed) may increase dream vividness. Start with low doses (25mg).' },
+                    { icon: '&#128564;', title: 'Practice WBTB', text: 'Wake after 5 hours, stay up for 20-30 minutes thinking about dreams, then return to sleep for vivid REM.' }
+                ],
+                lucid: [
+                    { icon: '&#128269;', title: 'Reality Test Daily', text: 'Ask yourself "Am I dreaming?" 10+ times daily and check for dream signs. This habit carries into dreams.' },
+                    { icon: '&#9203;', title: 'WBTB Technique', text: 'Wake after 5-6 hours, stay up 20-60 minutes reviewing lucid dreaming goals, then return to sleep.' },
+                    { icon: '&#128173;', title: 'MILD Technique', text: 'As you fall asleep, repeat: "Next time I\'m dreaming, I will realize I\'m dreaming" until you drift off.' },
+                    { icon: '&#128214;', title: 'Keep a Dream Journal', text: 'Record dreams daily to identify dream signs - recurring elements that can trigger lucidity.' }
+                ]
+            };
+            
+            const selectedTips = tips[dreamGoal];
+            const html = selectedTips.map(tip => `
+                <div class="tip-card">
+                    <div class="tip-card-title"><span class="icon">${tip.icon}</span> ${tip.title}</div>
+                    <p class="tip-card-text">${tip.text}</p>
+                </div>
+            `).join('');
+            
+            document.getElementById('tipsContainer').innerHTML = html;
+        }
+        
+        function renderLucidSection() {
+            const lucidSection = document.getElementById('lucidSection');
+            
+            if (dreamGoal === 'lucid') {
+                lucidSection.style.display = 'block';
+                const techniques = [
+                    { title: 'Reality Check', text: 'Try pushing your finger through your palm right now. In a dream, it might pass through!' },
+                    { title: 'Dream Sign Awareness', text: 'Notice unusual events today. In dreams, these oddities can trigger lucidity.' },
+                    { title: 'MILD Affirmation', text: '"I will become aware in my dreams tonight." Repeat as you fall asleep.' },
+                    { title: 'Best Window', text: `Your ${calculatedResults.dreamTimes[calculatedResults.bestIdx].cycles}th cycle ends with ${remDurations[calculatedResults.bestIdx]}+ min of REM - prime lucid dreaming time.` }
+                ];
+                
+                document.getElementById('lucidGrid').innerHTML = techniques.map(t => `
+                    <div class="lucid-card">
+                        <div class="lucid-card-title">${t.title}</div>
+                        <p class="lucid-card-text">${t.text}</p>
+                    </div>
+                `).join('');
+            } else {
+                lucidSection.style.display = 'none';
+            }
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL
+        // ========================================
+        async function saveResults() {
+            if (!calculatedResults) return;
+            
+            try {
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    {
+                        tool_name: 'dream_calculator',
+                        results_json: JSON.stringify({
+                            mode: calculatedResults.mode,
+                            dreamGoal: calculatedResults.dreamGoal,
+                            bestTime: formatTime(calculatedResults.dreamTimes[calculatedResults.bestIdx].time),
+                            cycles: calculatedResults.dreamTimes[calculatedResults.bestIdx].cycles
+                        }),
+                        user_agent: navigator.userAgent.substring(0, 500),
+                        created_at: new Date().toISOString()
+                    }
+                );
+            } catch (error) {
+                console.error('DB error:', error);
+            }
+        }
+        
+        async function sendReport(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('userEmail').value.trim();
+            const firstName = document.getElementById('userName').value.trim();
+            const sendBtn = document.getElementById('sendReportBtn');
+            const formError = document.getElementById('formError');
+            
+            formError.style.display = 'none';
+            
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            if (!calculatedResults) {
+                formError.textContent = 'Please calculate dream times first.';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
+            const best = calculatedResults.dreamTimes[calculatedResults.bestIdx];
+            
+            const emailPayload = JSON.stringify({
+                toolName: 'dream-calculator',
+                email: email,
+                firstName: firstName,
+                mode: calculatedResults.mode,
+                dreamGoal: calculatedResults.dreamGoal,
+                bestTime: formatTime(best.time),
+                cycles: best.cycles,
+                totalSleep: best.totalSleep,
+                remTotal: best.remTotal,
+                lastRemDuration: best.lastRemDuration,
+                allTimes: calculatedResults.dreamTimes.map(dt => ({
+                    time: formatTime(dt.time),
+                    cycles: dt.cycles,
+                    remTotal: dt.remTotal
+                }))
+            });
+            
+            try {
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'dream_calculator',
+                            user_email: email,
+                            user_first_name: firstName,
+                            results_json: JSON.stringify({
+                                mode: calculatedResults.mode,
+                                dreamGoal: calculatedResults.dreamGoal,
+                                bestTime: formatTime(best.time),
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                } catch (dbError) {
+                    console.error('DB error:', dbError);
+                }
+                
+                await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    true
+                );
+                
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('userEmail').disabled = true;
+                document.getElementById('userName').disabled = true;
+                sendBtn.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Email error:', error);
+                formError.textContent = 'Failed to send. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
+            }
+        }
+        
+        function resetCalculator() {
+            calculatedResults = null;
+            
+            document.getElementById('userEmail').disabled = false;
+            document.getElementById('userName').disabled = false;
+            document.getElementById('userEmail').value = '';
+            document.getElementById('userName').value = '';
+            document.getElementById('sendReportBtn').style.display = 'inline-block';
+            document.getElementById('sendReportBtn').disabled = false;
+            document.getElementById('sendReportBtn').textContent = 'Send Report';
+            document.getElementById('emailSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+            
+            document.getElementById('resultsSection').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
