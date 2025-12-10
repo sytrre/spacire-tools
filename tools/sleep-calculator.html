@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Sleep Calculator - Find your ideal bedtime and wake time based on your age and sleep cycles. Get personalized sleep recommendations backed by AASM and CDC guidelines.">
+    <meta name="keywords" content="sleep calculator, bedtime calculator, wake up time calculator, how much sleep do I need, sleep calculator by age, sleep cycle calculator, best time to sleep">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Sleep Calculator - Find Your Ideal Bedtime &amp; Wake Time | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/sleep-calculator">
+    
+    <meta property="og:title" content="Sleep Calculator - Optimal Bedtime &amp; Wake Time by Age">
+    <meta property="og:description" content="Calculate your ideal sleep schedule based on your age and sleep cycles. Science-backed recommendations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/sleep-calculator">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Calculator - Find Your Ideal Sleep Schedule">
+    <meta name="twitter:description" content="Personalized bedtime and wake time recommendations based on your age.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sleep Calculator",
+        "description": "Calculate optimal bedtime and wake time based on age and sleep cycles. Personalized recommendations backed by AASM and CDC guidelines.",
+        "url": "https://tools.spacire.com/sleep-calculator",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5e6c4;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-light: #777;
+            --text-muted: #888;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --hover: #f8f9fa;
+            --border: #e0e0e0;
+            --success: #d4edda;
+            --success-dark: #28a745;
+            --warning: #fff3cd;
+            --warning-dark: #ffc107;
+            --error: #f8d7da;
+            --error-dark: #dc3545;
+            --info: #d1ecf1;
+            --info-dark: #17a2b8;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --transition: all 0.2s ease;
+            --font-primary: 'Domine', Georgia, serif;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: var(--font-primary); background: #f5f5f5; color: var(--text-primary); line-height: 1.6; }
+        
+        /* Header */
+        .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+        .header-nav { display: flex; gap: 28px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        /* Breadcrumb */
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-muted); margin: 0 8px; }
+        
+        /* Main Container */
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 650px; margin: 0 auto; }
+        
+        /* Tool Card */
+        .tool-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 24px; }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; margin: 0; }
+        .tool-body { padding: 28px; }
+        
+        /* Form Elements */
+        .form-section { margin-bottom: 24px; }
+        .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .form-sublabel { font-size: 13px; color: var(--text-secondary); font-weight: 400; margin-left: 4px; }
+        
+        /* Mode Tabs */
+        .mode-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+        .mode-tab { flex: 1; min-width: 140px; padding: 14px 12px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 13px; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: var(--transition); text-align: center; }
+        .mode-tab:hover { border-color: var(--accent); }
+        .mode-tab.active { border-color: var(--primary); background: #e8f4fc; color: var(--primary); }
+        
+        /* Time Input */
+        .time-input-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .time-input { padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 16px; width: 150px; transition: var(--transition); }
+        .time-input:focus { outline: none; border-color: var(--primary); }
+        
+        /* Age Select */
+        .age-select { padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; width: 100%; max-width: 300px; transition: var(--transition); background: var(--bg); cursor: pointer; }
+        .age-select:focus { outline: none; border-color: var(--primary); }
+        
+        /* Option Buttons */
+        .options-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .option-btn { flex: 1; min-width: 80px; padding: 12px 16px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 13px; color: var(--text-secondary); cursor: pointer; transition: var(--transition); text-align: center; }
+        .option-btn:hover { border-color: var(--primary); }
+        .option-btn.selected { border-color: var(--primary); background: #e8f4fc; color: var(--primary); font-weight: 600; }
+        
+        /* Calculate Button */
+        .btn { padding: 16px 32px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 16px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; width: 100%; }
+        .btn-primary { background: var(--accent); color: var(--primary); }
+        .btn-primary:hover { background: #c9a047; transform: translateY(-1px); }
+        
+        /* Results Section */
+        .results-section { display: none; margin-top: 32px; }
+        .results-section.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Main Result */
+        .main-result { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); padding: 32px; text-align: center; color: #fff; margin-bottom: 24px; }
+        .result-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
+        .result-time { font-size: 56px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+        .result-details { font-size: 14px; opacity: 0.9; }
+        .result-badge { display: inline-block; background: var(--accent); color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 12px; }
+        
+        /* Time Options */
+        .time-options { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .time-options-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .time-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+        .time-card { background: var(--bg-light); border: 2px solid var(--border); border-radius: var(--radius-md); padding: 16px; text-align: center; transition: var(--transition); cursor: pointer; }
+        .time-card:hover { border-color: var(--primary); }
+        .time-card.recommended { border-color: var(--success-dark); background: var(--success); }
+        .time-card-time { font-size: 22px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .time-card-info { font-size: 12px; color: var(--text-secondary); }
+        .time-card-badge { font-size: 10px; background: var(--success-dark); color: #fff; padding: 2px 8px; border-radius: 10px; margin-top: 6px; display: inline-block; }
+        
+        /* Sleep Summary */
+        .sleep-summary { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .summary-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+        .summary-item { text-align: center; padding: 16px; background: var(--bg-light); border-radius: var(--radius-md); }
+        .summary-value { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .summary-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+        
+        /* Sleep Timeline */
+        .timeline-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .timeline-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .timeline-bar { height: 40px; background: var(--border); border-radius: 20px; overflow: hidden; position: relative; margin-bottom: 12px; }
+        .timeline-fill { height: 100%; position: absolute; left: 0; display: flex; }
+        .timeline-segment { height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 600; }
+        .segment-light { background: #87CEEB; }
+        .segment-deep { background: #2E4057; }
+        .segment-rem { background: #6f42c1; }
+        .timeline-legend { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
+        .legend-color { width: 14px; height: 14px; border-radius: 3px; }
+        
+        /* Age Recommendation */
+        .age-rec { background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .age-rec-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 12px; }
+        .age-rec-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+        .age-rec-range { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .age-rec-hours { font-size: 28px; font-weight: 700; color: var(--primary); }
+        .age-rec-label { font-size: 14px; color: var(--text-secondary); }
+        
+        /* Tips Section */
+        .tips-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .tips-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .tip-card { background: var(--bg-light); border-radius: var(--radius-md); padding: 16px; margin-bottom: 12px; display: flex; gap: 12px; }
+        .tip-card:last-child { margin-bottom: 0; }
+        .tip-icon { font-size: 20px; flex-shrink: 0; }
+        .tip-content { flex: 1; }
+        .tip-card-title { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tip-card-text { font-size: 13px; color: var(--text-secondary); margin: 0; }
+        
+        /* Email Capture */
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--accent-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 24px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--accent); }
+        .btn-email { background: var(--primary); color: #fff; min-width: 140px; }
+        .btn-email:hover { background: var(--primary-light); }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error-dark); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        /* Disclaimer */
+        .disclaimer { background: var(--info); border: 1px solid var(--info-dark); border-radius: var(--radius-md); padding: 16px; margin-bottom: 24px; }
+        .disclaimer-title { font-size: 14px; font-weight: 600; color: #0c5460; margin-bottom: 6px; }
+        .disclaimer-text { font-size: 13px; color: #0c5460; line-height: 1.6; margin: 0; }
+        
+        /* New Calc Button */
+        .new-calc-btn { display: block; margin: 20px auto 0; padding: 12px 24px; background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); }
+        .new-calc-btn:hover { border-color: var(--primary); }
+        
+        /* Info Toggles */
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .info-table th, .info-table td { padding: 12px; text-align: left; border: 1px solid var(--border); }
+        .info-table th { background: var(--hover); font-weight: 600; color: var(--primary); }
+        .info-table td { color: var(--text-secondary); }
+        .tools-grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        .share-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); text-decoration: none; font-size: 13px; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
+        .share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .share-btn.twitter { background: #1DA1F2; color: white; }
+        .share-btn.twitter:hover { background: #1a8cd8; }
+        .share-btn.facebook { background: #4267B2; color: white; }
+        .share-btn.facebook:hover { background: #365899; }
+        .share-btn.copy { background: var(--hover); color: var(--primary); border: 1px solid var(--border); }
+        .share-btn.copy:hover { border-color: var(--primary); }
+        
+        /* Footer */
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>&gt;</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>&gt;</span>
+            <span style="color: var(--text-primary);">Sleep Calculator</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Sleep Calculator</h1>
+            <p class="page-subtitle">Find your ideal bedtime and wake time based on your age and sleep cycles. Get personalized recommendations for optimal rest.</p>
+        </header>
+        
+        <!-- Calculator Card -->
+        <div class="tool-card" id="calculatorCard">
+            <div class="tool-header">
+                <h2>Calculate Your Sleep Schedule</h2>
+                <p>Based on AASM &amp; CDC sleep recommendations</p>
+            </div>
+            
+            <div class="tool-body">
+                <!-- Mode Selection -->
+                <div class="form-section">
+                    <label class="form-label">What do you want to calculate?</label>
+                    <div class="mode-tabs">
+                        <button class="mode-tab active" data-mode="bedtime" onclick="setMode('bedtime')">
+                            Find my bedtime
+                        </button>
+                        <button class="mode-tab" data-mode="wake" onclick="setMode('wake')">
+                            Find my wake time
+                        </button>
+                        <button class="mode-tab" data-mode="now" onclick="setMode('now')">
+                            I'm going to sleep now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Wake Time Input (for bedtime mode) -->
+                <div class="form-section" id="wakeInput">
+                    <label class="form-label">What time do you need to wake up?</label>
+                    <div class="time-input-group">
+                        <input type="time" class="time-input" id="wakeTime" value="07:00">
+                    </div>
+                </div>
+                
+                <!-- Bedtime Input (for wake mode) -->
+                <div class="form-section" id="bedInput" style="display: none;">
+                    <label class="form-label">What time are you going to bed?</label>
+                    <div class="time-input-group">
+                        <input type="time" class="time-input" id="bedTime" value="23:00">
+                    </div>
+                </div>
+                
+                <!-- Age Selection -->
+                <div class="form-section">
+                    <label class="form-label">Your age group</label>
+                    <select class="age-select" id="ageGroup">
+                        <option value="infant">Infant (4-12 months)</option>
+                        <option value="toddler">Toddler (1-2 years)</option>
+                        <option value="preschool">Preschool (3-5 years)</option>
+                        <option value="school">School Age (6-12 years)</option>
+                        <option value="teen">Teen (13-17 years)</option>
+                        <option value="young-adult">Young Adult (18-25 years)</option>
+                        <option value="adult" selected>Adult (26-64 years)</option>
+                        <option value="senior">Senior (65+ years)</option>
+                    </select>
+                </div>
+                
+                <!-- Sleep Latency -->
+                <div class="form-section">
+                    <label class="form-label">How long does it take you to fall asleep?</label>
+                    <div class="options-row">
+                        <button class="option-btn" data-value="5" onclick="selectLatency(this)">5 min</button>
+                        <button class="option-btn selected" data-value="15" onclick="selectLatency(this)">15 min</button>
+                        <button class="option-btn" data-value="20" onclick="selectLatency(this)">20 min</button>
+                        <button class="option-btn" data-value="30" onclick="selectLatency(this)">30 min</button>
+                        <button class="option-btn" data-value="45" onclick="selectLatency(this)">45 min</button>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="calculateSleep()">Calculate My Sleep Schedule</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <!-- Main Result -->
+            <div class="main-result" id="mainResult">
+                <div class="result-label" id="resultLabel">Recommended Bedtime</div>
+                <div class="result-time" id="resultTime">11:00 PM</div>
+                <div class="result-details" id="resultDetails">Get 8 hours of sleep with 5 complete cycles</div>
+                <div class="result-badge" id="resultBadge">Optimal for your age</div>
+            </div>
+            
+            <!-- Time Options -->
+            <div class="time-options">
+                <div class="time-options-title" id="timeOptionsTitle">All Bedtime Options</div>
+                <div class="time-grid" id="timeGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Sleep Summary -->
+            <div class="sleep-summary">
+                <div class="summary-title">Your Sleep Summary</div>
+                <div class="summary-grid" id="summaryGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Sleep Timeline -->
+            <div class="timeline-section">
+                <div class="timeline-title">Your Sleep Architecture</div>
+                <div class="timeline-bar">
+                    <div class="timeline-fill" id="timelineFill">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="timeline-legend">
+                    <div class="legend-item"><div class="legend-color segment-light"></div> Light Sleep</div>
+                    <div class="legend-item"><div class="legend-color segment-deep"></div> Deep Sleep</div>
+                    <div class="legend-item"><div class="legend-color segment-rem"></div> REM Sleep</div>
+                </div>
+            </div>
+            
+            <!-- Age Recommendation -->
+            <div class="age-rec" id="ageRec">
+                <div class="age-rec-title">Sleep Recommendation for Your Age</div>
+                <div class="age-rec-text" id="ageRecText">Adults (26-64) should get 7-9 hours of sleep per night according to the AASM and CDC.</div>
+                <div class="age-rec-range">
+                    <div class="age-rec-hours" id="ageRecHours">7-9 hours</div>
+                    <div class="age-rec-label">recommended per night</div>
+                </div>
+            </div>
+            
+            <!-- Tips Section -->
+            <div class="tips-section">
+                <div class="tips-title">Tips for Better Sleep</div>
+                <div id="tipsContainer">
+                    <div class="tip-card">
+                        <div class="tip-icon">&#128337;</div>
+                        <div class="tip-content">
+                            <div class="tip-card-title">Stick to Your Schedule</div>
+                            <p class="tip-card-text">Go to bed and wake up at the same time every day, even on weekends.</p>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">&#127774;</div>
+                        <div class="tip-content">
+                            <div class="tip-card-title">Get Morning Light</div>
+                            <p class="tip-card-text">Expose yourself to natural sunlight within 30 minutes of waking.</p>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">&#128241;</div>
+                        <div class="tip-content">
+                            <div class="tip-card-title">Screen-Free Hour</div>
+                            <p class="tip-card-text">Avoid screens for at least 1 hour before your calculated bedtime.</p>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">&#127969;</div>
+                        <div class="tip-content">
+                            <div class="tip-card-title">Cool, Dark, Quiet</div>
+                            <p class="tip-card-text">Keep your bedroom at 16-19C (60-67F), dark, and quiet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email Capture -->
+            <div class="email-capture">
+                <h3 class="email-capture-title">Save Your Sleep Schedule</h3>
+                <p class="email-capture-text">Get your personalized sleep times and tips sent to your inbox.</p>
+                <form class="email-form" onsubmit="sendReport(event)">
+                    <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                    <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                    <button type="submit" class="btn btn-email" id="sendReportBtn">Send Report</button>
+                </form>
+                <p class="email-success" id="emailSuccess">Report sent! Check your inbox.</p>
+                <p class="form-error" id="formError"></p>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <div class="disclaimer-title">Important Note</div>
+                <p class="disclaimer-text">Sleep needs vary by individual. These recommendations are based on general guidelines from the American Academy of Sleep Medicine (AASM) and Centers for Disease Control and Prevention (CDC). If you have persistent sleep issues, consult a healthcare provider.</p>
+            </div>
+            
+            <button class="new-calc-btn" onclick="resetCalculator()">Calculate New Times</button>
+        </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Our Calculation Method</h4>
+                    <p>The Sleep Calculator combines two key factors to find your optimal sleep schedule:</p>
+                    <ul>
+                        <li><strong>Age-based recommendations:</strong> We use AASM and CDC guidelines for recommended sleep duration by age group</li>
+                        <li><strong>Sleep cycle optimization:</strong> We align your schedule with natural 90-minute sleep cycles to help you wake feeling refreshed</li>
+                        <li><strong>Sleep latency:</strong> We account for the time it takes you to fall asleep</li>
+                    </ul>
+                    
+                    <h4>Three Calculation Modes</h4>
+                    <ul>
+                        <li><strong>Find my bedtime:</strong> Enter your wake time to get optimal bedtimes</li>
+                        <li><strong>Find my wake time:</strong> Enter your bedtime to get optimal wake times</li>
+                        <li><strong>Going to sleep now:</strong> Get immediate wake time recommendations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Sleep Recommendations by Age</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Official Guidelines (AASM &amp; CDC)</h4>
+                    <table class="info-table">
+                        <tr>
+                            <th>Age Group</th>
+                            <th>Recommended Sleep</th>
+                        </tr>
+                        <tr><td>Infants (4-12 months)</td><td>12-16 hours (including naps)</td></tr>
+                        <tr><td>Toddlers (1-2 years)</td><td>11-14 hours (including naps)</td></tr>
+                        <tr><td>Preschool (3-5 years)</td><td>10-13 hours (including naps)</td></tr>
+                        <tr><td>School Age (6-12 years)</td><td>9-12 hours</td></tr>
+                        <tr><td>Teens (13-17 years)</td><td>8-10 hours</td></tr>
+                        <tr><td>Young Adults (18-25 years)</td><td>7-9 hours</td></tr>
+                        <tr><td>Adults (26-64 years)</td><td>7-9 hours</td></tr>
+                        <tr><td>Seniors (65+ years)</td><td>7-8 hours</td></tr>
+                    </table>
+                    
+                    <p>These are general guidelines. Individual needs may vary based on health, activity level, and other factors.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Understanding Sleep Cycles</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>The 90-Minute Sleep Cycle</h4>
+                    <p>During sleep, your brain cycles through different stages approximately every 90 minutes. Each cycle includes:</p>
+                    <ul>
+                        <li><strong>Stage 1 (N1):</strong> Light sleep, easy to wake (1-5 minutes)</li>
+                        <li><strong>Stage 2 (N2):</strong> True sleep begins, body temperature drops (10-25 minutes)</li>
+                        <li><strong>Stage 3 (N3):</strong> Deep sleep, restoration occurs (20-40 minutes)</li>
+                        <li><strong>REM Sleep:</strong> Dreams occur, memory consolidation (10-60 minutes)</li>
+                    </ul>
+                    
+                    <h4>Why Timing Matters</h4>
+                    <p>Waking during deep sleep (Stage 3) causes sleep inertia - that groggy, disoriented feeling. By timing your wake-up to coincide with the end of a cycle (during light sleep or REM), you'll feel more alert and refreshed.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>What Makes This Calculator Different</h4>
+                    <ul>
+                        <li><strong>Age-aware:</strong> Recommendations tailored to your life stage</li>
+                        <li><strong>Cycle-optimized:</strong> Aligned with natural 90-minute sleep cycles</li>
+                        <li><strong>Multiple options:</strong> See all viable times, not just one</li>
+                        <li><strong>Visual timeline:</strong> Understand your sleep architecture</li>
+                        <li><strong>Evidence-based:</strong> Built on AASM and CDC guidelines</li>
+                    </ul>
+                    
+                    <h4>About Spacire</h4>
+                    <p>Spacire is a UK-based sleep wellness company offering free science-backed tools and curated sleep products. We believe everyone deserves better sleep.</p>
+                    <p><a href="https://spacire.com/pages/about-us" target="_blank" rel="noopener">Learn more about Spacire</a></p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Others Sleep Better</h4>
+                    <p>If you found this sleep calculator helpful, share it with friends and family.</p>
+                    
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/sleep-calculator&text=Sleep%20Calculator%20-%20Find%20your%20ideal%20bedtime%20based%20on%20age%20and%20sleep%20cycles" target="_blank" rel="noopener noreferrer" class="share-btn twitter">
+                            <svg viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/></svg>
+                            Share on X/Twitter
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/sleep-calculator" target="_blank" rel="noopener noreferrer" class="share-btn facebook">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                            Share on Facebook
+                        </a>
+                        <button class="share-btn copy" onclick="copyLink()">
+                            <svg viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Sleep Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Continue Your Sleep Journey</h4>
+                    <p>Explore these complementary tools:</p>
+                    
+                    <div class="tools-grid-info">
+                        <a href="https://tools.spacire.com/chronotype-quiz" class="tool-link-card">
+                            <h5>Chronotype Quiz</h5>
+                            <p>Discover your natural sleep-wake rhythm</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-quality-assessment" class="tool-link-card">
+                            <h5>Sleep Quality Assessment</h5>
+                            <p>Comprehensive 7-dimension sleep analysis</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-hygiene-quiz" class="tool-link-card">
+                            <h5>Sleep Hygiene Quiz</h5>
+                            <p>Assess your sleep habits</p>
+                        </a>
+                        <a href="https://tools.spacire.com/bedtime-routine-builder" class="tool-link-card">
+                            <h5>Bedtime Routine Builder</h5>
+                            <p>Create a relaxing wind-down routine</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-debt-calculator" class="tool-link-card">
+                            <h5>Sleep Debt Calculator</h5>
+                            <p>Calculate your accumulated sleep debt</p>
+                        </a>
+                        <a href="https://tools.spacire.com/dream-calculator" class="tool-link-card">
+                            <h5>Dream Calculator</h5>
+                            <p>Optimize your REM sleep timing</p>
+                        </a>
+                    </div>
+                    
+                    <p style="margin-top: 20px; text-align: center;"><a href="https://tools.spacire.com" style="color: var(--primary); font-weight: 600;">View All 15 Sleep Tools</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-calculator">Sleep Calculator</a>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/chronotype-quiz">Chronotype Quiz</a>
+                    <a href="https://tools.spacire.com/sleep-cycle-calculator">Sleep Cycle Calculator</a>
+                    <a href="https://tools.spacire.com/insomnia-quiz">Insomnia Quiz</a>
+                    <a href="https://tools.spacire.com/sleep-quality-assessment">Sleep Quality Assessment</a>
+                    <a href="https://tools.spacire.com/sleep-hygiene-quiz">Sleep Hygiene Quiz</a>
+                    <a href="https://tools.spacire.com/dream-calculator">Dream Calculator</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // STATE
+        // ========================================
+        let mode = 'bedtime'; // 'bedtime', 'wake', 'now'
+        let sleepLatency = 15;
+        let calculatedResults = null;
+        
+        // Age-based sleep recommendations (hours)
+        const ageRecommendations = {
+            'infant': { min: 12, max: 16, label: 'Infants (4-12 months)', note: 'Including naps' },
+            'toddler': { min: 11, max: 14, label: 'Toddlers (1-2 years)', note: 'Including naps' },
+            'preschool': { min: 10, max: 13, label: 'Preschool (3-5 years)', note: 'Including naps' },
+            'school': { min: 9, max: 12, label: 'School Age (6-12 years)', note: '' },
+            'teen': { min: 8, max: 10, label: 'Teens (13-17 years)', note: '' },
+            'young-adult': { min: 7, max: 9, label: 'Young Adults (18-25 years)', note: '' },
+            'adult': { min: 7, max: 9, label: 'Adults (26-64 years)', note: '' },
+            'senior': { min: 7, max: 8, label: 'Seniors (65+ years)', note: '' }
+        };
+        
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        // ========================================
+        // INFO TOGGLES
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.closest('.info-toggle');
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText('https://tools.spacire.com/sleep-calculator').then(() => {
+                const btn = event.target.closest('.share-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            });
+        }
+        
+        // ========================================
+        // MODE & INPUT HANDLERS
+        // ========================================
+        function setMode(newMode) {
+            mode = newMode;
+            document.querySelectorAll('.mode-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.mode === mode);
+            });
+            
+            document.getElementById('wakeInput').style.display = mode === 'bedtime' ? 'block' : 'none';
+            document.getElementById('bedInput').style.display = mode === 'wake' ? 'block' : 'none';
+        }
+        
+        function selectLatency(btn) {
+            btn.closest('.options-row').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            sleepLatency = parseInt(btn.dataset.value);
+        }
+        
+        // ========================================
+        // TIME UTILITIES
+        // ========================================
+        function parseTime(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            const date = new Date();
+            date.setHours(hours, minutes, 0, 0);
+            return date;
+        }
+        
+        function formatTime(date) {
+            return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+        }
+        
+        function addMinutes(date, minutes) {
+            return new Date(date.getTime() + minutes * 60000);
+        }
+        
+        // ========================================
+        // CALCULATIONS
+        // ========================================
+        function calculateSleep() {
+            const ageGroup = document.getElementById('ageGroup').value;
+            const rec = ageRecommendations[ageGroup];
+            const cycleLength = 90; // minutes
+            
+            let results = [];
+            let primaryTime, primaryLabel;
+            
+            if (mode === 'bedtime') {
+                // Calculate bedtimes from wake time
+                const wakeTime = parseTime(document.getElementById('wakeTime').value);
+                primaryLabel = 'Recommended Bedtime';
+                
+                // Calculate bedtimes for 4-6 cycles
+                for (let cycles = 6; cycles >= 4; cycles--) {
+                    const sleepDuration = cycles * cycleLength;
+                    const totalTime = sleepDuration + sleepLatency;
+                    const bedtime = addMinutes(wakeTime, -totalTime);
+                    const sleepHours = sleepDuration / 60;
+                    
+                    const meetsRec = sleepHours >= rec.min && sleepHours <= rec.max;
+                    
+                    results.push({
+                        time: bedtime,
+                        cycles,
+                        sleepHours,
+                        sleepMinutes: sleepDuration,
+                        meetsRecommendation: meetsRec,
+                        isOptimal: meetsRec && cycles >= 5
+                    });
+                }
+                
+                primaryTime = results.find(r => r.isOptimal) || results[0];
+                
+            } else if (mode === 'wake') {
+                // Calculate wake times from bedtime
+                const bedtime = parseTime(document.getElementById('bedTime').value);
+                primaryLabel = 'Recommended Wake Time';
+                
+                // Calculate wake times for 4-6 cycles
+                for (let cycles = 4; cycles <= 6; cycles++) {
+                    const sleepDuration = cycles * cycleLength;
+                    const totalTime = sleepDuration + sleepLatency;
+                    const wakeTime = addMinutes(bedtime, totalTime);
+                    const sleepHours = sleepDuration / 60;
+                    
+                    const meetsRec = sleepHours >= rec.min && sleepHours <= rec.max;
+                    
+                    results.push({
+                        time: wakeTime,
+                        cycles,
+                        sleepHours,
+                        sleepMinutes: sleepDuration,
+                        meetsRecommendation: meetsRec,
+                        isOptimal: meetsRec && cycles >= 5
+                    });
+                }
+                
+                primaryTime = results.find(r => r.isOptimal) || results[results.length - 1];
+                
+            } else {
+                // "Now" mode - calculate wake times from current time
+                const now = new Date();
+                const sleepStart = addMinutes(now, sleepLatency);
+                primaryLabel = 'Recommended Wake Time';
+                
+                for (let cycles = 4; cycles <= 6; cycles++) {
+                    const sleepDuration = cycles * cycleLength;
+                    const wakeTime = addMinutes(sleepStart, sleepDuration);
+                    const sleepHours = sleepDuration / 60;
+                    
+                    const meetsRec = sleepHours >= rec.min && sleepHours <= rec.max;
+                    
+                    results.push({
+                        time: wakeTime,
+                        cycles,
+                        sleepHours,
+                        sleepMinutes: sleepDuration,
+                        meetsRecommendation: meetsRec,
+                        isOptimal: meetsRec && cycles >= 5
+                    });
+                }
+                
+                primaryTime = results.find(r => r.isOptimal) || results[results.length - 1];
+            }
+            
+            calculatedResults = {
+                mode,
+                ageGroup,
+                recommendation: rec,
+                results,
+                primaryTime,
+                primaryLabel,
+                sleepLatency
+            };
+            
+            renderResults();
+            saveResults();
+        }
+        
+        // ========================================
+        // RENDER RESULTS
+        // ========================================
+        function renderResults() {
+            const r = calculatedResults;
+            document.getElementById('resultsSection').classList.add('active');
+            
+            // Main result
+            document.getElementById('resultLabel').textContent = r.primaryLabel;
+            document.getElementById('resultTime').textContent = formatTime(r.primaryTime.time);
+            document.getElementById('resultDetails').textContent = 
+                `${r.primaryTime.sleepHours} hours of sleep with ${r.primaryTime.cycles} complete cycles`;
+            document.getElementById('resultBadge').textContent = 
+                r.primaryTime.meetsRecommendation ? 'Optimal for your age' : 'Complete cycles';
+            
+            // Time options
+            const optionsTitle = mode === 'bedtime' ? 'All Bedtime Options' : 'All Wake Time Options';
+            document.getElementById('timeOptionsTitle').textContent = optionsTitle;
+            
+            const timeGridHtml = r.results.map(res => `
+                <div class="time-card ${res.isOptimal ? 'recommended' : ''}">
+                    <div class="time-card-time">${formatTime(res.time)}</div>
+                    <div class="time-card-info">${res.cycles} cycles | ${res.sleepHours}h</div>
+                    ${res.isOptimal ? '<div class="time-card-badge">Recommended</div>' : ''}
+                </div>
+            `).join('');
+            document.getElementById('timeGrid').innerHTML = timeGridHtml;
+            
+            // Summary
+            const summaryHtml = `
+                <div class="summary-item">
+                    <div class="summary-value">${r.primaryTime.sleepHours}h</div>
+                    <div class="summary-label">Total Sleep</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value">${r.primaryTime.cycles}</div>
+                    <div class="summary-label">Sleep Cycles</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value">${r.sleepLatency}m</div>
+                    <div class="summary-label">Fall Asleep Time</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value">${r.recommendation.min}-${r.recommendation.max}h</div>
+                    <div class="summary-label">Age Recommendation</div>
+                </div>
+            `;
+            document.getElementById('summaryGrid').innerHTML = summaryHtml;
+            
+            // Timeline
+            renderTimeline(r.primaryTime.cycles);
+            
+            // Age recommendation
+            document.getElementById('ageRecText').textContent = 
+                `${r.recommendation.label} should get ${r.recommendation.min}-${r.recommendation.max} hours of sleep per night according to the AASM and CDC.${r.recommendation.note ? ' ' + r.recommendation.note + '.' : ''}`;
+            document.getElementById('ageRecHours').textContent = `${r.recommendation.min}-${r.recommendation.max} hours`;
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function renderTimeline(cycles) {
+            let html = '';
+            const cycleWidth = 100 / cycles;
+            
+            for (let i = 0; i < cycles; i++) {
+                // Early cycles have more deep sleep, later cycles have more REM
+                const deepPercent = Math.max(15, 35 - (i * 5));
+                const remPercent = Math.min(35, 15 + (i * 5));
+                const lightPercent = 100 - deepPercent - remPercent;
+                
+                html += `
+                    <div style="width: ${cycleWidth}%; display: flex; height: 100%;">
+                        <div class="timeline-segment segment-light" style="width: ${lightPercent * 0.5}%;"></div>
+                        <div class="timeline-segment segment-deep" style="width: ${deepPercent}%;"></div>
+                        <div class="timeline-segment segment-light" style="width: ${lightPercent * 0.5}%;"></div>
+                        <div class="timeline-segment segment-rem" style="width: ${remPercent}%;"></div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('timelineFill').innerHTML = html;
+            document.getElementById('timelineFill').style.width = '100%';
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL
+        // ========================================
+        async function saveResults() {
+            if (!calculatedResults) return;
+            
+            try {
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    {
+                        tool_name: 'sleep_calculator',
+                        results_json: JSON.stringify({
+                            mode: calculatedResults.mode,
+                            ageGroup: calculatedResults.ageGroup,
+                            primaryTime: formatTime(calculatedResults.primaryTime.time),
+                            cycles: calculatedResults.primaryTime.cycles,
+                            sleepHours: calculatedResults.primaryTime.sleepHours
+                        }),
+                        user_agent: navigator.userAgent.substring(0, 500),
+                        created_at: new Date().toISOString()
+                    }
+                );
+            } catch (error) {
+                console.error('DB error:', error);
+            }
+        }
+        
+        async function sendReport(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('userEmail').value.trim();
+            const firstName = document.getElementById('userName').value.trim();
+            const sendBtn = document.getElementById('sendReportBtn');
+            const formError = document.getElementById('formError');
+            
+            formError.style.display = 'none';
+            
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            if (!calculatedResults) {
+                formError.textContent = 'Please calculate your sleep times first.';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
+            const emailPayload = JSON.stringify({
+                toolName: 'sleep-calculator',
+                email: email,
+                firstName: firstName,
+                mode: calculatedResults.mode,
+                ageGroup: calculatedResults.ageGroup,
+                recommendation: calculatedResults.recommendation,
+                primaryTime: formatTime(calculatedResults.primaryTime.time),
+                cycles: calculatedResults.primaryTime.cycles,
+                sleepHours: calculatedResults.primaryTime.sleepHours,
+                sleepLatency: calculatedResults.sleepLatency,
+                allTimes: calculatedResults.results.map(res => ({
+                    time: formatTime(res.time),
+                    cycles: res.cycles,
+                    sleepHours: res.sleepHours,
+                    isOptimal: res.isOptimal
+                }))
+            });
+            
+            try {
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'sleep_calculator',
+                            user_email: email,
+                            user_first_name: firstName,
+                            results_json: JSON.stringify({
+                                mode: calculatedResults.mode,
+                                ageGroup: calculatedResults.ageGroup,
+                                primaryTime: formatTime(calculatedResults.primaryTime.time),
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                } catch (dbError) {
+                    console.error('DB error:', dbError);
+                }
+                
+                await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    true
+                );
+                
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('userEmail').disabled = true;
+                document.getElementById('userName').disabled = true;
+                sendBtn.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Email error:', error);
+                formError.textContent = 'Failed to send. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
+            }
+        }
+        
+        function resetCalculator() {
+            calculatedResults = null;
+            
+            document.getElementById('userEmail').disabled = false;
+            document.getElementById('userName').disabled = false;
+            document.getElementById('userEmail').value = '';
+            document.getElementById('userName').value = '';
+            document.getElementById('sendReportBtn').style.display = 'inline-block';
+            document.getElementById('sendReportBtn').disabled = false;
+            document.getElementById('sendReportBtn').textContent = 'Send Report';
+            document.getElementById('emailSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+            
+            document.getElementById('resultsSection').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
