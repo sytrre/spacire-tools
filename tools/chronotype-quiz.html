@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Chronotype Quiz - Discover if you're a Lion, Bear, Wolf, or Dolphin. Get your personalized ideal daily schedule, productivity windows, exercise timing, and sleep optimization tips.">
+    <meta name="keywords" content="chronotype quiz, sleep chronotype, lion bear wolf dolphin, circadian rhythm, morning person, night owl, sleep type quiz, when to sleep, productivity schedule, sleep animal quiz">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Chronotype Quiz - Discover Your Sleep Animal | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/chronotype-quiz">
+    
+    <meta property="og:title" content="Chronotype Quiz - Are You a Lion, Bear, Wolf, or Dolphin?">
+    <meta property="og:description" content="Discover your biological sleep type and get a personalized daily schedule optimized for your natural rhythm. Free science-backed quiz.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/chronotype-quiz">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chronotype Quiz - Discover Your Sleep Animal">
+    <meta name="twitter:description" content="Are you a Lion, Bear, Wolf, or Dolphin? Find out and optimize your daily schedule.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Chronotype Quiz",
+        "description": "Free tool to discover your chronotype (Lion, Bear, Wolf, or Dolphin) and get a personalized daily schedule, productivity windows, and sleep optimization tips.",
+        "url": "https://tools.spacire.com/chronotype-quiz",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is a chronotype?", "acceptedAnswer": {"@type": "Answer", "text": "A chronotype is your body's natural inclination to sleep and wake at certain times. It's determined by your internal circadian rhythm and genetics. The four chronotypes are Lion (early bird), Bear (follows the sun), Wolf (night owl), and Dolphin (light sleeper with irregular patterns)."}},
+            {"@type": "Question", "name": "Can I change my chronotype?", "acceptedAnswer": {"@type": "Answer", "text": "While chronotypes are largely genetic, you can make moderate adjustments through consistent sleep habits, strategic light exposure, and lifestyle changes. However, working against your natural chronotype long-term can negatively impact health, mood, and productivity. It's better to optimize your schedule around your natural rhythm."}},
+            {"@type": "Question", "name": "What is social jet lag?", "acceptedAnswer": {"@type": "Answer", "text": "Social jet lag is the misalignment between your body's natural sleep-wake rhythm and your actual schedule due to work or social obligations. For example, a Wolf chronotype forced to wake at 6 AM for work experiences social jet lag. This can cause fatigue, reduced productivity, and health issues over time."}},
+            {"@type": "Question", "name": "Which chronotype is the most common?", "acceptedAnswer": {"@type": "Answer", "text": "The Bear chronotype is the most common, making up about 55% of the population. Bears follow the solar cycle and do well with traditional 9-5 schedules. Lions (early birds) and Wolves (night owls) each make up about 15-20%, while Dolphins (light sleepers) account for roughly 10% of people."}}
+        ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5e6c4;
+            --success: #d4edda;
+            --success-dark: #155724;
+            --warning: #fff3cd;
+            --warning-dark: #856404;
+            --error: #dc3545;
+            --error-light: #f8d7da;
+            --info-bg: #e7f3ff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-light: #888;
+            --border: #e0e0e0;
+            --hover: #f8f9fa;
+            --font-primary: 'Domine', Georgia, serif;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.2s ease;
+            
+            /* Chronotype colors */
+            --lion-color: #f59e0b;
+            --lion-bg: #fef3c7;
+            --bear-color: #84cc16;
+            --bear-bg: #ecfccb;
+            --wolf-color: #8b5cf6;
+            --wolf-bg: #ede9fe;
+            --dolphin-color: #06b6d4;
+            --dolphin-bg: #cffafe;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: var(--font-primary); background: #f5f5f5; color: var(--text-primary); line-height: 1.6; }
+        
+        .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+        .header-nav { display: flex; gap: 28px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-light); margin: 0 8px; }
+        
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        
+        .tool-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; }
+        .tool-body { padding: 28px; }
+        
+        .progress-container { margin-bottom: 28px; }
+        .progress-steps { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .progress-step { display: flex; flex-direction: column; align-items: center; flex: 1; }
+        .step-circle { width: 32px; height: 32px; border-radius: 50%; background: var(--border); color: var(--text-light); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; transition: var(--transition); }
+        .step-circle.active { background: var(--accent); color: var(--primary); }
+        .step-circle.completed { background: var(--primary); color: #fff; }
+        .step-label { font-size: 11px; color: var(--text-light); margin-top: 6px; text-align: center; }
+        .progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.3s ease; }
+        
+        .question-section { display: none; animation: fadeIn 0.4s ease; }
+        .question-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .question-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .question-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .form-select, .form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); background: #fff; }
+        .form-select:focus, .form-input:focus { outline: none; border-color: var(--accent); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+        
+        .option-grid { display: grid; gap: 12px; }
+        .option-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 500px) { .option-grid.two-col { grid-template-columns: 1fr; } }
+        
+        .option-card { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); background: #fff; user-select: none; }
+        .option-card:hover { border-color: var(--accent); background: var(--accent-light); }
+        .option-card.selected { border-color: var(--accent); background: var(--accent-light); }
+        .option-card input { display: none; }
+        .option-check { width: 22px; height: 22px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--transition); }
+        .option-card.selected .option-check { background: var(--accent); border-color: var(--accent); }
+        .option-card.selected .option-check::after { content: ''; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+        .option-icon { font-size: 24px; flex-shrink: 0; }
+        .option-content { flex: 1; }
+        .option-label { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+        .option-desc { font-size: 12px; color: var(--text-light); }
+        
+        .nav-buttons { display: flex; gap: 12px; margin-top: 28px; justify-content: flex-end; }
+        .btn { padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--accent); color: var(--primary); }
+        .btn-primary:hover { background: #c9a047; }
+        .btn-primary:disabled { background: var(--border); color: var(--text-light); cursor: not-allowed; }
+        .btn-secondary { background: #fff; color: var(--primary); border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); }
+        
+        .results-section { display: none; }
+        .results-section.active { display: block; animation: fadeIn 0.5s ease; }
+        
+        /* Chronotype-specific result headers */
+        .result-header { text-align: center; padding: 32px; border-radius: var(--radius-lg); color: #fff; margin-bottom: 28px; }
+        .result-header.lion { background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); }
+        .result-header.bear { background: linear-gradient(135deg, #65a30d 0%, #84cc16 100%); }
+        .result-header.wolf { background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); }
+        .result-header.dolphin { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); }
+        .result-icon { font-size: 48px; margin-bottom: 12px; }
+        .result-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
+        .result-title { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+        .result-tagline { font-size: 18px; opacity: 0.95; margin-bottom: 4px; }
+        .result-subtitle { font-size: 14px; opacity: 0.85; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 28px; }
+        .summary-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; text-align: center; }
+        .summary-card.highlight { border-color: var(--accent); background: var(--accent-light); }
+        .summary-icon { font-size: 24px; margin-bottom: 8px; }
+        .summary-value { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .summary-label { font-size: 12px; color: var(--text-secondary); }
+        
+        /* Social Jet Lag Meter */
+        .jetlag-meter { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 28px; }
+        .jetlag-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .jetlag-bar-container { background: var(--border); border-radius: 8px; height: 24px; position: relative; overflow: hidden; margin-bottom: 12px; }
+        .jetlag-bar { height: 100%; border-radius: 8px; transition: width 0.5s ease; }
+        .jetlag-bar.low { background: linear-gradient(90deg, #22c55e, #86efac); }
+        .jetlag-bar.moderate { background: linear-gradient(90deg, #eab308, #fde047); }
+        .jetlag-bar.high { background: linear-gradient(90deg, #f97316, #fdba74); }
+        .jetlag-bar.severe { background: linear-gradient(90deg, #dc2626, #fca5a5); }
+        .jetlag-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-light); margin-bottom: 16px; }
+        .jetlag-score { text-align: center; }
+        .jetlag-score-value { font-size: 28px; font-weight: 700; color: var(--primary); }
+        .jetlag-score-label { font-size: 13px; color: var(--text-secondary); }
+        .jetlag-description { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+        
+        .section-title { font-size: 18px; font-weight: 600; color: var(--primary); margin: 28px 0 16px; display: flex; align-items: center; gap: 10px; }
+        .section-title svg { width: 22px; height: 22px; fill: var(--accent); }
+        
+        /* Schedule Timeline */
+        .schedule-timeline { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 20px; }
+        .schedule-timeline-header { background: var(--primary); color: #fff; padding: 16px 20px; font-weight: 600; }
+        .timeline-item { display: flex; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-time { min-width: 90px; font-weight: 600; color: var(--primary); font-size: 14px; }
+        .timeline-content { flex: 1; }
+        .timeline-activity { font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+        .timeline-desc { font-size: 13px; color: var(--text-secondary); }
+        .timeline-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-top: 6px; text-transform: uppercase; }
+        .timeline-tag.peak { background: var(--accent-light); color: var(--primary); }
+        .timeline-tag.recovery { background: #e0e7ff; color: #3730a3; }
+        .timeline-tag.wind-down { background: #fce7f3; color: #9d174d; }
+        
+        /* Productivity Windows */
+        .productivity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+        .productivity-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
+        .productivity-card h4 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .productivity-card h4 svg { width: 18px; height: 18px; fill: var(--accent); }
+        .productivity-time { font-size: 18px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+        .productivity-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+        
+        /* Work Compatibility */
+        .compatibility-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 20px; }
+        .compatibility-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .compatibility-title { font-size: 16px; font-weight: 600; color: var(--primary); }
+        .compatibility-score { font-size: 24px; font-weight: 700; }
+        .compatibility-score.excellent { color: #22c55e; }
+        .compatibility-score.good { color: #84cc16; }
+        .compatibility-score.moderate { color: #eab308; }
+        .compatibility-score.poor { color: #f97316; }
+        .compatibility-score.challenging { color: #dc2626; }
+        .compatibility-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+        .compatibility-fill { height: 100%; border-radius: 4px; }
+        .compatibility-fill.excellent { background: #22c55e; }
+        .compatibility-fill.good { background: #84cc16; }
+        .compatibility-fill.moderate { background: #eab308; }
+        .compatibility-fill.poor { background: #f97316; }
+        .compatibility-fill.challenging { background: #dc2626; }
+        .compatibility-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        
+        .tip-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; }
+        .tip-card.priority-high { border-left: 4px solid var(--accent); }
+        .tip-card.priority-medium { border-left: 4px solid var(--primary); }
+        .tip-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+        .tip-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .priority-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+        .priority-badge.high { background: var(--accent-light); color: var(--primary); }
+        .priority-badge.medium { background: #e0e7ff; color: #3730a3; }
+        .tip-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        .tip-actions { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+        .tip-action { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+        .tip-action:last-child { margin-bottom: 0; }
+        .tip-action svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
+        
+        /* Timing Cards */
+        .timing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+        .timing-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+        .timing-icon { font-size: 28px; margin-bottom: 8px; }
+        .timing-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+        .timing-value { font-size: 16px; font-weight: 700; color: var(--primary); }
+        
+        .product-note { background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-top: 24px; }
+        .product-note-title { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 10px; }
+        .product-note-text { font-size: 13px; color: var(--text-light); line-height: 1.6; margin-bottom: 12px; }
+        .product-link-subtle { display: inline-block; color: var(--primary); text-decoration: none; font-size: 13px; font-weight: 500; }
+        .product-link-subtle:hover { text-decoration: underline; }
+        
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--accent-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-top: 28px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--accent); }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        .safety-notice { background: var(--info-bg); border: 1px solid #93c5fd; border-radius: var(--radius-md); padding: 20px; margin-top: 24px; }
+        .safety-title { font-size: 14px; font-weight: 600; color: #1e40af; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .safety-text { font-size: 13px; color: #1e40af; line-height: 1.6; }
+        
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-content a { color: var(--primary); }
+        
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        
+        .share-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); text-decoration: none; font-size: 13px; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
+        .share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .share-btn.twitter { background: #1DA1F2; color: #fff; }
+        .share-btn.twitter:hover { background: #1a8cd8; }
+        .share-btn.facebook { background: #4267B2; color: #fff; }
+        .share-btn.facebook:hover { background: #365899; }
+        .share-btn.whatsapp { background: #25D366; color: #fff; }
+        .share-btn.whatsapp:hover { background: #20bd5a; }
+        .share-btn.copy { background: #fff; color: var(--primary); border: 2px solid var(--border); }
+        .share-btn.copy:hover { border-color: var(--primary); }
+        
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>&gt;</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>&gt;</span>
+            <span style="color: var(--text-primary);">Chronotype Quiz</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Chronotype Quiz</h1>
+            <p class="page-subtitle">Discover if you're a Lion, Bear, Wolf, or Dolphin. Get your personalized ideal daily schedule, productivity windows, and sleep optimization tips.</p>
+        </header>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Find Your Sleep Chronotype</h2>
+                <p>Answer 7 questions about your natural sleep patterns</p>
+            </div>
+            
+            <div class="tool-body">
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step"><div class="step-circle active" id="step1">1</div><span class="step-label">Wake</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step2">2</div><span class="step-label">Energy</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step3">3</div><span class="step-label">Sleep</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step4">4</div><span class="step-label">Schedule</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step5">5</div><span class="step-label">Results</span></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 10%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Question 1: Natural Wake Time -->
+                <section class="question-section active" data-question="1" id="q1">
+                    <h3 class="question-title">If you had no obligations, when would you naturally wake up?</h3>
+                    <p class="question-subtitle">Think about weekends or holidays when you have no alarm set.</p>
+                    
+                    <div class="option-grid">
+                        <label class="option-card" onclick="selectOption(this, 'wakeTime', 'before6')">
+                            <input type="radio" name="wakeTime" value="before6">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Before 6:00 AM</div>
+                                <div class="option-desc">I naturally wake with or before sunrise</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'wakeTime', '6to7')">
+                            <input type="radio" name="wakeTime" value="6to7">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">6:00 - 7:30 AM</div>
+                                <div class="option-desc">Early morning feels comfortable</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'wakeTime', '7to9')">
+                            <input type="radio" name="wakeTime" value="7to9">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">7:30 - 9:00 AM</div>
+                                <div class="option-desc">Mid-morning suits me best</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'wakeTime', 'after9')">
+                            <input type="radio" name="wakeTime" value="after9">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">After 9:00 AM</div>
+                                <div class="option-desc">I'm definitely not a morning person</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'wakeTime', 'irregular')">
+                            <input type="radio" name="wakeTime" value="irregular">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">It varies wildly</div>
+                                <div class="option-desc">My wake time is very inconsistent</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-primary" id="btn1" disabled onclick="nextQuestion(1)">Continue</button>
+                    </div>
+                </section>
+                
+                <!-- Question 2: Peak Energy Time -->
+                <section class="question-section" data-question="2" id="q2">
+                    <h3 class="question-title">When do you feel most mentally sharp and productive?</h3>
+                    <p class="question-subtitle">When could you tackle your most challenging work?</p>
+                    
+                    <div class="option-grid">
+                        <label class="option-card" onclick="selectOption(this, 'peakEnergy', 'earlyMorning')">
+                            <input type="radio" name="peakEnergy" value="earlyMorning">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Early Morning (6-9 AM)</div>
+                                <div class="option-desc">I'm sharpest right after waking</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'peakEnergy', 'lateMorning')">
+                            <input type="radio" name="peakEnergy" value="lateMorning">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Late Morning (9 AM - 12 PM)</div>
+                                <div class="option-desc">I hit my stride mid-morning</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'peakEnergy', 'afternoon')">
+                            <input type="radio" name="peakEnergy" value="afternoon">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Afternoon (12-5 PM)</div>
+                                <div class="option-desc">I work best after lunch</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'peakEnergy', 'evening')">
+                            <input type="radio" name="peakEnergy" value="evening">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Evening (5-10 PM)</div>
+                                <div class="option-desc">I come alive in the evening</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'peakEnergy', 'lateNight')">
+                            <input type="radio" name="peakEnergy" value="lateNight">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Late Night (after 10 PM)</div>
+                                <div class="option-desc">I do my best work at night</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(2)">Back</button>
+                        <button class="btn btn-primary" id="btn2" disabled onclick="nextQuestion(2)">Continue</button>
+                    </div>
+                </section>
+                
+                <!-- Question 3: Natural Bedtime -->
+                <section class="question-section" data-question="3" id="q3">
+                    <h3 class="question-title">When do you naturally start feeling sleepy?</h3>
+                    <p class="question-subtitle">Without screens, caffeine, or forcing yourself to stay awake.</p>
+                    
+                    <div class="option-grid">
+                        <label class="option-card" onclick="selectOption(this, 'bedtime', 'before9')">
+                            <input type="radio" name="bedtime" value="before9">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Before 9:00 PM</div>
+                                <div class="option-desc">I get tired quite early</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'bedtime', '9to10')">
+                            <input type="radio" name="bedtime" value="9to10">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">9:00 - 10:30 PM</div>
+                                <div class="option-desc">A reasonable evening bedtime</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'bedtime', '10to12')">
+                            <input type="radio" name="bedtime" value="10to12">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">10:30 PM - 12:00 AM</div>
+                                <div class="option-desc">Late evening suits me</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'bedtime', 'after12')">
+                            <input type="radio" name="bedtime" value="after12">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">After midnight</div>
+                                <div class="option-desc">I rarely feel tired before midnight</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'bedtime', 'never')">
+                            <input type="radio" name="bedtime" value="never">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">I rarely feel naturally sleepy</div>
+                                <div class="option-desc">Sleep doesn't come easily to me</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(3)">Back</button>
+                        <button class="btn btn-primary" id="btn3" disabled onclick="nextQuestion(3)">Continue</button>
+                    </div>
+                </section>
+                
+                <!-- Question 4: Sleep Quality -->
+                <section class="question-section" data-question="4" id="q4">
+                    <h3 class="question-title">How would you describe your typical sleep quality?</h3>
+                    <p class="question-subtitle">Think about most nights, not just occasional bad ones.</p>
+                    
+                    <div class="option-grid">
+                        <label class="option-card" onclick="selectOption(this, 'sleepQuality', 'excellent')">
+                            <input type="radio" name="sleepQuality" value="excellent">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Excellent - I sleep deeply</div>
+                                <div class="option-desc">Fall asleep easily, rarely wake, feel refreshed</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'sleepQuality', 'good')">
+                            <input type="radio" name="sleepQuality" value="good">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Good - Generally restful</div>
+                                <div class="option-desc">Occasional issues but mostly sleep well</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'sleepQuality', 'variable')">
+                            <input type="radio" name="sleepQuality" value="variable">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Variable - Inconsistent</div>
+                                <div class="option-desc">Some nights great, others terrible</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'sleepQuality', 'light')">
+                            <input type="radio" name="sleepQuality" value="light">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Light sleeper - Easily disturbed</div>
+                                <div class="option-desc">Noise, light, or movement wakes me</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'sleepQuality', 'poor')">
+                            <input type="radio" name="sleepQuality" value="poor">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Poor - I struggle with sleep</div>
+                                <div class="option-desc">Often can't fall or stay asleep</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(4)">Back</button>
+                        <button class="btn btn-primary" id="btn4" disabled onclick="nextQuestion(4)">Continue</button>
+                    </div>
+                </section>
+                
+                <!-- Question 5: Morning Alertness -->
+                <section class="question-section" data-question="5" id="q5">
+                    <h3 class="question-title">How long after waking do you feel fully alert?</h3>
+                    <p class="question-subtitle">From the moment you wake to feeling 100% awake.</p>
+                    
+                    <div class="option-grid">
+                        <label class="option-card" onclick="selectOption(this, 'alertness', 'immediate')">
+                            <input type="radio" name="alertness" value="immediate">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Almost immediately</div>
+                                <div class="option-desc">I'm alert within 15 minutes</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'alertness', '30min')">
+                            <input type="radio" name="alertness" value="30min">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">About 30 minutes</div>
+                                <div class="option-desc">Need a little time to wake up</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'alertness', '1hour')">
+                            <input type="radio" name="alertness" value="1hour">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">About an hour</div>
+                                <div class="option-desc">Takes a while to get going</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'alertness', '2hours')">
+                            <input type="radio" name="alertness" value="2hours">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">2+ hours</div>
+                                <div class="option-desc">Mornings are a struggle</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'alertness', 'neverFully')">
+                            <input type="radio" name="alertness" value="neverFully">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">I rarely feel fully alert</div>
+                                <div class="option-desc">Always somewhat tired</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(5)">Back</button>
+                        <button class="btn btn-primary" id="btn5" disabled onclick="nextQuestion(5)">Continue</button>
+                    </div>
+                </section>
+                
+                <!-- Question 6: Exercise Preference -->
+                <section class="question-section" data-question="6" id="q6">
+                    <h3 class="question-title">When do you prefer to exercise (or feel most physically energized)?</h3>
+                    <p class="question-subtitle">When would a workout feel best for your body?</p>
+                    
+                    <div class="option-grid two-col">
+                        <label class="option-card" onclick="selectOption(this, 'exercise', 'earlyAM')">
+                            <input type="radio" name="exercise" value="earlyAM">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Early morning (before 8 AM)</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'exercise', 'midMorning')">
+                            <input type="radio" name="exercise" value="midMorning">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Mid-morning (8-11 AM)</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'exercise', 'lunchtime')">
+                            <input type="radio" name="exercise" value="lunchtime">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Lunchtime (11 AM - 2 PM)</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'exercise', 'afternoon')">
+                            <input type="radio" name="exercise" value="afternoon">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Afternoon (2-5 PM)</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'exercise', 'evening')">
+                            <input type="radio" name="exercise" value="evening">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Evening (5-8 PM)</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'exercise', 'lateEvening')">
+                            <input type="radio" name="exercise" value="lateEvening">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Late evening (after 8 PM)</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(6)">Back</button>
+                        <button class="btn btn-primary" id="btn6" disabled onclick="nextQuestion(6)">Continue</button>
+                    </div>
+                </section>
+                
+                <!-- Question 7: Current Work Schedule -->
+                <section class="question-section" data-question="7" id="q7">
+                    <h3 class="question-title">What are your typical work or obligation hours?</h3>
+                    <p class="question-subtitle">This helps us calculate your social jet lag score.</p>
+                    
+                    <div class="option-grid">
+                        <label class="option-card" onclick="selectOption(this, 'workSchedule', 'early')">
+                            <input type="radio" name="workSchedule" value="early">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Early Start (6-7 AM start)</div>
+                                <div class="option-desc">Healthcare, trades, early shift work</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'workSchedule', 'standard')">
+                            <input type="radio" name="workSchedule" value="standard">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Standard 9-5</div>
+                                <div class="option-desc">Traditional office hours</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'workSchedule', 'flexible')">
+                            <input type="radio" name="workSchedule" value="flexible">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Flexible / Remote</div>
+                                <div class="option-desc">I control my own schedule</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'workSchedule', 'late')">
+                            <input type="radio" name="workSchedule" value="late">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Late Start (10 AM+ start)</div>
+                                <div class="option-desc">Creative industries, hospitality</div>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="selectOption(this, 'workSchedule', 'shifts')">
+                            <input type="radio" name="workSchedule" value="shifts">
+                            <div class="option-check"></div>
+                            <div class="option-content">
+                                <div class="option-label">Shift Work / Variable</div>
+                                <div class="option-desc">Rotating or irregular hours</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(7)">Back</button>
+                        <button class="btn btn-primary" id="btn7" disabled onclick="showResults()">Discover My Chronotype</button>
+                    </div>
+                </section>
+                
+                <!-- Results Section -->
+                <div id="resultsSection" class="results-section">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Understanding the 4 Chronotypes</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>What is a Chronotype?</h4>
+                    <p>Your chronotype is your body's natural inclination to sleep and wake at certain times, determined by your internal circadian rhythm and genetics. Unlike simply being a "morning person" or "night owl," chronotypes affect your entire daily rhythm including energy peaks, ideal meal times, and cognitive performance windows.</p>
+                    
+                    <h4>The Four Chronotypes</h4>
+                    <p><strong>Lion (15-20%):</strong> Early risers who naturally wake before 6 AM and feel most productive in the morning hours. Energy declines rapidly after mid-afternoon. Lions often lead goal-oriented lives and prioritize health.</p>
+                    <p><strong>Bear (55%):</strong> The most common type, Bears follow the solar cycle. They rise with the sun and sleep when it's dark. They do well with traditional 9-5 schedules but may experience an afternoon energy dip around 2-3 PM.</p>
+                    <p><strong>Wolf (15-20%):</strong> Night owls who struggle with early mornings but come alive in the evening. Wolves are often highly creative and do their best work after 4 PM. They may face "social jet lag" when forced into early schedules.</p>
+                    <p><strong>Dolphin (10%):</strong> Light sleepers with irregular sleep patterns. Named after dolphins who sleep with half their brain awake, human dolphins often struggle with insomnia, are easily disturbed, and may never feel fully rested. However, they often have sharp, analytical minds.</p>
+                    
+                    <h4>Can You Change Your Chronotype?</h4>
+                    <p>Chronotypes are largely genetic and difficult to change fundamentally. However, you can make moderate adjustments through consistent sleep habits, strategic light exposure, and lifestyle modifications. Working against your natural chronotype long-term can lead to chronic fatigue, mood issues, and health problems. It's generally better to optimize your schedule around your natural rhythm when possible.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Our Approach</h4>
+                    <p>This quiz is based on the chronotype model developed by Dr. Michael Breus and incorporates research on circadian rhythms and chronobiology. Unlike simpler quizzes that only tell you your type, we provide:</p>
+                    <ul>
+                        <li>Hour-by-hour ideal daily schedule tailored to your chronotype</li>
+                        <li>Social jet lag score showing schedule misalignment</li>
+                        <li>Work schedule compatibility analysis</li>
+                        <li>Specific productivity windows for different tasks</li>
+                        <li>Optimized timing for exercise, meals, and caffeine</li>
+                        <li>Actionable tips specific to your challenges</li>
+                    </ul>
+                    
+                    <h4>Privacy</h4>
+                    <p>Your responses are processed in your browser. We only store anonymous aggregate data to improve our tools. If you choose to email your results, we store your email to send the report - nothing more.</p>
+                    
+                    <h4>Disclaimer</h4>
+                    <p>This tool provides general guidance based on chronotype research. It is not a medical diagnosis. If you have persistent sleep problems, please consult a healthcare provider or sleep specialist.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Help others discover their chronotype and optimize their daily schedule.</p>
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?text=I%20just%20discovered%20my%20sleep%20chronotype%21%20Find%20out%20if%20you%27re%20a%20Lion%2C%20Bear%2C%20Wolf%2C%20or%20Dolphin%3A&url=https://tools.spacire.com/chronotype-quiz" target="_blank" class="share-btn twitter">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            Share on X
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/chronotype-quiz" target="_blank" class="share-btn facebook">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            Share on Facebook
+                        </a>
+                        <a href="https://wa.me/?text=Discover%20your%20sleep%20chronotype%20-%20are%20you%20a%20Lion%2C%20Bear%2C%20Wolf%2C%20or%20Dolphin%3F%20https://tools.spacire.com/chronotype-quiz" target="_blank" class="share-btn whatsapp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            WhatsApp
+                        </a>
+                        <button class="share-btn copy" onclick="copyLink()">
+                            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Sleep Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Explore our other free tools to optimize your sleep:</p>
+                    <div class="tools-grid">
+                        <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card">
+                            <h5>Sleep Environment Optimizer</h5>
+                            <p>Assess and optimize your bedroom conditions</p>
+                        </a>
+                        <a href="https://tools.spacire.com/shift-worker-sleep-planner" class="tool-link-card">
+                            <h5>Shift Worker Sleep Planner</h5>
+                            <p>Custom schedules for irregular hours</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-debt-calculator" class="tool-link-card">
+                            <h5>Sleep Debt Calculator</h5>
+                            <p>Track and recover from sleep deficit</p>
+                        </a>
+                        <a href="https://tools.spacire.com/bedtime-routine-builder" class="tool-link-card">
+                            <h5>Bedtime Routine Builder</h5>
+                            <p>Create your perfect wind-down routine</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-sound-finder" class="tool-link-card">
+                            <h5>Sleep Sound Finder</h5>
+                            <p>Discover your ideal sleep soundscape</p>
+                        </a>
+                        <a href="https://tools.spacire.com/jet-lag-calculator" class="tool-link-card">
+                            <h5>Jet Lag Calculator</h5>
+                            <p>Personalized travel recovery plan</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/chronotype-quiz">Chronotype Quiz</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop Sleep Aids</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                    <a href="https://spacire.com/pages/about">About Spacire</a>
+                    <a href="https://spacire.com/pages/contact">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    <script>
+        // Appwrite Configuration
+        const CONFIG = {
+            endpoint: 'https://cloud.appwrite.io/v1',
+            projectId: '6759fd280021ddaboratory',
+            databaseId: '675eb7d8003c7f729a2d',
+            tableId: '675eb7e60025a2f9dd0b',
+            functionId: '675ebcb000227c4cfba6'
+        };
+        
+        const { Client, Databases, Functions } = Appwrite;
+        const client = new Client();
+        client.setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
+        const databases = new Databases(client);
+        const functions = new Functions(client);
+        
+        // User data storage
+        let userData = {};
+        let calculatedResults = {};
+        
+        // Chronotype data
+        const chronotypes = {
+            lion: {
+                name: 'Lion',
+                tagline: 'The Early Riser',
+                description: 'Lions are natural early birds who wake energized before dawn. You\'re most productive in the morning hours and prefer to tackle important tasks first thing. Energy declines in the afternoon, and you\'re typically ready for bed by 9-10 PM.',
+                icon: '&#129409;',
+                traits: {
+                    wakeTime: '5:30 - 6:30 AM',
+                    peakHours: '6 AM - 12 PM',
+                    bedtime: '9:00 - 10:00 PM',
+                    personality: 'Ambitious, optimistic, practical'
+                },
+                schedule: [
+                    { time: '5:30 AM', activity: 'Natural Wake', desc: 'Rise with energy, no alarm needed', tag: '' },
+                    { time: '6:00 AM', activity: 'Exercise', desc: 'Best time for cardio or strength training', tag: 'peak' },
+                    { time: '7:00 AM', activity: 'Breakfast', desc: 'Protein-rich meal to fuel your morning', tag: '' },
+                    { time: '8:00 AM', activity: 'Deep Work', desc: 'Tackle your most challenging tasks', tag: 'peak' },
+                    { time: '10:00 AM', activity: 'Important Meetings', desc: 'Your communication peak', tag: 'peak' },
+                    { time: '12:00 PM', activity: 'Lunch', desc: 'Moderate meal, energy shifting', tag: '' },
+                    { time: '1:00 PM', activity: 'Light Tasks', desc: 'Administrative work, emails', tag: '' },
+                    { time: '3:00 PM', activity: 'Energy Dip', desc: 'Brief walk or light snack', tag: 'recovery' },
+                    { time: '5:00 PM', activity: 'Wind Down Work', desc: 'Wrap up and plan tomorrow', tag: '' },
+                    { time: '6:00 PM', activity: 'Dinner', desc: 'Eat early to aid digestion', tag: '' },
+                    { time: '8:00 PM', activity: 'Relaxation', desc: 'Reading, family time', tag: 'wind-down' },
+                    { time: '9:30 PM', activity: 'Sleep', desc: 'Natural bedtime', tag: '' }
+                ],
+                productivity: {
+                    deepWork: '6:00 AM - 10:00 AM',
+                    creative: '8:00 AM - 11:00 AM',
+                    meetings: '10:00 AM - 12:00 PM',
+                    admin: '1:00 PM - 3:00 PM'
+                },
+                timing: {
+                    exercise: 'Early morning (6-7 AM)',
+                    caffeineCutoff: '12:00 PM',
+                    lastMeal: '6:00 PM',
+                    screenOff: '8:00 PM'
+                },
+                tips: [
+                    { title: 'Protect Your Morning Peak', text: 'Your most productive hours are 6-10 AM. Guard this time fiercely - no meetings, no emails, just focused deep work on your most important tasks.', priority: 'high', actions: ['Block 6-10 AM in your calendar', 'Put phone on DND until 10 AM', 'Prepare materials the night before'] },
+                    { title: 'Manage Afternoon Decline', text: 'Your energy drops significantly after 2 PM. Don\'t fight it - schedule lighter tasks, walks, or administrative work for this time.', priority: 'high', actions: ['No important decisions after 3 PM', 'Take a 15-min walk at 3 PM', 'Save creative work for tomorrow morning'] },
+                    { title: 'Early Dinner Matters', text: 'Eating dinner by 6 PM gives your body time to digest before your early bedtime, improving sleep quality significantly.', priority: 'medium', actions: ['Set 6 PM dinner reminder', 'Prep meals in advance', 'Avoid heavy evening snacks'] },
+                    { title: 'Weekend Consistency', text: 'Lions suffer most from weekend sleep-ins. Even on weekends, try to wake within an hour of your usual time to maintain your rhythm.', priority: 'medium', actions: ['Set a gentle weekend alarm', 'Plan enjoyable morning activities', 'Use the early hours for hobbies'] }
+                ],
+                sleepTips: 'Create a dark, cool environment for sleep. Your early bedtime may conflict with social activities - communicate your needs to family and friends. Consider using blackout curtains since you\'ll be sleeping while it may still be light outside in summer.'
+            },
+            bear: {
+                name: 'Bear',
+                tagline: 'The Solar Cycle Sleeper',
+                description: 'Bears follow the sun\'s cycle naturally, making up about 55% of the population. You do well with traditional schedules but may experience an afternoon energy dip. Generally friendly and adaptable, Bears thrive with consistency.',
+                icon: '&#128059;',
+                traits: {
+                    wakeTime: '7:00 - 8:00 AM',
+                    peakHours: '10 AM - 2 PM',
+                    bedtime: '10:30 - 11:30 PM',
+                    personality: 'Friendly, easygoing, team-oriented'
+                },
+                schedule: [
+                    { time: '7:00 AM', activity: 'Wake Up', desc: 'Align with sunrise, gentle alarm', tag: '' },
+                    { time: '7:30 AM', activity: 'Breakfast', desc: 'Balanced meal to start the day', tag: '' },
+                    { time: '8:00 AM', activity: 'Light Tasks', desc: 'Ease into work, check emails', tag: '' },
+                    { time: '10:00 AM', activity: 'Deep Work', desc: 'Peak productivity begins', tag: 'peak' },
+                    { time: '12:30 PM', activity: 'Lunch', desc: 'Avoid heavy carbs to minimize slump', tag: '' },
+                    { time: '1:30 PM', activity: 'Collaborative Work', desc: 'Meetings, teamwork, calls', tag: 'peak' },
+                    { time: '3:00 PM', activity: 'Afternoon Dip', desc: 'Light walk or coffee break', tag: 'recovery' },
+                    { time: '4:00 PM', activity: 'Second Wind', desc: 'Moderate productivity returns', tag: '' },
+                    { time: '5:30 PM', activity: 'Exercise', desc: 'Great time for workout', tag: '' },
+                    { time: '7:00 PM', activity: 'Dinner', desc: 'Social meal, relaxed pace', tag: '' },
+                    { time: '9:00 PM', activity: 'Wind Down', desc: 'Screens off, relaxation', tag: 'wind-down' },
+                    { time: '11:00 PM', activity: 'Sleep', desc: 'Natural bedtime', tag: '' }
+                ],
+                productivity: {
+                    deepWork: '10:00 AM - 12:00 PM',
+                    creative: '10:00 AM - 1:00 PM',
+                    meetings: '1:00 PM - 3:00 PM',
+                    admin: '3:00 PM - 5:00 PM'
+                },
+                timing: {
+                    exercise: 'Late afternoon (5-6 PM)',
+                    caffeineCutoff: '2:00 PM',
+                    lastMeal: '7:00 PM',
+                    screenOff: '10:00 PM'
+                },
+                tips: [
+                    { title: 'Maximize Your 10-2 Window', text: 'Your peak productivity is 10 AM to 2 PM. Schedule important meetings, creative work, and complex problem-solving during this golden window.', priority: 'high', actions: ['Block 10 AM-12 PM for deep work', 'Schedule key meetings 11 AM-1 PM', 'Avoid distractions during peak hours'] },
+                    { title: 'Beat the 3 PM Slump', text: 'Almost all Bears experience an energy dip around 2-4 PM. Plan for it - take a short walk, have a light snack, or switch to easier tasks.', priority: 'high', actions: ['Schedule walking meeting at 3 PM', 'Keep healthy snacks at desk', 'No major decisions from 2-4 PM'] },
+                    { title: 'Lunch Affects Your Afternoon', text: 'Heavy, carb-rich lunches intensify your afternoon slump. Opt for protein and vegetables to maintain steadier energy.', priority: 'medium', actions: ['Choose protein-heavy lunches', 'Avoid sugary drinks at lunch', 'Eat a moderate portion'] },
+                    { title: 'Weekend Sleep Banking Myth', text: 'You can\'t truly "catch up" on sleep by sleeping in. Keep weekends within 1 hour of your normal schedule for better weekly energy.', priority: 'medium', actions: ['Wake by 8:30 AM on weekends', 'Use mornings for enjoyable activities', 'Maintain consistent bedtime'] }
+                ],
+                sleepTips: 'Your natural sleep schedule aligns well with society, which is an advantage. Focus on creating a consistent wind-down routine starting at 9 PM. The 2-4 PM slump can be partially addressed by ensuring you get quality sleep the night before.'
+            },
+            wolf: {
+                name: 'Wolf',
+                tagline: 'The Night Owl',
+                description: 'Wolves are true night owls who feel most alive in the evening. Mornings are a struggle, but you hit peak creativity and productivity after 4 PM. Often highly creative and slightly introverted, Wolves thrive when allowed to follow their natural late schedule.',
+                icon: '&#128058;',
+                traits: {
+                    wakeTime: '8:30 - 10:00 AM',
+                    peakHours: '4 PM - 12 AM',
+                    bedtime: '12:00 - 1:00 AM',
+                    personality: 'Creative, impulsive, risk-taking'
+                },
+                schedule: [
+                    { time: '8:30 AM', activity: 'Wake (with effort)', desc: 'Allow slow wake-up time', tag: '' },
+                    { time: '9:00 AM', activity: 'Light Breakfast', desc: 'Easy food, caffeine allowed', tag: '' },
+                    { time: '9:30 AM', activity: 'Gentle Start', desc: 'Low-demand tasks, ease in', tag: '' },
+                    { time: '11:00 AM', activity: 'Moderate Work', desc: 'Building momentum slowly', tag: '' },
+                    { time: '1:00 PM', activity: 'Lunch', desc: 'Hearty meal to fuel afternoon', tag: '' },
+                    { time: '2:00 PM', activity: 'Exercise', desc: 'Great energy for physical activity', tag: '' },
+                    { time: '4:00 PM', activity: 'Deep Work Begins', desc: 'Peak creativity activates', tag: 'peak' },
+                    { time: '6:00 PM', activity: 'Peak Productivity', desc: 'Your golden hours for focus', tag: 'peak' },
+                    { time: '8:00 PM', activity: 'Dinner', desc: 'Social meal, energy still high', tag: '' },
+                    { time: '9:00 PM', activity: 'Creative Time', desc: 'Writing, art, deep thinking', tag: 'peak' },
+                    { time: '11:00 PM', activity: 'Wind Down', desc: 'Begin transition to sleep', tag: 'wind-down' },
+                    { time: '12:30 AM', activity: 'Sleep', desc: 'Natural bedtime', tag: '' }
+                ],
+                productivity: {
+                    deepWork: '4:00 PM - 8:00 PM',
+                    creative: '6:00 PM - 11:00 PM',
+                    meetings: '2:00 PM - 4:00 PM',
+                    admin: '10:00 AM - 12:00 PM'
+                },
+                timing: {
+                    exercise: 'Afternoon (2-4 PM)',
+                    caffeineCutoff: '4:00 PM',
+                    lastMeal: '8:00 PM',
+                    screenOff: '11:30 PM'
+                },
+                tips: [
+                    { title: 'Embrace Your Evening Peak', text: 'Your best work happens between 4-10 PM. Stop fighting it. Schedule creative projects, important thinking, and focused work for this window.', priority: 'high', actions: ['Block evenings for creative work', 'Communicate your schedule to others', 'Work from home evenings if possible'] },
+                    { title: 'Morning Survival Strategy', text: 'If you must work mornings, prepare everything the night before when your brain is sharp. Use light exposure and gentle routines to ease into the day.', priority: 'high', actions: ['Prep tomorrow\'s work each night', 'Use a sunrise alarm clock', 'No important meetings before 11 AM'] },
+                    { title: 'Light Therapy in Morning', text: 'Bright light exposure (natural or lamp) within 30 minutes of waking can help shift your clock slightly earlier and reduce morning grogginess.', priority: 'medium', actions: ['Get 10-15 min bright light at wake', 'Open curtains immediately', 'Consider a 10,000 lux light box'] },
+                    { title: 'Protect Your Wind-Down', text: 'Your natural energy makes it easy to work until midnight. But you need transition time. Set a hard stop at 11 PM for screens and work.', priority: 'medium', actions: ['Set 11 PM alarm for wind-down', 'Create a relaxing pre-sleep ritual', 'Dim lights after 10 PM'] }
+                ],
+                sleepTips: 'Your late schedule often conflicts with society. If possible, negotiate flexible work hours or remote work. Use blackout curtains since you\'ll be sleeping while morning light peaks. A sleep mask is essential for Wolves who need to wake before they naturally would.'
+            },
+            dolphin: {
+                name: 'Dolphin',
+                tagline: 'The Light Sleeper',
+                description: 'Dolphins are named after the marine mammals that sleep with half their brain awake. You\'re a light sleeper with an irregular sleep pattern, often struggle with insomnia, and rarely feel fully rested. However, you\'re often highly intelligent and perfectionist.',
+                icon: '&#128044;',
+                traits: {
+                    wakeTime: '6:30 AM (often earlier)',
+                    peakHours: '10 AM - 12 PM',
+                    bedtime: '11:30 PM (with difficulty)',
+                    personality: 'Intelligent, neurotic, perfectionist'
+                },
+                schedule: [
+                    { time: '6:30 AM', activity: 'Wake', desc: 'Often awake before alarm anyway', tag: '' },
+                    { time: '7:00 AM', activity: 'Light Exercise', desc: 'Yoga, stretching, walking', tag: '' },
+                    { time: '8:00 AM', activity: 'Breakfast', desc: 'Light, protein-focused meal', tag: '' },
+                    { time: '8:30 AM', activity: 'Routine Tasks', desc: 'Ease into the day gently', tag: '' },
+                    { time: '10:00 AM', activity: 'Deep Work', desc: 'Your limited peak window', tag: 'peak' },
+                    { time: '12:00 PM', activity: 'Lunch', desc: 'Moderate, balanced meal', tag: '' },
+                    { time: '1:00 PM', activity: 'Collaborative Work', desc: 'Meetings, calls, teamwork', tag: '' },
+                    { time: '3:00 PM', activity: 'Light Tasks', desc: 'Energy varies - adapt as needed', tag: '' },
+                    { time: '4:00 PM', activity: 'Exercise', desc: 'Cardio to help with sleep later', tag: '' },
+                    { time: '6:00 PM', activity: 'Dinner', desc: 'Eat early, nothing heavy', tag: '' },
+                    { time: '8:00 PM', activity: 'Relaxation', desc: 'No screens, calming activities', tag: 'wind-down' },
+                    { time: '10:00 PM', activity: 'Bedtime Routine', desc: 'Extended wind-down essential', tag: 'wind-down' },
+                    { time: '11:30 PM', activity: 'Attempt Sleep', desc: 'May take time to fall asleep', tag: '' }
+                ],
+                productivity: {
+                    deepWork: '10:00 AM - 12:00 PM',
+                    creative: '10:00 AM - 1:00 PM',
+                    meetings: '1:00 PM - 3:00 PM',
+                    admin: '3:00 PM - 5:00 PM'
+                },
+                timing: {
+                    exercise: 'Afternoon (4-5 PM)',
+                    caffeineCutoff: '12:00 PM (strict)',
+                    lastMeal: '6:00 PM',
+                    screenOff: '8:00 PM'
+                },
+                tips: [
+                    { title: 'Guard Your 10-12 Window', text: 'You have a smaller peak productivity window than other types. Make those 2 hours count by eliminating all distractions and focusing on your most important work.', priority: 'high', actions: ['Block 10 AM-12 PM absolutely', 'Phone in another room', 'Close email and chat apps'] },
+                    { title: 'Extended Wind-Down is Essential', text: 'Your active mind needs more time to settle. Start your bedtime routine 2-3 hours before intended sleep. This is non-negotiable for Dolphins.', priority: 'high', actions: ['No screens after 8 PM', 'Dim lights throughout house at 8 PM', 'Try calming activities: reading, bath, gentle stretching'] },
+                    { title: 'Strict Caffeine Cutoff', text: 'Your sensitivity means caffeine affects you longer. No caffeine after noon - and consider cutting back overall to improve sleep quality.', priority: 'high', actions: ['Last coffee by 12 PM', 'Switch to herbal tea afternoon', 'Track caffeine\'s effect on your sleep'] },
+                    { title: 'Afternoon Exercise for Sleep', text: 'Exercise between 4-5 PM is timed perfectly for Dolphins - it raises body temperature, which drops by bedtime, naturally inducing sleepiness.', priority: 'medium', actions: ['Schedule 4-5 PM workout', 'Moderate intensity, not exhausting', 'Cardio works better than weights for sleep'] },
+                    { title: 'Manage Perfectionism', text: 'Dolphins often lie awake running through tomorrow\'s tasks or past mistakes. Keep a "brain dump" journal by your bed to offload racing thoughts.', priority: 'medium', actions: ['Keep notebook by bed', 'Write worries down to "park" them', 'Practice accepting imperfection'] }
+                ],
+                sleepTips: 'Sleep environment is critical for Dolphins. You need complete darkness (blackout curtains + sleep mask), white noise or earplugs for sound, and cool temperature. Consider a weighted blanket for the calming pressure. Avoid looking at the clock when you wake at night - it increases anxiety.'
+            }
+        };
+        
+        // Work schedule compatibility mapping
+        const workCompatibility = {
+            lion: {
+                early: { score: 95, label: 'Excellent', text: 'Early shifts are perfect for Lions! You\'ll be at peak productivity when you need to be.' },
+                standard: { score: 75, label: 'Good', text: 'Standard hours work well, though you may feel your energy drop in afternoon meetings.' },
+                flexible: { score: 90, label: 'Excellent', text: 'With flexibility, you can work during your powerful morning hours and rest in the afternoon.' },
+                late: { score: 40, label: 'Challenging', text: 'Late starts waste your most productive morning hours and may lead to evening fatigue.' },
+                shifts: { score: 50, label: 'Moderate', text: 'Rotating shifts are challenging for Lions, especially late or overnight shifts.' }
+            },
+            bear: {
+                early: { score: 60, label: 'Moderate', text: 'Early starts are manageable but you may not hit peak performance until mid-morning.' },
+                standard: { score: 95, label: 'Excellent', text: 'Standard 9-5 hours align almost perfectly with your natural Bear rhythm!' },
+                flexible: { score: 85, label: 'Good', text: 'Flexibility works well, though you may benefit from some structure to maintain consistency.' },
+                late: { score: 70, label: 'Good', text: 'Late starts can work, but you may miss some of your morning productivity window.' },
+                shifts: { score: 55, label: 'Moderate', text: 'Bears adapt reasonably well to shifts but struggle with dramatic schedule changes.' }
+            },
+            wolf: {
+                early: { score: 25, label: 'Challenging', text: 'Early mornings are very difficult for Wolves. You\'ll be working against your biology.' },
+                standard: { score: 50, label: 'Moderate', text: 'Standard hours force you to work during low-energy times. Your best hours are wasted.' },
+                flexible: { score: 95, label: 'Excellent', text: 'Flexibility allows you to work during your powerful evening hours. This is ideal!' },
+                late: { score: 85, label: 'Good', text: 'Late starts align much better with your natural rhythm. You can actually use your peak hours.' },
+                shifts: { score: 60, label: 'Moderate', text: 'Night shifts actually suit Wolves better than early shifts. Evening shifts are ideal.' }
+            },
+            dolphin: {
+                early: { score: 65, label: 'Moderate', text: 'Early starts may actually help regulate your erratic sleep, though you\'ll often wake before the alarm anyway.' },
+                standard: { score: 70, label: 'Good', text: 'Standard hours work reasonably well and provide helpful structure for your irregular patterns.' },
+                flexible: { score: 60, label: 'Moderate', text: 'Flexibility can be a double-edged sword for Dolphins - you may benefit more from set routines.' },
+                late: { score: 55, label: 'Moderate', text: 'Late starts may encourage later bedtimes, which can worsen your already difficult sleep.' },
+                shifts: { score: 35, label: 'Poor', text: 'Shift work is particularly hard for Dolphins as you need consistency to manage your sleep issues.' }
+            }
+        };
+        
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        function toggleInfo(header) {
+            const toggle = header.parentElement;
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        function selectOption(card, name, value) {
+            // Remove selected from all cards in this question
+            card.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+            // Add selected to clicked card
+            card.classList.add('selected');
+            // Store value
+            userData[name] = value;
+            // Enable continue button
+            const questionNum = card.closest('.question-section').dataset.question;
+            document.getElementById('btn' + questionNum).disabled = false;
+        }
+        
+        function updateProgress(step) {
+            const totalSteps = 7;
+            const percentage = (step / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = percentage + '%';
+            
+            for (let i = 1; i <= 5; i++) {
+                const circle = document.getElementById('step' + i);
+                if (circle) {
+                    circle.classList.remove('active', 'completed');
+                    if (i < Math.ceil(step / 1.4)) {
+                        circle.classList.add('completed');
+                    } else if (i === Math.ceil(step / 1.4)) {
+                        circle.classList.add('active');
+                    }
+                }
+            }
+        }
+        
+        function nextQuestion(current) {
+            document.getElementById('q' + current).classList.remove('active');
+            document.getElementById('q' + (current + 1)).classList.add('active');
+            updateProgress(current + 1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function prevQuestion(current) {
+            document.getElementById('q' + current).classList.remove('active');
+            document.getElementById('q' + (current - 1)).classList.add('active');
+            updateProgress(current - 1);
+        }
+        
+        function calculateChronotype() {
+            let scores = { lion: 0, bear: 0, wolf: 0, dolphin: 0 };
+            
+            // Wake time scoring
+            switch(userData.wakeTime) {
+                case 'before6': scores.lion += 3; break;
+                case '6to7': scores.lion += 2; scores.bear += 1; break;
+                case '7to9': scores.bear += 3; break;
+                case 'after9': scores.wolf += 3; break;
+                case 'irregular': scores.dolphin += 3; break;
+            }
+            
+            // Peak energy scoring
+            switch(userData.peakEnergy) {
+                case 'earlyMorning': scores.lion += 3; break;
+                case 'lateMorning': scores.lion += 1; scores.bear += 2; break;
+                case 'afternoon': scores.bear += 2; scores.wolf += 1; break;
+                case 'evening': scores.wolf += 3; break;
+                case 'lateNight': scores.wolf += 3; scores.dolphin += 1; break;
+            }
+            
+            // Bedtime scoring
+            switch(userData.bedtime) {
+                case 'before9': scores.lion += 3; break;
+                case '9to10': scores.lion += 1; scores.bear += 2; break;
+                case '10to12': scores.bear += 2; scores.wolf += 1; break;
+                case 'after12': scores.wolf += 3; break;
+                case 'never': scores.dolphin += 3; break;
+            }
+            
+            // Sleep quality scoring
+            switch(userData.sleepQuality) {
+                case 'excellent': scores.lion += 1; scores.bear += 2; break;
+                case 'good': scores.bear += 2; break;
+                case 'variable': scores.dolphin += 2; break;
+                case 'light': scores.dolphin += 3; break;
+                case 'poor': scores.dolphin += 3; break;
+            }
+            
+            // Morning alertness scoring
+            switch(userData.alertness) {
+                case 'immediate': scores.lion += 3; break;
+                case '30min': scores.lion += 1; scores.bear += 2; break;
+                case '1hour': scores.bear += 2; scores.wolf += 1; break;
+                case '2hours': scores.wolf += 3; break;
+                case 'neverFully': scores.dolphin += 3; break;
+            }
+            
+            // Exercise preference
+            switch(userData.exercise) {
+                case 'earlyAM': scores.lion += 2; break;
+                case 'midMorning': scores.lion += 1; scores.bear += 1; break;
+                case 'lunchtime': scores.bear += 2; break;
+                case 'afternoon': scores.bear += 1; scores.wolf += 1; scores.dolphin += 1; break;
+                case 'evening': scores.wolf += 2; break;
+                case 'lateEvening': scores.wolf += 2; break;
+            }
+            
+            // Find highest score
+            let maxScore = 0;
+            let chronotype = 'bear';
+            for (const [type, score] of Object.entries(scores)) {
+                if (score > maxScore) {
+                    maxScore = score;
+                    chronotype = type;
+                }
+            }
+            
+            // Calculate confidence percentage
+            const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+            const confidence = Math.round((maxScore / totalScore) * 100);
+            
+            return { chronotype, scores, confidence };
+        }
+        
+        function calculateSocialJetLag(chronotype) {
+            const workSchedule = userData.workSchedule;
+            const compat = workCompatibility[chronotype][workSchedule];
+            
+            // Social jet lag is inverse of compatibility
+            const jetlagScore = 100 - compat.score;
+            
+            let severity, description;
+            if (jetlagScore <= 20) {
+                severity = 'low';
+                description = 'Your schedule aligns well with your chronotype. You\'re likely experiencing minimal social jet lag, which is great for your health and productivity.';
+            } else if (jetlagScore <= 40) {
+                severity = 'moderate';
+                description = 'You have some misalignment between your natural rhythm and your schedule. Consider small adjustments like shifting bedtime or protecting your peak hours for important work.';
+            } else if (jetlagScore <= 60) {
+                severity = 'high';
+                description = 'Significant misalignment between your chronotype and schedule may be causing fatigue, reduced productivity, and potential health effects. Consider schedule changes if possible.';
+            } else {
+                severity = 'severe';
+                description = 'Your current schedule conflicts strongly with your natural chronotype. This level of social jet lag can lead to chronic fatigue, mood issues, and long-term health impacts. Exploring schedule changes is recommended.';
+            }
+            
+            return { score: jetlagScore, severity, description, compatibility: compat };
+        }
+        
+        function showResults() {
+            const { chronotype, scores, confidence } = calculateChronotype();
+            const jetlag = calculateSocialJetLag(chronotype);
+            const data = chronotypes[chronotype];
+            
+            calculatedResults = {
+                chronotype,
+                chronotypeName: data.name,
+                confidence,
+                jetlagScore: jetlag.score,
+                jetlagSeverity: jetlag.severity,
+                compatibility: jetlag.compatibility,
+                workSchedule: userData.workSchedule
+            };
+            
+            // Save to database
+            saveResults();
+            
+            // Hide questions
+            document.querySelectorAll('.question-section').forEach(q => q.classList.remove('active'));
+            
+            // Build results HTML
+            let html = `
+                <div class="result-header ${chronotype}">
+                    <div class="result-icon">${data.icon}</div>
+                    <div class="result-label">Your Chronotype</div>
+                    <div class="result-title">${data.name}</div>
+                    <div class="result-tagline">${data.tagline}</div>
+                    <div class="result-subtitle">${confidence}% match based on your responses</div>
+                </div>
+                
+                <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">${data.description}</p>
+                
+                <div class="summary-grid">
+                    <div class="summary-card highlight">
+                        <div class="summary-icon">&#9200;</div>
+                        <div class="summary-value">${data.traits.wakeTime}</div>
+                        <div class="summary-label">Natural Wake Time</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">&#9889;</div>
+                        <div class="summary-value">${data.traits.peakHours}</div>
+                        <div class="summary-label">Peak Hours</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">&#127769;</div>
+                        <div class="summary-value">${data.traits.bedtime}</div>
+                        <div class="summary-label">Ideal Bedtime</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">&#128161;</div>
+                        <div class="summary-value" style="font-size: 14px;">${data.traits.personality}</div>
+                        <div class="summary-label">Typical Traits</div>
+                    </div>
+                </div>
+            `;
+            
+            // Social Jet Lag Meter
+            html += `
+                <div class="jetlag-meter">
+                    <div class="jetlag-title">
+                        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: var(--accent);"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                        Your Social Jet Lag Score
+                    </div>
+                    <div class="jetlag-bar-container">
+                        <div class="jetlag-bar ${jetlag.severity}" style="width: ${jetlag.score}%;"></div>
+                    </div>
+                    <div class="jetlag-labels">
+                        <span>Well Aligned</span>
+                        <span>Severely Misaligned</span>
+                    </div>
+                    <div class="jetlag-score">
+                        <div class="jetlag-score-value">${jetlag.score}%</div>
+                        <div class="jetlag-score-label">Schedule Misalignment</div>
+                    </div>
+                    <div class="jetlag-description">${jetlag.description}</div>
+                </div>
+            `;
+            
+            // Work Schedule Compatibility
+            html += `
+                <div class="compatibility-card">
+                    <div class="compatibility-header">
+                        <div class="compatibility-title">Work Schedule Compatibility</div>
+                        <div class="compatibility-score ${jetlag.compatibility.label.toLowerCase()}">${jetlag.compatibility.label}</div>
+                    </div>
+                    <div class="compatibility-bar">
+                        <div class="compatibility-fill ${jetlag.compatibility.label.toLowerCase()}" style="width: ${jetlag.compatibility.score}%;"></div>
+                    </div>
+                    <div class="compatibility-text">${jetlag.compatibility.text}</div>
+                </div>
+            `;
+            
+            // Ideal Daily Schedule
+            html += `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                    Your Ideal Daily Schedule
+                </h3>
+                <div class="schedule-timeline">
+                    <div class="schedule-timeline-header">Hour-by-Hour ${data.name} Schedule</div>
+                    ${data.schedule.map(item => `
+                        <div class="timeline-item">
+                            <div class="timeline-time">${item.time}</div>
+                            <div class="timeline-content">
+                                <div class="timeline-activity">${item.activity}</div>
+                                <div class="timeline-desc">${item.desc}</div>
+                                ${item.tag ? `<span class="timeline-tag ${item.tag}">${item.tag === 'peak' ? 'Peak Time' : item.tag === 'recovery' ? 'Recovery' : 'Wind-Down'}</span>` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            // Productivity Windows
+            html += `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V5H19V19H5V5H7V7M12,9A2,2 0 0,0 10,11A2,2 0 0,0 12,13A2,2 0 0,0 14,11A2,2 0 0,0 12,9Z"/></svg>
+                    Your Productivity Windows
+                </h3>
+                <div class="productivity-grid">
+                    <div class="productivity-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><path d="M12,3A4,4 0 0,1 16,7C16,7.73 15.81,8.41 15.46,9H18C18.95,9 19.75,9.67 19.95,10.56C21.96,18.57 22,18.78 22,19A2,2 0 0,1 20,21H4A2,2 0 0,1 2,19C2,18.78 2.04,18.57 4.05,10.56C4.25,9.67 5.05,9 6,9H8.54C8.19,8.41 8,7.73 8,7A4,4 0 0,1 12,3M12,5A2,2 0 0,0 10,7A2,2 0 0,0 12,9A2,2 0 0,0 14,7A2,2 0 0,0 12,5Z"/></svg>
+                            Deep Work
+                        </h4>
+                        <div class="productivity-time">${data.productivity.deepWork}</div>
+                        <div class="productivity-desc">Complex problem-solving, strategic thinking, difficult tasks</div>
+                    </div>
+                    <div class="productivity-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/></svg>
+                            Creative Work
+                        </h4>
+                        <div class="productivity-time">${data.productivity.creative}</div>
+                        <div class="productivity-desc">Writing, brainstorming, design, ideation</div>
+                    </div>
+                    <div class="productivity-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/></svg>
+                            Meetings
+                        </h4>
+                        <div class="productivity-time">${data.productivity.meetings}</div>
+                        <div class="productivity-desc">Calls, collaboration, discussions</div>
+                    </div>
+                    <div class="productivity-card">
+                        <h4>
+                            <svg viewBox="0 0 24 24"><path d="M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M4,6H20V8H4V6M4,18V10H20V18H4Z"/></svg>
+                            Admin Tasks
+                        </h4>
+                        <div class="productivity-time">${data.productivity.admin}</div>
+                        <div class="productivity-desc">Emails, scheduling, routine work</div>
+                    </div>
+                </div>
+            `;
+            
+            // Timing Recommendations
+            html += `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/></svg>
+                    Optimized Timing
+                </h3>
+                <div class="timing-grid">
+                    <div class="timing-card">
+                        <div class="timing-icon">&#127939;</div>
+                        <div class="timing-label">Best Exercise Time</div>
+                        <div class="timing-value">${data.timing.exercise}</div>
+                    </div>
+                    <div class="timing-card">
+                        <div class="timing-icon">&#9749;</div>
+                        <div class="timing-label">Caffeine Cutoff</div>
+                        <div class="timing-value">${data.timing.caffeineCutoff}</div>
+                    </div>
+                    <div class="timing-card">
+                        <div class="timing-icon">&#127860;</div>
+                        <div class="timing-label">Last Meal By</div>
+                        <div class="timing-value">${data.timing.lastMeal}</div>
+                    </div>
+                    <div class="timing-card">
+                        <div class="timing-icon">&#128241;</div>
+                        <div class="timing-label">Screens Off</div>
+                        <div class="timing-value">${data.timing.screenOff}</div>
+                    </div>
+                </div>
+            `;
+            
+            // Tips
+            html += `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,1 19,9C19,11.38 17.81,13.47 16,14.74V17A1,1 0 0,1 15,18H9A1,1 0 0,1 8,17V14.74C6.19,13.47 5,11.38 5,9A7,7 0 0,1 12,2M9,21V20H15V21A1,1 0 0,1 14,22H10A1,1 0 0,1 9,21M12,4A5,5 0 0,0 7,9C7,11.05 8.23,12.81 10,13.58V16H14V13.58C15.77,12.81 17,11.05 17,9A5,5 0 0,0 12,4Z"/></svg>
+                    ${data.name} Success Tips
+                </h3>
+            `;
+            
+            data.tips.forEach(tip => {
+                html += `
+                    <div class="tip-card priority-${tip.priority}">
+                        <div class="tip-header">
+                            <span class="tip-title">${tip.title}</span>
+                            <span class="priority-badge ${tip.priority}">${tip.priority === 'high' ? 'Key Tip' : 'Helpful'}</span>
+                        </div>
+                        <p class="tip-text">${tip.text}</p>
+                        <div class="tip-actions">
+                            ${tip.actions.map(action => `
+                                <div class="tip-action">
+                                    <svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>
+                                    ${action}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Sleep Environment Note
+            html += `
+                <div class="safety-notice">
+                    <div class="safety-title">
+                        <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #1e40af;"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg>
+                        ${data.name} Sleep Environment
+                    </div>
+                    <p class="safety-text">${data.sleepTips}</p>
+                </div>
+            `;
+            
+            // Product Note
+            const productRecommendations = {
+                lion: { text: 'Lions often need blackout solutions since you sleep while it may still be light outside, especially in summer.', link: 'https://spacire.com/collections/blackout-products', linkText: 'Browse blackout solutions' },
+                bear: { text: 'Bears benefit from consistent sleep environments. A quality sleep mask and white noise can help maintain your rhythm.', link: 'https://spacire.com/collections/sleep-masks', linkText: 'Browse sleep masks' },
+                wolf: { text: 'Wolves need strong blackout curtains and quality sleep masks since you often sleep past sunrise.', link: 'https://spacire.com/collections/sleep-masks', linkText: 'Browse sleep masks' },
+                dolphin: { text: 'Dolphins need complete darkness, white noise for sound blocking, and possibly a weighted blanket for calming pressure.', link: 'https://spacire.com/collections/weighted-blankets', linkText: 'Browse weighted blankets' }
+            };
+            
+            html += `
+                <div class="product-note">
+                    <div class="product-note-title">Sleep Environment for ${data.name}s</div>
+                    <p class="product-note-text">${productRecommendations[chronotype].text}</p>
+                    <a href="${productRecommendations[chronotype].link}" class="product-link-subtle" target="_blank">${productRecommendations[chronotype].linkText} (optional) &rarr;</a>
+                </div>
+            `;
+            
+            // Email capture
+            html += `
+                <div class="email-capture">
+                    <h3 class="email-capture-title">Save Your Chronotype Profile</h3>
+                    <p class="email-capture-text">Get your complete ${data.name} schedule, productivity windows, and personalized tips sent to your inbox.</p>
+                    <form class="email-form" onsubmit="sendReport(event)">
+                        <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                        <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                        <button type="submit" class="btn btn-primary" id="sendReportBtn">Send My Profile</button>
+                    </form>
+                    <p class="email-success" id="emailSuccess">Profile sent! Check your inbox.</p>
+                    <p class="form-error" id="formError"></p>
+                </div>
+            `;
+            
+            document.getElementById('resultsSection').innerHTML = html;
+            document.getElementById('resultsSection').classList.add('active');
+            
+            updateProgress(7);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        async function saveResults() {
+            try {
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    {
+                        tool_name: 'chronotype_quiz',
+                        results_json: JSON.stringify(calculatedResults),
+                        user_agent: navigator.userAgent.substring(0, 500),
+                        created_at: new Date().toISOString()
+                    }
+                );
+                console.log('Results saved');
+            } catch (error) {
+                console.error('Database error:', error);
+            }
+        }
+        
+        async function sendReport(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('userEmail').value.trim();
+            const firstName = document.getElementById('userName').value.trim();
+            const sendBtn = document.getElementById('sendReportBtn');
+            const errorEl = document.getElementById('formError');
+            
+            if (!email || !firstName) {
+                errorEl.textContent = 'Please enter your name and email.';
+                errorEl.style.display = 'block';
+                return;
+            }
+            
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+            errorEl.style.display = 'none';
+            
+            const data = chronotypes[calculatedResults.chronotype];
+            
+            const emailPayload = JSON.stringify({
+                toolName: 'chronotype-quiz',
+                email: email,
+                firstName: firstName,
+                
+                // Chronotype data
+                chronotype: calculatedResults.chronotype,
+                chronotypeName: data.name,
+                tagline: data.tagline,
+                icon: data.icon,
+                description: data.description,
+                confidence: calculatedResults.confidence,
+                
+                // Traits
+                traits: data.traits,
+                
+                // Social jet lag
+                jetlagScore: calculatedResults.jetlagScore,
+                jetlagSeverity: calculatedResults.jetlagSeverity,
+                compatibility: calculatedResults.compatibility,
+                
+                // Schedule
+                schedule: data.schedule,
+                
+                // Productivity windows
+                productivity: data.productivity,
+                
+                // Timing
+                timing: data.timing,
+                
+                // Tips
+                tips: data.tips,
+                
+                // Sleep environment
+                sleepTips: data.sleepTips
+            });
+            
+            try {
+                // Save with email info
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'chronotype_quiz',
+                            user_email: email,
+                            user_first_name: firstName,
+                            results_json: JSON.stringify({
+                                ...calculatedResults,
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                } catch (dbError) {
+                    console.error('DB error:', dbError);
+                }
+                
+                // Send email (async)
+                const response = await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    true // async
+                );
+                
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('userEmail').disabled = true;
+                document.getElementById('userName').disabled = true;
+                sendBtn.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Email error:', error);
+                errorEl.textContent = 'Failed to send. Please try again.';
+                errorEl.style.display = 'block';
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send My Profile';
+            }
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText('https://tools.spacire.com/chronotype-quiz').then(() => {
+                const btn = document.querySelector('.share-btn.copy');
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg> Copy Link';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
