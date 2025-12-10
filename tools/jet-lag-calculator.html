@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Jet Lag Calculator - Get a personalized recovery plan based on your travel route, flight times, and sleep schedule. Minimize jet lag with science-backed strategies.">
+    <meta name="keywords" content="jet lag calculator, jet lag recovery, time zone adjustment, travel sleep planner, circadian rhythm, jet lag cure, travel fatigue, flight sleep tips, jet lag prevention, time zone sleep">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    
+    <title>Jet Lag Calculator - Personalized Recovery Plan | Spacire</title>
+    
+    <link rel="canonical" href="https://tools.spacire.com/jet-lag-calculator">
+    
+    <meta property="og:title" content="Jet Lag Calculator - Personalized Recovery Plan">
+    <meta property="og:description" content="Get a science-backed jet lag recovery plan based on your specific travel route and sleep patterns. Free tool from Spacire.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/jet-lag-calculator">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jet Lag Calculator - Personalized Recovery Plan">
+    <meta name="twitter:description" content="Get a science-backed jet lag recovery plan for your next trip.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Jet Lag Calculator",
+        "description": "Free tool to calculate jet lag severity and get a personalized recovery plan based on your travel route, flight times, and sleep patterns.",
+        "url": "https://tools.spacire.com/jet-lag-calculator",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "How long does jet lag last?", "acceptedAnswer": {"@type": "Answer", "text": "As a general rule, it takes about one day to recover for each time zone crossed. However, eastward travel typically takes 25-50% longer to recover from than westward travel. Most people fully adjust within 3-7 days depending on the number of time zones crossed and individual factors."}},
+            {"@type": "Question", "name": "Is jet lag worse going east or west?", "acceptedAnswer": {"@type": "Answer", "text": "Jet lag is typically worse when traveling east because it requires advancing your body clock (going to sleep earlier), which is harder than delaying it. Our natural circadian rhythm is slightly longer than 24 hours, making it easier to stay up later (westward travel) than to fall asleep earlier (eastward travel)."}},
+            {"@type": "Question", "name": "How can I prevent jet lag before travel?", "acceptedAnswer": {"@type": "Answer", "text": "Start adjusting your sleep schedule 2-3 days before departure. If traveling east, go to bed 30-60 minutes earlier each night. If traveling west, stay up 30-60 minutes later. Also adjust meal times, get morning light exposure for eastward travel or evening light for westward, and stay well hydrated."}},
+            {"@type": "Question", "name": "Should I nap when jet lagged?", "acceptedAnswer": {"@type": "Answer", "text": "Brief naps of 20-30 minutes can help combat fatigue without interfering with nighttime sleep. Avoid napping after 3pm local time, and never nap longer than 90 minutes as this can make it harder to fall asleep at your target bedtime. Strategic short naps are better than one long sleep during the day."}}
+        ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5e6c4;
+            --success: #d4edda;
+            --success-dark: #155724;
+            --warning: #fff3cd;
+            --warning-dark: #856404;
+            --error: #dc3545;
+            --error-light: #f8d7da;
+            --info-bg: #e7f3ff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-light: #888;
+            --border: #e0e0e0;
+            --hover: #f8f9fa;
+            --font-primary: 'Domine', Georgia, serif;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.2s ease;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: var(--font-primary); background: #f5f5f5; color: var(--text-primary); line-height: 1.6; }
+        
+        .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+        .header-nav { display: flex; gap: 28px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-light); margin: 0 8px; }
+        
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        
+        .tool-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; }
+        .tool-body { padding: 28px; }
+        
+        .progress-container { margin-bottom: 28px; }
+        .progress-steps { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .progress-step { display: flex; flex-direction: column; align-items: center; flex: 1; }
+        .step-circle { width: 32px; height: 32px; border-radius: 50%; background: var(--border); color: var(--text-light); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; transition: var(--transition); }
+        .step-circle.active { background: var(--accent); color: var(--primary); }
+        .step-circle.completed { background: var(--primary); color: #fff; }
+        .step-label { font-size: 11px; color: var(--text-light); margin-top: 6px; text-align: center; }
+        .progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.3s ease; }
+        
+        .question-section { display: none; animation: fadeIn 0.4s ease; }
+        .question-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .question-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .question-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .form-select, .form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); background: #fff; }
+        .form-select:focus, .form-input:focus { outline: none; border-color: var(--accent); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+        
+        .timezone-display { background: var(--accent-light); border: 2px solid var(--accent); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; text-align: center; }
+        .timezone-display-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+        .timezone-display-value { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .timezone-display-direction { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+        
+        .option-grid { display: grid; gap: 12px; }
+        .option-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 500px) { .option-grid.two-col { grid-template-columns: 1fr; } }
+        
+        .option-card { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); background: #fff; user-select: none; }
+        .option-card:hover { border-color: var(--accent); background: var(--accent-light); }
+        .option-card.selected { border-color: var(--accent); background: var(--accent-light); }
+        .option-card input { display: none; }
+        .option-check { width: 22px; height: 22px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--transition); }
+        .option-card.selected .option-check { background: var(--accent); border-color: var(--accent); }
+        .option-card.selected .option-check::after { content: ''; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+        .option-icon { font-size: 24px; flex-shrink: 0; }
+        .option-content { flex: 1; }
+        .option-label { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+        .option-desc { font-size: 12px; color: var(--text-light); }
+        
+        .nav-buttons { display: flex; gap: 12px; margin-top: 28px; justify-content: flex-end; }
+        .btn { padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--accent); color: var(--primary); }
+        .btn-primary:hover { background: #c9a047; }
+        .btn-primary:disabled { background: var(--border); color: var(--text-light); cursor: not-allowed; }
+        .btn-secondary { background: #fff; color: var(--primary); border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); }
+        
+        .results-section { display: none; }
+        .results-section.active { display: block; animation: fadeIn 0.5s ease; }
+        
+        .result-header { text-align: center; padding: 32px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); color: #fff; margin-bottom: 28px; }
+        .result-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
+        .result-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .result-subtitle { font-size: 16px; opacity: 0.9; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 28px; }
+        .summary-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; text-align: center; }
+        .summary-card.highlight { border-color: var(--accent); background: var(--accent-light); }
+        .summary-icon { font-size: 28px; margin-bottom: 8px; }
+        .summary-value { font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .summary-label { font-size: 12px; color: var(--text-secondary); }
+        
+        .section-title { font-size: 18px; font-weight: 600; color: var(--primary); margin: 28px 0 16px; display: flex; align-items: center; gap: 10px; }
+        .section-title svg { width: 22px; height: 22px; fill: var(--accent); }
+        
+        .schedule-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 20px; }
+        .schedule-header { background: var(--primary); color: #fff; padding: 16px 20px; font-weight: 600; }
+        .schedule-body { padding: 20px; }
+        .schedule-item { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .schedule-item:last-child { border-bottom: none; }
+        .schedule-time { min-width: 80px; font-weight: 600; color: var(--primary); }
+        .schedule-action { flex: 1; color: var(--text-secondary); }
+        .schedule-icon { font-size: 18px; }
+        
+        .day-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .day-tab { padding: 10px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); background: #fff; cursor: pointer; font-size: 13px; font-weight: 600; transition: var(--transition); }
+        .day-tab:hover { border-color: var(--accent); }
+        .day-tab.active { background: var(--accent); border-color: var(--accent); color: var(--primary); }
+        
+        .tip-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; }
+        .tip-card.priority-high { border-left: 4px solid var(--accent); }
+        .tip-card.priority-medium { border-left: 4px solid var(--primary); }
+        .tip-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+        .tip-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .priority-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+        .priority-badge.high { background: var(--accent-light); color: var(--primary); }
+        .priority-badge.medium { background: #e0e7ff; color: #3730a3; }
+        .tip-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        
+        .light-schedule { background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: 20px; margin: 20px 0; }
+        .light-schedule-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .light-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(224, 178, 82, 0.3); }
+        .light-row:last-child { border-bottom: none; }
+        .light-action { font-weight: 600; color: var(--text-primary); }
+        .light-time { color: var(--text-secondary); }
+        .light-seek { color: #059669; }
+        .light-avoid { color: #dc2626; }
+        
+        .product-note { background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-top: 24px; }
+        .product-note-title { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 10px; }
+        .product-note-text { font-size: 13px; color: var(--text-light); line-height: 1.6; margin-bottom: 12px; }
+        .product-link-subtle { display: inline-block; color: var(--primary); text-decoration: none; font-size: 13px; font-weight: 500; }
+        .product-link-subtle:hover { text-decoration: underline; }
+        
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--accent-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-top: 28px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
+        .email-input:focus { outline: none; border-color: var(--accent); }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        .safety-notice { background: var(--warning); border: 1px solid #ffc107; border-radius: var(--radius-md); padding: 20px; margin-top: 24px; }
+        .safety-title { font-size: 14px; font-weight: 600; color: var(--warning-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .safety-text { font-size: 13px; color: var(--warning-dark); line-height: 1.6; }
+        
+        .info-section { margin-top: 40px; }
+        .info-toggle { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; }
+        .toggle-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; transition: var(--transition); }
+        .toggle-header:hover { background: var(--hover); }
+        .toggle-title { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .toggle-icon { font-size: 20px; color: var(--primary); transition: transform 0.3s ease; }
+        .info-toggle.open .toggle-icon { transform: rotate(180deg); }
+        .info-content { display: none; padding: 24px; background: #fff; border-top: 1px solid var(--border); }
+        .info-content.open { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .info-content h4 { font-size: 15px; font-weight: 600; color: var(--primary); margin: 20px 0 10px; }
+        .info-content h4:first-child { margin-top: 0; }
+        .info-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-content ul { margin: 0 0 16px 0; padding-left: 20px; }
+        .info-content li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+        .info-content a { color: var(--primary); }
+        
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .tool-link-card { display: block; padding: 16px; background: var(--hover); border: 1px solid var(--border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition); }
+        .tool-link-card:hover { border-color: var(--primary); }
+        .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+        
+        .share-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); text-decoration: none; font-size: 13px; font-weight: 600; transition: var(--transition); }
+        .share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .share-btn.twitter { background: #1DA1F2; color: #fff; }
+        .share-btn.twitter:hover { background: #1a8cd8; }
+        .share-btn.facebook { background: #4267B2; color: #fff; }
+        .share-btn.facebook:hover { background: #365899; }
+        .share-btn.whatsapp { background: #25D366; color: #fff; }
+        .share-btn.whatsapp:hover { background: #20bd5a; }
+        .share-btn.email-share { background: var(--primary); color: #fff; }
+        .share-btn.email-share:hover { background: var(--primary-light); }
+        .share-btn.copy { background: #fff; color: var(--primary); border: 2px solid var(--border); }
+        .share-btn.copy:hover { border-color: var(--primary); }
+        
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>&gt;</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>&gt;</span>
+            <span style="color: var(--text-primary);">Jet Lag Calculator</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Jet Lag Calculator</h1>
+            <p class="page-subtitle">Get a personalized recovery plan based on your travel route, flight times, and sleep patterns. Beat jet lag faster with science-backed strategies.</p>
+        </header>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <h2>Calculate Your Jet Lag Recovery Plan</h2>
+                <p>Answer 5 quick questions about your trip</p>
+            </div>
+            
+            <div class="tool-body">
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step"><div class="step-circle active" id="step1">1</div><span class="step-label">Route</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step2">2</div><span class="step-label">Flight</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step3">3</div><span class="step-label">Trip</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step4">4</div><span class="step-label">Sleep</span></div>
+                        <div class="progress-step"><div class="step-circle" id="step5">5</div><span class="step-label">Prep</span></div>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 20%;"></div></div>
+                </div>
+                
+                <!-- Question 1: Travel Route -->
+                <div class="question-section active" id="q1">
+                    <h3 class="question-title">Where are you traveling?</h3>
+                    <p class="question-subtitle">Select your departure and destination time zones</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Departing From</label>
+                            <select class="form-select" id="departureZone" onchange="updateTimeDifference()">
+                                <option value="">Select timezone...</option>
+                                <optgroup label="North America">
+                                    <option value="-10">Hawaii (UTC-10)</option>
+                                    <option value="-9">Alaska (UTC-9)</option>
+                                    <option value="-8">Los Angeles / Pacific (UTC-8)</option>
+                                    <option value="-7">Denver / Mountain (UTC-7)</option>
+                                    <option value="-6">Chicago / Central (UTC-6)</option>
+                                    <option value="-5">New York / Eastern (UTC-5)</option>
+                                </optgroup>
+                                <optgroup label="South America">
+                                    <option value="-3">Buenos Aires / Sao Paulo (UTC-3)</option>
+                                    <option value="-5">Lima / Bogota (UTC-5)</option>
+                                </optgroup>
+                                <optgroup label="Europe">
+                                    <option value="0">London / Lisbon (UTC+0)</option>
+                                    <option value="1">Paris / Berlin / Rome (UTC+1)</option>
+                                    <option value="2">Athens / Helsinki (UTC+2)</option>
+                                    <option value="3">Moscow (UTC+3)</option>
+                                </optgroup>
+                                <optgroup label="Middle East">
+                                    <option value="3">Riyadh (UTC+3)</option>
+                                    <option value="4">Dubai (UTC+4)</option>
+                                </optgroup>
+                                <optgroup label="Asia">
+                                    <option value="5.5">Mumbai / Delhi (UTC+5:30)</option>
+                                    <option value="7">Bangkok / Jakarta (UTC+7)</option>
+                                    <option value="8">Singapore / Hong Kong / Beijing (UTC+8)</option>
+                                    <option value="9">Tokyo / Seoul (UTC+9)</option>
+                                </optgroup>
+                                <optgroup label="Oceania">
+                                    <option value="10">Sydney / Melbourne (UTC+10)</option>
+                                    <option value="12">Auckland (UTC+12)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Traveling To</label>
+                            <select class="form-select" id="destinationZone" onchange="updateTimeDifference()">
+                                <option value="">Select timezone...</option>
+                                <optgroup label="North America">
+                                    <option value="-10">Hawaii (UTC-10)</option>
+                                    <option value="-9">Alaska (UTC-9)</option>
+                                    <option value="-8">Los Angeles / Pacific (UTC-8)</option>
+                                    <option value="-7">Denver / Mountain (UTC-7)</option>
+                                    <option value="-6">Chicago / Central (UTC-6)</option>
+                                    <option value="-5">New York / Eastern (UTC-5)</option>
+                                </optgroup>
+                                <optgroup label="South America">
+                                    <option value="-3">Buenos Aires / Sao Paulo (UTC-3)</option>
+                                    <option value="-5">Lima / Bogota (UTC-5)</option>
+                                </optgroup>
+                                <optgroup label="Europe">
+                                    <option value="0">London / Lisbon (UTC+0)</option>
+                                    <option value="1">Paris / Berlin / Rome (UTC+1)</option>
+                                    <option value="2">Athens / Helsinki (UTC+2)</option>
+                                    <option value="3">Moscow (UTC+3)</option>
+                                </optgroup>
+                                <optgroup label="Middle East">
+                                    <option value="3">Riyadh (UTC+3)</option>
+                                    <option value="4">Dubai (UTC+4)</option>
+                                </optgroup>
+                                <optgroup label="Asia">
+                                    <option value="5.5">Mumbai / Delhi (UTC+5:30)</option>
+                                    <option value="7">Bangkok / Jakarta (UTC+7)</option>
+                                    <option value="8">Singapore / Hong Kong / Beijing (UTC+8)</option>
+                                    <option value="9">Tokyo / Seoul (UTC+9)</option>
+                                </optgroup>
+                                <optgroup label="Oceania">
+                                    <option value="10">Sydney / Melbourne (UTC+10)</option>
+                                    <option value="12">Auckland (UTC+12)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="timezone-display" id="timeDifferenceDisplay" style="display: none;">
+                        <div class="timezone-display-label">Time Difference</div>
+                        <div class="timezone-display-value" id="timeDiffValue">+0 hours</div>
+                        <div class="timezone-display-direction" id="timeDiffDirection">Select both locations</div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-primary" onclick="nextQuestion(1)" disabled id="nextBtn1">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 2: Flight Details -->
+                <div class="question-section" id="q2">
+                    <h3 class="question-title">When is your flight?</h3>
+                    <p class="question-subtitle">Enter your departure and arrival times</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Departure Date</label>
+                            <input type="date" class="form-input" id="departureDate">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Departure Time (Local)</label>
+                            <select class="form-select" id="departureTime">
+                                <option value="">Select time...</option>
+                                <option value="6">Early Morning (5am - 8am)</option>
+                                <option value="10">Morning (8am - 12pm)</option>
+                                <option value="14">Afternoon (12pm - 5pm)</option>
+                                <option value="18">Evening (5pm - 9pm)</option>
+                                <option value="22">Night (9pm - 12am)</option>
+                                <option value="2">Red-Eye (12am - 5am)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Approximate Flight Duration</label>
+                        <select class="form-select" id="flightDuration">
+                            <option value="">Select duration...</option>
+                            <option value="2">Short (1-3 hours)</option>
+                            <option value="5">Medium (4-6 hours)</option>
+                            <option value="8">Long (7-10 hours)</option>
+                            <option value="12">Very Long (11-14 hours)</option>
+                            <option value="16">Ultra Long (15+ hours)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(2)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(2)" disabled id="nextBtn2">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 3: Trip Duration -->
+                <div class="question-section" id="q3">
+                    <h3 class="question-title">How long is your trip?</h3>
+                    <p class="question-subtitle">This helps us determine if full adjustment is needed</p>
+                    
+                    <div class="option-grid two-col">
+                        <div class="option-card" onclick="selectOption(3, 'short')">
+                            <input type="radio" name="q3" value="short">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#9992;</span>
+                            <span class="option-content">
+                                <span class="option-label">Quick Trip</span>
+                                <span class="option-desc">1-3 days (may not need full adjustment)</span>
+                            </span>
+                        </div>
+                        <div class="option-card" onclick="selectOption(3, 'medium')">
+                            <input type="radio" name="q3" value="medium">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#127758;</span>
+                            <span class="option-content">
+                                <span class="option-label">Standard Trip</span>
+                                <span class="option-desc">4-7 days</span>
+                            </span>
+                        </div>
+                        <div class="option-card" onclick="selectOption(3, 'long')">
+                            <input type="radio" name="q3" value="long">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#127965;</span>
+                            <span class="option-content">
+                                <span class="option-label">Extended Stay</span>
+                                <span class="option-desc">1-4 weeks</span>
+                            </span>
+                        </div>
+                        <div class="option-card" onclick="selectOption(3, 'relocation')">
+                            <input type="radio" name="q3" value="relocation">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#127968;</span>
+                            <span class="option-content">
+                                <span class="option-label">Relocation / Long-term</span>
+                                <span class="option-desc">1+ months</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(3)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(3)" disabled id="nextBtn3">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 4: Sleep Profile -->
+                <div class="question-section" id="q4">
+                    <h3 class="question-title">What's your typical sleep schedule?</h3>
+                    <p class="question-subtitle">This helps us personalize your adjustment plan</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Usual Bedtime</label>
+                            <select class="form-select" id="usualBedtime">
+                                <option value="">Select bedtime...</option>
+                                <option value="21">9:00 PM</option>
+                                <option value="22">10:00 PM</option>
+                                <option value="23">11:00 PM</option>
+                                <option value="24">12:00 AM (Midnight)</option>
+                                <option value="25">1:00 AM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Usual Wake Time</label>
+                            <select class="form-select" id="usualWakeTime">
+                                <option value="">Select wake time...</option>
+                                <option value="5">5:00 AM</option>
+                                <option value="6">6:00 AM</option>
+                                <option value="7">7:00 AM</option>
+                                <option value="8">8:00 AM</option>
+                                <option value="9">9:00 AM</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Are you naturally a...</label>
+                    </div>
+                    <div class="option-grid two-col">
+                        <div class="option-card" onclick="selectChronotype('early-bird')">
+                            <input type="radio" name="chronotype" value="early-bird">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#127749;</span>
+                            <span class="option-content">
+                                <span class="option-label">Early Bird</span>
+                                <span class="option-desc">Prefer mornings, fade in evenings</span>
+                            </span>
+                        </div>
+                        <div class="option-card" onclick="selectChronotype('night-owl')">
+                            <input type="radio" name="chronotype" value="night-owl">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#127769;</span>
+                            <span class="option-content">
+                                <span class="option-label">Night Owl</span>
+                                <span class="option-desc">Peak energy in evenings</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(4)">Back</button>
+                        <button class="btn btn-primary" onclick="nextQuestion(4)" disabled id="nextBtn4">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Question 5: Preparation Time -->
+                <div class="question-section" id="q5">
+                    <h3 class="question-title">How much prep time do you have?</h3>
+                    <p class="question-subtitle">Pre-adjusting before travel can significantly reduce jet lag</p>
+                    
+                    <div class="option-grid">
+                        <div class="option-card" onclick="selectOption(5, 'none')">
+                            <input type="radio" name="q5" value="none">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#128531;</span>
+                            <span class="option-content">
+                                <span class="option-label">No Prep Time</span>
+                                <span class="option-desc">Traveling within 24 hours</span>
+                            </span>
+                        </div>
+                        <div class="option-card" onclick="selectOption(5, 'minimal')">
+                            <input type="radio" name="q5" value="minimal">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#128336;</span>
+                            <span class="option-content">
+                                <span class="option-label">1-2 Days</span>
+                                <span class="option-desc">Some time to start adjusting</span>
+                            </span>
+                        </div>
+                        <div class="option-card" onclick="selectOption(5, 'moderate')">
+                            <input type="radio" name="q5" value="moderate">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#128197;</span>
+                            <span class="option-content">
+                                <span class="option-label">3-5 Days</span>
+                                <span class="option-desc">Good opportunity to pre-adjust</span>
+                            </span>
+                        </div>
+                        <div class="option-card" onclick="selectOption(5, 'plenty')">
+                            <input type="radio" name="q5" value="plenty">
+                            <span class="option-check"></span>
+                            <span class="option-icon">&#10004;</span>
+                            <span class="option-content">
+                                <span class="option-label">1 Week+</span>
+                                <span class="option-desc">Plenty of time to prepare</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="prevQuestion(5)">Back</button>
+                        <button class="btn btn-primary" onclick="generateResults()" disabled id="nextBtn5">Get My Plan</button>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Toggles -->
+        <section class="info-section">
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">How It Works</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>The Science of Jet Lag</h4>
+                    <p>Jet lag occurs when your internal circadian clock is out of sync with the local time at your destination. Your body runs on roughly a 24-hour cycle controlled by light exposure, and crossing time zones faster than your body can adapt creates this mismatch.</p>
+                    
+                    <h4>Why Direction Matters</h4>
+                    <p><strong>Eastward travel is harder</strong> because it requires "advancing" your body clock (going to sleep earlier than usual). Our natural circadian rhythm is slightly longer than 24 hours, making it easier to delay sleep (westward) than advance it.</p>
+                    
+                    <h4>Recovery Timeline</h4>
+                    <ul>
+                        <li><strong>Rule of thumb:</strong> 1 day of recovery per time zone crossed</li>
+                        <li><strong>Eastward:</strong> May take 25-50% longer than westward</li>
+                        <li><strong>Light exposure:</strong> The most powerful tool for adjusting your clock</li>
+                        <li><strong>Meal timing:</strong> Can help reinforce new schedule</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">About This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Our Approach</h4>
+                    <p>This calculator uses established circadian science to create personalized recommendations. We consider your travel direction, time difference, flight timing, personal sleep patterns, and available prep time to generate a practical recovery strategy.</p>
+                    
+                    <h4>What We Calculate</h4>
+                    <ul>
+                        <li>Optimal light exposure timing based on direction of travel</li>
+                        <li>Pre-travel adjustment schedule (when time permits)</li>
+                        <li>In-flight sleep strategy for your specific flight times</li>
+                        <li>Day-by-day post-arrival adaptation plan</li>
+                        <li>Estimated full recovery timeline</li>
+                    </ul>
+                    
+                    <h4>Data Privacy</h4>
+                    <p>Your travel information is processed in your browser. We only store data if you choose to receive an email report.</p>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">Share This Tool</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <h4>Help Fellow Travelers</h4>
+                    <p>Know someone with an upcoming trip? Share this tool to help them beat jet lag.</p>
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?url=https://tools.spacire.com/jet-lag-calculator&text=Free%20Jet%20Lag%20Calculator%20-%20Get%20a%20personalized%20recovery%20plan%20for%20your%20next%20trip" target="_blank" rel="noopener noreferrer" class="share-btn twitter">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            Share on X
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tools.spacire.com/jet-lag-calculator" target="_blank" rel="noopener noreferrer" class="share-btn facebook">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            Share on Facebook
+                        </a>
+                        <a href="https://wa.me/?text=Free%20Jet%20Lag%20Calculator%20-%20Get%20a%20personalized%20recovery%20plan%20https://tools.spacire.com/jet-lag-calculator" target="_blank" rel="noopener noreferrer" class="share-btn whatsapp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            WhatsApp
+                        </a>
+                        <button class="share-btn copy" onclick="copyLink()">
+                            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-toggle">
+                <div class="toggle-header" onclick="toggleInfo(this)">
+                    <span class="toggle-title">More Sleep Tools</span>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="info-content">
+                    <p>Explore our other free sleep tools:</p>
+                    <div class="tools-grid">
+                        <a href="https://tools.spacire.com/sleep-environment-optimizer" class="tool-link-card">
+                            <h5>Sleep Environment Optimizer</h5>
+                            <p>Assess your bedroom for optimal sleep</p>
+                        </a>
+                        <a href="https://tools.spacire.com/shift-worker-sleep-planner" class="tool-link-card">
+                            <h5>Shift Worker Sleep Planner</h5>
+                            <p>Sleep schedules for shift workers</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-debt-calculator" class="tool-link-card">
+                            <h5>Sleep Debt Calculator</h5>
+                            <p>Track and recover from sleep debt</p>
+                        </a>
+                        <a href="https://tools.spacire.com/bedtime-routine-builder" class="tool-link-card">
+                            <h5>Bedtime Routine Builder</h5>
+                            <p>Create your ideal wind-down routine</p>
+                        </a>
+                        <a href="https://tools.spacire.com/sleep-sound-finder" class="tool-link-card">
+                            <h5>Sleep Sound Finder</h5>
+                            <p>Find your perfect sleep sounds</p>
+                        </a>
+                        <a href="https://tools.spacire.com/natural-sleep-remedy-finder" class="tool-link-card">
+                            <h5>Natural Sleep Remedy Finder</h5>
+                            <p>Evidence-based natural remedies</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                    <a href="https://tools.spacire.com/sleep-sound-finder">Sleep Sound Finder</a>
+                    <a href="https://tools.spacire.com/jet-lag-calculator">Jet Lag Calculator</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // USER DATA STORAGE
+        // ========================================
+        let userData = {
+            departureZone: null,
+            destinationZone: null,
+            timeDifference: 0,
+            direction: null, // 'east' or 'west'
+            departureDate: null,
+            departureTime: null,
+            flightDuration: null,
+            tripDuration: null,
+            usualBedtime: null,
+            usualWakeTime: null,
+            chronotype: null,
+            prepTime: null
+        };
+        
+        let calculatedResults = null;
+        
+        // ========================================
+        // NAVIGATION FUNCTIONS
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        function updateTimeDifference() {
+            const depZone = document.getElementById('departureZone').value;
+            const destZone = document.getElementById('destinationZone').value;
+            const display = document.getElementById('timeDifferenceDisplay');
+            
+            if (depZone && destZone) {
+                const diff = parseFloat(destZone) - parseFloat(depZone);
+                userData.departureZone = parseFloat(depZone);
+                userData.destinationZone = parseFloat(destZone);
+                userData.timeDifference = diff;
+                
+                // Determine direction
+                if (diff > 0) {
+                    userData.direction = 'east';
+                } else if (diff < 0) {
+                    userData.direction = 'west';
+                } else {
+                    userData.direction = 'none';
+                }
+                
+                const absHours = Math.abs(diff);
+                const hoursDisplay = absHours === 1 ? '1 hour' : `${absHours} hours`;
+                
+                document.getElementById('timeDiffValue').textContent = 
+                    diff > 0 ? `+${hoursDisplay}` : 
+                    diff < 0 ? `-${hoursDisplay}` : 
+                    'Same timezone';
+                
+                let directionText = '';
+                if (diff > 0) {
+                    directionText = 'Traveling East (harder adjustment)';
+                } else if (diff < 0) {
+                    directionText = 'Traveling West (easier adjustment)';
+                } else {
+                    directionText = 'No jet lag expected';
+                }
+                document.getElementById('timeDiffDirection').textContent = directionText;
+                
+                display.style.display = 'block';
+                document.getElementById('nextBtn1').disabled = false;
+            }
+        }
+        
+        function selectOption(question, value) {
+            if (question === 3) userData.tripDuration = value;
+            if (question === 5) userData.prepTime = value;
+            
+            document.querySelectorAll(`#q${question} .option-card`).forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+            
+            document.getElementById(`nextBtn${question}`).disabled = false;
+        }
+        
+        function selectChronotype(value) {
+            userData.chronotype = value;
+            
+            document.querySelectorAll('#q4 .option-card').forEach(card => {
+                if (card.querySelector('input[name="chronotype"]')) {
+                    card.classList.remove('selected');
+                }
+            });
+            event.currentTarget.classList.add('selected');
+            
+            checkQ4Completion();
+        }
+        
+        function checkQ4Completion() {
+            const bedtime = document.getElementById('usualBedtime').value;
+            const wakeTime = document.getElementById('usualWakeTime').value;
+            
+            userData.usualBedtime = bedtime ? parseInt(bedtime) : null;
+            userData.usualWakeTime = wakeTime ? parseInt(wakeTime) : null;
+            
+            if (userData.usualBedtime && userData.usualWakeTime && userData.chronotype) {
+                document.getElementById('nextBtn4').disabled = false;
+            }
+        }
+        
+        function nextQuestion(current) {
+            // Save Q2 data
+            if (current === 2) {
+                userData.departureDate = document.getElementById('departureDate').value;
+                userData.departureTime = parseInt(document.getElementById('departureTime').value);
+                userData.flightDuration = parseInt(document.getElementById('flightDuration').value);
+            }
+            
+            document.getElementById(`q${current}`).classList.remove('active');
+            document.getElementById(`q${current + 1}`).classList.add('active');
+            
+            document.getElementById(`step${current}`).classList.remove('active');
+            document.getElementById(`step${current}`).classList.add('completed');
+            document.getElementById(`step${current + 1}`).classList.add('active');
+            
+            document.getElementById('progressFill').style.width = `${(current + 1) * 20}%`;
+        }
+        
+        function prevQuestion(current) {
+            document.getElementById(`q${current}`).classList.remove('active');
+            document.getElementById(`q${current - 1}`).classList.add('active');
+            
+            document.getElementById(`step${current}`).classList.remove('active');
+            document.getElementById(`step${current - 1}`).classList.remove('completed');
+            document.getElementById(`step${current - 1}`).classList.add('active');
+            
+            document.getElementById('progressFill').style.width = `${(current - 1) * 20}%`;
+        }
+        
+        // Enable Q2 button when fields are filled
+        document.addEventListener('DOMContentLoaded', function() {
+            const q2Fields = ['departureDate', 'departureTime', 'flightDuration'];
+            q2Fields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('change', function() {
+                        const allFilled = q2Fields.every(fId => document.getElementById(fId).value);
+                        document.getElementById('nextBtn2').disabled = !allFilled;
+                    });
+                }
+            });
+            
+            // Q4 listeners
+            ['usualBedtime', 'usualWakeTime'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('change', checkQ4Completion);
+                }
+            });
+            
+            // Set default date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('departureDate').valueAsDate = tomorrow;
+        });
+        
+        // ========================================
+        // RESULTS GENERATION
+        // ========================================
+        function generateResults() {
+            const timeDiff = Math.abs(userData.timeDifference);
+            const direction = userData.direction;
+            
+            // Calculate severity
+            let severity = 'minimal';
+            let recoveryDays = 1;
+            
+            if (timeDiff <= 2) {
+                severity = 'minimal';
+                recoveryDays = 1;
+            } else if (timeDiff <= 5) {
+                severity = 'moderate';
+                recoveryDays = direction === 'east' ? Math.ceil(timeDiff * 1.3) : timeDiff;
+            } else if (timeDiff <= 8) {
+                severity = 'significant';
+                recoveryDays = direction === 'east' ? Math.ceil(timeDiff * 1.4) : Math.ceil(timeDiff * 1.1);
+            } else {
+                severity = 'severe';
+                recoveryDays = direction === 'east' ? Math.ceil(timeDiff * 1.5) : Math.ceil(timeDiff * 1.2);
+            }
+            
+            // Adjust for short trips
+            if (userData.tripDuration === 'short') {
+                recoveryDays = Math.min(recoveryDays, 2);
+            }
+            
+            calculatedResults = {
+                timeDifference: timeDiff,
+                direction: direction,
+                severity: severity,
+                recoveryDays: recoveryDays,
+                userData: userData
+            };
+            
+            saveResults(calculatedResults);
+            
+            const resultsHtml = generateResultsHtml(calculatedResults);
+            
+            document.getElementById('q5').classList.remove('active');
+            document.getElementById('resultsSection').classList.add('active');
+            document.getElementById('resultsSection').innerHTML = resultsHtml;
+        }
+        
+        function generateResultsHtml(results) {
+            const { timeDifference, direction, severity, recoveryDays } = results;
+            const isEast = direction === 'east';
+            
+            // Severity labels
+            const severityLabels = {
+                'minimal': 'Minimal Impact',
+                'moderate': 'Moderate Jet Lag',
+                'significant': 'Significant Jet Lag',
+                'severe': 'Severe Jet Lag'
+            };
+            
+            let html = `
+                <div class="result-header">
+                    <div class="result-label">Your Jet Lag Analysis</div>
+                    <div class="result-title">${severityLabels[severity]}</div>
+                    <div class="result-subtitle">${timeDifference} hour${timeDifference !== 1 ? 's' : ''} ${isEast ? 'east' : 'west'} - Est. ${recoveryDays} day${recoveryDays !== 1 ? 's' : ''} to fully adjust</div>
+                </div>
+                
+                <div class="summary-grid">
+                    <div class="summary-card highlight">
+                        <div class="summary-icon">&#9201;</div>
+                        <div class="summary-value">${timeDifference}h</div>
+                        <div class="summary-label">Time Difference</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">${isEast ? '&#10132;' : '&#10130;'}</div>
+                        <div class="summary-value">${isEast ? 'East' : 'West'}</div>
+                        <div class="summary-label">Direction</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">&#128197;</div>
+                        <div class="summary-value">${recoveryDays}</div>
+                        <div class="summary-label">Days to Adjust</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">&#9992;</div>
+                        <div class="summary-value">${userData.flightDuration}h</div>
+                        <div class="summary-label">Flight Duration</div>
+                    </div>
+                </div>
+            `;
+            
+            // Pre-travel preparation (if they have prep time)
+            if (userData.prepTime !== 'none') {
+                html += generatePreTravelPlan(results);
+            }
+            
+            // In-flight strategy
+            html += generateInFlightStrategy(results);
+            
+            // Light exposure schedule
+            html += generateLightSchedule(results);
+            
+            // Post-arrival plan
+            html += generatePostArrivalPlan(results);
+            
+            // Key tips
+            html += generateKeyTips(results);
+            
+            // Short trip note
+            if (userData.tripDuration === 'short') {
+                html += `
+                    <div class="safety-notice" style="background: #e0e7ff; border-color: #6366f1;">
+                        <div class="safety-title" style="color: #4338ca;">
+                            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #4338ca;"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M11,7H13V13H11V7M11,15H13V17H11V15Z"/></svg>
+                            Short Trip Strategy
+                        </div>
+                        <p class="safety-text" style="color: #4338ca;">For trips of 1-3 days, you may want to stay partially on your home timezone rather than fully adjusting. This avoids the challenge of adjusting twice (there and back). Keep meals and sleep somewhat aligned with home time if possible.</p>
+                    </div>
+                `;
+            }
+            
+            // Product note (subtle, optional)
+            html += `
+                <div class="product-note">
+                    <div class="product-note-title">Travel sleep essentials</div>
+                    <p class="product-note-text">A quality sleep mask can help you control light exposure in flight and at your destination - crucial for resetting your body clock. We have travel-friendly options if you need one.</p>
+                    <a href="https://spacire.com/collections/sleep-masks" class="product-link-subtle" target="_blank">Browse travel sleep masks (optional) &rarr;</a>
+                </div>
+            `;
+            
+            // Email capture
+            html += `
+                <div class="email-capture">
+                    <h3 class="email-capture-title">Save Your Jet Lag Plan</h3>
+                    <p class="email-capture-text">Get your complete day-by-day adjustment schedule sent to your inbox for easy reference during travel.</p>
+                    <form class="email-form" onsubmit="sendReport(event)">
+                        <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                        <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                        <button type="submit" class="btn btn-primary" id="sendReportBtn">Send My Plan</button>
+                    </form>
+                    <p class="email-success" id="emailSuccess">Plan sent! Check your inbox.</p>
+                    <p class="form-error" id="formError"></p>
+                </div>
+            `;
+            
+            return html;
+        }
+        
+        function generatePreTravelPlan(results) {
+            const { direction, timeDifference } = results;
+            const isEast = direction === 'east';
+            const daysToPrep = userData.prepTime === 'plenty' ? 5 : userData.prepTime === 'moderate' ? 3 : 2;
+            const adjustPerDay = Math.min(60, Math.ceil((timeDifference * 60) / daysToPrep)); // minutes per day
+            
+            let scheduleItems = '';
+            for (let i = 1; i <= daysToPrep; i++) {
+                const shiftMinutes = adjustPerDay * i;
+                const shiftHours = Math.floor(shiftMinutes / 60);
+                const shiftMins = shiftMinutes % 60;
+                const shiftDisplay = shiftHours > 0 
+                    ? `${shiftHours}h ${shiftMins > 0 ? shiftMins + 'm' : ''}`
+                    : `${shiftMins}m`;
+                
+                scheduleItems += `
+                    <div class="schedule-item">
+                        <div class="schedule-time">Day -${daysToPrep - i + 1}</div>
+                        <div class="schedule-action">
+                            ${isEast 
+                                ? `Go to bed ${shiftDisplay} earlier than usual. Get morning light.`
+                                : `Stay up ${shiftDisplay} later than usual. Get evening light.`
+                            }
+                        </div>
+                    </div>
+                `;
+            }
+            
+            return `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1"/></svg>
+                    Pre-Travel Preparation
+                </h3>
+                <div class="schedule-card">
+                    <div class="schedule-header">Start Adjusting Before You Leave</div>
+                    <div class="schedule-body">
+                        ${scheduleItems}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateInFlightStrategy(results) {
+            const { direction, timeDifference } = results;
+            const isEast = direction === 'east';
+            const depTime = userData.departureTime;
+            const flightDuration = userData.flightDuration;
+            
+            // Calculate arrival time at destination (rough estimate)
+            const arrivalHour = (depTime + flightDuration + timeDifference * (isEast ? 1 : -1)) % 24;
+            
+            // Determine if they should sleep on flight
+            let sleepAdvice = '';
+            let lightAdvice = '';
+            
+            if (isEast) {
+                // Eastward: try to sleep if it will be nighttime at destination on arrival
+                if (arrivalHour >= 5 && arrivalHour <= 12) {
+                    sleepAdvice = 'Try to sleep during the first half of your flight to arrive rested for daytime at your destination.';
+                    lightAdvice = 'Use an eye mask to help sleep. After waking, seek cabin light or use reading light.';
+                } else {
+                    sleepAdvice = 'Stay awake during the flight if possible, as you will be arriving in evening/night.';
+                    lightAdvice = 'Use cabin lights during flight, then sleep naturally after arrival.';
+                }
+            } else {
+                // Westward: stay awake longer
+                if (arrivalHour >= 18 || arrivalHour <= 6) {
+                    sleepAdvice = 'Nap for 2-3 hours max during the flight, but try to stay mostly awake.';
+                    lightAdvice = 'Keep yourself alert with bright light, save sleep for destination nighttime.';
+                } else {
+                    sleepAdvice = 'Avoid sleeping on the flight as you will need to stay awake upon arrival.';
+                    lightAdvice = 'Use bright light and caffeine (early in flight only) to stay alert.';
+                }
+            }
+            
+            return `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z"/></svg>
+                    In-Flight Strategy
+                </h3>
+                <div class="tip-card priority-high">
+                    <div class="tip-header">
+                        <span class="tip-title">Sleep Strategy</span>
+                        <span class="priority-badge high">Key Tip</span>
+                    </div>
+                    <p class="tip-text">${sleepAdvice}</p>
+                </div>
+                <div class="tip-card priority-medium">
+                    <div class="tip-header">
+                        <span class="tip-title">Light Management</span>
+                        <span class="priority-badge medium">Helpful</span>
+                    </div>
+                    <p class="tip-text">${lightAdvice}</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-header">
+                        <span class="tip-title">Hydration & Movement</span>
+                    </div>
+                    <p class="tip-text">Drink water regularly (avoid excessive alcohol). Walk the cabin every 2-3 hours. Set your watch to destination time at takeoff to start mental adjustment.</p>
+                </div>
+            `;
+        }
+        
+        function generateLightSchedule(results) {
+            const { direction, timeDifference } = results;
+            const isEast = direction === 'east';
+            
+            // Simplified light exposure rules
+            let seekLight, avoidLight;
+            
+            if (isEast) {
+                // Eastward: seek morning light, avoid evening light
+                seekLight = { action: 'Seek bright light', time: '6:00 AM - 11:00 AM local time', class: 'light-seek' };
+                avoidLight = { action: 'Avoid bright light', time: '3:00 PM - sunset', class: 'light-avoid' };
+            } else {
+                // Westward: seek evening light, avoid morning light
+                seekLight = { action: 'Seek bright light', time: '4:00 PM - 9:00 PM local time', class: 'light-seek' };
+                avoidLight = { action: 'Avoid bright light', time: 'Early morning until 10:00 AM', class: 'light-avoid' };
+            }
+            
+            return `
+                <div class="light-schedule">
+                    <div class="light-schedule-title">
+                        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: var(--primary);"><path d="M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.94,8.5C5.5,9.24 5.25,10 5.11,10.79L3.34,7M3.36,17L5.12,13.23C5.26,14 5.53,14.78 5.95,15.5C6.37,16.24 6.91,16.86 7.5,17.37L3.36,17M20.65,7L18.88,10.79C18.74,10 18.47,9.23 18.05,8.5C17.63,7.78 17.1,7.15 16.5,6.64L20.65,7M20.64,17L16.5,17.36C17.09,16.85 17.62,16.22 18.04,15.5C18.46,14.77 18.73,14 18.87,13.21L20.64,17M12,22L9.59,18.56C10.33,18.83 11.14,19 12,19C12.82,19 13.63,18.83 14.37,18.56L12,22Z"/></svg>
+                        Light Exposure Schedule (First 3 Days)
+                    </div>
+                    <div class="light-row">
+                        <span class="light-action ${seekLight.class}">${seekLight.action}</span>
+                        <span class="light-time">${seekLight.time}</span>
+                    </div>
+                    <div class="light-row">
+                        <span class="light-action ${avoidLight.class}">${avoidLight.action}</span>
+                        <span class="light-time">${avoidLight.time}</span>
+                    </div>
+                    <div class="light-row">
+                        <span class="light-action">Sunglasses recommended</span>
+                        <span class="light-time">During "avoid light" windows</span>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generatePostArrivalPlan(results) {
+            const { direction, timeDifference, recoveryDays } = results;
+            const isEast = direction === 'east';
+            
+            // Generate day-by-day schedule for first 3 days
+            const usualBed = userData.usualBedtime || 23;
+            const usualWake = userData.usualWakeTime || 7;
+            
+            let dayPlans = [];
+            const daysToShow = Math.min(recoveryDays, 3);
+            
+            for (let day = 1; day <= daysToShow; day++) {
+                // Gradually shift bedtime
+                const adjustmentProgress = day / recoveryDays;
+                
+                if (isEast) {
+                    // Eastward: gradually move bedtime earlier
+                    dayPlans.push({
+                        day: day,
+                        morning: 'Get bright outdoor light 6-11 AM. Avoid sunglasses.',
+                        afternoon: 'Light exercise, stay active. Limit caffeine after 2 PM.',
+                        evening: 'Dim lights after 6 PM. No screens 1 hour before bed.',
+                        bedtime: `Target bedtime: ${day === 1 ? 'Go to bed when tired, even if early' : 'Aim for local bedtime'}`
+                    });
+                } else {
+                    // Westward: stay up later
+                    dayPlans.push({
+                        day: day,
+                        morning: 'Wear sunglasses if light before 10 AM. Ease into day.',
+                        afternoon: 'Get bright afternoon/evening light 4-8 PM.',
+                        evening: 'Stay active in the evening. Light dinner.',
+                        bedtime: `Target bedtime: ${day === 1 ? 'Push through to 10 PM minimum' : 'Aim for local bedtime'}`
+                    });
+                }
+            }
+            
+            let scheduleHtml = dayPlans.map(plan => `
+                <div class="schedule-card">
+                    <div class="schedule-header">Day ${plan.day} at Destination</div>
+                    <div class="schedule-body">
+                        <div class="schedule-item">
+                            <div class="schedule-time">Morning</div>
+                            <div class="schedule-action">${plan.morning}</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">Afternoon</div>
+                            <div class="schedule-action">${plan.afternoon}</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">Evening</div>
+                            <div class="schedule-action">${plan.evening}</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">Night</div>
+                            <div class="schedule-action">${plan.bedtime}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            return `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                    Post-Arrival Adjustment Plan
+                </h3>
+                ${scheduleHtml}
+            `;
+        }
+        
+        function generateKeyTips(results) {
+            const { direction, severity } = results;
+            const isEast = direction === 'east';
+            
+            const tips = [
+                {
+                    title: isEast ? 'Morning Light is Your Friend' : 'Evening Light is Your Friend',
+                    text: isEast 
+                        ? 'Seek bright outdoor light in the morning to advance your body clock. This is the most powerful tool for eastward adjustment.'
+                        : 'Get bright light in the late afternoon and evening to delay your body clock. Avoid bright morning light with sunglasses.',
+                    priority: 'high'
+                },
+                {
+                    title: 'Strategic Napping',
+                    text: 'Short naps (20-30 min max) before 3 PM can help manage fatigue without disrupting nighttime sleep. Never nap after 3 PM local time.',
+                    priority: 'medium'
+                },
+                {
+                    title: 'Meal Timing Matters',
+                    text: 'Eat meals at local times from day one. This helps reset your peripheral body clocks. Avoid heavy meals close to bedtime.',
+                    priority: 'medium'
+                }
+            ];
+            
+            if (severity === 'severe' || severity === 'significant') {
+                tips.push({
+                    title: 'Consider Melatonin (Optional)',
+                    text: 'Low-dose melatonin (0.5-3mg) taken 30 minutes before target bedtime can help signal sleep time. Consult a pharmacist or doctor if unsure.',
+                    priority: 'medium'
+                });
+            }
+            
+            return `
+                <h3 class="section-title">
+                    <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z"/></svg>
+                    Key Recovery Tips
+                </h3>
+                ${tips.map(tip => `
+                    <div class="tip-card priority-${tip.priority}">
+                        <div class="tip-header">
+                            <span class="tip-title">${tip.title}</span>
+                            ${tip.priority === 'high' ? '<span class="priority-badge high">Essential</span>' : '<span class="priority-badge medium">Helpful</span>'}
+                        </div>
+                        <p class="tip-text">${tip.text}</p>
+                    </div>
+                `).join('')}
+            `;
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL
+        // ========================================
+        async function saveResults(results) {
+            try {
+                const data = {
+                    tool_name: 'jet_lag_calculator',
+                    results_json: JSON.stringify({
+                        timeDifference: results.timeDifference,
+                        direction: results.direction,
+                        severity: results.severity,
+                        recoveryDays: results.recoveryDays,
+                        tripDuration: userData.tripDuration,
+                        prepTime: userData.prepTime
+                    }),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                };
+                
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    data
+                );
+                console.log('Results saved');
+            } catch (error) {
+                console.error('Database error:', error);
+            }
+        }
+        
+        async function sendReport(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('userEmail').value.trim();
+            const firstName = document.getElementById('userName').value.trim();
+            const sendBtn = document.getElementById('sendReportBtn');
+            const errorEl = document.getElementById('formError');
+            
+            if (!email || !firstName) {
+                errorEl.textContent = 'Please enter your name and email.';
+                errorEl.style.display = 'block';
+                return;
+            }
+            
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+            errorEl.style.display = 'none';
+            
+            const { timeDifference, direction, severity, recoveryDays } = calculatedResults;
+            const isEast = direction === 'east';
+            
+            const severityLabels = {
+                'minimal': 'Minimal Impact',
+                'moderate': 'Moderate Jet Lag',
+                'significant': 'Significant Jet Lag',
+                'severe': 'Severe Jet Lag'
+            };
+            
+            const emailPayload = JSON.stringify({
+                toolName: 'jet-lag-calculator',
+                email: email,
+                firstName: firstName,
+                heroTitle: 'Your Jet Lag Recovery Plan',
+                heroSubtitle: 'Personalized schedule from Spacire',
+                introText: `Hi ${firstName}, here's your personalized jet lag recovery plan for your ${timeDifference}-hour ${isEast ? 'eastward' : 'westward'} journey. Expected full adjustment: ${recoveryDays} days.`,
+                sections: [
+                    {
+                        type: 'summary',
+                        title: 'Trip Summary',
+                        items: [
+                            { label: 'Time Difference', value: `${timeDifference} hours ${isEast ? 'east' : 'west'}`, highlight: true },
+                            { label: 'Jet Lag Severity', value: severityLabels[severity] },
+                            { label: 'Recovery Time', value: `${recoveryDays} days` },
+                            { label: 'Flight Duration', value: `${userData.flightDuration} hours` }
+                        ]
+                    },
+                    {
+                        type: 'tips',
+                        title: 'Key Strategies',
+                        items: [
+                            {
+                                title: 'Light Exposure',
+                                priority: 'high',
+                                text: isEast 
+                                    ? 'Seek bright morning light (6-11 AM). Avoid evening light after 6 PM.'
+                                    : 'Get bright evening light (4-9 PM). Wear sunglasses in early morning.'
+                            },
+                            {
+                                title: 'Sleep Timing',
+                                priority: 'high',
+                                text: 'Go to bed at local time from night one, even if not tired. Wake at local time too.'
+                            },
+                            {
+                                title: 'Napping',
+                                priority: 'medium',
+                                text: 'Short naps (20-30 min) before 3 PM only. Longer naps will delay adjustment.'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'warning',
+                        title: 'Remember',
+                        text: 'Be patient with yourself - jet lag affects everyone differently. Prioritize light exposure and meal timing for fastest recovery.'
+                    }
+                ],
+                ctaButton: {
+                    text: 'Explore More Sleep Tools',
+                    url: 'https://tools.spacire.com'
+                }
+            });
+            
+            try {
+                // Save with email info
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'jet_lag_calculator',
+                            user_email: email,
+                            user_first_name: firstName,
+                            results_json: JSON.stringify({
+                                ...calculatedResults,
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                } catch (dbError) {
+                    console.error('DB error:', dbError);
+                }
+                
+                // Send email (async)
+                const response = await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    true // async
+                );
+                
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('userEmail').disabled = true;
+                document.getElementById('userName').disabled = true;
+                sendBtn.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Email error:', error);
+                errorEl.textContent = 'Failed to send. Please try again.';
+                errorEl.style.display = 'block';
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send My Plan';
+            }
+        }
+        
+        // ========================================
+        // UTILITY FUNCTIONS
+        // ========================================
+        function toggleInfo(header) {
+            const toggle = header.closest('.info-toggle');
+            const content = toggle.querySelector('.info-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText('https://tools.spacire.com/jet-lag-calculator').then(() => {
+                const btn = event.target.closest('.share-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
