@@ -271,11 +271,28 @@
       ],
       "ctaText": "Calculate Cutoff",
       "order": 16
+    },
+    {
+      "id": "sleep-apnea-test",
+      "name": "Sleep Apnea Test",
+      "description": "Screen for obstructive sleep apnea risk using validated STOP-BANG and Epworth scales.",
+      "status": "active",
+      "file": "sleep-apnea-test.html",
+      "icon": "apnea",
+      "duration": "3-4 minutes",
+      "features": [
+        "STOP-BANG questionnaire",
+        "Epworth Sleepiness Scale",
+        "Built-in BMI calculator",
+        "Risk level assessment"
+      ],
+      "ctaText": "Take the Test",
+      "order": 17
     }
   ],
   "config": {
-    "version": "1.16.0",
+    "version": "1.17.0",
     "lastUpdated": "2025-01-15",
-    "totalTools": 16
+    "totalTools": 17
   }
 }
