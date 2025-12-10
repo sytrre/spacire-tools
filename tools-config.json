@@ -254,11 +254,28 @@
       ],
       "ctaText": "Calculate My Sleep",
       "order": 15
+    },
+    {
+      "id": "caffeine-sleep-calculator",
+      "name": "Caffeine Sleep Calculator",
+      "description": "Find your ideal caffeine cutoff time based on your metabolism and bedtime.",
+      "status": "active",
+      "file": "caffeine-sleep-calculator.html",
+      "icon": "caffeine",
+      "duration": "2-3 minutes",
+      "features": [
+        "Multiple drink tracking",
+        "Metabolism factors",
+        "Caffeine decay curve",
+        "Sleep impact prediction"
+      ],
+      "ctaText": "Calculate Cutoff",
+      "order": 16
     }
   ],
   "config": {
-    "version": "1.15.0",
+    "version": "1.16.0",
     "lastUpdated": "2025-01-15",
-    "totalTools": 15
+    "totalTools": 16
   }
 }
