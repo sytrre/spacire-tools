@@ -121,6 +121,23 @@
       ],
       "ctaText": "Calculate My Plan",
       "order": 7
+    },
+    {
+      "id": "chronotype-quiz",
+      "name": "Chronotype Quiz",
+      "description": "Discover if you're a Lion, Bear, Wolf, or Dolphin and get your personalized ideal daily schedule and productivity windows.",
+      "status": "active",
+      "file": "chronotype-quiz.html",
+      "icon": "brain",
+      "duration": "2-3 minutes",
+      "features": [
+        "Social jet lag score",
+        "Hour-by-hour schedule",
+        "Productivity windows",
+        "Work compatibility analysis"
+      ],
+      "ctaText": "Find My Chronotype",
+      "order": 8
     }
   ]
 }
