@@ -288,11 +288,28 @@
       ],
       "ctaText": "Take the Test",
       "order": 17
+    },
+    {
+      "id": "sleep-tracker",
+      "name": "Sleep Tracker",
+      "description": "Log your sleep daily, track patterns, and discover insights to improve your rest.",
+      "status": "active",
+      "file": "sleep-tracker.html",
+      "icon": "tracker",
+      "duration": "1 minute daily",
+      "features": [
+        "Daily sleep logging",
+        "Auto-calculated metrics",
+        "Visual trend charts",
+        "Personalized insights"
+      ],
+      "ctaText": "Start Tracking",
+      "order": 18
     }
   ],
   "config": {
-    "version": "1.17.0",
+    "version": "1.18.0",
     "lastUpdated": "2025-01-15",
-    "totalTools": 17
+    "totalTools": 18
   }
 }
