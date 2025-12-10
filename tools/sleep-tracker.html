@@ -24,9 +24,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- html2pdf.js for rich PDF generation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -259,30 +256,22 @@
         .report-option p { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
         .report-badge { display: inline-block; background: var(--success); color: var(--success-dark); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
         
-        /* Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
-        .modal-overlay.active { display: flex; }
-        .modal { background: #fff; border-radius: var(--radius-lg); max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-lg); }
-        .modal-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
-        .modal-header h3 { margin: 0; font-size: 18px; }
-        .modal-close { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; padding: 0; line-height: 1; }
-        .modal-body { padding: 24px; }
-        .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 12px; justify-content: flex-end; }
-        
-        /* Checkbox */
-        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
-        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--primary); cursor: pointer; }
-        .checkbox-label { font-size: 13px; color: var(--text-secondary); line-height: 1.5; cursor: pointer; }
-        .checkbox-label a { color: var(--primary); }
-        
-        /* Loading Spinner */
-        .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s linear infinite; margin-right: 8px; vertical-align: middle; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        
-        /* Report Preview Notice */
+        /* Report Notice */
         .report-notice { background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px; }
         .report-notice p { margin: 0; font-size: 13px; color: var(--text-primary); }
         .report-notice strong { color: var(--primary); }
+        
+        /* Email Form in Reports */
+        .email-form { margin-top: 20px; }
+        .email-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .email-input { width: 100%; padding: 12px 14px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; }
+        .email-input:focus { outline: none; border-color: var(--primary); }
+        .consent-group { margin: 16px 0; }
+        .consent-label { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--text-secondary); cursor: pointer; line-height: 1.5; }
+        .consent-label input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--primary); flex-shrink: 0; }
+        .consent-label a { color: var(--primary); }
+        .email-success { display: none; background: var(--success); color: var(--success-dark); padding: 12px 16px; border-radius: var(--radius-md); font-size: 14px; margin-top: 12px; text-align: center; }
+        .form-error { display: none; color: var(--error-dark); font-size: 13px; margin-top: 8px; }
         
         /* Footer */
         .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
@@ -303,31 +292,32 @@
             .history-table th, .history-table td { padding: 8px 6px; }
             .tabs { gap: 6px; }
             .tab-btn { padding: 10px 14px; font-size: 12px; }
+            .email-form-row { grid-template-columns: 1fr; }
         }
         
         /* PDF Report Styles (hidden, used for generation) */
-        #pdfReportContainer { position: absolute; left: -9999px; top: 0; width: 210mm; background: #fff; }
-        .pdf-report { padding: 20px; font-family: 'Domine', Georgia, serif; font-size: 11px; color: #1a1a1a; }
-        .pdf-header { text-align: center; padding-bottom: 15px; border-bottom: 3px solid #042548; margin-bottom: 20px; }
-        .pdf-logo { font-size: 24px; font-weight: 700; color: #042548; letter-spacing: 0.02em; }
-        .pdf-title { font-size: 18px; color: #042548; margin: 10px 0 5px; }
-        .pdf-subtitle { font-size: 12px; color: #555; }
-        .pdf-section { margin-bottom: 20px; }
-        .pdf-section-title { font-size: 14px; font-weight: 600; color: #042548; border-bottom: 2px solid #E0B252; padding-bottom: 5px; margin-bottom: 12px; }
-        .pdf-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
-        .pdf-stat-box { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; text-align: center; }
-        .pdf-stat-value { font-size: 20px; font-weight: 700; color: #042548; }
-        .pdf-stat-label { font-size: 10px; color: #555; margin-top: 4px; }
-        .pdf-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
-        .pdf-table th, .pdf-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #e0e0e0; font-size: 10px; }
+        #pdfReportContainer { position: absolute; left: -9999px; top: 0; width: 794px; background: #fff; }
+        .pdf-report { padding: 30px; font-family: 'Domine', Georgia, serif; font-size: 12px; color: #1a1a1a; }
+        .pdf-header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #042548; margin-bottom: 25px; }
+        .pdf-logo { font-size: 28px; font-weight: 700; color: #042548; letter-spacing: 0.02em; }
+        .pdf-title { font-size: 20px; color: #042548; margin: 12px 0 6px; }
+        .pdf-subtitle { font-size: 13px; color: #555; }
+        .pdf-section { margin-bottom: 25px; }
+        .pdf-section-title { font-size: 15px; font-weight: 600; color: #042548; border-bottom: 2px solid #E0B252; padding-bottom: 6px; margin-bottom: 15px; }
+        .pdf-stats-grid { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .pdf-stat-box { flex: 1; min-width: 140px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; text-align: center; }
+        .pdf-stat-value { font-size: 24px; font-weight: 700; color: #042548; }
+        .pdf-stat-label { font-size: 11px; color: #555; margin-top: 5px; }
+        .pdf-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        .pdf-table th, .pdf-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; font-size: 11px; }
         .pdf-table th { background: #042548; color: #fff; font-weight: 600; }
         .pdf-table tr:nth-child(even) { background: #f8f9fa; }
-        .pdf-insights { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 12px; margin-bottom: 15px; border-radius: 0 6px 6px 0; }
-        .pdf-insight-title { font-weight: 600; color: #0c5460; margin-bottom: 4px; }
+        .pdf-insights { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 15px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+        .pdf-insight-title { font-weight: 600; color: #0c5460; margin-bottom: 5px; }
         .pdf-insight-text { color: #0c5460; margin: 0; }
-        .pdf-disclaimer { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 12px; margin-top: 20px; font-size: 10px; color: #856404; }
-        .pdf-disclaimer-title { font-weight: 600; margin-bottom: 5px; }
-        .pdf-footer { text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #e0e0e0; font-size: 10px; color: #777; }
+        .pdf-disclaimer { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 15px; margin-top: 25px; font-size: 11px; color: #856404; }
+        .pdf-disclaimer-title { font-weight: 600; margin-bottom: 6px; }
+        .pdf-footer { text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e0e0e0; font-size: 11px; color: #777; }
     </style>
 </head>
 
@@ -632,7 +622,7 @@
             </div>
         </div>
         
-        <!-- Reports Tab (NEW) -->
+        <!-- Reports Tab -->
         <div class="tab-content" id="reportsTab">
             <div class="card">
                 <div class="card-header">
@@ -648,9 +638,9 @@
                         <div class="report-option">
                             <div class="report-icon">&#128196;</div>
                             <div class="report-badge">Free</div>
-                            <h3>Sleep Report for Doctor</h3>
-                            <p>A comprehensive PDF report with your sleep data, patterns, and metrics formatted for healthcare providers. Includes 30-day summary, daily entries, and factor analysis.</p>
-                            <button class="btn btn-primary" onclick="openReportModal('doctor')" id="doctorReportBtn">Generate PDF Report</button>
+                            <h3>Download PDF Report</h3>
+                            <p>Download a comprehensive PDF report with your sleep data, patterns, and metrics. Perfect for sharing with your healthcare provider.</p>
+                            <button class="btn btn-primary" onclick="downloadPDFReport()" id="downloadPdfBtn" style="width: auto; padding: 12px 24px;">Download PDF</button>
                         </div>
                         
                         <div class="report-option">
@@ -658,7 +648,22 @@
                             <div class="report-badge">Free</div>
                             <h3>Email My Report</h3>
                             <p>Get your sleep report delivered directly to your inbox. Perfect for keeping a record, sharing with family, or forwarding to your healthcare provider.</p>
-                            <button class="btn btn-primary" onclick="openReportModal('email')" id="emailReportBtn">Email Report to Me</button>
+                            
+                            <form class="email-form" id="emailReportForm" onsubmit="sendEmailReport(event)">
+                                <div class="email-form-row">
+                                    <input type="text" class="email-input" id="reportFirstName" placeholder="First name" required>
+                                    <input type="email" class="email-input" id="reportEmail" placeholder="Email address" required>
+                                </div>
+                                <div class="consent-group">
+                                    <label class="consent-label">
+                                        <input type="checkbox" id="marketingConsent">
+                                        I agree to receive occasional helpful sleep tips and product recommendations from Spacire. We never share your personal information with third parties.
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="sendEmailBtn" style="width: auto; padding: 12px 24px;">Send Report</button>
+                                <p class="email-success" id="emailSuccess">Report sent! Check your inbox.</p>
+                                <p class="form-error" id="formError"></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -754,44 +759,6 @@
         </section>
     </main>
     
-    <!-- Email Modal -->
-    <div class="modal-overlay" id="reportModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 id="modalTitle">Get Your Sleep Report</h3>
-                <button class="modal-close" onclick="closeReportModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p id="modalDescription" style="margin-bottom: 20px; color: var(--text-secondary); font-size: 14px;">Enter your email to receive your personalized sleep report.</p>
-                
-                <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" id="reportEmail" placeholder="your@email.com">
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="marketingConsent">
-                    <label class="checkbox-label" for="marketingConsent">
-                        I agree to receive occasional helpful sleep tips and product recommendations from Spacire. We never share your personal information with third parties. You can unsubscribe at any time.
-                    </label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="privacyConsent" required>
-                    <label class="checkbox-label" for="privacyConsent">
-                        I agree to the <a href="https://spacire.com/policies/privacy-policy" target="_blank">Privacy Policy</a> and understand my sleep data will be used to generate this report.
-                    </label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeReportModal()">Cancel</button>
-                <button class="btn btn-primary" id="modalSubmitBtn" onclick="submitReport()" style="width: auto;">
-                    <span id="submitBtnText">Send Report</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    
     <!-- Toast -->
     <div class="toast" id="toast"></div>
     
@@ -835,17 +802,31 @@
         </div>
     </footer>
     
+    <!-- html2pdf.js for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Appwrite SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
     <script>
         // ========================================
-        // CONFIGURATION
+        // CONFIGURATION (Same as other tools)
         // ========================================
         const CONFIG = {
-            APPWRITE_ENDPOINT: 'https://cloud.appwrite.io/v1',
-            APPWRITE_PROJECT_ID: '682579e1002cf20ca061',
-            APPWRITE_FUNCTION_ID: '6825b57d003c9a498279',
-            APPWRITE_DATABASE_ID: '682857450019d695c701',
-            APPWRITE_COLLECTION_ID: '68285760000028460a3d'
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
         };
+        
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
         
         // ========================================
         // STATE
@@ -855,7 +836,6 @@
         let selectedDate = new Date();
         let selectedQuality = null;
         let chartRange = 7;
-        let currentReportType = 'doctor';
         
         // ========================================
         // INITIALIZATION
@@ -1586,104 +1566,19 @@
         // REPORTS
         // ========================================
         function updateReportButtons() {
-            const doctorBtn = document.getElementById('doctorReportBtn');
-            const emailBtn = document.getElementById('emailReportBtn');
+            const downloadBtn = document.getElementById('downloadPdfBtn');
+            const sendBtn = document.getElementById('sendEmailBtn');
             
             if (sleepData.length === 0) {
-                doctorBtn.disabled = true;
-                emailBtn.disabled = true;
-                doctorBtn.textContent = 'Log sleep first';
-                emailBtn.textContent = 'Log sleep first';
+                downloadBtn.disabled = true;
+                sendBtn.disabled = true;
+                downloadBtn.textContent = 'Log sleep first';
+                sendBtn.textContent = 'Log sleep first';
             } else {
-                doctorBtn.disabled = false;
-                emailBtn.disabled = false;
-                doctorBtn.textContent = 'Generate PDF Report';
-                emailBtn.textContent = 'Email Report to Me';
-            }
-        }
-        
-        function openReportModal(type) {
-            if (sleepData.length === 0) {
-                showToast('Please log at least one night of sleep first', 'error');
-                return;
-            }
-            
-            currentReportType = type;
-            const modal = document.getElementById('reportModal');
-            const title = document.getElementById('modalTitle');
-            const desc = document.getElementById('modalDescription');
-            const submitText = document.getElementById('submitBtnText');
-            
-            if (type === 'doctor') {
-                title.textContent = 'Generate Sleep Report for Doctor';
-                desc.textContent = 'Enter your email to receive a professional PDF report you can share with your healthcare provider.';
-                submitText.textContent = 'Generate & Send Report';
-            } else {
-                title.textContent = 'Email My Sleep Report';
-                desc.textContent = 'Enter your email to receive your personalized sleep report with insights and recommendations.';
-                submitText.textContent = 'Send Report';
-            }
-            
-            // Reset form
-            document.getElementById('reportEmail').value = '';
-            document.getElementById('marketingConsent').checked = false;
-            document.getElementById('privacyConsent').checked = false;
-            
-            modal.classList.add('active');
-        }
-        
-        function closeReportModal() {
-            document.getElementById('reportModal').classList.remove('active');
-        }
-        
-        async function submitReport() {
-            const email = document.getElementById('reportEmail').value.trim();
-            const marketingConsent = document.getElementById('marketingConsent').checked;
-            const privacyConsent = document.getElementById('privacyConsent').checked;
-            
-            // Validation
-            if (!email) {
-                showToast('Please enter your email address', 'error');
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showToast('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            if (!privacyConsent) {
-                showToast('Please agree to the Privacy Policy to continue', 'error');
-                return;
-            }
-            
-            const submitBtn = document.getElementById('modalSubmitBtn');
-            const submitText = document.getElementById('submitBtnText');
-            submitBtn.disabled = true;
-            submitText.innerHTML = '<span class="spinner"></span>Generating...';
-            
-            try {
-                // Generate report data
-                const reportData = generateReportData();
-                
-                // Send to Appwrite
-                await sendReportEmail(email, reportData, marketingConsent);
-                
-                // Also generate and download PDF for doctor report
-                if (currentReportType === 'doctor') {
-                    await generateAndDownloadPDF(reportData);
-                }
-                
-                closeReportModal();
-                showToast('Report sent! Check your email.', 'success');
-                
-            } catch (error) {
-                console.error('Error generating report:', error);
-                showToast('Error sending report. Please try again.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitText.textContent = currentReportType === 'doctor' ? 'Generate & Send Report' : 'Send Report';
+                downloadBtn.disabled = false;
+                sendBtn.disabled = false;
+                downloadBtn.textContent = 'Download PDF';
+                sendBtn.textContent = 'Send Report';
             }
         }
         
@@ -1760,35 +1655,34 @@
             };
         }
         
-        async function sendReportEmail(email, reportData, marketingConsent) {
-            const payload = {
-                toolType: 'sleep-tracker',
-                email: email,
-                marketingConsent: marketingConsent,
-                results: reportData
-            };
-            
-            const response = await fetch(`${CONFIG.APPWRITE_ENDPOINT}/functions/${CONFIG.APPWRITE_FUNCTION_ID}/executions`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Appwrite-Project': CONFIG.APPWRITE_PROJECT_ID
-                },
-                body: JSON.stringify({
-                    body: JSON.stringify(payload),
-                    async: true
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error('Failed to send email');
+        // ========================================
+        // PDF DOWNLOAD
+        // ========================================
+        async function downloadPDFReport() {
+            if (sleepData.length === 0) {
+                showToast('Please log at least one night of sleep first', 'error');
+                return;
             }
             
-            return response.json();
+            const btn = document.getElementById('downloadPdfBtn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Generating...';
+            btn.disabled = true;
+            
+            try {
+                const reportData = generateReportData();
+                await generatePDF(reportData);
+                showToast('PDF downloaded!', 'success');
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                showToast('Error generating PDF. Please try again.', 'error');
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
         }
         
-        async function generateAndDownloadPDF(reportData) {
-            // Build HTML for PDF
+        async function generatePDF(reportData) {
             const container = document.getElementById('pdfReportContainer');
             
             const qualityLabels = ['Terrible', 'Poor', 'Fair', 'Good', 'Excellent'];
@@ -1830,7 +1724,7 @@
                                 <div class="pdf-stat-label">Avg Latency</div>
                             </div>
                         </div>
-                        <p style="font-size: 10px; color: #555;">
+                        <p style="font-size: 11px; color: #555;">
                             <strong>WASO (Wake After Sleep Onset):</strong> ${reportData.statistics.avgWaso} minutes average
                         </p>
                     </div>
@@ -1923,7 +1817,7 @@
                 margin: 10,
                 filename: `sleep-report-${new Date().toISOString().split('T')[0]}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
             
@@ -1931,6 +1825,102 @@
             
             // Clear container
             container.innerHTML = '';
+        }
+        
+        // ========================================
+        // EMAIL REPORT (Using Appwrite SDK)
+        // ========================================
+        async function sendEmailReport(event) {
+            event.preventDefault();
+            
+            const firstName = document.getElementById('reportFirstName').value.trim();
+            const email = document.getElementById('reportEmail').value.trim();
+            const marketingConsent = document.getElementById('marketingConsent').checked;
+            const sendBtn = document.getElementById('sendEmailBtn');
+            const formError = document.getElementById('formError');
+            
+            formError.style.display = 'none';
+            
+            // Validation
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            if (sleepData.length === 0) {
+                formError.textContent = 'Please log at least one night of sleep first';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            const originalText = sendBtn.textContent;
+            sendBtn.textContent = 'Sending...';
+            sendBtn.disabled = true;
+            
+            try {
+                const reportData = generateReportData();
+                
+                const emailPayload = JSON.stringify({
+                    toolName: 'sleep-tracker',
+                    email: email,
+                    firstName: firstName,
+                    marketingConsent: marketingConsent,
+                    results: reportData
+                });
+                
+                // Save to database
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'sleep_tracker',
+                            user_email: email,
+                            user_first_name: firstName,
+                            marketing_consent: marketingConsent,
+                            results_json: JSON.stringify({
+                                totalNights: reportData.totalNights,
+                                avgEfficiency: reportData.statistics.avgEfficiency,
+                                avgDuration: reportData.statistics.avgDuration,
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                    console.log('Saved to database');
+                } catch (dbError) {
+                    console.error('Database error (non-critical):', dbError);
+                }
+                
+                // Send email via Appwrite function
+                await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    true  // async execution
+                );
+                
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('reportFirstName').disabled = true;
+                document.getElementById('reportEmail').disabled = true;
+                sendBtn.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Email error:', error);
+                formError.textContent = 'Failed to send. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.textContent = originalText;
+                sendBtn.disabled = false;
+            }
         }
         
         // ========================================
