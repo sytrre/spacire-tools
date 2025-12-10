@@ -81,9 +81,9 @@
       "duration": "2-3 minutes",
       "features": [
         "Sound preference quiz",
-        "Personalized recommendations",
-        "Sample sound clips",
-        "Volume guidelines"
+        "Audio samples to test",
+        "Science behind each sound",
+        "Machine recommendations"
       ],
       "ctaText": "Find My Sound",
       "order": 5
@@ -100,10 +100,27 @@
         "Symptom assessment",
         "Evidence-based remedies",
         "Safety information",
-        "DIY alternatives"
+        "Free DIY tips"
       ],
       "ctaText": "Find My Remedy",
       "order": 6
+    },
+    {
+      "id": "jet-lag-calculator",
+      "name": "Jet Lag Calculator",
+      "description": "Get a personalized jet lag recovery plan based on your travel route, flight times, and sleep patterns.",
+      "status": "active",
+      "file": "jet-lag-calculator.html",
+      "icon": "plane",
+      "duration": "2-3 minutes",
+      "features": [
+        "Route analysis",
+        "Light exposure schedule",
+        "In-flight strategy",
+        "Day-by-day recovery plan"
+      ],
+      "ctaText": "Calculate My Plan",
+      "order": 7
     }
   ]
 }
