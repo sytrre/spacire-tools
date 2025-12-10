@@ -20,16 +20,16 @@
     {
       "id": "shift-worker-sleep-planner",
       "name": "Shift Worker Sleep Planner",
-      "description": "Custom sleep schedules for night shifts, rotating shifts, and irregular work hours. Maximize rest with your unique schedule.",
+      "description": "Custom sleep schedules for nurses, factory workers, and anyone with irregular hours.",
       "status": "active",
       "file": "shift-worker-sleep-planner.html",
       "icon": "shift",
-      "duration": "3-4 minutes",
+      "duration": "4-6 minutes",
       "features": [
-        "Multiple shift pattern support",
-        "Anchor sleep scheduling",
-        "Nap optimization",
-        "Light exposure timing"
+        "Rotating shift support",
+        "Anchor sleep windows",
+        "Light exposure timing",
+        "Nap strategy planning"
       ],
       "ctaText": "Plan My Sleep",
       "order": 2
@@ -37,7 +37,7 @@
     {
       "id": "sleep-debt-calculator",
       "name": "Sleep Debt Calculator",
-      "description": "Calculate your accumulated sleep debt and get a personalized recovery plan to restore optimal rest.",
+      "description": "Calculate your accumulated sleep debt and get a personalized recovery plan.",
       "status": "active",
       "file": "sleep-debt-calculator.html",
       "icon": "calculator",
@@ -46,7 +46,7 @@
         "Weekly sleep tracking",
         "Debt accumulation analysis",
         "Recovery timeline",
-        "Personalized catch-up plan"
+        "Catch-up strategies"
       ],
       "ctaText": "Calculate My Debt",
       "order": 3
@@ -54,14 +54,14 @@
     {
       "id": "bedtime-routine-builder",
       "name": "Bedtime Routine Builder",
-      "description": "Create a personalized wind-down routine based on your preferences, schedule, and sleep goals.",
+      "description": "Create a personalized wind-down routine based on your preferences and sleep challenges.",
       "status": "active",
       "file": "bedtime-routine-builder.html",
       "icon": "routine",
       "duration": "3-4 minutes",
       "features": [
-        "Customizable activities",
-        "Time-based scheduling",
+        "Activity recommendations",
+        "Timed routine schedule",
         "Relaxation techniques",
         "Habit tracking tips"
       ],
@@ -71,16 +71,16 @@
     {
       "id": "sleep-sound-finder",
       "name": "Sleep Sound Finder",
-      "description": "Discover the perfect sounds for your sleep style - from white noise to nature sounds to ambient music.",
+      "description": "Discover your ideal sleep soundscape from white noise to nature sounds.",
       "status": "active",
       "file": "sleep-sound-finder.html",
       "icon": "sound",
       "duration": "2-3 minutes",
       "features": [
-        "Personalized sound matching",
-        "Multiple sound categories",
+        "Sound preference matching",
+        "Audio samples",
         "Volume recommendations",
-        "Device setup tips"
+        "App suggestions"
       ],
       "ctaText": "Find My Sounds",
       "order": 5
@@ -88,32 +88,32 @@
     {
       "id": "natural-sleep-remedy-finder",
       "name": "Natural Sleep Remedy Finder",
-      "description": "Explore evidence-based natural remedies tailored to your specific sleep challenges and preferences.",
+      "description": "Find evidence-based natural remedies matched to your specific sleep challenges.",
       "status": "active",
       "file": "natural-sleep-remedy-finder.html",
       "icon": "remedy",
       "duration": "3-4 minutes",
       "features": [
         "Personalized remedy matching",
-        "Evidence-based options",
-        "Safety considerations",
-        "Usage guidelines"
+        "Evidence-based recommendations",
+        "Dosage guidance",
+        "Safety information"
       ],
-      "ctaText": "Find Remedies",
+      "ctaText": "Find My Remedies",
       "order": 6
     },
     {
       "id": "jet-lag-calculator",
       "name": "Jet Lag Calculator",
-      "description": "Get a personalized jet lag recovery plan based on your travel route, schedule, and sleep preferences.",
+      "description": "Get a personalized jet lag recovery plan based on your travel details.",
       "status": "active",
       "file": "jet-lag-calculator.html",
       "icon": "travel",
       "duration": "2-3 minutes",
       "features": [
-        "Pre-flight preparation",
         "Light exposure timing",
         "Sleep schedule adjustment",
+        "Pre-travel preparation",
         "Recovery timeline"
       ],
       "ctaText": "Plan My Recovery",
@@ -122,16 +122,16 @@
     {
       "id": "chronotype-quiz",
       "name": "Chronotype Quiz",
-      "description": "Discover your natural sleep-wake rhythm and learn how to optimize your schedule for peak performance.",
+      "description": "Discover your sleep chronotype and optimal daily schedule.",
       "status": "active",
       "file": "chronotype-quiz.html",
       "icon": "chronotype",
-      "duration": "3-5 minutes",
+      "duration": "3-4 minutes",
       "features": [
-        "Scientific assessment",
-        "Four chronotype profiles",
-        "Ideal sleep windows",
-        "Productivity optimization"
+        "MEQ-based assessment",
+        "Peak performance windows",
+        "Ideal sleep schedule",
+        "Lifestyle recommendations"
       ],
       "ctaText": "Find My Chronotype",
       "order": 8
@@ -139,58 +139,58 @@
     {
       "id": "sleep-cycle-calculator",
       "name": "Sleep Cycle Calculator",
-      "description": "Calculate optimal bedtime or wake time based on 90-minute sleep cycles. Includes visual sleep architecture and power nap calculator.",
+      "description": "Calculate optimal bedtimes and wake times based on 90-minute sleep cycles.",
       "status": "active",
       "file": "sleep-cycle-calculator.html",
       "icon": "cycle",
       "duration": "1-2 minutes",
       "features": [
-        "Visual sleep architecture",
-        "Quality ratings for each option",
-        "Smart alarm window",
-        "Power nap calculator"
+        "Multiple wake time options",
+        "Sleep cycle visualization",
+        "Fall-asleep buffer",
+        "Cycle recommendations"
       ],
-      "ctaText": "Calculate My Sleep",
+      "ctaText": "Calculate Cycles",
       "order": 9
     },
     {
       "id": "insomnia-quiz",
       "name": "Insomnia Quiz",
-      "description": "Assess your insomnia severity based on the clinically validated ISI, identify your insomnia type, and get a personalized action plan.",
+      "description": "Assess your insomnia severity using the clinically validated ISI scale.",
       "status": "active",
       "file": "insomnia-quiz.html",
-      "icon": "assessment",
-      "duration": "4-6 minutes",
+      "icon": "insomnia",
+      "duration": "2-3 minutes",
       "features": [
-        "ISI-based severity scoring",
-        "Insomnia type identification",
-        "Sleep efficiency calculator",
-        "Personalized action plan"
+        "ISI-based scoring",
+        "Severity classification",
+        "Pattern identification",
+        "Treatment guidance"
       ],
-      "ctaText": "Take the Quiz",
+      "ctaText": "Assess My Insomnia",
       "order": 10
     },
     {
       "id": "power-nap-calculator",
       "name": "Power Nap Calculator",
-      "description": "Find the optimal nap time and duration based on your chronotype, energy level, and upcoming activities.",
+      "description": "Find your optimal nap time and duration based on your schedule and energy needs.",
       "status": "active",
       "file": "power-nap-calculator.html",
       "icon": "nap",
       "duration": "1-2 minutes",
       "features": [
-        "Chronotype-aware timing",
-        "Activity-based optimization",
+        "Optimal nap timing",
+        "Duration recommendations",
         "Caffeine nap protocol",
-        "Grogginess risk indicator"
+        "Grogginess prevention"
       ],
-      "ctaText": "Calculate My Nap",
+      "ctaText": "Plan My Nap",
       "order": 11
     },
     {
       "id": "sleep-quality-assessment",
       "name": "Sleep Quality Assessment",
-      "description": "Comprehensive evaluation of your sleep health across 7 key dimensions. Get your personalized sleep profile and action plan.",
+      "description": "Comprehensive evaluation of your sleep health across 7 key dimensions.",
       "status": "active",
       "file": "sleep-quality-assessment.html",
       "icon": "assessment",
@@ -203,11 +203,28 @@
       ],
       "ctaText": "Assess My Sleep",
       "order": 12
+    },
+    {
+      "id": "sleep-hygiene-quiz",
+      "name": "Sleep Hygiene Quiz",
+      "description": "Assess your sleep habits across 6 key categories and get your personalized improvement plan.",
+      "status": "active",
+      "file": "sleep-hygiene-quiz.html",
+      "icon": "hygiene",
+      "duration": "3-5 minutes",
+      "features": [
+        "6-category habit analysis",
+        "A-F letter grading",
+        "Problem habit identification",
+        "7-day improvement challenge"
+      ],
+      "ctaText": "Take The Quiz",
+      "order": 13
     }
   ],
   "config": {
-    "version": "1.12.0",
+    "version": "1.13.0",
     "lastUpdated": "2025-01-15",
-    "totalTools": 12
+    "totalTools": 13
   }
 }
