@@ -7,13 +7,22 @@
     <meta name="keywords" content="sleep quality assessment, sleep quiz, PSQI, sleep test, sleep efficiency calculator, sleep health score, am I sleeping well, sleep quality index">
     <meta name="author" content="Spacire">
     <meta name="robots" content="index, follow">
+    
     <title>Sleep Quality Assessment - Comprehensive Sleep Health Score | Spacire</title>
+    
     <link rel="canonical" href="https://tools.spacire.com/sleep-quality-assessment">
     
     <meta property="og:title" content="Sleep Quality Assessment - How Good Is Your Sleep?">
     <meta property="og:description" content="Comprehensive sleep quality evaluation across 7 dimensions. Get your personalized sleep profile and action plan.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.spacire.com/sleep-quality-assessment">
+    <meta property="og:site_name" content="Spacire Sleep Tools">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Quality Assessment - Comprehensive Sleep Health Score">
+    <meta name="twitter:description" content="Evaluate your sleep health across 7 key dimensions and get personalized recommendations.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,24 +50,26 @@
             --accent-light: #f5e6c4;
             --text-primary: #1a1a1a;
             --text-secondary: #555;
+            --text-light: #777;
             --text-muted: #888;
             --bg: #ffffff;
             --bg-light: #f8f9fa;
             --hover: #f8f9fa;
             --border: #e0e0e0;
-            --success: #28a745;
-            --success-light: #d4edda;
-            --warning: #ffc107;
-            --warning-light: #fff3cd;
-            --error: #dc3545;
-            --error-light: #f8d7da;
-            --info: #17a2b8;
-            --info-light: #d1ecf1;
+            --success: #d4edda;
+            --success-dark: #28a745;
+            --warning: #fff3cd;
+            --warning-dark: #ffc107;
+            --error: #f8d7da;
+            --error-dark: #dc3545;
+            --info: #d1ecf1;
+            --info-dark: #17a2b8;
             --radius-sm: 6px;
             --radius-md: 10px;
             --radius-lg: 16px;
             --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
             --transition: all 0.2s ease;
             --font-primary: 'Domine', Georgia, serif;
         }
@@ -66,7 +77,7 @@
         *, *::before, *::after { box-sizing: border-box; }
         body { margin: 0; padding: 0; font-family: var(--font-primary); background: #f5f5f5; color: var(--text-primary); line-height: 1.6; }
         
-        /* Header */
+        /* Header - EXACT pattern from working tools */
         .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
         .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
         .logo-link { text-decoration: none; }
@@ -83,7 +94,7 @@
         .mobile-nav a:hover { color: var(--accent); }
         @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
         
-        /* Breadcrumb */
+        /* Breadcrumb - EXACT pattern */
         .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
         .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
         .breadcrumb a { color: var(--primary); text-decoration: none; }
@@ -121,7 +132,6 @@
         /* Questions */
         .question-group { margin-bottom: 24px; }
         .question-label { display: block; font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
-        .question-sublabel { font-size: 13px; color: var(--text-muted); font-weight: 400; display: block; margin-top: 4px; }
         
         /* Options */
         .options-grid { display: grid; gap: 10px; }
@@ -141,23 +151,10 @@
         .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .slider-label { font-size: 15px; font-weight: 600; color: var(--text-primary); }
         .slider-value { font-size: 14px; font-weight: 700; color: var(--primary); background: var(--accent-light); padding: 4px 12px; border-radius: 4px; }
-        .slider { width: 100%; height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--error) 0%, var(--warning) 50%, var(--success) 100%); outline: none; -webkit-appearance: none; }
+        .slider { width: 100%; height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--error-dark) 0%, var(--warning-dark) 50%, var(--success-dark) 100%); outline: none; -webkit-appearance: none; }
         .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--bg); cursor: pointer; border: 3px solid var(--primary); box-shadow: var(--shadow-sm); }
         .slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--bg); cursor: pointer; border: 3px solid var(--primary); }
         .slider-labels { display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; color: var(--text-muted); }
-        
-        /* Checkboxes */
-        .checkbox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        @media (max-width: 500px) { .checkbox-grid { grid-template-columns: 1fr; } }
-        .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); }
-        .checkbox-item:hover { border-color: var(--accent); }
-        .checkbox-item.checked { border-color: var(--primary); background: #e8f4fc; }
-        .checkbox-item input { display: none; }
-        .checkbox-box { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0; }
-        .checkbox-item.checked .checkbox-box { background: var(--primary); border-color: var(--primary); }
-        .checkbox-box svg { width: 14px; height: 14px; fill: #fff; opacity: 0; }
-        .checkbox-item.checked .checkbox-box svg { opacity: 1; }
-        .checkbox-text { font-size: 14px; color: var(--text-primary); }
         
         /* Navigation Buttons */
         .nav-buttons { display: flex; gap: 12px; margin-top: 28px; }
@@ -178,10 +175,10 @@
         .score-value { font-size: 72px; font-weight: 700; line-height: 1; }
         .score-max { font-size: 24px; opacity: 0.7; }
         .score-rating { display: inline-block; margin-top: 16px; padding: 8px 24px; border-radius: 25px; font-size: 14px; font-weight: 600; }
-        .rating-excellent { background: #d4edda; color: #155724; }
-        .rating-good { background: #d1ecf1; color: #0c5460; }
-        .rating-fair { background: #fff3cd; color: #856404; }
-        .rating-poor { background: #f8d7da; color: #721c24; }
+        .rating-excellent { background: var(--success); color: #155724; }
+        .rating-good { background: var(--info); color: #0c5460; }
+        .rating-fair { background: var(--warning); color: #856404; }
+        .rating-poor { background: var(--error); color: #721c24; }
         
         /* Sleep Profile */
         .sleep-profile { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
@@ -190,11 +187,12 @@
         .profile-icon svg { width: 32px; height: 32px; fill: var(--primary); }
         .profile-title { font-size: 20px; font-weight: 700; color: var(--primary); }
         .profile-subtitle { font-size: 14px; color: var(--text-secondary); }
-        .profile-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .profile-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
         
         /* Radar Chart Container */
         .radar-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
         .radar-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .radar-title svg { width: 20px; height: 20px; fill: var(--accent); }
         .radar-chart { width: 100%; max-width: 400px; margin: 0 auto; }
         
         /* Dimension Bars */
@@ -205,10 +203,6 @@
         .dimension-score { font-size: 14px; font-weight: 700; }
         .dimension-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
         .dimension-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
-        .fill-excellent { background: var(--success); }
-        .fill-good { background: #17a2b8; }
-        .fill-fair { background: var(--warning); }
-        .fill-poor { background: var(--error); }
         
         /* Sleep Efficiency */
         .efficiency-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
@@ -231,16 +225,17 @@
         .actions-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
         .actions-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; }
         .action-card { background: var(--bg-light); border-radius: var(--radius-md); padding: 18px; margin-bottom: 12px; border-left: 4px solid; }
-        .action-card.priority-high { border-left-color: var(--error); }
-        .action-card.priority-medium { border-left-color: var(--warning); }
-        .action-card.priority-low { border-left-color: var(--success); }
+        .action-card:last-child { margin-bottom: 0; }
+        .action-card.priority-high { border-left-color: var(--error-dark); }
+        .action-card.priority-medium { border-left-color: var(--warning-dark); }
+        .action-card.priority-low { border-left-color: var(--success-dark); }
         .action-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
         .action-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
         .action-priority { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
-        .priority-high .action-priority { background: var(--error-light); color: var(--error); }
-        .priority-medium .action-priority { background: var(--warning-light); color: #856404; }
-        .priority-low .action-priority { background: var(--success-light); color: var(--success); }
-        .action-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+        .priority-high .action-priority { background: var(--error); color: #721c24; }
+        .priority-medium .action-priority { background: var(--warning); color: #856404; }
+        .priority-low .action-priority { background: var(--success); color: #155724; }
+        .action-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
         
         /* Tool Recommendations */
         .tools-section { background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
@@ -251,27 +246,27 @@
         .tool-rec-name { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
         .tool-rec-reason { font-size: 12px; color: var(--text-secondary); }
         
-        /* Email Capture */
-        .email-section { background: linear-gradient(135deg, var(--bg-light) 0%, var(--accent-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 24px; }
-        .email-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
-        .email-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        /* Email Capture - EXACT pattern from working tools */
+        .email-capture { background: linear-gradient(135deg, #f8f9fa 0%, var(--accent-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 24px; }
+        .email-capture-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-capture-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
         .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
-        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; transition: var(--transition); }
         .email-input:focus { outline: none; border-color: var(--accent); }
-        .email-success { display: none; color: var(--success); font-weight: 600; margin-top: 12px; }
-        .form-error { display: none; color: var(--error); font-size: 13px; margin-top: 8px; }
+        .email-success { display: none; color: var(--success-dark); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error-dark); font-size: 13px; margin-top: 8px; }
         @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
         
         /* Disclaimer */
-        .disclaimer { background: var(--info-light); border: 1px solid var(--info); border-radius: var(--radius-md); padding: 16px; margin-bottom: 24px; }
+        .disclaimer { background: var(--info); border: 1px solid var(--info-dark); border-radius: var(--radius-md); padding: 16px; margin-bottom: 24px; }
         .disclaimer-title { font-size: 14px; font-weight: 600; color: #0c5460; margin-bottom: 6px; }
         .disclaimer-text { font-size: 13px; color: #0c5460; line-height: 1.6; margin: 0; }
         
         /* New Assessment Button */
-        .new-assessment-btn { display: block; margin: 20px auto 0; padding: 12px 24px; background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); }
-        .new-assessment-btn:hover { border-color: var(--primary); }
+        .new-calc-btn { display: block; margin: 20px auto 0; padding: 12px 24px; background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); }
+        .new-calc-btn:hover { border-color: var(--primary); }
         
-        /* Footer */
+        /* Footer - EXACT pattern */
         .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
@@ -288,6 +283,7 @@
 </head>
 
 <body>
+    <!-- Header - EXACT structure from working tools -->
     <header class="site-header">
         <div class="header-content">
             <a href="https://tools.spacire.com" class="logo-link">
@@ -313,6 +309,7 @@
         </nav>
     </header>
     
+    <!-- Breadcrumb - EXACT structure -->
     <nav class="breadcrumb" aria-label="Breadcrumb">
         <div class="breadcrumb-content">
             <a href="https://spacire.com">Spacire</a>
@@ -473,7 +470,7 @@
                 
                 <!-- Section 4: Subjective Quality & Daytime Function -->
                 <div class="quiz-section" id="section4">
-                    <div class="section-title">Sleep Quality & Daytime Impact</div>
+                    <div class="section-title">Sleep Quality &amp; Daytime Impact</div>
                     <div class="section-desc">How has your sleep quality affected your daily life?</div>
                     
                     <div class="question-group">
@@ -597,7 +594,7 @@
                     </div>
                     <div>
                         <div class="profile-title" id="profileTitle">Balanced Sleeper</div>
-                        <div class="profile-subtitle" id="profileSubtitle">Your sleep persona based on assessment</div>
+                        <div class="profile-subtitle">Your sleep persona based on assessment</div>
                     </div>
                 </div>
                 <p class="profile-desc" id="profileDesc">Description of sleep profile will appear here.</p>
@@ -606,7 +603,7 @@
             <!-- 7 Dimensions Radar -->
             <div class="radar-section">
                 <div class="radar-title">
-                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: var(--accent);"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/></svg>
                     Your 7 Sleep Dimensions
                 </div>
                 <canvas id="radarChart" class="radar-chart" width="400" height="400"></canvas>
@@ -651,10 +648,10 @@
                 </div>
             </div>
             
-            <!-- Email Capture -->
-            <div class="email-section">
-                <h3 class="email-title">Save Your Sleep Report</h3>
-                <p class="email-desc">Get your complete assessment results, personalized tips, and action plan sent to your inbox.</p>
+            <!-- Email Capture - EXACT pattern from working tools -->
+            <div class="email-capture">
+                <h3 class="email-capture-title">Save Your Sleep Report</h3>
+                <p class="email-capture-text">Get your complete assessment results, personalized tips, and action plan sent to your inbox.</p>
                 <form class="email-form" onsubmit="sendReport(event)">
                     <input type="text" class="email-input" id="userName" placeholder="First name" required>
                     <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
@@ -670,10 +667,11 @@
                 <p class="disclaimer-text">This assessment provides general guidance based on sleep science research. It is not a medical diagnosis. If you consistently experience poor sleep quality, excessive daytime sleepiness, or symptoms like loud snoring with breathing pauses, please consult a healthcare provider or sleep specialist.</p>
             </div>
             
-            <button class="new-assessment-btn" onclick="resetAssessment()">Take Assessment Again</button>
+            <button class="new-calc-btn" onclick="resetAssessment()">Take Assessment Again</button>
         </div>
     </main>
     
+    <!-- Footer - EXACT structure from working tools -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-grid">
@@ -720,10 +718,12 @@
         </div>
     </footer>
     
+    <!-- Appwrite SDK -->
     <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    
     <script>
         // ========================================
-        // CONFIGURATION
+        // CONFIGURATION (EXACT same as working tools)
         // ========================================
         const CONFIG = {
             endpoint: 'https://nyc.cloud.appwrite.io/v1',
@@ -733,6 +733,7 @@
             functionId: 'send_sleep_report'
         };
         
+        // Initialize Appwrite (same as working tools)
         const client = new Appwrite.Client()
             .setEndpoint(CONFIG.endpoint)
             .setProject(CONFIG.projectId);
@@ -772,12 +773,15 @@
         let calculatedResults = null;
         
         // ========================================
-        // NAVIGATION
+        // MOBILE MENU
         // ========================================
         function toggleMobileMenu() {
             document.getElementById('mobileNav').classList.toggle('active');
         }
         
+        // ========================================
+        // NAVIGATION
+        // ========================================
         function updateProgress() {
             const percent = Math.round(((currentSection - 1) / totalSections) * 100);
             document.getElementById('progressFill').style.width = percent + '%';
@@ -795,7 +799,73 @@
             updateProgress();
         }
         
+        function validateSection(sectionNum) {
+            const requiredBySection = {
+                1: ['fallAsleep'],
+                2: ['wakeMiddle', 'bathroom', 'badDreams', 'pain'],
+                3: ['temperature', 'noise', 'light'],
+                4: ['overallQuality', 'daytimeSleepy', 'enthusiasm', 'medication'],
+                5: ['caffeine', 'screens', 'consistency', 'exercise', 'alcohol']
+            };
+            
+            const required = requiredBySection[sectionNum] || [];
+            const missing = required.filter(key => responses[key] === null);
+            
+            if (missing.length > 0) {
+                // Highlight unanswered questions
+                const section = document.getElementById('section' + sectionNum);
+                const questionGroups = section.querySelectorAll('.question-group');
+                
+                questionGroups.forEach(group => {
+                    const options = group.querySelectorAll('.option-btn');
+                    const hasSelection = Array.from(options).some(btn => btn.classList.contains('selected'));
+                    
+                    if (!hasSelection) {
+                        group.style.background = '#fff8f8';
+                        group.style.border = '1px solid #dc3545';
+                        group.style.borderRadius = '8px';
+                        group.style.padding = '12px';
+                        group.style.marginLeft = '-12px';
+                        group.style.marginRight = '-12px';
+                    }
+                });
+                
+                return false;
+            }
+            return true;
+        }
+        
+        function clearValidationHighlights() {
+            document.querySelectorAll('.question-group').forEach(group => {
+                group.style.background = '';
+                group.style.border = '';
+                group.style.borderRadius = '';
+                group.style.padding = '';
+                group.style.marginLeft = '';
+                group.style.marginRight = '';
+            });
+        }
+        
         function nextSection() {
+            // Validate current section before proceeding
+            if (!validateSection(currentSection)) {
+                // Show error message
+                const existingError = document.querySelector('.section-error');
+                if (!existingError) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'section-error';
+                    errorDiv.style.cssText = 'background: #f8d7da; color: #721c24; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center;';
+                    errorDiv.textContent = 'Please answer all questions before continuing.';
+                    document.querySelector('.nav-buttons').insertAdjacentElement('beforebegin', errorDiv);
+                }
+                return;
+            }
+            
+            // Clear any error messages and highlights
+            const existingError = document.querySelector('.section-error');
+            if (existingError) existingError.remove();
+            clearValidationHighlights();
+            
             if (currentSection < totalSections) {
                 currentSection++;
                 showSection(currentSection);
@@ -826,6 +896,36 @@
             parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
             responses[key] = parseInt(btn.dataset.value);
+            
+            // Clear validation highlight on this question
+            const questionGroup = btn.closest('.question-group');
+            if (questionGroup) {
+                questionGroup.style.background = '';
+                questionGroup.style.border = '';
+                questionGroup.style.borderRadius = '';
+                questionGroup.style.padding = '';
+                questionGroup.style.marginLeft = '';
+                questionGroup.style.marginRight = '';
+            }
+            
+            // Remove error message if all questions in section are now answered
+            const existingError = document.querySelector('.section-error');
+            if (existingError) {
+                // Check without showing new highlights
+                const requiredBySection = {
+                    1: ['fallAsleep'],
+                    2: ['wakeMiddle', 'bathroom', 'badDreams', 'pain'],
+                    3: ['temperature', 'noise', 'light'],
+                    4: ['overallQuality', 'daytimeSleepy', 'enthusiasm', 'medication'],
+                    5: ['caffeine', 'screens', 'consistency', 'exercise', 'alcohol']
+                };
+                const required = requiredBySection[currentSection] || [];
+                const allAnswered = required.every(k => responses[k] !== null);
+                if (allAnswered) {
+                    existingError.remove();
+                    clearValidationHighlights();
+                }
+            }
         }
         
         // Watch time inputs
@@ -957,36 +1057,29 @@
         }
         
         function determineSleepProfile(resp, dims) {
-            // Determine primary sleep issue for profiling
             const profiles = {
                 lightSleeper: {
                     name: 'Light Sleeper',
-                    icon: 'light',
                     description: 'You tend to wake easily and may be sensitive to environmental disturbances. Your sleep architecture likely has more time in lighter sleep stages, making you vulnerable to noise, light, and temperature changes.'
                 },
                 sleepOnsetStruggler: {
                     name: 'Sleep Onset Struggler',
-                    icon: 'onset',
                     description: 'Your primary challenge is falling asleep. Racing thoughts, poor wind-down habits, or circadian misalignment may be keeping you awake longer than needed. Once asleep, you may sleep reasonably well.'
                 },
                 fragmentedSleeper: {
                     name: 'Fragmented Sleeper',
-                    icon: 'fragmented',
                     description: 'You fall asleep okay but wake frequently during the night. This fragmentation reduces your deep sleep and REM sleep, leaving you feeling unrefreshed even after adequate time in bed.'
                 },
                 sleepDeprived: {
                     name: 'Sleep Deprived',
-                    icon: 'deprived',
-                    description: 'You\'re simply not getting enough sleep hours. Whether due to schedule constraints or lifestyle choices, your sleep debt is accumulating and affecting your daytime function.'
+                    description: 'You are simply not getting enough sleep hours. Whether due to schedule constraints or lifestyle choices, your sleep debt is accumulating and affecting your daytime function.'
                 },
                 lifestyleImpacted: {
                     name: 'Lifestyle-Impacted Sleeper',
-                    icon: 'lifestyle',
                     description: 'Your sleep is primarily affected by modifiable habits like screen use, caffeine timing, or inconsistent schedules. The good news: these are the easiest factors to change.'
                 },
                 balancedSleeper: {
                     name: 'Balanced Sleeper',
-                    icon: 'balanced',
                     description: 'Your sleep is generally healthy with no major problem areas. You may benefit from fine-tuning specific aspects, but your overall sleep foundation is solid.'
                 }
             };
@@ -1019,7 +1112,6 @@
         function generateActions(resp, dims) {
             const actions = [];
             
-            // Check each dimension and add relevant actions
             if (dims.latency < 60 || resp.fallAsleep >= 2) {
                 actions.push({
                     title: 'Improve Sleep Onset',
@@ -1056,7 +1148,7 @@
                 if (resp.temperature >= 2) {
                     actions.push({
                         title: 'Optimize Bedroom Temperature',
-                        description: 'Keep your bedroom cool (16-19°C / 60-67°F). Use breathable bedding and consider a fan or adjusting heating/cooling before bed.',
+                        description: 'Keep your bedroom cool (16-19C / 60-67F). Use breathable bedding and consider a fan or adjusting heating/cooling before bed.',
                         priority: 'medium'
                     });
                 }
@@ -1070,7 +1162,7 @@
                 if (resp.light >= 2) {
                     actions.push({
                         title: 'Block Light Intrusion',
-                        description: 'Use blackout curtains or blinds to eliminate light pollution. A sleep mask is an effective alternative if curtains aren\'t feasible.',
+                        description: 'Use blackout curtains or blinds to eliminate light pollution. A sleep mask is an effective alternative if curtains are not feasible.',
                         priority: 'medium'
                     });
                 }
@@ -1079,7 +1171,7 @@
             if (dims.duration < 60) {
                 actions.push({
                     title: 'Prioritize More Sleep Time',
-                    description: 'You\'re not getting enough sleep. Aim for 7-9 hours per night. Consider going to bed 30 minutes earlier and protecting your sleep time from other activities.',
+                    description: 'You are not getting enough sleep. Aim for 7-9 hours per night. Consider going to bed 30 minutes earlier and protecting your sleep time from other activities.',
                     priority: 'high'
                 });
             }
@@ -1087,7 +1179,7 @@
             if (dims.efficiency < 60) {
                 actions.push({
                     title: 'Improve Sleep Efficiency',
-                    description: 'Only go to bed when truly sleepy, and get out of bed if you can\'t sleep after 20 minutes. This strengthens the association between your bed and sleep.',
+                    description: 'Only go to bed when truly sleepy, and get out of bed if you cannot sleep after 20 minutes. This strengthens the association between your bed and sleep.',
                     priority: 'medium'
                 });
             }
@@ -1281,47 +1373,45 @@
         function renderDimensionsGrid(dims) {
             const container = document.getElementById('dimensionsGrid');
             const dimensionData = [
-                { name: 'Subjective Quality', score: dims.subjective, desc: 'Your overall perception of sleep quality' },
-                { name: 'Sleep Latency', score: dims.latency, desc: 'How quickly you fall asleep' },
-                { name: 'Sleep Duration', score: dims.duration, desc: 'Total hours of sleep obtained' },
-                { name: 'Sleep Efficiency', score: dims.efficiency, desc: 'Time asleep vs time in bed' },
-                { name: 'Sleep Disturbances', score: dims.disturbances, desc: 'Frequency of nighttime awakenings' },
-                { name: 'Daytime Function', score: dims.dysfunction, desc: 'Impact on daytime alertness and energy' },
-                { name: 'Lifestyle Habits', score: dims.lifestyle, desc: 'Sleep hygiene and modifiable factors' }
+                { name: 'Subjective Quality', score: dims.subjective },
+                { name: 'Sleep Latency', score: dims.latency },
+                { name: 'Sleep Duration', score: dims.duration },
+                { name: 'Sleep Efficiency', score: dims.efficiency },
+                { name: 'Sleep Disturbances', score: dims.disturbances },
+                { name: 'Daytime Function', score: dims.dysfunction },
+                { name: 'Lifestyle Habits', score: dims.lifestyle }
             ];
             
-            container.innerHTML = dimensionData.map(d => {
-                let fillClass;
-                if (d.score >= 75) fillClass = 'fill-excellent';
-                else if (d.score >= 60) fillClass = 'fill-good';
-                else if (d.score >= 40) fillClass = 'fill-fair';
-                else fillClass = 'fill-poor';
-                
-                return `
-                    <div class="dimension-item">
-                        <div class="dimension-header">
-                            <span class="dimension-name">${d.name}</span>
-                            <span class="dimension-score" style="color: ${d.score >= 60 ? 'var(--success)' : d.score >= 40 ? '#856404' : 'var(--error)'};">${d.score}/100</span>
-                        </div>
-                        <div class="dimension-bar">
-                            <div class="dimension-fill ${fillClass}" style="width: ${d.score}%;"></div>
-                        </div>
+            const getColor = (score) => {
+                if (score >= 75) return '#28a745';
+                if (score >= 60) return '#17a2b8';
+                if (score >= 40) return '#ffc107';
+                return '#dc3545';
+            };
+            
+            container.innerHTML = dimensionData.map(d => `
+                <div class="dimension-item">
+                    <div class="dimension-header">
+                        <span class="dimension-name">${d.name}</span>
+                        <span class="dimension-score" style="color: ${getColor(d.score)};">${d.score}/100</span>
                     </div>
-                `;
-            }).join('');
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: ${d.score}%; background: ${getColor(d.score)};"></div>
+                    </div>
+                </div>
+            `).join('');
         }
         
         function renderEfficiency(r) {
-            // Animate efficiency circle
             const circle = document.getElementById('efficiencyCircle');
             const circumference = 2 * Math.PI * 54;
             const offset = circumference - (r.sleepEfficiency / 100 * circumference);
             
             let strokeColor;
-            if (r.sleepEfficiency >= 85) strokeColor = 'var(--success)';
+            if (r.sleepEfficiency >= 85) strokeColor = '#28a745';
             else if (r.sleepEfficiency >= 75) strokeColor = '#17a2b8';
-            else if (r.sleepEfficiency >= 65) strokeColor = 'var(--warning)';
-            else strokeColor = 'var(--error)';
+            else if (r.sleepEfficiency >= 65) strokeColor = '#ffc107';
+            else strokeColor = '#dc3545';
             
             circle.style.stroke = strokeColor;
             setTimeout(() => {
@@ -1330,7 +1420,6 @@
             
             document.getElementById('efficiencyValue').textContent = r.sleepEfficiency + '%';
             
-            // Stats
             document.getElementById('efficiencyStats').innerHTML = `
                 <div class="stat-row">
                     <span class="stat-label">Time in Bed</span>
@@ -1355,7 +1444,7 @@
             const container = document.getElementById('actionsContainer');
             
             if (actions.length === 0) {
-                container.innerHTML = '<p style="color: var(--success); font-weight: 600;">Great news! No major issues identified. Keep up your healthy sleep habits.</p>';
+                container.innerHTML = '<p style="color: #28a745; font-weight: 600;">Great news! No major issues identified. Keep up your healthy sleep habits.</p>';
                 return;
             }
             
@@ -1381,41 +1470,83 @@
         }
         
         // ========================================
-        // DATABASE & EMAIL
+        // DATABASE & EMAIL (EXACT pattern from working tools)
         // ========================================
         async function saveResults() {
             if (!calculatedResults) return;
+            
             try {
-                await databases.createDocument(CONFIG.databaseId, CONFIG.tableId, 'unique()', {
-                    tool_name: 'sleep_quality_assessment',
-                    results_json: JSON.stringify(calculatedResults),
-                    user_agent: navigator.userAgent.substring(0, 500),
-                    created_at: new Date().toISOString()
-                });
-            } catch (error) { console.error('DB error:', error); }
+                await databases.createDocument(
+                    CONFIG.databaseId,
+                    CONFIG.tableId,
+                    'unique()',
+                    {
+                        tool_name: 'sleep_quality_assessment',
+                        results_json: JSON.stringify({
+                            overallScore: calculatedResults.overallScore,
+                            dimensions: calculatedResults.dimensions,
+                            sleepEfficiency: calculatedResults.sleepEfficiency,
+                            profileName: calculatedResults.profile.name
+                        }),
+                        user_agent: navigator.userAgent.substring(0, 500),
+                        created_at: new Date().toISOString()
+                    }
+                );
+            } catch (error) {
+                console.error('DB error:', error);
+            }
         }
         
         async function sendReport(event) {
             event.preventDefault();
+            
             const email = document.getElementById('userEmail').value.trim();
             const firstName = document.getElementById('userName').value.trim();
             const sendBtn = document.getElementById('sendReportBtn');
-            const errorEl = document.getElementById('formError');
+            const formError = document.getElementById('formError');
             
-            if (!email || !firstName || !calculatedResults) {
-                errorEl.textContent = 'Please complete the assessment first.';
-                errorEl.style.display = 'block';
+            console.log('1. Form values:', { firstName, email });
+            console.log('2. Send button found:', !!sendBtn);
+            
+            // Clear previous errors
+            formError.style.display = 'none';
+            
+            // Validate first name
+            if (!firstName || firstName.length < 1) {
+                formError.textContent = 'Please enter your first name';
+                formError.style.display = 'block';
+                document.getElementById('userName').focus();
                 return;
             }
             
-            sendBtn.disabled = true;
-            sendBtn.textContent = 'Sending...';
-            errorEl.style.display = 'none';
+            // Validate email
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailPattern.test(email)) {
+                formError.textContent = 'Please enter a valid email address';
+                formError.style.display = 'block';
+                document.getElementById('userEmail').focus();
+                return;
+            }
             
+            if (!calculatedResults) {
+                formError.textContent = 'Please complete the assessment first.';
+                formError.style.display = 'block';
+                return;
+            }
+            
+            console.log('3. Validation passed');
+            
+            // Show loading state
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = 'Sending...';
+            sendBtn.disabled = true;
+            
+            // Build payload (matching working tools pattern)
             const emailPayload = JSON.stringify({
                 toolName: 'sleep-quality-assessment',
-                email,
-                firstName,
+                email: email,
+                firstName: firstName,
+                
                 overallScore: calculatedResults.overallScore,
                 dimensions: calculatedResults.dimensions,
                 sleepEfficiency: calculatedResults.sleepEfficiency,
@@ -1427,28 +1558,56 @@
                 toolRecs: calculatedResults.toolRecs
             });
             
+            console.log('4. Payload built, size:', emailPayload.length, 'bytes');
+            
             try {
-                await databases.createDocument(CONFIG.databaseId, CONFIG.tableId, 'unique()', {
-                    tool_name: 'sleep_quality_assessment',
-                    user_email: email,
-                    user_first_name: firstName,
-                    results_json: JSON.stringify(calculatedResults),
-                    user_agent: navigator.userAgent.substring(0, 500),
-                    created_at: new Date().toISOString()
-                });
+                // Save with email (matching working tools pattern)
+                try {
+                    await databases.createDocument(
+                        CONFIG.databaseId,
+                        CONFIG.tableId,
+                        'unique()',
+                        {
+                            tool_name: 'sleep_quality_assessment',
+                            user_email: email,
+                            user_first_name: firstName,
+                            results_json: JSON.stringify({
+                                overallScore: calculatedResults.overallScore,
+                                dimensions: calculatedResults.dimensions,
+                                sleepEfficiency: calculatedResults.sleepEfficiency,
+                                profileName: calculatedResults.profile.name,
+                                emailSent: true
+                            }),
+                            user_agent: navigator.userAgent.substring(0, 500),
+                            created_at: new Date().toISOString()
+                        }
+                    );
+                } catch (dbError) {
+                    console.error('DB error:', dbError);
+                }
                 
-                await functions.createExecution(CONFIG.functionId, emailPayload, true);
+                console.log('5. Calling functions.createExecution...');
+                
+                // Send email (async - matching working tools pattern)
+                await functions.createExecution(
+                    CONFIG.functionId,
+                    emailPayload,
+                    true
+                );
+                
+                console.log('6. Email function executed');
                 
                 document.getElementById('emailSuccess').style.display = 'block';
                 document.getElementById('userEmail').disabled = true;
                 document.getElementById('userName').disabled = true;
                 sendBtn.style.display = 'none';
+                
             } catch (error) {
                 console.error('Email error:', error);
-                errorEl.textContent = 'Failed to send. Please try again.';
-                errorEl.style.display = 'block';
+                formError.textContent = 'Failed to send. Please try again.';
+                formError.style.display = 'block';
+                sendBtn.innerHTML = originalText;
                 sendBtn.disabled = false;
-                sendBtn.textContent = 'Send Report';
             }
         }
         
