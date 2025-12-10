@@ -917,27 +917,34 @@
                     <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
                     <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
                     <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                    <a href="https://tools.spacire.com/sleep-sound-finder">Sleep Sound Finder</a>
+                    <a href="https://tools.spacire.com/natural-sleep-remedy-finder">Natural Sleep Remedy Finder</a>
+                    <a href="https://tools.spacire.com/jet-lag-calculator">Jet Lag Calculator</a>
                     <a href="https://tools.spacire.com/chronotype-quiz">Chronotype Quiz</a>
                 </div>
                 <div class="footer-section">
-                    <h4>Shop Sleep Aids</h4>
+                    <h4>Shop</h4>
                     <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
-                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
                     <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
                     <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
                 </div>
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
                     <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
-                    <a href="https://spacire.com/pages/about">About Spacire</a>
-                    <a href="https://spacire.com/pages/contact">Contact Us</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Spacire. All rights reserved.</p>
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657.</p>
                 <div class="footer-legal">
                     <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
                     <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
                 </div>
             </div>
         </div>
@@ -947,18 +954,20 @@
     <script>
         // Appwrite Configuration
         const CONFIG = {
-            endpoint: 'https://cloud.appwrite.io/v1',
-            projectId: '6759fd280021ddaboratory',
-            databaseId: '675eb7d8003c7f729a2d',
-            tableId: '675eb7e60025a2f9dd0b',
-            functionId: '675ebcb000227c4cfba6'
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
         };
         
-        const { Client, Databases, Functions } = Appwrite;
-        const client = new Client();
-        client.setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
-        const databases = new Databases(client);
-        const functions = new Functions(client);
+        // Initialize Appwrite
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
         
         // User data storage
         let userData = {};
