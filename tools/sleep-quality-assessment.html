@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Sleep Quality Assessment - Comprehensive evaluation of your sleep across 7 dimensions. Get your personalized sleep profile, efficiency score, and action plan based on clinical sleep science.">
+    <meta name="keywords" content="sleep quality assessment, sleep quiz, PSQI, sleep test, sleep efficiency calculator, sleep health score, am I sleeping well, sleep quality index">
+    <meta name="author" content="Spacire">
+    <meta name="robots" content="index, follow">
+    <title>Sleep Quality Assessment - Comprehensive Sleep Health Score | Spacire</title>
+    <link rel="canonical" href="https://tools.spacire.com/sleep-quality-assessment">
+    
+    <meta property="og:title" content="Sleep Quality Assessment - How Good Is Your Sleep?">
+    <meta property="og:description" content="Comprehensive sleep quality evaluation across 7 dimensions. Get your personalized sleep profile and action plan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.spacire.com/sleep-quality-assessment">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sleep Quality Assessment",
+        "description": "Comprehensive sleep quality evaluation tool that assesses 7 dimensions of sleep health and provides personalized recommendations.",
+        "url": "https://tools.spacire.com/sleep-quality-assessment",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+        "publisher": {"@type": "Organization", "name": "Spacire", "url": "https://spacire.com"}
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #042548;
+            --primary-light: #0a3a6b;
+            --accent: #E0B252;
+            --accent-light: #f5e6c4;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --hover: #f8f9fa;
+            --border: #e0e0e0;
+            --success: #28a745;
+            --success-light: #d4edda;
+            --warning: #ffc107;
+            --warning-light: #fff3cd;
+            --error: #dc3545;
+            --error-light: #f8d7da;
+            --info: #17a2b8;
+            --info-light: #d1ecf1;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.2s ease;
+            --font-primary: 'Domine', Georgia, serif;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: var(--font-primary); background: #f5f5f5; color: var(--text-primary); line-height: 1.6; }
+        
+        /* Header */
+        .site-header { background: var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+        .header-nav { display: flex; gap: 28px; }
+        .header-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .header-nav a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: var(--transition); }
+        .mobile-nav { display: none; background: var(--primary); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 12px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .header-nav { display: none; } .mobile-menu-btn { display: flex; } }
+        
+        /* Breadcrumb */
+        .breadcrumb { background: var(--hover); padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-muted); margin: 0 8px; }
+        
+        /* Main Container */
+        .main-container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+        .page-title { text-align: center; margin-bottom: 32px; }
+        .page-title h1 { font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 650px; margin: 0 auto; }
+        
+        /* Tool Card */
+        .tool-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 24px; }
+        .tool-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 24px 28px; }
+        .tool-header h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .tool-header p { font-size: 14px; opacity: 0.9; margin: 0; }
+        .tool-body { padding: 28px; }
+        
+        /* Progress */
+        .progress-container { margin-bottom: 28px; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .progress-text { font-size: 13px; color: var(--text-secondary); }
+        .progress-bar { height: 6px; background: var(--bg-light); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.3s ease; }
+        
+        /* Quiz Sections */
+        .quiz-section { display: none; }
+        .quiz-section.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .section-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .section-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+        
+        /* Questions */
+        .question-group { margin-bottom: 24px; }
+        .question-label { display: block; font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
+        .question-sublabel { font-size: 13px; color: var(--text-muted); font-weight: 400; display: block; margin-top: 4px; }
+        
+        /* Options */
+        .options-grid { display: grid; gap: 10px; }
+        .option-btn { display: block; width: 100%; padding: 14px 18px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; color: var(--text-primary); cursor: pointer; transition: var(--transition); text-align: left; }
+        .option-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+        .option-btn.selected { border-color: var(--primary); background: #e8f4fc; }
+        
+        /* Time Inputs */
+        .time-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        @media (max-width: 500px) { .time-row { grid-template-columns: 1fr; } }
+        .time-group label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .time-input { width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 16px; transition: var(--transition); }
+        .time-input:focus { outline: none; border-color: var(--accent); }
+        
+        /* Slider */
+        .slider-group { margin-bottom: 24px; }
+        .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .slider-label { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .slider-value { font-size: 14px; font-weight: 700; color: var(--primary); background: var(--accent-light); padding: 4px 12px; border-radius: 4px; }
+        .slider { width: 100%; height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--error) 0%, var(--warning) 50%, var(--success) 100%); outline: none; -webkit-appearance: none; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--bg); cursor: pointer; border: 3px solid var(--primary); box-shadow: var(--shadow-sm); }
+        .slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--bg); cursor: pointer; border: 3px solid var(--primary); }
+        .slider-labels { display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; color: var(--text-muted); }
+        
+        /* Checkboxes */
+        .checkbox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        @media (max-width: 500px) { .checkbox-grid { grid-template-columns: 1fr; } }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); }
+        .checkbox-item:hover { border-color: var(--accent); }
+        .checkbox-item.checked { border-color: var(--primary); background: #e8f4fc; }
+        .checkbox-item input { display: none; }
+        .checkbox-box { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0; }
+        .checkbox-item.checked .checkbox-box { background: var(--primary); border-color: var(--primary); }
+        .checkbox-box svg { width: 14px; height: 14px; fill: #fff; opacity: 0; }
+        .checkbox-item.checked .checkbox-box svg { opacity: 1; }
+        .checkbox-text { font-size: 14px; color: var(--text-primary); }
+        
+        /* Navigation Buttons */
+        .nav-buttons { display: flex; gap: 12px; margin-top: 28px; }
+        .btn { padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 15px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; }
+        .btn-primary { background: var(--accent); color: var(--primary); flex: 1; }
+        .btn-primary:hover { background: #c9a047; }
+        .btn-primary:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+        .btn-secondary { background: var(--bg); color: var(--primary); border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); }
+        
+        /* Results Section */
+        .results-section { display: none; }
+        .results-section.active { display: block; animation: fadeIn 0.4s ease; }
+        
+        /* Overall Score Card */
+        .score-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--radius-lg); padding: 32px; text-align: center; color: #fff; margin-bottom: 24px; }
+        .score-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 8px; }
+        .score-value { font-size: 72px; font-weight: 700; line-height: 1; }
+        .score-max { font-size: 24px; opacity: 0.7; }
+        .score-rating { display: inline-block; margin-top: 16px; padding: 8px 24px; border-radius: 25px; font-size: 14px; font-weight: 600; }
+        .rating-excellent { background: #d4edda; color: #155724; }
+        .rating-good { background: #d1ecf1; color: #0c5460; }
+        .rating-fair { background: #fff3cd; color: #856404; }
+        .rating-poor { background: #f8d7da; color: #721c24; }
+        
+        /* Sleep Profile */
+        .sleep-profile { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .profile-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .profile-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; }
+        .profile-icon svg { width: 32px; height: 32px; fill: var(--primary); }
+        .profile-title { font-size: 20px; font-weight: 700; color: var(--primary); }
+        .profile-subtitle { font-size: 14px; color: var(--text-secondary); }
+        .profile-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        
+        /* Radar Chart Container */
+        .radar-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .radar-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .radar-chart { width: 100%; max-width: 400px; margin: 0 auto; }
+        
+        /* Dimension Bars */
+        .dimensions-grid { display: grid; gap: 16px; margin-top: 24px; }
+        .dimension-item { background: var(--bg-light); border-radius: var(--radius-md); padding: 16px; }
+        .dimension-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .dimension-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .dimension-score { font-size: 14px; font-weight: 700; }
+        .dimension-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+        .dimension-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+        .fill-excellent { background: var(--success); }
+        .fill-good { background: #17a2b8; }
+        .fill-fair { background: var(--warning); }
+        .fill-poor { background: var(--error); }
+        
+        /* Sleep Efficiency */
+        .efficiency-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .efficiency-header { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; }
+        .efficiency-display { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .efficiency-gauge { position: relative; width: 140px; height: 140px; }
+        .efficiency-circle { transform: rotate(-90deg); }
+        .efficiency-bg { fill: none; stroke: var(--border); stroke-width: 12; }
+        .efficiency-fill { fill: none; stroke-width: 12; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+        .efficiency-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        .efficiency-value { font-size: 32px; font-weight: 700; color: var(--primary); }
+        .efficiency-label { font-size: 12px; color: var(--text-muted); }
+        .efficiency-stats { flex: 1; min-width: 200px; }
+        .stat-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { font-size: 14px; color: var(--text-secondary); }
+        .stat-value { font-size: 14px; font-weight: 600; color: var(--primary); }
+        
+        /* Priority Actions */
+        .actions-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .actions-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 20px; }
+        .action-card { background: var(--bg-light); border-radius: var(--radius-md); padding: 18px; margin-bottom: 12px; border-left: 4px solid; }
+        .action-card.priority-high { border-left-color: var(--error); }
+        .action-card.priority-medium { border-left-color: var(--warning); }
+        .action-card.priority-low { border-left-color: var(--success); }
+        .action-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .action-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .action-priority { font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
+        .priority-high .action-priority { background: var(--error-light); color: var(--error); }
+        .priority-medium .action-priority { background: var(--warning-light); color: #856404; }
+        .priority-low .action-priority { background: var(--success-light); color: var(--success); }
+        .action-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+        
+        /* Tool Recommendations */
+        .tools-section { background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+        .tools-title { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        .tool-rec-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; text-decoration: none; transition: var(--transition); }
+        .tool-rec-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .tool-rec-name { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .tool-rec-reason { font-size: 12px; color: var(--text-secondary); }
+        
+        /* Email Capture */
+        .email-section { background: linear-gradient(135deg, var(--bg-light) 0%, var(--accent-light) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 24px; }
+        .email-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .email-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+        .email-input { flex: 1; min-width: 140px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; }
+        .email-input:focus { outline: none; border-color: var(--accent); }
+        .email-success { display: none; color: var(--success); font-weight: 600; margin-top: 12px; }
+        .form-error { display: none; color: var(--error); font-size: 13px; margin-top: 8px; }
+        @media (max-width: 500px) { .email-form { flex-direction: column; } .email-input { min-width: 100%; } }
+        
+        /* Disclaimer */
+        .disclaimer { background: var(--info-light); border: 1px solid var(--info); border-radius: var(--radius-md); padding: 16px; margin-bottom: 24px; }
+        .disclaimer-title { font-size: 14px; font-weight: 600; color: #0c5460; margin-bottom: 6px; }
+        .disclaimer-text { font-size: 13px; color: #0c5460; line-height: 1.6; margin: 0; }
+        
+        /* New Assessment Button */
+        .new-assessment-btn { display: block; margin: 20px auto 0; padding: 12px 24px; background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; transition: var(--transition); }
+        .new-assessment-btn:hover { border-color: var(--primary); }
+        
+        /* Footer */
+        .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--accent); }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-legal { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-legal a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="https://tools.spacire.com" class="logo-link">
+                <span class="logo-text">Spacire</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://tools.spacire.com">All Tools</a>
+                <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+                <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                <a href="https://spacire.com">Shop</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="https://tools.spacire.com">All Tools</a>
+            <a href="https://spacire.com/collections/sleep-aids-for-better-rest">Sleep Products</a>
+            <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+            <a href="https://spacire.com">Shop</a>
+        </nav>
+    </header>
+    
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="https://spacire.com">Spacire</a>
+            <span>&gt;</span>
+            <a href="https://tools.spacire.com">Sleep Tools</a>
+            <span>&gt;</span>
+            <span style="color: var(--text-primary);">Sleep Quality Assessment</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <header class="page-title">
+            <h1>Sleep Quality Assessment</h1>
+            <p class="page-subtitle">Comprehensive evaluation of your sleep health across 7 key dimensions. Get your personalized sleep profile, efficiency score, and priority action plan.</p>
+        </header>
+        
+        <!-- Quiz Card -->
+        <div class="tool-card" id="quizCard">
+            <div class="tool-header">
+                <h2>Sleep Health Evaluation</h2>
+                <p>Answer honestly based on the past month</p>
+            </div>
+            
+            <div class="tool-body">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span class="progress-text" id="progressText">Section 1 of 5</span>
+                        <span class="progress-text" id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Section 1: Sleep Schedule -->
+                <div class="quiz-section active" id="section1">
+                    <div class="section-title">Sleep Schedule</div>
+                    <div class="section-desc">Tell us about your typical sleep timing over the past month</div>
+                    
+                    <div class="time-row">
+                        <div class="time-group">
+                            <label for="bedTime">What time do you usually go to bed?</label>
+                            <input type="time" class="time-input" id="bedTime" value="23:00">
+                        </div>
+                        <div class="time-group">
+                            <label for="wakeTime">What time do you usually wake up?</label>
+                            <input type="time" class="time-input" id="wakeTime" value="07:00">
+                        </div>
+                    </div>
+                    
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-label">How many hours of actual sleep do you get per night?</span>
+                            <span class="slider-value" id="sleepHoursValue">7 hours</span>
+                        </div>
+                        <input type="range" class="slider" id="sleepHours" min="3" max="10" step="0.5" value="7" oninput="updateSleepHours()">
+                        <div class="slider-labels">
+                            <span>3h</span>
+                            <span>5h</span>
+                            <span>7h</span>
+                            <span>9h</span>
+                            <span>10h+</span>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How long does it typically take you to fall asleep?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'fallAsleep')">Less than 15 minutes</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'fallAsleep')">15-30 minutes</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'fallAsleep')">31-60 minutes</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'fallAsleep')">More than 60 minutes</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Sleep Disturbances -->
+                <div class="quiz-section" id="section2">
+                    <div class="section-title">Sleep Disturbances</div>
+                    <div class="section-desc">How often have these affected your sleep in the past month?</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Wake up in the middle of the night or early morning</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'wakeMiddle')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'wakeMiddle')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'wakeMiddle')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'wakeMiddle')">Three or more times a week</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Get up to use the bathroom</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'bathroom')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'bathroom')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'bathroom')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'bathroom')">Three or more times a week</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Have bad dreams or nightmares</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'badDreams')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'badDreams')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'badDreams')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'badDreams')">Three or more times a week</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Experience pain or physical discomfort</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'pain')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'pain')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'pain')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'pain')">Three or more times a week</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Environment & Comfort -->
+                <div class="quiz-section" id="section3">
+                    <div class="section-title">Sleep Environment</div>
+                    <div class="section-desc">How often do environmental factors disturb your sleep?</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Feel too hot or too cold</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'temperature')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'temperature')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'temperature')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'temperature')">Three or more times a week</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Disturbed by noise (traffic, snoring partner, etc.)</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'noise')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'noise')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'noise')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'noise')">Three or more times a week</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Disturbed by light (streetlights, early sunrise, etc.)</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'light')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'light')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'light')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'light')">Three or more times a week</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 4: Subjective Quality & Daytime Function -->
+                <div class="quiz-section" id="section4">
+                    <div class="section-title">Sleep Quality & Daytime Impact</div>
+                    <div class="section-desc">How has your sleep quality affected your daily life?</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How would you rate your overall sleep quality?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'overallQuality')">Very good</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'overallQuality')">Fairly good</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'overallQuality')">Fairly bad</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'overallQuality')">Very bad</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How often have you had trouble staying awake during daytime activities?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'daytimeSleepy')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'daytimeSleepy')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'daytimeSleepy')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'daytimeSleepy')">Three or more times a week</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How much of a problem has it been to maintain enthusiasm for getting things done?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'enthusiasm')">No problem at all</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'enthusiasm')">Only a very slight problem</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'enthusiasm')">Somewhat of a problem</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'enthusiasm')">A very big problem</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">Have you taken any sleep medication (prescribed or over-the-counter)?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'medication')">Not during the past month</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'medication')">Less than once a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'medication')">Once or twice a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'medication')">Three or more times a week</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 5: Lifestyle Factors -->
+                <div class="quiz-section" id="section5">
+                    <div class="section-title">Lifestyle Factors</div>
+                    <div class="section-desc">These modifiable habits can significantly impact sleep quality</div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How often do you consume caffeine within 6 hours of bedtime?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'caffeine')">Never or rarely</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'caffeine')">Once or twice a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'caffeine')">Several times a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'caffeine')">Daily</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How often do you use screens (phone, tablet, TV) within 1 hour of bed?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'screens')">Never or rarely</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'screens')">Once or twice a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'screens')">Several times a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'screens')">Every night</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How consistent is your sleep schedule (same bed/wake times)?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'consistency')">Very consistent (within 30 min)</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'consistency')">Fairly consistent (within 1 hour)</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'consistency')">Somewhat inconsistent (1-2 hours variation)</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'consistency')">Very inconsistent (2+ hours variation)</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How often do you exercise during the week?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'exercise')">4+ times per week</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'exercise')">2-3 times per week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'exercise')">Once a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'exercise')">Rarely or never</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <label class="question-label">How often do you consume alcohol within 3 hours of bedtime?</label>
+                        <div class="options-grid">
+                            <button class="option-btn" data-value="0" onclick="selectOption(this, 'alcohol')">Never or rarely</button>
+                            <button class="option-btn" data-value="1" onclick="selectOption(this, 'alcohol')">Once or twice a week</button>
+                            <button class="option-btn" data-value="2" onclick="selectOption(this, 'alcohol')">Several times a week</button>
+                            <button class="option-btn" data-value="3" onclick="selectOption(this, 'alcohol')">Daily</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()" style="display: none;">Back</button>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextSection()">Continue</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <!-- Overall Score -->
+            <div class="score-hero" id="scoreHero">
+                <div class="score-label">Your Sleep Quality Score</div>
+                <div><span class="score-value" id="overallScore">0</span><span class="score-max">/100</span></div>
+                <div class="score-rating" id="scoreRating">Good</div>
+            </div>
+            
+            <!-- Sleep Profile -->
+            <div class="sleep-profile" id="sleepProfile">
+                <div class="profile-header">
+                    <div class="profile-icon" id="profileIcon">
+                        <svg viewBox="0 0 24 24"><path d="M12,3A9,9 0 0,0 3,12H0L4,16L8,12H5A7,7 0 0,1 12,5A7,7 0 0,1 19,12A7,7 0 0,1 12,19C10.5,19 9.09,18.5 7.94,17.7L6.5,19.14C8.04,20.3 9.94,21 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3Z"/></svg>
+                    </div>
+                    <div>
+                        <div class="profile-title" id="profileTitle">Balanced Sleeper</div>
+                        <div class="profile-subtitle" id="profileSubtitle">Your sleep persona based on assessment</div>
+                    </div>
+                </div>
+                <p class="profile-desc" id="profileDesc">Description of sleep profile will appear here.</p>
+            </div>
+            
+            <!-- 7 Dimensions Radar -->
+            <div class="radar-section">
+                <div class="radar-title">
+                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: var(--accent);"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/></svg>
+                    Your 7 Sleep Dimensions
+                </div>
+                <canvas id="radarChart" class="radar-chart" width="400" height="400"></canvas>
+                <div class="dimensions-grid" id="dimensionsGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Sleep Efficiency -->
+            <div class="efficiency-card">
+                <div class="efficiency-header">Sleep Efficiency Analysis</div>
+                <div class="efficiency-display">
+                    <div class="efficiency-gauge">
+                        <svg viewBox="0 0 120 120" class="efficiency-circle">
+                            <circle cx="60" cy="60" r="54" class="efficiency-bg"/>
+                            <circle cx="60" cy="60" r="54" class="efficiency-fill" id="efficiencyCircle" stroke-dasharray="339.3" stroke-dashoffset="339.3"/>
+                        </svg>
+                        <div class="efficiency-text">
+                            <div class="efficiency-value" id="efficiencyValue">0%</div>
+                            <div class="efficiency-label">Efficiency</div>
+                        </div>
+                    </div>
+                    <div class="efficiency-stats" id="efficiencyStats">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Priority Actions -->
+            <div class="actions-section">
+                <div class="actions-title">Your Priority Action Plan</div>
+                <div id="actionsContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Tool Recommendations -->
+            <div class="tools-section">
+                <div class="tools-title">Recommended Tools For You</div>
+                <div class="tools-grid" id="toolsGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Email Capture -->
+            <div class="email-section">
+                <h3 class="email-title">Save Your Sleep Report</h3>
+                <p class="email-desc">Get your complete assessment results, personalized tips, and action plan sent to your inbox.</p>
+                <form class="email-form" onsubmit="sendReport(event)">
+                    <input type="text" class="email-input" id="userName" placeholder="First name" required>
+                    <input type="email" class="email-input" id="userEmail" placeholder="Email address" required>
+                    <button type="submit" class="btn btn-primary" id="sendReportBtn" style="min-width: 140px;">Send Report</button>
+                </form>
+                <p class="email-success" id="emailSuccess">Report sent! Check your inbox.</p>
+                <p class="form-error" id="formError"></p>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <div class="disclaimer-title">Important Note</div>
+                <p class="disclaimer-text">This assessment provides general guidance based on sleep science research. It is not a medical diagnosis. If you consistently experience poor sleep quality, excessive daytime sleepiness, or symptoms like loud snoring with breathing pauses, please consult a healthcare provider or sleep specialist.</p>
+            </div>
+            
+            <button class="new-assessment-btn" onclick="resetAssessment()">Take Assessment Again</button>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Sleep Tools</h4>
+                    <a href="https://tools.spacire.com/sleep-environment-optimizer">Sleep Environment Optimizer</a>
+                    <a href="https://tools.spacire.com/shift-worker-sleep-planner">Shift Worker Sleep Planner</a>
+                    <a href="https://tools.spacire.com/sleep-debt-calculator">Sleep Debt Calculator</a>
+                    <a href="https://tools.spacire.com/bedtime-routine-builder">Bedtime Routine Builder</a>
+                    <a href="https://tools.spacire.com/sleep-sound-finder">Sleep Sound Finder</a>
+                    <a href="https://tools.spacire.com/natural-sleep-remedy-finder">Natural Sleep Remedy Finder</a>
+                    <a href="https://tools.spacire.com/jet-lag-calculator">Jet Lag Calculator</a>
+                    <a href="https://tools.spacire.com/chronotype-quiz">Chronotype Quiz</a>
+                    <a href="https://tools.spacire.com/sleep-cycle-calculator">Sleep Cycle Calculator</a>
+                    <a href="https://tools.spacire.com/insomnia-quiz">Insomnia Quiz</a>
+                    <a href="https://tools.spacire.com/power-nap-calculator">Power Nap Calculator</a>
+                    <a href="https://tools.spacire.com/sleep-quality-assessment">Sleep Quality Assessment</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <a href="https://spacire.com/collections/sleep-masks">Sleep Masks</a>
+                    <a href="https://spacire.com/collections/white-noise-machines">White Noise Machines</a>
+                    <a href="https://spacire.com/collections/blackout-curtains">Blackout Curtains</a>
+                    <a href="https://spacire.com/collections/pillow-sleep-sprays">Sleep Sprays</a>
+                    <a href="https://spacire.com/collections/weighted-blankets">Weighted Blankets</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="https://spacire.com/pages/about-us">About Us</a>
+                    <a href="https://spacire.com/pages/contact">Contact</a>
+                    <a href="https://spacire.com/pages/faqs">FAQs</a>
+                    <a href="https://spacire.com/blogs/journal">Sleep Journal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spacire (The Valen Collective LTD). Company Registered in England &amp; Wales. Reg: 16695657. 167 Kennington Road, Nottingham, NG8 1QE, UK.</p>
+                <div class="footer-legal">
+                    <a href="https://spacire.com/policies/privacy-policy">Privacy Policy</a>
+                    <a href="https://spacire.com/policies/terms-of-service">Terms of Service</a>
+                    <a href="https://spacire.com/policies/refund-policy">Refunds</a>
+                    <a href="https://spacire.com/policies/shipping-policy">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    <script>
+        // ========================================
+        // CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            endpoint: 'https://nyc.cloud.appwrite.io/v1',
+            projectId: 'spacire-sleep-tools',
+            databaseId: 'sleeptools_db',
+            tableId: 'tool_submissions',
+            functionId: 'send_sleep_report'
+        };
+        
+        const client = new Appwrite.Client()
+            .setEndpoint(CONFIG.endpoint)
+            .setProject(CONFIG.projectId);
+        
+        const databases = new Appwrite.Databases(client);
+        const functions = new Appwrite.Functions(client);
+        
+        // ========================================
+        // STATE
+        // ========================================
+        let currentSection = 1;
+        const totalSections = 5;
+        
+        const responses = {
+            bedTime: '23:00',
+            wakeTime: '07:00',
+            sleepHours: 7,
+            fallAsleep: null,
+            wakeMiddle: null,
+            bathroom: null,
+            badDreams: null,
+            pain: null,
+            temperature: null,
+            noise: null,
+            light: null,
+            overallQuality: null,
+            daytimeSleepy: null,
+            enthusiasm: null,
+            medication: null,
+            caffeine: null,
+            screens: null,
+            consistency: null,
+            exercise: null,
+            alcohol: null
+        };
+        
+        let calculatedResults = null;
+        
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        function updateProgress() {
+            const percent = Math.round(((currentSection - 1) / totalSections) * 100);
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressPercent').textContent = percent + '%';
+            document.getElementById('progressText').textContent = `Section ${currentSection} of ${totalSections}`;
+        }
+        
+        function showSection(num) {
+            document.querySelectorAll('.quiz-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('section' + num).classList.add('active');
+            
+            document.getElementById('prevBtn').style.display = num === 1 ? 'none' : 'block';
+            document.getElementById('nextBtn').textContent = num === totalSections ? 'Get Results' : 'Continue';
+            
+            updateProgress();
+        }
+        
+        function nextSection() {
+            if (currentSection < totalSections) {
+                currentSection++;
+                showSection(currentSection);
+                window.scrollTo({ top: document.querySelector('.tool-card').offsetTop - 100, behavior: 'smooth' });
+            } else {
+                calculateResults();
+            }
+        }
+        
+        function previousSection() {
+            if (currentSection > 1) {
+                currentSection--;
+                showSection(currentSection);
+            }
+        }
+        
+        // ========================================
+        // INPUT HANDLERS
+        // ========================================
+        function updateSleepHours() {
+            const value = parseFloat(document.getElementById('sleepHours').value);
+            responses.sleepHours = value;
+            document.getElementById('sleepHoursValue').textContent = value + ' hours';
+        }
+        
+        function selectOption(btn, key) {
+            const parent = btn.closest('.options-grid');
+            parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            responses[key] = parseInt(btn.dataset.value);
+        }
+        
+        // Watch time inputs
+        document.getElementById('bedTime').addEventListener('change', (e) => responses.bedTime = e.target.value);
+        document.getElementById('wakeTime').addEventListener('change', (e) => responses.wakeTime = e.target.value);
+        
+        // ========================================
+        // CALCULATIONS
+        // ========================================
+        function calculateResults() {
+            // Calculate time in bed
+            const [bedH, bedM] = responses.bedTime.split(':').map(Number);
+            const [wakeH, wakeM] = responses.wakeTime.split(':').map(Number);
+            let bedMinutes = bedH * 60 + bedM;
+            let wakeMinutes = wakeH * 60 + wakeM;
+            if (wakeMinutes <= bedMinutes) wakeMinutes += 24 * 60;
+            const timeInBedHours = (wakeMinutes - bedMinutes) / 60;
+            
+            // Sleep efficiency
+            const sleepEfficiency = Math.min(100, Math.round((responses.sleepHours / timeInBedHours) * 100));
+            
+            // Calculate 7 dimension scores (0-3 scale, lower is better)
+            // We'll convert to 0-100 where higher is better
+            
+            // 1. Subjective Quality (from overallQuality)
+            const subjectiveScore = responses.overallQuality !== null ? (3 - responses.overallQuality) / 3 * 100 : 50;
+            
+            // 2. Sleep Latency (from fallAsleep)
+            const latencyScore = responses.fallAsleep !== null ? (3 - responses.fallAsleep) / 3 * 100 : 50;
+            
+            // 3. Sleep Duration (based on hours)
+            let durationScore;
+            if (responses.sleepHours >= 7) durationScore = 100;
+            else if (responses.sleepHours >= 6) durationScore = 75;
+            else if (responses.sleepHours >= 5) durationScore = 50;
+            else durationScore = 25;
+            
+            // 4. Sleep Efficiency
+            let efficiencyScore;
+            if (sleepEfficiency >= 85) efficiencyScore = 100;
+            else if (sleepEfficiency >= 75) efficiencyScore = 75;
+            else if (sleepEfficiency >= 65) efficiencyScore = 50;
+            else efficiencyScore = 25;
+            
+            // 5. Sleep Disturbances (average of disturbance questions)
+            const disturbanceInputs = [responses.wakeMiddle, responses.bathroom, responses.badDreams, responses.pain, responses.temperature, responses.noise, responses.light];
+            const validDisturbances = disturbanceInputs.filter(v => v !== null);
+            const disturbanceAvg = validDisturbances.length > 0 ? validDisturbances.reduce((a,b) => a+b, 0) / validDisturbances.length : 1.5;
+            const disturbanceScore = Math.round((3 - disturbanceAvg) / 3 * 100);
+            
+            // 6. Daytime Dysfunction (from daytimeSleepy and enthusiasm)
+            const dysfunctionInputs = [responses.daytimeSleepy, responses.enthusiasm];
+            const validDysfunction = dysfunctionInputs.filter(v => v !== null);
+            const dysfunctionAvg = validDysfunction.length > 0 ? validDysfunction.reduce((a,b) => a+b, 0) / validDysfunction.length : 1.5;
+            const dysfunctionScore = Math.round((3 - dysfunctionAvg) / 3 * 100);
+            
+            // 7. Lifestyle Factors (from caffeine, screens, consistency, exercise, alcohol)
+            const lifestyleInputs = [responses.caffeine, responses.screens, responses.consistency, responses.exercise, responses.alcohol];
+            const validLifestyle = lifestyleInputs.filter(v => v !== null);
+            const lifestyleAvg = validLifestyle.length > 0 ? validLifestyle.reduce((a,b) => a+b, 0) / validLifestyle.length : 1.5;
+            const lifestyleScore = Math.round((3 - lifestyleAvg) / 3 * 100);
+            
+            // Overall score (weighted average)
+            const overallScore = Math.round(
+                (subjectiveScore * 0.20) +
+                (latencyScore * 0.10) +
+                (durationScore * 0.15) +
+                (efficiencyScore * 0.15) +
+                (disturbanceScore * 0.15) +
+                (dysfunctionScore * 0.15) +
+                (lifestyleScore * 0.10)
+            );
+            
+            // Determine sleep profile
+            const profile = determineSleepProfile(responses, {
+                subjective: subjectiveScore,
+                latency: latencyScore,
+                duration: durationScore,
+                efficiency: efficiencyScore,
+                disturbances: disturbanceScore,
+                dysfunction: dysfunctionScore,
+                lifestyle: lifestyleScore
+            });
+            
+            // Generate priority actions
+            const actions = generateActions(responses, {
+                subjective: subjectiveScore,
+                latency: latencyScore,
+                duration: durationScore,
+                efficiency: efficiencyScore,
+                disturbances: disturbanceScore,
+                dysfunction: dysfunctionScore,
+                lifestyle: lifestyleScore
+            });
+            
+            // Generate tool recommendations
+            const toolRecs = generateToolRecommendations(responses, {
+                subjective: subjectiveScore,
+                latency: latencyScore,
+                duration: durationScore,
+                efficiency: efficiencyScore,
+                disturbances: disturbanceScore,
+                dysfunction: dysfunctionScore,
+                lifestyle: lifestyleScore
+            });
+            
+            calculatedResults = {
+                overallScore,
+                dimensions: {
+                    subjective: subjectiveScore,
+                    latency: latencyScore,
+                    duration: durationScore,
+                    efficiency: efficiencyScore,
+                    disturbances: disturbanceScore,
+                    dysfunction: dysfunctionScore,
+                    lifestyle: lifestyleScore
+                },
+                sleepEfficiency,
+                timeInBedHours: timeInBedHours.toFixed(1),
+                sleepHours: responses.sleepHours,
+                profile,
+                actions,
+                toolRecs,
+                responses
+            };
+            
+            renderResults();
+            saveResults();
+        }
+        
+        function determineSleepProfile(resp, dims) {
+            // Determine primary sleep issue for profiling
+            const profiles = {
+                lightSleeper: {
+                    name: 'Light Sleeper',
+                    icon: 'light',
+                    description: 'You tend to wake easily and may be sensitive to environmental disturbances. Your sleep architecture likely has more time in lighter sleep stages, making you vulnerable to noise, light, and temperature changes.'
+                },
+                sleepOnsetStruggler: {
+                    name: 'Sleep Onset Struggler',
+                    icon: 'onset',
+                    description: 'Your primary challenge is falling asleep. Racing thoughts, poor wind-down habits, or circadian misalignment may be keeping you awake longer than needed. Once asleep, you may sleep reasonably well.'
+                },
+                fragmentedSleeper: {
+                    name: 'Fragmented Sleeper',
+                    icon: 'fragmented',
+                    description: 'You fall asleep okay but wake frequently during the night. This fragmentation reduces your deep sleep and REM sleep, leaving you feeling unrefreshed even after adequate time in bed.'
+                },
+                sleepDeprived: {
+                    name: 'Sleep Deprived',
+                    icon: 'deprived',
+                    description: 'You\'re simply not getting enough sleep hours. Whether due to schedule constraints or lifestyle choices, your sleep debt is accumulating and affecting your daytime function.'
+                },
+                lifestyleImpacted: {
+                    name: 'Lifestyle-Impacted Sleeper',
+                    icon: 'lifestyle',
+                    description: 'Your sleep is primarily affected by modifiable habits like screen use, caffeine timing, or inconsistent schedules. The good news: these are the easiest factors to change.'
+                },
+                balancedSleeper: {
+                    name: 'Balanced Sleeper',
+                    icon: 'balanced',
+                    description: 'Your sleep is generally healthy with no major problem areas. You may benefit from fine-tuning specific aspects, but your overall sleep foundation is solid.'
+                }
+            };
+            
+            // Find weakest dimension
+            const dimArray = [
+                { name: 'latency', score: dims.latency },
+                { name: 'disturbances', score: dims.disturbances },
+                { name: 'duration', score: dims.duration },
+                { name: 'lifestyle', score: dims.lifestyle },
+                { name: 'efficiency', score: dims.efficiency }
+            ];
+            
+            const weakest = dimArray.sort((a, b) => a.score - b.score)[0];
+            
+            if (weakest.score >= 70) return profiles.balancedSleeper;
+            
+            if (weakest.name === 'latency' && dims.latency < 60) return profiles.sleepOnsetStruggler;
+            if (weakest.name === 'disturbances' && dims.disturbances < 60) {
+                if (resp.wakeMiddle >= 2) return profiles.fragmentedSleeper;
+                return profiles.lightSleeper;
+            }
+            if (weakest.name === 'duration' && dims.duration < 60) return profiles.sleepDeprived;
+            if (weakest.name === 'lifestyle' && dims.lifestyle < 60) return profiles.lifestyleImpacted;
+            if (weakest.name === 'efficiency' && dims.efficiency < 60) return profiles.fragmentedSleeper;
+            
+            return profiles.balancedSleeper;
+        }
+        
+        function generateActions(resp, dims) {
+            const actions = [];
+            
+            // Check each dimension and add relevant actions
+            if (dims.latency < 60 || resp.fallAsleep >= 2) {
+                actions.push({
+                    title: 'Improve Sleep Onset',
+                    description: 'Establish a consistent wind-down routine 30-60 minutes before bed. Avoid screens, dim lights, and try relaxation techniques like deep breathing or progressive muscle relaxation.',
+                    priority: dims.latency < 40 ? 'high' : 'medium'
+                });
+            }
+            
+            if (dims.lifestyle < 60) {
+                if (resp.caffeine >= 2) {
+                    actions.push({
+                        title: 'Cut Caffeine Earlier',
+                        description: 'Stop consuming caffeine at least 6 hours before bedtime. Caffeine has a half-life of 5-6 hours, meaning half is still in your system hours after consumption.',
+                        priority: 'high'
+                    });
+                }
+                if (resp.screens >= 2) {
+                    actions.push({
+                        title: 'Reduce Screen Time Before Bed',
+                        description: 'Blue light from screens suppresses melatonin production. Stop screen use 1 hour before bed, or use blue light blocking glasses and night mode settings.',
+                        priority: 'medium'
+                    });
+                }
+                if (resp.consistency >= 2) {
+                    actions.push({
+                        title: 'Stabilize Your Sleep Schedule',
+                        description: 'Go to bed and wake up at the same time every day, including weekends. Consistency reinforces your circadian rhythm and improves sleep quality.',
+                        priority: 'high'
+                    });
+                }
+            }
+            
+            if (dims.disturbances < 60) {
+                if (resp.temperature >= 2) {
+                    actions.push({
+                        title: 'Optimize Bedroom Temperature',
+                        description: 'Keep your bedroom cool (16-19°C / 60-67°F). Use breathable bedding and consider a fan or adjusting heating/cooling before bed.',
+                        priority: 'medium'
+                    });
+                }
+                if (resp.noise >= 2) {
+                    actions.push({
+                        title: 'Address Noise Disturbances',
+                        description: 'Use white noise or a sound machine to mask disruptive sounds. Earplugs can help if noise is unavoidable.',
+                        priority: 'medium'
+                    });
+                }
+                if (resp.light >= 2) {
+                    actions.push({
+                        title: 'Block Light Intrusion',
+                        description: 'Use blackout curtains or blinds to eliminate light pollution. A sleep mask is an effective alternative if curtains aren\'t feasible.',
+                        priority: 'medium'
+                    });
+                }
+            }
+            
+            if (dims.duration < 60) {
+                actions.push({
+                    title: 'Prioritize More Sleep Time',
+                    description: 'You\'re not getting enough sleep. Aim for 7-9 hours per night. Consider going to bed 30 minutes earlier and protecting your sleep time from other activities.',
+                    priority: 'high'
+                });
+            }
+            
+            if (dims.efficiency < 60) {
+                actions.push({
+                    title: 'Improve Sleep Efficiency',
+                    description: 'Only go to bed when truly sleepy, and get out of bed if you can\'t sleep after 20 minutes. This strengthens the association between your bed and sleep.',
+                    priority: 'medium'
+                });
+            }
+            
+            if (resp.exercise >= 2) {
+                actions.push({
+                    title: 'Add Regular Exercise',
+                    description: 'Regular physical activity improves sleep quality. Aim for at least 150 minutes of moderate exercise per week, but avoid intense workouts within 2-3 hours of bedtime.',
+                    priority: 'low'
+                });
+            }
+            
+            if (resp.alcohol >= 2) {
+                actions.push({
+                    title: 'Limit Evening Alcohol',
+                    description: 'While alcohol may help you fall asleep faster, it disrupts sleep architecture, reducing REM sleep and causing more awakenings later in the night.',
+                    priority: 'medium'
+                });
+            }
+            
+            // Sort by priority and limit to 5
+            const priorityOrder = { high: 0, medium: 1, low: 2 };
+            return actions.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]).slice(0, 5);
+        }
+        
+        function generateToolRecommendations(resp, dims) {
+            const tools = [];
+            
+            if (dims.latency < 70 || resp.fallAsleep >= 1) {
+                tools.push({ name: 'Bedtime Routine Builder', url: 'https://tools.spacire.com/bedtime-routine-builder', reason: 'Create a personalized wind-down routine' });
+            }
+            
+            if (dims.disturbances < 70 || resp.noise >= 1 || resp.light >= 1 || resp.temperature >= 1) {
+                tools.push({ name: 'Sleep Environment Optimizer', url: 'https://tools.spacire.com/sleep-environment-optimizer', reason: 'Optimize your bedroom for better sleep' });
+            }
+            
+            if (resp.noise >= 2) {
+                tools.push({ name: 'Sleep Sound Finder', url: 'https://tools.spacire.com/sleep-sound-finder', reason: 'Find the right sounds to mask noise' });
+            }
+            
+            if (dims.duration < 70) {
+                tools.push({ name: 'Sleep Debt Calculator', url: 'https://tools.spacire.com/sleep-debt-calculator', reason: 'Track and recover from sleep deficit' });
+            }
+            
+            if (dims.lifestyle < 70 && resp.consistency >= 2) {
+                tools.push({ name: 'Chronotype Quiz', url: 'https://tools.spacire.com/chronotype-quiz', reason: 'Find your natural sleep-wake rhythm' });
+            }
+            
+            if (dims.dysfunction < 70 || resp.daytimeSleepy >= 2) {
+                tools.push({ name: 'Power Nap Calculator', url: 'https://tools.spacire.com/power-nap-calculator', reason: 'Strategic napping for energy recovery' });
+            }
+            
+            tools.push({ name: 'Sleep Cycle Calculator', url: 'https://tools.spacire.com/sleep-cycle-calculator', reason: 'Wake up at the optimal time' });
+            
+            return tools.slice(0, 4);
+        }
+        
+        // ========================================
+        // RENDER RESULTS
+        // ========================================
+        function renderResults() {
+            const r = calculatedResults;
+            
+            // Hide quiz, show results
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('active');
+            
+            // Overall score
+            document.getElementById('overallScore').textContent = r.overallScore;
+            
+            let ratingClass, ratingText;
+            if (r.overallScore >= 80) { ratingClass = 'rating-excellent'; ratingText = 'Excellent'; }
+            else if (r.overallScore >= 60) { ratingClass = 'rating-good'; ratingText = 'Good'; }
+            else if (r.overallScore >= 40) { ratingClass = 'rating-fair'; ratingText = 'Fair'; }
+            else { ratingClass = 'rating-poor'; ratingText = 'Poor'; }
+            
+            const ratingEl = document.getElementById('scoreRating');
+            ratingEl.textContent = ratingText;
+            ratingEl.className = 'score-rating ' + ratingClass;
+            
+            // Sleep profile
+            document.getElementById('profileTitle').textContent = r.profile.name;
+            document.getElementById('profileDesc').textContent = r.profile.description;
+            
+            // Radar chart
+            drawRadarChart(r.dimensions);
+            
+            // Dimensions grid
+            renderDimensionsGrid(r.dimensions);
+            
+            // Efficiency
+            renderEfficiency(r);
+            
+            // Actions
+            renderActions(r.actions);
+            
+            // Tool recommendations
+            renderToolRecommendations(r.toolRecs);
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function drawRadarChart(dims) {
+            const canvas = document.getElementById('radarChart');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const maxRadius = 150;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const labels = ['Subjective\nQuality', 'Sleep\nLatency', 'Duration', 'Efficiency', 'Disturbances', 'Daytime\nFunction', 'Lifestyle'];
+            const values = [dims.subjective, dims.latency, dims.duration, dims.efficiency, dims.disturbances, dims.dysfunction, dims.lifestyle];
+            const numPoints = 7;
+            const angleStep = (2 * Math.PI) / numPoints;
+            
+            // Draw grid circles
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            for (let r = 25; r <= 100; r += 25) {
+                ctx.beginPath();
+                for (let i = 0; i <= numPoints; i++) {
+                    const angle = -Math.PI / 2 + i * angleStep;
+                    const x = centerX + Math.cos(angle) * (r / 100 * maxRadius);
+                    const y = centerY + Math.sin(angle) * (r / 100 * maxRadius);
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+            }
+            
+            // Draw axis lines
+            for (let i = 0; i < numPoints; i++) {
+                const angle = -Math.PI / 2 + i * angleStep;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(centerX + Math.cos(angle) * maxRadius, centerY + Math.sin(angle) * maxRadius);
+                ctx.stroke();
+            }
+            
+            // Draw data polygon
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(224, 178, 82, 0.3)';
+            ctx.strokeStyle = '#E0B252';
+            ctx.lineWidth = 3;
+            
+            for (let i = 0; i <= numPoints; i++) {
+                const idx = i % numPoints;
+                const angle = -Math.PI / 2 + idx * angleStep;
+                const value = values[idx] / 100;
+                const x = centerX + Math.cos(angle) * value * maxRadius;
+                const y = centerY + Math.sin(angle) * value * maxRadius;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            // Draw points
+            ctx.fillStyle = '#042548';
+            for (let i = 0; i < numPoints; i++) {
+                const angle = -Math.PI / 2 + i * angleStep;
+                const value = values[i] / 100;
+                const x = centerX + Math.cos(angle) * value * maxRadius;
+                const y = centerY + Math.sin(angle) * value * maxRadius;
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            
+            // Draw labels
+            ctx.fillStyle = '#333';
+            ctx.font = '12px Domine, Georgia, serif';
+            ctx.textAlign = 'center';
+            
+            for (let i = 0; i < numPoints; i++) {
+                const angle = -Math.PI / 2 + i * angleStep;
+                const labelRadius = maxRadius + 35;
+                const x = centerX + Math.cos(angle) * labelRadius;
+                const y = centerY + Math.sin(angle) * labelRadius;
+                
+                const lines = labels[i].split('\n');
+                lines.forEach((line, idx) => {
+                    ctx.fillText(line, x, y + idx * 14);
+                });
+            }
+        }
+        
+        function renderDimensionsGrid(dims) {
+            const container = document.getElementById('dimensionsGrid');
+            const dimensionData = [
+                { name: 'Subjective Quality', score: dims.subjective, desc: 'Your overall perception of sleep quality' },
+                { name: 'Sleep Latency', score: dims.latency, desc: 'How quickly you fall asleep' },
+                { name: 'Sleep Duration', score: dims.duration, desc: 'Total hours of sleep obtained' },
+                { name: 'Sleep Efficiency', score: dims.efficiency, desc: 'Time asleep vs time in bed' },
+                { name: 'Sleep Disturbances', score: dims.disturbances, desc: 'Frequency of nighttime awakenings' },
+                { name: 'Daytime Function', score: dims.dysfunction, desc: 'Impact on daytime alertness and energy' },
+                { name: 'Lifestyle Habits', score: dims.lifestyle, desc: 'Sleep hygiene and modifiable factors' }
+            ];
+            
+            container.innerHTML = dimensionData.map(d => {
+                let fillClass;
+                if (d.score >= 75) fillClass = 'fill-excellent';
+                else if (d.score >= 60) fillClass = 'fill-good';
+                else if (d.score >= 40) fillClass = 'fill-fair';
+                else fillClass = 'fill-poor';
+                
+                return `
+                    <div class="dimension-item">
+                        <div class="dimension-header">
+                            <span class="dimension-name">${d.name}</span>
+                            <span class="dimension-score" style="color: ${d.score >= 60 ? 'var(--success)' : d.score >= 40 ? '#856404' : 'var(--error)'};">${d.score}/100</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-fill ${fillClass}" style="width: ${d.score}%;"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function renderEfficiency(r) {
+            // Animate efficiency circle
+            const circle = document.getElementById('efficiencyCircle');
+            const circumference = 2 * Math.PI * 54;
+            const offset = circumference - (r.sleepEfficiency / 100 * circumference);
+            
+            let strokeColor;
+            if (r.sleepEfficiency >= 85) strokeColor = 'var(--success)';
+            else if (r.sleepEfficiency >= 75) strokeColor = '#17a2b8';
+            else if (r.sleepEfficiency >= 65) strokeColor = 'var(--warning)';
+            else strokeColor = 'var(--error)';
+            
+            circle.style.stroke = strokeColor;
+            setTimeout(() => {
+                circle.style.strokeDashoffset = offset;
+            }, 100);
+            
+            document.getElementById('efficiencyValue').textContent = r.sleepEfficiency + '%';
+            
+            // Stats
+            document.getElementById('efficiencyStats').innerHTML = `
+                <div class="stat-row">
+                    <span class="stat-label">Time in Bed</span>
+                    <span class="stat-value">${r.timeInBedHours} hours</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Actual Sleep</span>
+                    <span class="stat-value">${r.sleepHours} hours</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Time Awake in Bed</span>
+                    <span class="stat-value">${(parseFloat(r.timeInBedHours) - r.sleepHours).toFixed(1)} hours</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Target Efficiency</span>
+                    <span class="stat-value">85%+</span>
+                </div>
+            `;
+        }
+        
+        function renderActions(actions) {
+            const container = document.getElementById('actionsContainer');
+            
+            if (actions.length === 0) {
+                container.innerHTML = '<p style="color: var(--success); font-weight: 600;">Great news! No major issues identified. Keep up your healthy sleep habits.</p>';
+                return;
+            }
+            
+            container.innerHTML = actions.map(a => `
+                <div class="action-card priority-${a.priority}">
+                    <div class="action-header">
+                        <span class="action-title">${a.title}</span>
+                        <span class="action-priority">${a.priority} priority</span>
+                    </div>
+                    <p class="action-desc">${a.description}</p>
+                </div>
+            `).join('');
+        }
+        
+        function renderToolRecommendations(tools) {
+            const container = document.getElementById('toolsGrid');
+            container.innerHTML = tools.map(t => `
+                <a href="${t.url}" class="tool-rec-card">
+                    <div class="tool-rec-name">${t.name}</div>
+                    <div class="tool-rec-reason">${t.reason}</div>
+                </a>
+            `).join('');
+        }
+        
+        // ========================================
+        // DATABASE & EMAIL
+        // ========================================
+        async function saveResults() {
+            if (!calculatedResults) return;
+            try {
+                await databases.createDocument(CONFIG.databaseId, CONFIG.tableId, 'unique()', {
+                    tool_name: 'sleep_quality_assessment',
+                    results_json: JSON.stringify(calculatedResults),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                });
+            } catch (error) { console.error('DB error:', error); }
+        }
+        
+        async function sendReport(event) {
+            event.preventDefault();
+            const email = document.getElementById('userEmail').value.trim();
+            const firstName = document.getElementById('userName').value.trim();
+            const sendBtn = document.getElementById('sendReportBtn');
+            const errorEl = document.getElementById('formError');
+            
+            if (!email || !firstName || !calculatedResults) {
+                errorEl.textContent = 'Please complete the assessment first.';
+                errorEl.style.display = 'block';
+                return;
+            }
+            
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+            errorEl.style.display = 'none';
+            
+            const emailPayload = JSON.stringify({
+                toolName: 'sleep-quality-assessment',
+                email,
+                firstName,
+                overallScore: calculatedResults.overallScore,
+                dimensions: calculatedResults.dimensions,
+                sleepEfficiency: calculatedResults.sleepEfficiency,
+                timeInBedHours: calculatedResults.timeInBedHours,
+                sleepHours: calculatedResults.sleepHours,
+                profileName: calculatedResults.profile.name,
+                profileDescription: calculatedResults.profile.description,
+                actions: calculatedResults.actions,
+                toolRecs: calculatedResults.toolRecs
+            });
+            
+            try {
+                await databases.createDocument(CONFIG.databaseId, CONFIG.tableId, 'unique()', {
+                    tool_name: 'sleep_quality_assessment',
+                    user_email: email,
+                    user_first_name: firstName,
+                    results_json: JSON.stringify(calculatedResults),
+                    user_agent: navigator.userAgent.substring(0, 500),
+                    created_at: new Date().toISOString()
+                });
+                
+                await functions.createExecution(CONFIG.functionId, emailPayload, true);
+                
+                document.getElementById('emailSuccess').style.display = 'block';
+                document.getElementById('userEmail').disabled = true;
+                document.getElementById('userName').disabled = true;
+                sendBtn.style.display = 'none';
+            } catch (error) {
+                console.error('Email error:', error);
+                errorEl.textContent = 'Failed to send. Please try again.';
+                errorEl.style.display = 'block';
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send Report';
+            }
+        }
+        
+        function resetAssessment() {
+            currentSection = 1;
+            Object.keys(responses).forEach(key => {
+                if (key === 'bedTime') responses[key] = '23:00';
+                else if (key === 'wakeTime') responses[key] = '07:00';
+                else if (key === 'sleepHours') responses[key] = 7;
+                else responses[key] = null;
+            });
+            calculatedResults = null;
+            
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            document.getElementById('bedTime').value = '23:00';
+            document.getElementById('wakeTime').value = '07:00';
+            document.getElementById('sleepHours').value = 7;
+            document.getElementById('sleepHoursValue').textContent = '7 hours';
+            document.getElementById('userEmail').disabled = false;
+            document.getElementById('userName').disabled = false;
+            document.getElementById('userEmail').value = '';
+            document.getElementById('userName').value = '';
+            document.getElementById('sendReportBtn').style.display = 'inline-block';
+            document.getElementById('sendReportBtn').disabled = false;
+            document.getElementById('sendReportBtn').textContent = 'Send Report';
+            document.getElementById('emailSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+            
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('quizCard').style.display = 'block';
+            showSection(1);
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
