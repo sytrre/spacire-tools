@@ -24,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- html2pdf.js for rich PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -159,6 +162,7 @@
         .btn-secondary:hover { border-color: var(--primary); }
         .btn-danger { background: var(--error); color: var(--error-dark); }
         .btn-danger:hover { background: #f5c6cb; }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         
         /* Stats Cards */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 24px; }
@@ -246,6 +250,40 @@
         .tool-link-card h5 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
         .tool-link-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
         
+        /* Report Tab Specific */
+        .report-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .report-option { background: var(--bg); border: 2px solid var(--border); border-radius: var(--radius-lg); padding: 24px; text-align: center; transition: var(--transition); }
+        .report-option:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
+        .report-icon { font-size: 48px; margin-bottom: 16px; }
+        .report-option h3 { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+        .report-option p { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
+        .report-badge { display: inline-block; background: var(--success); color: var(--success-dark); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
+        
+        /* Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: #fff; border-radius: var(--radius-lg); max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-lg); }
+        .modal-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h3 { margin: 0; font-size: 18px; }
+        .modal-close { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; padding: 0; line-height: 1; }
+        .modal-body { padding: 24px; }
+        .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 12px; justify-content: flex-end; }
+        
+        /* Checkbox */
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
+        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--primary); cursor: pointer; }
+        .checkbox-label { font-size: 13px; color: var(--text-secondary); line-height: 1.5; cursor: pointer; }
+        .checkbox-label a { color: var(--primary); }
+        
+        /* Loading Spinner */
+        .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s linear infinite; margin-right: 8px; vertical-align: middle; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* Report Preview Notice */
+        .report-notice { background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px; }
+        .report-notice p { margin: 0; font-size: 13px; color: var(--text-primary); }
+        .report-notice strong { color: var(--primary); }
+        
         /* Footer */
         .site-footer { background: var(--primary); color: #fff; padding: 48px 0 24px; margin-top: 60px; }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -263,7 +301,33 @@
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .history-table { font-size: 12px; }
             .history-table th, .history-table td { padding: 8px 6px; }
+            .tabs { gap: 6px; }
+            .tab-btn { padding: 10px 14px; font-size: 12px; }
         }
+        
+        /* PDF Report Styles (hidden, used for generation) */
+        #pdfReportContainer { position: absolute; left: -9999px; top: 0; width: 210mm; background: #fff; }
+        .pdf-report { padding: 20px; font-family: 'Domine', Georgia, serif; font-size: 11px; color: #1a1a1a; }
+        .pdf-header { text-align: center; padding-bottom: 15px; border-bottom: 3px solid #042548; margin-bottom: 20px; }
+        .pdf-logo { font-size: 24px; font-weight: 700; color: #042548; letter-spacing: 0.02em; }
+        .pdf-title { font-size: 18px; color: #042548; margin: 10px 0 5px; }
+        .pdf-subtitle { font-size: 12px; color: #555; }
+        .pdf-section { margin-bottom: 20px; }
+        .pdf-section-title { font-size: 14px; font-weight: 600; color: #042548; border-bottom: 2px solid #E0B252; padding-bottom: 5px; margin-bottom: 12px; }
+        .pdf-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
+        .pdf-stat-box { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; text-align: center; }
+        .pdf-stat-value { font-size: 20px; font-weight: 700; color: #042548; }
+        .pdf-stat-label { font-size: 10px; color: #555; margin-top: 4px; }
+        .pdf-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .pdf-table th, .pdf-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #e0e0e0; font-size: 10px; }
+        .pdf-table th { background: #042548; color: #fff; font-weight: 600; }
+        .pdf-table tr:nth-child(even) { background: #f8f9fa; }
+        .pdf-insights { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 12px; margin-bottom: 15px; border-radius: 0 6px 6px 0; }
+        .pdf-insight-title { font-weight: 600; color: #0c5460; margin-bottom: 4px; }
+        .pdf-insight-text { color: #0c5460; margin: 0; }
+        .pdf-disclaimer { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 12px; margin-top: 20px; font-size: 10px; color: #856404; }
+        .pdf-disclaimer-title { font-weight: 600; margin-bottom: 5px; }
+        .pdf-footer { text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #e0e0e0; font-size: 10px; color: #777; }
     </style>
 </head>
 
@@ -317,6 +381,7 @@
             <button class="tab-btn" onclick="switchTab('trends')">Trends</button>
             <button class="tab-btn" onclick="switchTab('history')">History</button>
             <button class="tab-btn" onclick="switchTab('insights')">Insights</button>
+            <button class="tab-btn" onclick="switchTab('reports')">Reports</button>
         </div>
         
         <!-- Log Tab -->
@@ -567,6 +632,63 @@
             </div>
         </div>
         
+        <!-- Reports Tab (NEW) -->
+        <div class="tab-content" id="reportsTab">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Sleep Reports</h2>
+                    <p>Generate professional reports to share with your doctor or keep for your records</p>
+                </div>
+                <div class="card-body">
+                    <div class="report-notice">
+                        <p><strong>Tip:</strong> For the most useful report, log your sleep for at least 7 consecutive days. This gives healthcare providers enough data to identify patterns and make recommendations.</p>
+                    </div>
+                    
+                    <div class="report-options">
+                        <div class="report-option">
+                            <div class="report-icon">&#128196;</div>
+                            <div class="report-badge">Free</div>
+                            <h3>Sleep Report for Doctor</h3>
+                            <p>A comprehensive PDF report with your sleep data, patterns, and metrics formatted for healthcare providers. Includes 30-day summary, daily entries, and factor analysis.</p>
+                            <button class="btn btn-primary" onclick="openReportModal('doctor')" id="doctorReportBtn">Generate PDF Report</button>
+                        </div>
+                        
+                        <div class="report-option">
+                            <div class="report-icon">&#128231;</div>
+                            <div class="report-badge">Free</div>
+                            <h3>Email My Report</h3>
+                            <p>Get your sleep report delivered directly to your inbox. Perfect for keeping a record, sharing with family, or forwarding to your healthcare provider.</p>
+                            <button class="btn btn-primary" onclick="openReportModal('email')" id="emailReportBtn">Email Report to Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2>What's Included in Your Report</h2>
+                </div>
+                <div class="card-body">
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <div class="summary-card-title">Summary Statistics</div>
+                            <div class="summary-item"><span class="summary-item-label">Average sleep duration</span></div>
+                            <div class="summary-item"><span class="summary-item-label">Sleep efficiency percentage</span></div>
+                            <div class="summary-item"><span class="summary-item-label">Average sleep quality</span></div>
+                            <div class="summary-item"><span class="summary-item-label">Sleep latency (time to fall asleep)</span></div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-card-title">Detailed Data</div>
+                            <div class="summary-item"><span class="summary-item-label">Daily sleep entries</span></div>
+                            <div class="summary-item"><span class="summary-item-label">Bedtime and wake patterns</span></div>
+                            <div class="summary-item"><span class="summary-item-label">Factor analysis (caffeine, stress, etc.)</span></div>
+                            <div class="summary-item"><span class="summary-item-label">Personalized insights</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Info Section -->
         <section class="info-section">
             <div class="info-toggle">
@@ -632,8 +754,49 @@
         </section>
     </main>
     
+    <!-- Email Modal -->
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Get Your Sleep Report</h3>
+                <button class="modal-close" onclick="closeReportModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription" style="margin-bottom: 20px; color: var(--text-secondary); font-size: 14px;">Enter your email to receive your personalized sleep report.</p>
+                
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="reportEmail" placeholder="your@email.com">
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="marketingConsent">
+                    <label class="checkbox-label" for="marketingConsent">
+                        I agree to receive occasional helpful sleep tips and product recommendations from Spacire. We never share your personal information with third parties. You can unsubscribe at any time.
+                    </label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacyConsent" required>
+                    <label class="checkbox-label" for="privacyConsent">
+                        I agree to the <a href="https://spacire.com/policies/privacy-policy" target="_blank">Privacy Policy</a> and understand my sleep data will be used to generate this report.
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeReportModal()">Cancel</button>
+                <button class="btn btn-primary" id="modalSubmitBtn" onclick="submitReport()" style="width: auto;">
+                    <span id="submitBtnText">Send Report</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <!-- Toast -->
     <div class="toast" id="toast"></div>
+    
+    <!-- Hidden PDF Report Container -->
+    <div id="pdfReportContainer"></div>
     
     <!-- Footer -->
     <footer class="site-footer">
@@ -674,6 +837,17 @@
     
     <script>
         // ========================================
+        // CONFIGURATION
+        // ========================================
+        const CONFIG = {
+            APPWRITE_ENDPOINT: 'https://cloud.appwrite.io/v1',
+            APPWRITE_PROJECT_ID: '682579e1002cf20ca061',
+            APPWRITE_FUNCTION_ID: '6825b57d003c9a498279',
+            APPWRITE_DATABASE_ID: '682857450019d695c701',
+            APPWRITE_COLLECTION_ID: '68285760000028460a3d'
+        };
+        
+        // ========================================
         // STATE
         // ========================================
         const STORAGE_KEY = 'spacire_sleep_tracker';
@@ -681,6 +855,7 @@
         let selectedDate = new Date();
         let selectedQuality = null;
         let chartRange = 7;
+        let currentReportType = 'doctor';
         
         // ========================================
         // INITIALIZATION
@@ -690,6 +865,7 @@
             updateDateDisplay();
             updateQuickStats();
             loadExistingEntry();
+            updateReportButtons();
         }
         
         // ========================================
@@ -739,6 +915,8 @@
                 renderHistory();
             } else if (tab === 'insights') {
                 renderInsights();
+            } else if (tab === 'reports') {
+                updateReportButtons();
             }
         }
         
@@ -927,6 +1105,7 @@
             
             saveData();
             updateQuickStats();
+            updateReportButtons();
             showToast('Sleep entry saved!', 'success');
         }
         
@@ -1182,6 +1361,7 @@
                 saveData();
                 renderHistory();
                 updateQuickStats();
+                updateReportButtons();
                 showToast('Entry deleted', 'success');
             }
         }
@@ -1397,8 +1577,360 @@
                 saveData();
                 updateQuickStats();
                 renderHistory();
+                updateReportButtons();
                 showToast('All data cleared', 'success');
             }
+        }
+        
+        // ========================================
+        // REPORTS
+        // ========================================
+        function updateReportButtons() {
+            const doctorBtn = document.getElementById('doctorReportBtn');
+            const emailBtn = document.getElementById('emailReportBtn');
+            
+            if (sleepData.length === 0) {
+                doctorBtn.disabled = true;
+                emailBtn.disabled = true;
+                doctorBtn.textContent = 'Log sleep first';
+                emailBtn.textContent = 'Log sleep first';
+            } else {
+                doctorBtn.disabled = false;
+                emailBtn.disabled = false;
+                doctorBtn.textContent = 'Generate PDF Report';
+                emailBtn.textContent = 'Email Report to Me';
+            }
+        }
+        
+        function openReportModal(type) {
+            if (sleepData.length === 0) {
+                showToast('Please log at least one night of sleep first', 'error');
+                return;
+            }
+            
+            currentReportType = type;
+            const modal = document.getElementById('reportModal');
+            const title = document.getElementById('modalTitle');
+            const desc = document.getElementById('modalDescription');
+            const submitText = document.getElementById('submitBtnText');
+            
+            if (type === 'doctor') {
+                title.textContent = 'Generate Sleep Report for Doctor';
+                desc.textContent = 'Enter your email to receive a professional PDF report you can share with your healthcare provider.';
+                submitText.textContent = 'Generate & Send Report';
+            } else {
+                title.textContent = 'Email My Sleep Report';
+                desc.textContent = 'Enter your email to receive your personalized sleep report with insights and recommendations.';
+                submitText.textContent = 'Send Report';
+            }
+            
+            // Reset form
+            document.getElementById('reportEmail').value = '';
+            document.getElementById('marketingConsent').checked = false;
+            document.getElementById('privacyConsent').checked = false;
+            
+            modal.classList.add('active');
+        }
+        
+        function closeReportModal() {
+            document.getElementById('reportModal').classList.remove('active');
+        }
+        
+        async function submitReport() {
+            const email = document.getElementById('reportEmail').value.trim();
+            const marketingConsent = document.getElementById('marketingConsent').checked;
+            const privacyConsent = document.getElementById('privacyConsent').checked;
+            
+            // Validation
+            if (!email) {
+                showToast('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showToast('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            if (!privacyConsent) {
+                showToast('Please agree to the Privacy Policy to continue', 'error');
+                return;
+            }
+            
+            const submitBtn = document.getElementById('modalSubmitBtn');
+            const submitText = document.getElementById('submitBtnText');
+            submitBtn.disabled = true;
+            submitText.innerHTML = '<span class="spinner"></span>Generating...';
+            
+            try {
+                // Generate report data
+                const reportData = generateReportData();
+                
+                // Send to Appwrite
+                await sendReportEmail(email, reportData, marketingConsent);
+                
+                // Also generate and download PDF for doctor report
+                if (currentReportType === 'doctor') {
+                    await generateAndDownloadPDF(reportData);
+                }
+                
+                closeReportModal();
+                showToast('Report sent! Check your email.', 'success');
+                
+            } catch (error) {
+                console.error('Error generating report:', error);
+                showToast('Error sending report. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitText.textContent = currentReportType === 'doctor' ? 'Generate & Send Report' : 'Send Report';
+            }
+        }
+        
+        function generateReportData() {
+            const entries = sleepData.slice(0, 30); // Last 30 entries
+            
+            if (entries.length === 0) {
+                return null;
+            }
+            
+            // Calculate statistics
+            const avgDuration = entries.reduce((sum, e) => sum + e.sleepTime, 0) / entries.length;
+            const avgEfficiency = entries.reduce((sum, e) => sum + e.efficiency, 0) / entries.length;
+            const avgQuality = entries.reduce((sum, e) => sum + e.quality, 0) / entries.length;
+            const avgLatency = entries.reduce((sum, e) => sum + parseInt(e.latency), 0) / entries.length;
+            const avgWaso = entries.reduce((sum, e) => sum + parseInt(e.waso), 0) / entries.length;
+            
+            // Factor analysis
+            const factorCounts = {};
+            const factorQuality = {};
+            entries.forEach(e => {
+                e.factors.forEach(f => {
+                    factorCounts[f] = (factorCounts[f] || 0) + 1;
+                    if (!factorQuality[f]) factorQuality[f] = [];
+                    factorQuality[f].push(e.quality);
+                });
+            });
+            
+            // Generate insights
+            const insights = [];
+            
+            if (avgDuration < 420) {
+                insights.push({ title: 'Below Recommended Duration', text: `Average sleep of ${formatDuration(Math.round(avgDuration))} is below the 7-9 hour recommendation.` });
+            }
+            if (avgEfficiency < 85) {
+                insights.push({ title: 'Low Sleep Efficiency', text: `Average efficiency of ${Math.round(avgEfficiency)}% is below the 85% threshold, suggesting sleep disruption.` });
+            }
+            if (avgLatency > 30) {
+                insights.push({ title: 'Extended Sleep Latency', text: `Average time to fall asleep of ${Math.round(avgLatency)} minutes may indicate difficulty initiating sleep.` });
+            }
+            
+            // Dates
+            const dateRange = {
+                start: entries[entries.length - 1].date,
+                end: entries[0].date
+            };
+            
+            return {
+                generatedAt: new Date().toISOString(),
+                dateRange,
+                totalNights: entries.length,
+                statistics: {
+                    avgDuration: Math.round(avgDuration),
+                    avgDurationFormatted: formatDuration(Math.round(avgDuration)),
+                    avgEfficiency: Math.round(avgEfficiency),
+                    avgQuality: avgQuality.toFixed(1),
+                    avgLatency: Math.round(avgLatency),
+                    avgWaso: Math.round(avgWaso)
+                },
+                factorCounts,
+                factorQuality,
+                insights,
+                entries: entries.map(e => ({
+                    date: e.date,
+                    bedtime: e.bedtime,
+                    wakeTime: e.wakeTime,
+                    sleepTime: e.sleepTime,
+                    sleepTimeFormatted: formatDuration(e.sleepTime),
+                    efficiency: e.efficiency,
+                    quality: e.quality,
+                    factors: e.factors,
+                    notes: e.notes
+                }))
+            };
+        }
+        
+        async function sendReportEmail(email, reportData, marketingConsent) {
+            const payload = {
+                toolType: 'sleep-tracker',
+                email: email,
+                marketingConsent: marketingConsent,
+                results: reportData
+            };
+            
+            const response = await fetch(`${CONFIG.APPWRITE_ENDPOINT}/functions/${CONFIG.APPWRITE_FUNCTION_ID}/executions`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Appwrite-Project': CONFIG.APPWRITE_PROJECT_ID
+                },
+                body: JSON.stringify({
+                    body: JSON.stringify(payload),
+                    async: true
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to send email');
+            }
+            
+            return response.json();
+        }
+        
+        async function generateAndDownloadPDF(reportData) {
+            // Build HTML for PDF
+            const container = document.getElementById('pdfReportContainer');
+            
+            const qualityLabels = ['Terrible', 'Poor', 'Fair', 'Good', 'Excellent'];
+            const factorNames = {
+                caffeine: 'Caffeine', alcohol: 'Alcohol', exercise: 'Exercise',
+                stress: 'Stress', screens: 'Late Screens', lateMeal: 'Late Meal',
+                nap: 'Napping', noise: 'Noise'
+            };
+            
+            const startDate = new Date(reportData.dateRange.start).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+            const endDate = new Date(reportData.dateRange.end).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+            
+            container.innerHTML = `
+                <div class="pdf-report">
+                    <div class="pdf-header">
+                        <div class="pdf-logo">Spacire</div>
+                        <div class="pdf-title">Sleep Report for Healthcare Provider</div>
+                        <div class="pdf-subtitle">Generated on ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                        <div class="pdf-subtitle">Report Period: ${startDate} - ${endDate} (${reportData.totalNights} nights)</div>
+                    </div>
+                    
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Summary Statistics</div>
+                        <div class="pdf-stats-grid">
+                            <div class="pdf-stat-box">
+                                <div class="pdf-stat-value">${reportData.statistics.avgDurationFormatted}</div>
+                                <div class="pdf-stat-label">Avg Duration</div>
+                            </div>
+                            <div class="pdf-stat-box">
+                                <div class="pdf-stat-value">${reportData.statistics.avgEfficiency}%</div>
+                                <div class="pdf-stat-label">Avg Efficiency</div>
+                            </div>
+                            <div class="pdf-stat-box">
+                                <div class="pdf-stat-value">${reportData.statistics.avgQuality}/5</div>
+                                <div class="pdf-stat-label">Avg Quality</div>
+                            </div>
+                            <div class="pdf-stat-box">
+                                <div class="pdf-stat-value">${reportData.statistics.avgLatency} min</div>
+                                <div class="pdf-stat-label">Avg Latency</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 10px; color: #555;">
+                            <strong>WASO (Wake After Sleep Onset):</strong> ${reportData.statistics.avgWaso} minutes average
+                        </p>
+                    </div>
+                    
+                    ${reportData.insights.length > 0 ? `
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Clinical Observations</div>
+                        ${reportData.insights.map(i => `
+                            <div class="pdf-insights">
+                                <div class="pdf-insight-title">${i.title}</div>
+                                <p class="pdf-insight-text">${i.text}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                    ` : ''}
+                    
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Daily Sleep Log</div>
+                        <table class="pdf-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Bedtime</th>
+                                    <th>Wake</th>
+                                    <th>Duration</th>
+                                    <th>Efficiency</th>
+                                    <th>Quality</th>
+                                    <th>Factors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${reportData.entries.slice(0, 14).map(e => `
+                                    <tr>
+                                        <td>${new Date(e.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</td>
+                                        <td>${e.bedtime}</td>
+                                        <td>${e.wakeTime}</td>
+                                        <td>${e.sleepTimeFormatted}</td>
+                                        <td>${e.efficiency}%</td>
+                                        <td>${qualityLabels[e.quality - 1]}</td>
+                                        <td>${e.factors.map(f => factorNames[f] || f).join(', ') || '-'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                        ${reportData.entries.length > 14 ? `<p style="font-size: 10px; color: #777; margin-top: 10px;">Showing most recent 14 of ${reportData.entries.length} entries.</p>` : ''}
+                    </div>
+                    
+                    ${Object.keys(reportData.factorCounts).length > 0 ? `
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Factor Analysis</div>
+                        <table class="pdf-table">
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Occurrences</th>
+                                    <th>Avg Quality When Present</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${Object.entries(reportData.factorCounts).map(([f, count]) => {
+                                    const avgQ = reportData.factorQuality[f].reduce((a, b) => a + b, 0) / reportData.factorQuality[f].length;
+                                    return `
+                                        <tr>
+                                            <td>${factorNames[f] || f}</td>
+                                            <td>${count} nights</td>
+                                            <td>${avgQ.toFixed(1)}/5</td>
+                                        </tr>
+                                    `;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="pdf-disclaimer">
+                        <div class="pdf-disclaimer-title">Medical Disclaimer</div>
+                        <p style="margin: 0;">This sleep diary report is based on self-reported data and is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. The data presented reflects the user's subjective assessment of their sleep patterns. Healthcare providers should use this information as one component of a comprehensive clinical evaluation. Sleep disorders require professional diagnosis using validated clinical tools and, when appropriate, polysomnography or other objective sleep testing methods.</p>
+                    </div>
+                    
+                    <div class="pdf-footer">
+                        <p>Generated by Spacire Sleep Tracker | tools.spacire.com/sleep-tracker</p>
+                        <p>For more sleep resources, visit spacire.com</p>
+                    </div>
+                </div>
+            `;
+            
+            // Generate PDF using html2pdf
+            const element = container.querySelector('.pdf-report');
+            const opt = {
+                margin: 10,
+                filename: `sleep-report-${new Date().toISOString().split('T')[0]}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            await html2pdf().set(opt).from(element).save();
+            
+            // Clear container
+            container.innerHTML = '';
         }
         
         // ========================================
