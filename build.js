@@ -140,6 +140,9 @@ html = html.replace(/<!-- FOOTER_TOOLS_START -->[\s\S]*<!-- FOOTER_TOOLS_END -->
                     <!-- FOOTER_TOOLS_END -->`);
 
 // 3. Add social media icons after footer-brand description (with nofollow for external links)
+// First, remove any existing social-links divs to prevent duplicates
+html = html.replace(/<div class="social-links">[\s\S]*?<\/div>\s*(?=<\/div>\s*<div class="footer-section">)/g, '');
+
 const socialLinksHtml = `
                     <div class="social-links">
                         <a href="https://www.facebook.com/spacire" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebook" class="social-link">
