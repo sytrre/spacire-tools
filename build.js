@@ -249,6 +249,44 @@ if (fs.existsSync('images')) {
     });
 }
 
+// Copy robots.txt to dist
+if (fs.existsSync('robots.txt')) {
+    fs.copyFileSync('robots.txt', path.join('dist', 'robots.txt'));
+    console.log('Copied robots.txt to dist/');
+}
+
+// Generate sitemap.xml
+const SITE_URL = 'https://tools.spacire.com';
+const today = new Date().toISOString().split('T')[0];
+
+const staticPages = [
+    { url: '/', priority: '1.0', changefreq: 'weekly' }
+];
+
+const toolUrls = activeTools.map(tool => ({
+    url: '/' + tool.file.replace('.html', ''),
+    priority: '0.8',
+    changefreq: 'monthly'
+}));
+
+const allUrls = [...staticPages, ...toolUrls];
+
+const xmlUrls = allUrls.map(page => `  <url>
+    <loc>${SITE_URL}${page.url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('\n');
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${xmlUrls}
+</urlset>
+`;
+
+fs.writeFileSync(path.join('dist', 'sitemap.xml'), sitemap);
+console.log('Generated dist/sitemap.xml with ' + allUrls.length + ' URLs');
+
 console.log('\nBuild complete! Files are in dist/ directory.');
 console.log('Total tools: ' + config.tools.length);
 console.log('Active tools: ' + activeTools.length);
